@@ -9,9 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Info3Activity" android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".Info2Activity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".Info1Activity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -30,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Info1Activity" android:theme="@style/Theme.AppCompat.NoActionBar" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Info2Activity" android:theme="@style/Theme.AppCompat.NoActionBar" android:parentActivityName=".Info1Activity"/>
+        <activity android:name=".Info3Activity" android:theme="@style/Theme.AppCompat.NoActionBar" android:parentActivityName=".Info2Activity"/>
     </application>
 
 </manifest>

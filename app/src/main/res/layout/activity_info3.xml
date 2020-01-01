@@ -4,6 +4,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Info3Activity">
+    tools:context=".Info3Activity"
+    android:background="#FFFFFF">
 
+    <ImageButton
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="개발을 하신 지 얼마나 되었나요?"
+        android:textColor="@color/colorTextDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.216" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:layout_marginBottom="40dp"
+        android:text="더 나은 깃캣이 되기 위한, 사용자 현황 파악의 목적입니다 :)"
+        android:textColor="@color/colorTextDark"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="290dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="78dp"
+        tools:layout_editor_absoluteY="332dp">
+
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/circle"
+            android:button="@android:color/background_light"
+            android:checked="true"
+            android:text="개발에 관심이 있음"
+            android:textAlignment="center"
+            android:textColor="@drawable/circle" />
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/circle"
+            android:button="@android:color/background_light"
+            android:text="관련 학부생/대학원생"
+            android:textAlignment="center"
+            android:textColor="@drawable/circle" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/circle"
+            android:button="@android:color/background_light"
+            android:text="1년차"
+            android:textAlignment="center"
+            android:textColor="@drawable/circle" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/circle"
+            android:button="@android:color/background_light"
+            android:text="3년차"
+            android:textAlignment="center"
+            android:textColor="@drawable/circle" />
+
+        <RadioButton
+            android:id="@+id/radio4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/circle"
+            android:button="@android:color/background_light"
+            android:text="5년차 이상"
+            android:textAlignment="center"
+            android:textColor="@drawable/circle" />
+    </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonGo"
+        android:layout_width="136dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="다음으로"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957" />
 </android.support.constraint.ConstraintLayout>

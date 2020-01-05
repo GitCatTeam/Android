@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_info1.*
+import kotlinx.android.synthetic.main.activity_info4.*
 
-class Info1Activity : AppCompatActivity() {
+class Info4Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_info1)
+        setContentView(R.layout.activity_info4)
 
         backButton.setOnClickListener{
             onBackPressed()
@@ -20,19 +20,17 @@ class Info1Activity : AppCompatActivity() {
 
         buttonGo.setOnClickListener{
             //화면 이동
-            var intent = Intent(this,Info2Activity::class.java)
+            var intent = Intent(this,Info5Activity::class.java)
             startActivity(intent)
         }
 
-        //성별이 클릭되면
-        radioGroupSex.setOnCheckedChangeListener(
+        //고양이가 선택되면
+        radioGroupCat.setOnCheckedChangeListener(
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 //TODO: 버튼 활성화
                 val radio: RadioButton = findViewById(checkedId)
                 Toast.makeText(applicationContext," On checked change : ${radio.text}",
                     Toast.LENGTH_SHORT).show()
             })
-
-
     }
 }

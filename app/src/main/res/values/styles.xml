@@ -12,4 +12,11 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="MyDatePickerSpinnerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colorTextDark</item>
+    </style>
+
 </resources>

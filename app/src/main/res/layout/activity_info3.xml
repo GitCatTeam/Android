@@ -8,6 +8,7 @@
     android:background="#FFFFFF">
 
     <ImageButton
+        android:id="@+id/backButton"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginTop="16dp"
@@ -29,7 +30,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.216" />
@@ -50,87 +50,78 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.97" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/buttonGo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent">
-
-
-
     <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="290dp"
-        android:layout_height="match_parent"
+        android:id="@+id/radioGroupLong"
+        android:layout_width="277dp"
+        android:layout_height="299dp"
+        android:layout_marginTop="84dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="78dp"
-        tools:layout_editor_absoluteY="332dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
             android:id="@+id/radio0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/info_list"
             android:button="@android:color/background_light"
-            android:checked="true"
             android:text="개발에 관심이 있음"
             android:textAlignment="center"
-            android:textColor="@drawable/circle" />
+            android:textColor="@drawable/info_list" />
 
         <RadioButton
             android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/circle"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="관련 학부생/대학원생"
             android:textAlignment="center"
-            android:textColor="@drawable/circle" />
+            android:textColor="@drawable/info_list" />
 
         <RadioButton
             android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="1년차"
             android:textAlignment="center"
-            android:textColor="@drawable/circle" />
+            android:textColor="@drawable/info_list" />
 
         <RadioButton
             android:id="@+id/radio3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="3년차"
             android:textAlignment="center"
-            android:textColor="@drawable/circle" />
+            android:textColor="@drawable/info_list" />
 
         <RadioButton
             android:id="@+id/radio4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="14dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/circle"
+            android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="5년차 이상"
             android:textAlignment="center"
-            android:textColor="@drawable/circle" />
+            android:textColor="@drawable/info_list" />
     </RadioGroup>
-    </LinearLayout>
 
     <Button
         android:id="@+id/buttonGo"
@@ -140,8 +131,19 @@
         android:text="다음으로"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupLong" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="3/5"
+        android:textColor="#c0c0c0"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGo"
+        app:layout_constraintVertical_bias="0.0" />
 </android.support.constraint.ConstraintLayout>

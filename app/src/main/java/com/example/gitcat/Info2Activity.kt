@@ -11,6 +11,10 @@ class Info2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info2)
 
+        backButton.setOnClickListener{
+            onBackPressed()
+        }
+
         buttonGo.setOnClickListener{
 
             //화면 이동

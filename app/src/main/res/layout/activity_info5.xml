@@ -78,7 +78,7 @@
         android:layout_height="32dp"
         android:layout_marginBottom="64dp"
         android:text="시작하기"
-        android:enabled="false"
+
         android:background="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

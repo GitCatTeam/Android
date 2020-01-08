@@ -49,7 +49,10 @@
             android:parentActivityName=".Info4Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <!-- 평상시 -->
-    <item android:state_focused="false" android:state_pressed="false" android:color="#FFFFFF">
+    <item android:color="#FFFFFF" android:state_enabled="false">
         <shape android:shape="rectangle">
-            <stroke android:color="#dcdde1" android:width="1dp"/>
-            <solid android:color="#dcdde1"/>
-            <size android:width="70dp" android:height="70dp"/>
             <corners
                 android:bottomLeftRadius="9dp"
                 android:bottomRightRadius="9dp"
                 android:topLeftRadius="9dp"
                 android:topRightRadius="9dp"></corners>
-    </shape>
+            <stroke android:width="1dp"
+                android:color="@color/colorText"></stroke>
+            <solid android:color="@color/colorText"/>
+        </shape>
     </item>
 
-    <!-- 클릭했을 때 -->
-    <item android:state_focused="false" android:state_pressed="true" android:color="#FFFFFF">
+    <item android:color="#FFFFFF" android:state_enabled="true">
         <shape android:shape="rectangle">
-            <stroke android:color="@color/colorPrimaryDark" android:width="1dp" />
-            <solid android:color="@color/colorPrimaryDark"/>
-            <size android:width="70dp" android:height="70dp"/>
             <corners
                 android:bottomLeftRadius="9dp"
                 android:bottomRightRadius="9dp"
                 android:topLeftRadius="9dp"
                 android:topRightRadius="9dp"></corners>
+            <stroke android:width="1dp"
+                android:color="@color/colorPrimaryDark"></stroke>
+            <solid android:color="@color/colorPrimaryDark"/>
         </shape>
     </item>
 </selector>

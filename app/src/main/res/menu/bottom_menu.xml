@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_check"
+        android:title="중간점검"
+        android:icon="@drawable/ic_check" />
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="홈화면"
+        android:icon="@drawable/ic_home_select"
+        android:checked="true"/>
+
+    <item
+        android:id="@+id/nav_report"
+        android:title="레포트"
+        android:icon="@drawable/ic_score"/>
+
+</menu>

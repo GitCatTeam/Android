@@ -48,7 +48,7 @@
         android:id="@+id/imageView3"
         android:layout_width="121dp"
         android:layout_height="111dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -84,7 +84,7 @@
 
     <RadioGroup
         android:id="@+id/radioGroupSex"
-        android:layout_width="272dp"
+        android:layout_width="wrap_content"
         android:layout_height="84dp"
         android:layout_marginTop="40dp"
         android:orientation="horizontal"
@@ -133,6 +133,8 @@
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:text="다음으로"
+        android:enabled="false"
+        android:background="@color/colorText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

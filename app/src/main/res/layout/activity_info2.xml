@@ -86,6 +86,7 @@
         android:layout_height="32dp"
         android:layout_marginBottom="16dp"
         android:text="다음으로"
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

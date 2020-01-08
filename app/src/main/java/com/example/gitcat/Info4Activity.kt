@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioButton
@@ -31,6 +32,12 @@ class Info4Activity : AppCompatActivity() {
                 val radio: RadioButton = findViewById(checkedId)
                 Toast.makeText(applicationContext," On checked change : ${radio.text}",
                     Toast.LENGTH_SHORT).show()
+
+                //버튼 활성화
+                buttonGo.isEnabled = true
+                //buttonGo.setBackgroundResource(R.drawable.info_next)
+                //TODO: 수정해야함
+                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
             })
     }
 }

@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_check"
-        android:title="중간점검"
-        android:icon="@drawable/ic_check" />
+        android:id="@+id/nav_cal"
+        android:title="커밋달력"
+        android:icon="@drawable/ic_calandar" />
 
     <item
         android:id="@+id/nav_home"

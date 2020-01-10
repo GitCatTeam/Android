@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ReportFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="레포트화면" />
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView>
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
 
 </FrameLayout>

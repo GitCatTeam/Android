@@ -16,6 +16,7 @@ class HomeActivity : AppCompatActivity() {
         //툴바 적용
         setSupportActionBar(findViewById(R.id.toolbar))
         getSupportActionBar()?.title = ""
+        var actionBar = supportActionBar
 
         //초기화
         loadFragment(HomeFragment())
@@ -23,16 +24,19 @@ class HomeActivity : AppCompatActivity() {
 
         navigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.nav_check->{
-                    loadFragment(CheckFragment())
+                R.id.nav_cal->{
+                    loadFragment(CalendarFragment())
+                    actionBar!!.title = "커밋달력"
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_home->{
                     loadFragment(HomeFragment())
+                    actionBar!!.title = ""
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_report->{
                     loadFragment(ReportFragment())
+                    actionBar!!.title = "레포트"
                     return@setOnNavigationItemSelectedListener true
                 }
             }

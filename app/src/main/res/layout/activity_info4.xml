@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.97" />
 
     <com.yuxingxin.library.MultiRadioGroup
-        android:id="@+id/multiRadioGroup"
+        android:id="@+id/radioGroupCat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioGroup
-            android:id="@+id/radioGroupCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -71,12 +70,14 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
+                android:text="팬더"
                 android:button="@drawable/img_cat_panda" />
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
+                android:text="노멀"
                 android:button="@drawable/img_cat_normal" />
         </RadioGroup>
 
@@ -89,11 +90,13 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
+                android:text="치즈"
                 android:button="@drawable/img_cat_cheeze" />
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
+                android:text="네로"
                 android:background="@drawable/info_list"
                 android:button="@drawable/img_cat_nero" />
         </RadioGroup>
@@ -109,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/multiRadioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupCat" />
 
     <TextView
         android:layout_width="wrap_content"

@@ -15,6 +15,9 @@ class Info1Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_info1)
 
+        //초기화
+        buttonGo.isEnabled = false
+
         backButton.setOnClickListener{
             onBackPressed()
         }
@@ -35,9 +38,11 @@ class Info1Activity : AppCompatActivity() {
 
                 //버튼 활성화
                 buttonGo.isEnabled = true
-                //buttonGo.setBackgroundResource(R.drawable.info_next)
-                //TODO: 수정해야함
-                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
+
+//                buttonGo.isEnabled = true
+//                //buttonGo.setBackgroundResource(R.drawable.info_next)
+//                //TODO: 수정해야함
+//                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
             })
 
     }

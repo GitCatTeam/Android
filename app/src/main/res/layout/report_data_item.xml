@@ -4,8 +4,7 @@
     android:orientation="vertical" android:layout_width="336dp"
     android:layout_height="117dp"
     android:background="@drawable/info_list"
-    android:layout_marginTop="16dp"
-    android:layout_gravity="center">
+    android:layout_marginTop="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -49,67 +49,67 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.97" />
 
-
-    <RadioGroup
-        android:id="@+id/radioGroupCat"
+    <com.yuxingxin.library.MultiRadioGroup
+        android:id="@+id/multiRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
-        <GridLayout
+        <RadioGroup
+            android:id="@+id/radioGroupCat"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:button="@drawable/img_cat_panda"
-                android:background="@drawable/info_list" />
+                android:background="@drawable/info_list"
+                android:button="@drawable/img_cat_panda" />
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:button="@drawable/img_cat_normal"
-                android:background="@drawable/info_list"/>
+                android:background="@drawable/info_list"
+                android:button="@drawable/img_cat_normal" />
+        </RadioGroup>
 
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <RadioButton
-                android:layout_width="122dp"
-                android:layout_height="122dp"
-                android:button="@drawable/img_cat_cheeze"
-                android:background="@drawable/info_list"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:button="@drawable/img_cat_nero"
-                android:background="@drawable/info_list"/>
+                android:background="@drawable/info_list"
+                android:button="@drawable/img_cat_cheeze" />
 
-        </GridLayout>
-    </RadioGroup>
+            <RadioButton
+                android:layout_width="122dp"
+                android:layout_height="122dp"
+                android:background="@drawable/info_list"
+                android:button="@drawable/img_cat_nero" />
+        </RadioGroup>
+    </com.yuxingxin.library.MultiRadioGroup>
 
     <Button
         android:id="@+id/buttonGo"
         android:layout_width="136dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="88dp"
-        android:text="다음으로"
-
+        android:layout_marginTop="82dp"
         android:background="@color/colorText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="다음으로"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupCat"
-        app:layout_constraintVertical_bias="0.983" />
+        app:layout_constraintTop_toBottomOf="@+id/multiRadioGroup" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -122,6 +122,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonGo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.06" />
 
 </android.support.constraint.ConstraintLayout>

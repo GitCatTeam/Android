@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:color="#FFFFFF" android:state_enabled="false">
-        <shape android:shape="rectangle">
-            <corners
-                android:bottomLeftRadius="9dp"
-                android:bottomRightRadius="9dp"
-                android:topLeftRadius="9dp"
-                android:topRightRadius="9dp"></corners>
-            <stroke android:width="1dp"
-                android:color="@color/colorText"></stroke>
-            <solid android:color="@color/colorText"/>
-        </shape>
-    </item>
+    <item android:color="#FFFFFF" android:state_enabled="false" android:drawable="@drawable/next_btn_enable_background"/>
 
-    <item android:color="#FFFFFF" android:state_enabled="true">
-        <shape android:shape="rectangle">
-            <corners
-                android:bottomLeftRadius="9dp"
-                android:bottomRightRadius="9dp"
-                android:topLeftRadius="9dp"
-                android:topRightRadius="9dp"></corners>
-            <stroke android:width="1dp"
-                android:color="@color/colorPrimaryDark"></stroke>
-            <solid android:color="@color/colorPrimaryDark"/>
-        </shape>
-    </item>
+    <item android:color="#FFFFFF" android:state_enabled="true" android:drawable="@drawable/next_btn_background"/>
 </selector>

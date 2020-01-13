@@ -8,6 +8,7 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_info2.*
 import java.util.*
 
+//FIXME: 안쓸예정
 class Info2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

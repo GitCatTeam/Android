@@ -51,9 +51,12 @@
 
     <com.yuxingxin.library.MultiRadioGroup
         android:id="@+id/radioGroupCat"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
@@ -70,35 +73,37 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
+                android:button="@drawable/img_cat_panda"
                 android:text="팬더"
-                android:button="@drawable/img_cat_panda" />
+                android:gravity="center"/>
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:text="노멀"
-                android:button="@drawable/img_cat_normal" />
+                android:button="@drawable/img_cat_normal"
+                android:text="노멀" />
         </RadioGroup>
 
         <RadioGroup
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
+                android:paddingLeft="10dp"
                 android:background="@drawable/info_list"
-                android:text="치즈"
-                android:button="@drawable/img_cat_cheeze" />
+                android:button="@drawable/img_cat_cheeze"
+                android:text="치즈" />
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:text="네로"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_nero" />
+                android:button="@drawable/img_cat_nero"
+                android:text="네로" />
         </RadioGroup>
     </com.yuxingxin.library.MultiRadioGroup>
 

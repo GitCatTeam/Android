@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_report.*
 import kotlinx.android.synthetic.main.fragment_report.view.*
 
@@ -17,6 +19,11 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class ReportFragment : Fragment() {
+
+    var reportList = arrayListOf<Report>(
+        Report("1회","Java"),
+        Report("2회","HTML")
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,11 +35,20 @@ class ReportFragment : Fragment() {
         val report_recyclerview = rootView.findViewById(R.id.report_recyclerview) as RecyclerView
         report_recyclerview.layoutManager = LinearLayoutManager(activity)
 
-        val listAdapter = ReportAdapter(activity!!)
-        listAdapter.data = listOf(
-            Report("1회","Java"),
-            Report("2회","HTML")
-        )
+//        val listAdapter = ReportAdapter(activity!!)
+//        listAdapter.data = listOf(
+//            Report("1회","Java"),
+//            Report("2회","HTML")
+//        )
+
+        val listAdapter = ReportAdapter(activity!!,reportList){report ->
+            val intent = Intent(context, ChartActivity::class.java)
+            intent.putExtra("commit", report.totalCommit)
+            intent.putExtra("lang",report.language)
+            //intent.putExtra("completeMessage", message)
+            //intent.putExtra("main","main")
+            startActivity(intent)
+        }
 
         report_recyclerview.adapter = listAdapter
         Log.e("에러","ㅇ레러ㅐ어랴어랠ㅇㄹㄴㄹㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ")
@@ -46,4 +62,12 @@ class ReportFragment : Fragment() {
     companion object {
         fun newInstance(): ReportFragment = ReportFragment()
     }
+
+//    private fun startToChartActivity(id: String, message: String) {
+//        val intent = Intent(context, ChartActivity::class.java)
+//        intent.putExtra("id", id)
+//        intent.putExtra("completeMessage", message)
+//        intent.putExtra("main","main")
+//        startActivity(intent)
+//    }
 }

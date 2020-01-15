@@ -3,13 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReportFragment"
->
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ReportFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/report_recyclerview"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-    </android.support.v7.widget.RecyclerView>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintVertical_weight="1"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="레포트"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                android:textAlignment="center" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/report_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"></android.support.v7.widget.RecyclerView>
+
+    </android.support.constraint.ConstraintLayout>
 </FrameLayout>

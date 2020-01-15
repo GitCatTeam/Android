@@ -6,6 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".ChartActivity">
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintVertical_weight="1"
+        android:background="#FFFFFF">
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2020년 1월 레포트"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textAlignment="center" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

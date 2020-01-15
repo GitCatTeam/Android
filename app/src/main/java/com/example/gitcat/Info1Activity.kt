@@ -52,10 +52,9 @@ class Info1Activity : AppCompatActivity() {
                 //버튼 활성화
                 buttonGo.isEnabled = true
 
-//                buttonGo.isEnabled = true
-//                //buttonGo.setBackgroundResource(R.drawable.info_next)
+//                buttonGo.setBackgroundResource(R.drawable.info_next)
 //                //TODO: 수정해야함
-//                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
+                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
             })
 
         //날짜 받아오는 부분

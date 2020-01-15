@@ -10,6 +10,7 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:paddingTop="15dp"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,5 +28,37 @@
             android:textSize="18sp"
             android:textAlignment="center" />
     </RelativeLayout>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="335dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/info_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="335dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/info_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineChart">
+
+    </com.github.mikephil.charting.charts.PieChart>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="335dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/info_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pieChart" />
 
 </android.support.constraint.ConstraintLayout>

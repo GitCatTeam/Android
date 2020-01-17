@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ReportFragment">
+    tools:context=".CalendarFragment">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,19 +26,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="레포트"
+                android:text="커밋달력"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textAlignment="center" />
+                android:textSize="18sp" />
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/report_recyclerview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"></android.support.v7.widget.RecyclerView>
-
     </android.support.constraint.ConstraintLayout>
+
 </FrameLayout>

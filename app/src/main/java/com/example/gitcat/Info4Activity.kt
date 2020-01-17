@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import com.yuxingxin.library.MultiRadioGroup
 import kotlinx.android.synthetic.main.activity_info4.*
 
 class Info4Activity : AppCompatActivity() {
@@ -27,7 +28,7 @@ class Info4Activity : AppCompatActivity() {
 
         //고양이가 선택되면
         radioGroupCat.setOnCheckedChangeListener(
-            RadioGroup.OnCheckedChangeListener { group, checkedId ->
+            MultiRadioGroup.OnCheckedChangeListener { group, checkedId ->
                 //TODO: 버튼 활성화
                 val radio: RadioButton = findViewById(checkedId)
                 Toast.makeText(applicationContext," On checked change : ${radio.text}",
@@ -39,5 +40,6 @@ class Info4Activity : AppCompatActivity() {
                 //TODO: 수정해야함
                 buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
             })
+
     }
 }

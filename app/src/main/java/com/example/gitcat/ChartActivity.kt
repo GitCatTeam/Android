@@ -134,6 +134,11 @@ class ChartActivity : AppCompatActivity() {
         val formatter = IndexAxisValueFormatter(months)
         xAxis.valueFormatter = formatter
 
+        val description = Description()
+        description.text = "세계 국가"
+        description.textSize = 15F
+        barChart.description = description
+
         barChart.data = data
         barChart.setFitBars(true)
         barChart.animateY(1000,Easing.EaseInOutCubic)

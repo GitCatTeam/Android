@@ -6,10 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CalendarFragment">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
@@ -32,6 +28,116 @@
                 android:textSize="18sp" />
         </RelativeLayout>
 
-    </android.support.constraint.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="364dp"
+            android:layout_marginTop="68dp">
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:headerColor="#FFFFFF"
+                app:headerLabelColor="@color/colorTextDark"
+                app:previousButtonSrc="@drawable/ic_monthback"
+                app:forwardButtonSrc="@drawable/ic_monthnext"/>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!--오늘의 커밋-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_calandar_commit" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="오늘의 커밋"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="78dp"
+                    android:layout_weight="3">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="얻은 점수"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+3"
+                            android:textSize="32sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="총 커밋수"
+                            android:textSize="14sp"
+                            android:textColor="@color/colorPrimaryDark"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="88"
+                            android:textSize="32sp"
+                            android:textColor="@color/colorTextDark"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="얻은 아이템"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="14sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="없음"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--오늘의 커밋 끝-->
+
+            <!--커밋 내역 상세-->
+
+            <!--커밋 내역 상세 끝-->
+
+        </RelativeLayout>
 </FrameLayout>

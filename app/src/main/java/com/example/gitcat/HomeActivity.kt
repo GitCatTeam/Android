@@ -1,10 +1,10 @@
 package com.example.gitcat
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -56,6 +56,8 @@ class HomeActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+
 
     //액션버튼 메뉴 액션바에 집어 넣기
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {

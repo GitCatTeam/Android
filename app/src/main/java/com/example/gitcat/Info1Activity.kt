@@ -2,7 +2,6 @@ package com.example.gitcat
 
 import android.content.Intent
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -10,6 +9,7 @@ import android.widget.DatePicker
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_info1.*
 import java.util.*
 

@@ -1,14 +1,13 @@
 package com.example.gitcat
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
-
+import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {

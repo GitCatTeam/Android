@@ -1,11 +1,11 @@
 package com.example.gitcat
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
-class ReportViewHolder(itemView: View?, val itemClick: (Report) -> Unit) : RecyclerView.ViewHolder(itemView) {
+class ReportViewHolder(itemView: View, val itemClick: (Report) -> Unit) : RecyclerView.ViewHolder(itemView) {
     val strTotalCommit = itemView?.findViewById<TextView>(R.id.totalCommit)
     val strLanguage = itemView?.findViewById<TextView>(R.id.language)
 

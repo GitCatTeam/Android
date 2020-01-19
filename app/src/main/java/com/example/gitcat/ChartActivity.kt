@@ -1,8 +1,8 @@
 package com.example.gitcat
 
 import android.graphics.Color
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_chart.*
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.Description

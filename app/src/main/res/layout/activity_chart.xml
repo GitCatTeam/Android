@@ -19,7 +19,6 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintVertical_weight="1">
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,38 +46,217 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
+            
+            <LinearLayout
+                android:layout_width="336dp"
+                android:layout_height="78dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/info_list">
+                    <LinearLayout
+                    android:layout_width="113dp"
+                    android:layout_height="78dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지난달 대비"
+                            android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+23"/>
+                    </LinearLayout>
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/lineChart"
+                    <LinearLayout
+                        android:layout_width="113dp"
+                        android:layout_height="78dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="총 커밋수"
+                            android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="88"
+                            android:textColor="@color/colorPrimaryDark"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="113dp"
+                        android:layout_height="78dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="하루 평균"
+                            android:textSize="13sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2.5"/>
+                    </LinearLayout>
+                
+
+            </LinearLayout>
+
+            <RelativeLayout
                 android:layout_width="335dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:background="@drawable/info_list">
 
-            <com.github.mikephil.charting.charts.PieChart
-                android:id="@+id/pieChart"
+                <LinearLayout
+                    android:id="@+id/lineImgText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp">
+
+                    <ImageView
+                        android:id="@+id/lineImg"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        app:srcCompat="@drawable/ic_report_graph"
+                        android:layout_marginTop="2dp"
+                        tools:srcCompat="@drawable/ic_report_graph" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/lineImg"
+                        android:text="커밋수 통계"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/lineImgText"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.github.mikephil.charting.charts.LineChart>
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="335dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lineChart">
+                android:background="@drawable/info_list">
 
-            </com.github.mikephil.charting.charts.PieChart>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:id="@+id/pieImgText">
 
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/barChart"
+                    <ImageView
+                        android:id="@+id/pieImg"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="2dp"
+                        app:srcCompat="@drawable/ic_report_language"
+                        tools:srcCompat="@drawable/ic_report_language" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/pieImg"
+                        android:text="사용 언어 비율"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/pieImgText"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.github.mikephil.charting.charts.PieChart>
+            </RelativeLayout>
+
+
+            <RelativeLayout
                 android:layout_width="335dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pieChart" />
+                android:background="@drawable/info_list">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/barImgText"
+                    android:layout_marginLeft="16dp">
+
+                    <ImageView
+                        android:id="@+id/barImg"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_marginTop="2dp"
+                        app:srcCompat="@drawable/ic_report_repa"
+                        tools:srcCompat="@drawable/ic_report_repa" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/barImg"
+                        android:text="기여 레파지토리"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOP 3"
+                        android:textSize="12sp"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/colorPrimaryDark"/>
+                </LinearLayout>
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/barImgText"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.github.mikephil.charting.charts.BarChart>
+            </RelativeLayout>
+
+
+
         </LinearLayout>
     </ScrollView>
 

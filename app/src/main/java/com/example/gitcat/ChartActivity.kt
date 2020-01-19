@@ -38,11 +38,6 @@ class ChartActivity : AppCompatActivity() {
         entry.add(Entry(4F,4F))
         entry.add(Entry(5F,3F))
 
-        val description = Description()
-        description.text = "세계 국가"
-        description.textSize = 15F
-        lineChart.description = description
-
         lineChart.animateY(1000, Easing.EaseInOutCubic)
 
         val dataSet = LineDataSet(entry, "Countries")
@@ -101,10 +96,6 @@ class ChartActivity : AppCompatActivity() {
         entry.add(PieEntry(18F,"Russia"))
         entry.add(PieEntry(9F,"India"))
 
-        val description = Description()
-        description.text = "세계 국가"
-        description.textSize = 15F
-        pieChart.description = description
 
         pieChart.animateY(1000, Easing.EaseInOutCubic)
 
@@ -135,8 +126,7 @@ class ChartActivity : AppCompatActivity() {
         xAxis.valueFormatter = formatter
 
         val description = Description()
-        description.text = "세계 국가"
-        description.textSize = 15F
+        description.text = ""
         barChart.description = description
 
         barChart.data = data

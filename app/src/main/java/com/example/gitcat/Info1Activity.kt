@@ -46,8 +46,8 @@ class Info1Activity : AppCompatActivity() {
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 //눌린 값 받아옴
                 val radio: RadioButton = findViewById(checkedId)
-                Toast.makeText(applicationContext," On checked change : ${radio.text}",
-                    Toast.LENGTH_SHORT).show()
+                //Toast.makeText(applicationContext," On checked change : ${radio.text}",
+                 //   Toast.LENGTH_SHORT).show()
 
                 //버튼 활성화
                 buttonGo.isEnabled = true

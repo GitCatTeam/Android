@@ -13,6 +13,7 @@
         app:itemTextColor="@color/selector_menu_text_color"
         app:itemIconTint="@color/selector_menu_text_color"
         app:menu="@menu/bottom_menu"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

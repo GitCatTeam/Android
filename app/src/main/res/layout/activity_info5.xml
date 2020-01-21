@@ -59,7 +59,7 @@
         app:srcCompat="@drawable/img_cat_panda" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editCatName"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
@@ -72,18 +72,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
+    <TextView
+        android:id="@+id/okName"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사용 가능한 이름입니다!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCatName" />
+
     <Button
         android:id="@+id/buttonGo"
         android:layout_width="136dp"
         android:layout_height="32dp"
         android:layout_marginBottom="64dp"
         android:text="시작하기"
-
         android:background="@color/colorText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/okName"
         app:layout_constraintVertical_bias="0.711" />
 
     <TextView

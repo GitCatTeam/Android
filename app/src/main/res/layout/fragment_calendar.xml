@@ -30,7 +30,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,8 +41,7 @@
                 <LinearLayout
                     android:id="@+id/calendarLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="364dp"
-                    android:layout_marginTop="68dp">
+                    android:layout_height="364dp">
                     <com.applandeo.materialcalendarview.CalendarView
                         android:id="@+id/calendarView"
                         android:layout_width="match_parent"
@@ -50,8 +50,10 @@
                         app:headerLabelColor="@color/colorTextDark"
                         app:previousButtonSrc="@drawable/ic_monthback"
                         app:forwardButtonSrc="@drawable/ic_monthnext"
-                        app:type="one_day_picker"
-                        app:eventsEnabled="true"/>
+                        app:eventsEnabled="true"
+                        app:type="one_day_picker"/>
+
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -66,7 +68,8 @@
                         android:id="@+id/todayCommit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:background="@drawable/textlines">
 
                         <LinearLayout
 
@@ -185,7 +188,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:background="#34c88a"
+                            android:background="#FFFFFF"
                             android:layout_marginBottom="70dp"/>
                     </LinearLayout>
                     <!--커밋 내역 상세 끝-->

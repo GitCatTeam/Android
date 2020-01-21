@@ -200,10 +200,11 @@
             </RelativeLayout>
 
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="335dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:orientation="vertical"
                 android:background="@drawable/info_list">
 
                 <LinearLayout
@@ -278,7 +279,13 @@
                         android:textSize="12sp" />
 
                 </LinearLayout>
-            </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                </RelativeLayout>
+            </LinearLayout>
 
 
 

@@ -28,7 +28,7 @@ class Info2Activity : AppCompatActivity() {
         { view, year, monthOfYear, dayOfMonth ->
             val month = monthOfYear + 1
             val msg = "Selected Date is $dayOfMonth/$month/$year"
-            Toast.makeText(this@Info2Activity, msg, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this@Info2Activity, msg, Toast.LENGTH_SHORT).show()
         }
 
         buttonGo.setOnClickListener{

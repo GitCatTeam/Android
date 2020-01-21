@@ -21,17 +21,20 @@
             app:layout_constraintVertical_weight="1"
             tools:layout_editor_absoluteX="16dp">
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/diaryIcon"
                 android:layout_width="16dp"
                 android:layout_height="16dp"
+                android:background="#FFFFFF"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="51dp"
+                android:layout_marginRight="55dp"
                 android:src="@drawable/ic_diary" />
 
-            <ImageView
+            <ImageButton
                 android:layout_width="16dp"
                 android:layout_height="16dp"
+                android:background="#FFFFFF"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
@@ -68,6 +71,7 @@
             app:layout_constraintVertical_weight="3">
 
             <TextView
+                android:id="@+id/commitCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25"
@@ -107,7 +111,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView4"
             app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="3">
+            app:layout_constraintVertical_weight="2">
 
             <TextView
                 android:layout_width="wrap_content"

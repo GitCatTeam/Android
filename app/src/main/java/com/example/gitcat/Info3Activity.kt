@@ -32,8 +32,8 @@ class Info3Activity : AppCompatActivity() {
             RadioGroup.OnCheckedChangeListener { group, checkedId ->
                 //TODO: 버튼 활성화
                 val radio: RadioButton = findViewById(checkedId)
-                Toast.makeText(applicationContext," On checked change : ${radio.text}",
-                    Toast.LENGTH_SHORT).show()
+                //Toast.makeText(applicationContext," On checked change : ${radio.text}",
+                //    Toast.LENGTH_SHORT).show()
 
                 //버튼 활성화
                 buttonGo.isEnabled = true

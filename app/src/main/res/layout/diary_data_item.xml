@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="155dp"
+    android:layout_height="202dp"
+    android:background="@drawable/info_list"
+    android:layout_margin="8dp">
+
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/img_medal" />
+
+    <ImageView
+        android:id="@+id/diaryImg"
+        android:layout_width="128dp"
+        android:layout_height="112dp"
+        android:layout_gravity="center"
+        android:background="@drawable/diary_img_border"
+        android:layout_margin="13dp"
+        app:srcCompat="@drawable/img_cat_sad" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp"
+        android:padding="13dp">
+
+        <TextView
+            android:id="@+id/diaryName"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:background="@drawable/textlines"
+            android:cursorVisible="false"
+            android:text="이름:"
+            android:textColor="@color/colorTextDark"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/diaryMajor"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:background="@drawable/textlines"
+            android:cursorVisible="false"
+            android:text="전공:"
+            android:textColor="@color/colorTextDark"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/diaryDoing"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:background="@drawable/textlines"
+            android:cursorVisible="false"
+            android:text="우수 성적으로 졸업하여 대기업 취직"
+            android:textColor="@color/colorTextDark"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

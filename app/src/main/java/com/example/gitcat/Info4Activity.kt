@@ -20,6 +20,9 @@ class Info4Activity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //초기화
+        buttonGo.isEnabled = false
+
         buttonGo.setOnClickListener{
             //화면 이동
             var intent = Intent(this,Info5Activity::class.java)
@@ -36,9 +39,7 @@ class Info4Activity : AppCompatActivity() {
 
                 //버튼 활성화
                 buttonGo.isEnabled = true
-                //buttonGo.setBackgroundResource(R.drawable.info_next)
-                //TODO: 수정해야함
-                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
+                buttonGo.setBackgroundResource(R.drawable.info_next_after)
             })
 
     }

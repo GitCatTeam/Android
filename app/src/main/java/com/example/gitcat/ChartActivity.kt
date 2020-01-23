@@ -16,7 +16,6 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import com.annimon.stream.operator.IntArray
 import com.github.mikephil.charting.formatter.PercentFormatter
 
 
@@ -162,6 +161,7 @@ class ChartActivity : AppCompatActivity() {
 
         barChart.data = data
         barChart.setFitBars(true)
+        barChart.setTouchEnabled(false)
         barChart.animateY(1000,Easing.EaseInOutCubic)
         barChart.invalidate()
     }

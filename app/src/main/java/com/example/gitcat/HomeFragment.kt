@@ -25,18 +25,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        return inflater.inflate(R.layout.fragment_home, container, false)
-
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         view.diaryIcon.setOnClickListener { view ->
 
-            Toast.makeText(activity, "제발", Toast.LENGTH_LONG).show()
-            //val intent = Intent(activity,DiaryActivity::class.java)
-            //startActivity(intent)
-        }
-
-        view.commitCount.setOnClickListener { view ->
-            Toast.makeText(activity, "제발", Toast.LENGTH_LONG).show()
+            val intent = Intent(activity,DiaryActivity::class.java)
+            startActivity(intent)
         }
 
         return view

@@ -19,6 +19,14 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintVertical_weight="1">
 
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_back_blue"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,6 +76,12 @@
                             android:text="+23"/>
                     </LinearLayout>
 
+                    <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:background="@color/colorText"/>
+
                     <LinearLayout
                         android:layout_width="113dp"
                         android:layout_height="78dp"
@@ -84,6 +98,12 @@
                             android:text="88"
                             android:textColor="@color/colorPrimaryDark"/>
                     </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="1dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorText"/>
 
                     <LinearLayout
                         android:layout_width="113dp"

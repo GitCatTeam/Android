@@ -73,9 +73,11 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_panda"
+                android:button="@null"
                 android:gravity="center"
-                android:layout_margin="3dp">
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_panda">
             </RadioButton>
 
             <RadioButton
@@ -83,8 +85,10 @@
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
                 android:gravity="center"
-                android:button="@drawable/img_cat_normal"
-                android:layout_margin="3dp">
+                android:button="@null"
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_normal">
             </RadioButton>
 
         </RadioGroup>
@@ -98,16 +102,20 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_cheeze"
-                android:layout_margin="3dp"/>
+                android:button="@null"
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_cheeze"/>
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
                 android:gravity="center"
-                android:button="@drawable/img_cat_nero"
-                android:layout_margin="3dp"/>
+                android:button="@null"
+                android:padding="10dp"
+                android:layout_margin="3dp"
+                android:drawableLeft="@drawable/img_cat_nero"/>
         </RadioGroup>
     </com.yuxingxin.library.MultiRadioGroup>
 

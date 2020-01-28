@@ -41,7 +41,8 @@
             <LinearLayout
                 android:id="@+id/calendarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="364dp">
+                android:layout_height="364dp"
+                android:orientation="vertical">
                 <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/calendarView"
@@ -50,7 +51,63 @@
                     app:mcv_selectionColor="#a9dbf0cb"
                     app:mcv_showOtherDates="defaults" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
+                    <FrameLayout
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/cal_circle_0"
+                        android:layout_marginRight="6dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0개"
+                        android:textSize="10sp"/>
+
+                    <FrameLayout
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/cal_circle_1"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginLeft="24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1~5개"
+                        android:textSize="10sp"/>
+
+                    <FrameLayout
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/cal_circle_2"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginLeft="24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6~10개"
+                        android:textSize="10sp"/>
+
+                    <FrameLayout
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/cal_circle_3"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginLeft="24dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11~15개"
+                        android:textSize="10sp"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -184,9 +241,25 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="wrap_content"
                         android:background="#FFFFFF"
-                        android:layout_marginBottom="70dp"/>
+                        android:layout_marginBottom="70dp"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#34c88a">
+
+                            <TextView
+                                android:id="@+id/repName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="레퍼지토리 이름"
+                                android:textColor="#c0c0c0"/>
+
+                        </RelativeLayout>
+                    </RelativeLayout>
                 </LinearLayout>
                 <!--커밋 내역 상세 끝-->
 

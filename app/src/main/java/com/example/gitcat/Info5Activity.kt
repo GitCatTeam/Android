@@ -19,6 +19,9 @@ class Info5Activity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //초기화
+        buttonGo.isEnabled = false
+
         editCatName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
@@ -30,9 +33,7 @@ class Info5Activity : AppCompatActivity() {
                 okName.visibility = View.VISIBLE
 
                 buttonGo.isEnabled = true
-                //buttonGo.setBackgroundResource(R.drawable.info_next)
-                //TODO: 수정해야함
-                buttonGo.setBackgroundColor(Color.parseColor("#88cdf6"))
+                buttonGo.setBackgroundResource(R.drawable.info_next_after)
             }
         })
 

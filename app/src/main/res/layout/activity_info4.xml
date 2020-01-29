@@ -73,16 +73,24 @@
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_panda"
-                android:text="팬더"
-                android:gravity="center"/>
+                android:button="@null"
+                android:gravity="center"
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_panda">
+            </RadioButton>
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_normal"
-                android:text="노멀" />
+                android:gravity="center"
+                android:button="@null"
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_normal">
+            </RadioButton>
+
         </RadioGroup>
 
         <RadioGroup
@@ -93,17 +101,21 @@
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
-                android:paddingLeft="10dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_cheeze"
-                android:text="치즈" />
+                android:button="@null"
+                android:layout_margin="3dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/img_cat_cheeze"/>
 
             <RadioButton
                 android:layout_width="122dp"
                 android:layout_height="122dp"
                 android:background="@drawable/info_list"
-                android:button="@drawable/img_cat_nero"
-                android:text="네로" />
+                android:gravity="center"
+                android:button="@null"
+                android:padding="10dp"
+                android:layout_margin="3dp"
+                android:drawableLeft="@drawable/img_cat_nero"/>
         </RadioGroup>
     </com.yuxingxin.library.MultiRadioGroup>
 
@@ -112,8 +124,9 @@
         android:layout_width="136dp"
         android:layout_height="32dp"
         android:layout_marginTop="82dp"
-        android:background="@color/colorText"
+        android:background="@drawable/info_next"
         android:text="다음으로"
+        android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

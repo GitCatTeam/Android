@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.annimon.stream.operator.IntArray
 import java.util.*
 
 
@@ -31,3 +30,4 @@ class CalendarFragment: Fragment() {
         fun newInstance(): CalendarFragment = CalendarFragment()
     }
 }
+

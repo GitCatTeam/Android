@@ -16,7 +16,6 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import com.annimon.stream.operator.IntArray
 import com.github.mikephil.charting.formatter.PercentFormatter
 
 
@@ -26,10 +25,13 @@ class ChartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chart)
 
+        backButton.setOnClickListener {
+            onBackPressed()
+        }
+
         lineChart()
         pieChart()
         barChart()
-
 
     }
 
@@ -49,7 +51,7 @@ class ChartActivity : AppCompatActivity() {
 
         lineChart.animateY(1000, Easing.EaseInOutCubic)
 
-        val dataSet = LineDataSet(entry, "Countries")
+        val dataSet = LineDataSet(entry, "")
         dataSet.lineWidth = 2F
         dataSet.circleRadius = 6F
         dataSet.setCircleColor(Color.parseColor("#8acbf6"))
@@ -99,6 +101,8 @@ class ChartActivity : AppCompatActivity() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
         pieChart.transparentCircleRadius = 40F
+        pieChart.centerText = "언어비율\n(%)"
+        pieChart.setCenterTextSize(10F)
 
         val entry = ArrayList<PieEntry>()
 
@@ -117,7 +121,7 @@ class ChartActivity : AppCompatActivity() {
 
         pieChart.animateY(1000, Easing.EaseInOutCubic)
 
-        val dataSet = PieDataSet(entry, "Countries")
+        val dataSet = PieDataSet(entry, "")
         dataSet.sliceSpace = 3F
         dataSet.selectionShift = 5F
         dataSet.setColors(Color.parseColor("#8acbf6"),Color.parseColor("#ccebff"),Color.parseColor("#f2faff"),Color.parseColor("#eeeeee"))
@@ -133,7 +137,7 @@ class ChartActivity : AppCompatActivity() {
     }
 
     private fun barChart(){
-        val dataSet = BarDataSet(getData(),"Countries")
+        val dataSet = BarDataSet(getData(),"")
         dataSet.barBorderWidth = 0.9F
         dataSet.setColors(Color.parseColor("#ccebff"),Color.parseColor("#8acbf6"),Color.parseColor("#f2faff"))
 
@@ -162,6 +166,7 @@ class ChartActivity : AppCompatActivity() {
 
         barChart.data = data
         barChart.setFitBars(true)
+        barChart.setTouchEnabled(false)
         barChart.animateY(1000,Easing.EaseInOutCubic)
         barChart.invalidate()
     }

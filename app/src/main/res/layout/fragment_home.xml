@@ -29,7 +29,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="55dp"
-                android:src="@drawable/ic_diary" />
+                android:src="@drawable/ic_diary"/>
 
             <ImageButton
                 android:layout_width="16dp"
@@ -71,7 +71,6 @@
             app:layout_constraintVertical_weight="3">
 
             <TextView
-                android:id="@+id/commitCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="25"

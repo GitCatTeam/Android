@@ -32,6 +32,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        view.settingsIcon.setOnClickListener{ view ->
+
+            val intent = Intent(activity,SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
         return view
     }
 

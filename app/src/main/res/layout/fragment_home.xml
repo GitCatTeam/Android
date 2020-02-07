@@ -23,22 +23,23 @@
 
             <ImageButton
                 android:id="@+id/diaryIcon"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="#FFFFFF"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="55dp"
+                android:layout_marginRight="60dp"
                 android:src="@drawable/ic_diary"/>
 
             <ImageButton
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:id="@+id/settingsIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="#FFFFFF"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="19dp"
+                android:layout_marginRight="20dp"
                 android:src="@drawable/ic_set_ios" />
         </RelativeLayout>
 

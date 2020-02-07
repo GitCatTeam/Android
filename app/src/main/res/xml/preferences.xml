@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="설정" app:iconSpaceReserved="false">
+        <Preference
+            android:title="Github 계정 관리"
+            android:key="set_account"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:title="알림 설정"
+            android:key="set_alarm"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:title="고양씨 초기화"
+            android:key="set_cat"
+            app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="기타" app:iconSpaceReserved="false">
+
+        <Preference
+            android:title="개발자 소개"
+            android:key="etc_dev"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:title="피드백 보내기"
+            android:key="etc_feedback"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:title="앱 평점주기 / 리뷰"
+            android:key="etc_review"
+            app:iconSpaceReserved="false"/>
+
+        <Preference
+            android:title="깃캣 인스타그램"
+            android:key="etc_instagram"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.instagram.com/gitcat_app"/>
+        </Preference>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

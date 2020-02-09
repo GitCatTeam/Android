@@ -16,10 +16,19 @@ import androidx.core.app.ComponentActivity
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log
+import android.widget.Toast
+import com.example.gitcat.model.TodayCommitModel
+import com.example.gitcat.retrofit.GithubAPI
 import com.github.mikephil.charting.formatter.PercentFormatter
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 
 class ChartActivity : AppCompatActivity() {
+
+    lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +38,30 @@ class ChartActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        /*API*/
+        compositeDisposable = CompositeDisposable()
+        compositeDisposable.add(
+            GithubAPI.getRepoList("yeji2039@gmail.com")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe({ response: TodayCommitModel ->
+                    for (item in response.data) {
+                        Log.d("Chart", (item.count).toString())
+                    }
+                }, { error: Throwable ->
+                    Log.d("Chart", error.localizedMessage)
+                    Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }))
+
         lineChart()
         pieChart()
         barChart()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        compositeDisposable.dispose()
     }
 
     private fun lineChart(){
@@ -86,7 +115,7 @@ class ChartActivity : AppCompatActivity() {
 
         lineChart.isDoubleTapToZoomEnabled = false
         lineChart.setDrawGridBackground(false)
-
+        lineChart.setTouchEnabled(false)
         lineChart.animateY(2000,Easing.EaseInOutCubic)
         lineChart.invalidate()
     }

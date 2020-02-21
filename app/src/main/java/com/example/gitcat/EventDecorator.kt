@@ -11,13 +11,24 @@ import com.prolificinteractive.materialcalendarview.spans.DotSpan
 class EventDecorator : DayViewDecorator {
 
     private lateinit var drawable: Drawable
-    private var color: Int = 0
     private var dates: HashSet<CalendarDay>? = null
+    private var level: String = ""
 
-    constructor(color: Int, dates: List<CalendarDay>, context: Activity){
-        drawable = context.getResources().getDrawable(R.drawable.calendar_select)
-        this.color = color
+    constructor(dates: List<CalendarDay>, context: Activity, level: String){
+
         this.dates = HashSet(dates)
+        if(level.equals("level_1")){
+            drawable = context.getResources().getDrawable(R.drawable.cal_sq_1)
+        }
+        else if(level.equals("level_2")){
+            drawable = context.getResources().getDrawable(R.drawable.cal_sq_2)
+        }
+        else if(level.equals("level_3")){
+            drawable = context.getResources().getDrawable(R.drawable.cal_sq_3)
+        }
+        else{
+            drawable = context.getResources().getDrawable(R.drawable.cal_sq_0)
+        }
     }
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {

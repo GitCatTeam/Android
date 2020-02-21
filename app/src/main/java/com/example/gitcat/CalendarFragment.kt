@@ -1,6 +1,8 @@
 package com.example.gitcat
 
+import android.app.Activity
 import android.graphics.Color
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +12,24 @@ import androidx.fragment.app.Fragment
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
+import android.widget.Toast
+import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+//var calendarView: MaterialCalendarView? = null
 
 class CalendarFragment: Fragment() {
 
@@ -31,25 +45,33 @@ class CalendarFragment: Fragment() {
         // Inflate the layout for this fragment
 
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
-        //val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
+        val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
 
-//        calendarView.setOnDateChangedListener(OnDateSelectedListener { widget, date, selected ->
-//            val Year = date.year
-//            val Month = date.month
-//            val Day = date.day
-//
-//            Log.i("Year test", Year.toString() + "")
-//            Log.i("Month test", Month.toString() + "")
-//            Log.i("Day test", Day.toString() + "")
-//
-//            val shot_Day = "$Year,$Month,$Day"
-//
-//            Log.i("shot_Day test", shot_Day + "")
-//            calendarView.clearSelection()
-//
-//        })
 
+        calendarView?.setOnDateChangedListener(OnDateSelectedListener { widget, date, selected ->
+            val Year = date.year
+            val Month = date.month
+            val Day = date.day
+
+            Log.i("Year test", Year.toString() + "")
+            Log.i("Month test", Month.toString() + "")
+            Log.i("Day test", Day.toString() + "")
+
+            val shot_Day = "$Year,$Month,$Day"
+
+            Log.i("shot_Day test", shot_Day + "")
+            calendarView?.clearSelection()
+
+        })
+
+        val dates = ArrayList<CalendarDay>()
+        val level:String = ""//level_1, level_2
+
+        dates.add(CalendarDay.from(2020,2,5))
+        dates.add(CalendarDay.from(2020,2,7))
+        calendarView.addDecorator(EventDecorator(dates,activity!!,"level_2"))
+/*******************************************************/
 //        val events = ArrayList<String>()
 //
 //        val calendar = Calendar.getInstance()
@@ -61,18 +83,15 @@ class CalendarFragment: Fragment() {
 //        calendarView.setOnDayClickListener(OnDayClickListener { eventDay ->
 //            val clickedDayCalendar = eventDay.calendar
 //        })
-//        val result = arrayOf("2020,02,02", "2020,02,05", "2020,02,08", "2020,02,11")
+        val result = arrayOf("2020,02,02", "2020,02,05", "2020,02,08", "2020,02,11")
 
         //ApiSimulator(result).executeOnExecutor(Executors.newSingleThreadExecutor())
         //ApiSimulator(result).execute()
 //        Log.i("오류오류","************************************************")
 
         //FIXME: 여기서부터 RecyclerView
-        Log.e("으에","롤로롤ㄹㄹㄹㄹ로롤")
         repository_recyclerview.layoutManager = LinearLayoutManager(activity)
-        Log.e("kkkkkkkkkk","hhhhhhhhhhhhhhhhhhhhhhh")
         val listAdapter = RepositoryAdapter(activity!!,repoList)
-        Log.e("55555555","22222222222222222")
         repository_recyclerview.adapter = listAdapter
         listAdapter.notifyDataSetChanged()
 
@@ -86,7 +105,7 @@ class CalendarFragment: Fragment() {
 
 //private class ApiSimulator : AsyncTask<Void, Void, List<CalendarDay>> {
 //
-//    var materialCalendarView: MaterialCalendarView? = null
+//
 //    lateinit var Time_Result: Array<String>
 //
 //    constructor(Time_Result: Array<String>) {
@@ -127,8 +146,7 @@ class CalendarFragment: Fragment() {
 ////        if (isFinishing()) {
 ////            return
 ////        }
-//        materialCalendarView = (MaterialCalendarView(Activity())).findViewById(R.id.calendarView)
-//        materialCalendarView!!.addDecorator(
+//        calendarView!!.addDecorator(
 //            EventDecorator(
 //                Color.GREEN,
 //                calendarDays,
@@ -138,5 +156,5 @@ class CalendarFragment: Fragment() {
 //    }
 //
 //}
-
+//
 

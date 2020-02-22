@@ -5,21 +5,6 @@
     android:layout_height="match_parent"
     android:id="@+id/container">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-
-        <androidx.viewpager.widget.ViewPager
-            android:layout_height="330dp"
-            android:layout_width="match_parent"
-            android:layout_gravity="center"
-            android:clipToPadding="false"
-            android:overScrollMode="never"
-            android:paddingBottom="30dp"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"

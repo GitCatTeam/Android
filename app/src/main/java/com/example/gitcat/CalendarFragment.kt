@@ -20,9 +20,14 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 import android.widget.Toast
+import com.example.gitcat.model.MonthCommitCountModel
+import com.example.gitcat.retrofit.GithubAPI
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +42,7 @@ class CalendarFragment: Fragment() {
         Repository("레포지토리1"),
         Repository("레포지토리2")
     )
+    lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +53,6 @@ class CalendarFragment: Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
-
 
         calendarView?.setOnDateChangedListener(OnDateSelectedListener { widget, date, selected ->
             val Year = date.year
@@ -65,25 +70,29 @@ class CalendarFragment: Fragment() {
 
         })
 
+        /*API*/
+        compositeDisposable = CompositeDisposable()
+        compositeDisposable.add(
+            GithubAPI.getMonthCommitCount("202002")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe({ response: MonthCommitCountModel ->
+                    for (item in response.data) {
+                        //TODO: 여러 층으로 된 JSON 풀어가기
+                        //Log.d("Chart", (item.commits.).toString())
+                    }
+                }, { error: Throwable ->
+                    Log.d("Chart", error.localizedMessage)
+                    Toast.makeText(activity!!, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
+                }))
+
         val dates = ArrayList<CalendarDay>()
         val level:String = ""//level_1, level_2
 
         dates.add(CalendarDay.from(2020,2,5))
         dates.add(CalendarDay.from(2020,2,7))
         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_2"))
-/*******************************************************/
-//        val events = ArrayList<String>()
-//
-//        val calendar = Calendar.getInstance()
-//
-//        //events.add(EventDay(calendar, R.drawable.calendar_select, Color.parseColor("#228B22")))
-//
-//        calendarView.setEvents(events)
-//
-//        calendarView.setOnDayClickListener(OnDayClickListener { eventDay ->
-//            val clickedDayCalendar = eventDay.calendar
-//        })
-        val result = arrayOf("2020,02,02", "2020,02,05", "2020,02,08", "2020,02,11")
+
 
         //ApiSimulator(result).executeOnExecutor(Executors.newSingleThreadExecutor())
         //ApiSimulator(result).execute()

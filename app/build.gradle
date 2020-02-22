@@ -27,6 +27,8 @@ android {
     }
 }
 
+apply plugin: 'com.google.gms.google-services'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -39,7 +41,8 @@ dependencies {
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
     implementation 'androidx.preference:preference:1.1.0-alpha01'
     implementation 'com.google.code.gson:gson:2.8.6'
-
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
     /*Retrofit*/
     implementation 'com.squareup.retrofit2:retrofit:2.7.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.1'

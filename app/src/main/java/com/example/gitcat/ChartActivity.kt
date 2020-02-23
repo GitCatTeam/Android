@@ -10,10 +10,8 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.data.BarEntry
-import com.example.gitcat.R
 import com.github.mikephil.charting.components.Legend
 import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
@@ -24,6 +22,12 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import android.graphics.Paint.UNDERLINE_TEXT_FLAG
+import android.widget.TextView
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.graphics.Paint
 
 
 class ChartActivity : AppCompatActivity() {
@@ -52,6 +56,11 @@ class ChartActivity : AppCompatActivity() {
                     Log.d("Chart", error.localizedMessage)
                     Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
                 }))
+
+        //텍스트
+        three_text1.text = "이번 달은 커밋을 정말 성실하게 했어요!"
+        three_text2.text = "총 커밋 수도 많지만, 지난달 대비 증가한 갯수가 아주 커요."
+        three_text3.text = "거의 매일 2개 이상의 커밋을 한 당신, 대단합니다! 짝짝짝!"
 
         lineChart()
         pieChart()

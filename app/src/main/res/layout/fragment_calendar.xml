@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CalendarFragment"
-    android:layout_marginTop="20dp">
+    tools:context=".CalendarFragment">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"

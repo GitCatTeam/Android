@@ -8,6 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.fragment_tu.*
+import android.R.attr.fragment
+import android.content.Intent
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,6 +69,12 @@ class TuFragment : Fragment() {
             tu_title.text = "튜토리얼 진행하고 고양이 받기"
             tu_content.visibility = View.GONE
             tu_btn.visibility = View.VISIBLE
+        }
+
+        tu_btn.setOnClickListener {
+            //TODO: DialogFragment 종료
+            val tuDialog = TuDialogFragment()
+            //childFragmentManager?.beginTransaction()?.detach(tuDialog).commit()
         }
 
         return view

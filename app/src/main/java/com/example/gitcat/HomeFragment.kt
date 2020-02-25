@@ -1,5 +1,7 @@
 package com.example.gitcat
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -8,6 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -17,6 +20,7 @@ import com.example.gitcat.retrofit.GithubAPI
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
+import kotlinx.android.synthetic.main.fragment_tu.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,16 +39,17 @@ class HomeFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
 
         //튜토리얼
-        val tuLayout = view.findViewById<View>(R.id.tu_layout)
-        tuLayout.bringToFront()
-
-        val pager = view.findViewById<View>(R.id.tu_viewpager) as ViewPager
-        adapterViewPager = TuAdapter(activity!!.supportFragmentManager)
-        pager.adapter = adapterViewPager
-
-        val tabLayout = view.findViewById<View>(R.id.tab_layout) as TabLayout
-        tabLayout.setupWithViewPager(pager,true)
-
+//        tuLayout.bringToFront()
+//
+//        val pager = view?.findViewById<View>(R.id.tu_viewpager) as ViewPager
+//        adapterViewPager = TuAdapter(activity!!.supportFragmentManager)
+//        pager.adapter = adapterViewPager
+//
+//        val tabLayout = view.findViewById<View>(R.id.tab_layout) as TabLayout
+//        tabLayout.setupWithViewPager(pager,true)
+        //튜토리얼
+        val tuDialog = TuDialogFragment()
+        tuDialog.show(fragmentManager!!,"addons_fragment")
 
         //하단 탭 버튼 리스너
         view.diaryIcon.setOnClickListener { view ->
@@ -60,9 +65,15 @@ class HomeFragment : Fragment() {
         return view
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
     }
+
+
 
     companion object {
         fun newInstance(): HomeFragment = HomeFragment()

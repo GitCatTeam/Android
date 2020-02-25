@@ -74,6 +74,7 @@ class TuFragment : Fragment() {
         tu_btn.setOnClickListener {
             //TODO: DialogFragment 종료
             val tuDialog = TuDialogFragment()
+            tuDialog.isCancelable = true
             //childFragmentManager?.beginTransaction()?.detach(tuDialog).commit()
         }
 

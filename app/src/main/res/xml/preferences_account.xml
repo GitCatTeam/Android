@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <Preference
+            android:title="로그인 계정"
+            android:key="login_account"
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true" />
+
+        <Preference
+            android:title="계정 로그아웃"
+            android:key="logout"
+            android:summary="다른 계정으로 로그인합니다."
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true" />
+
+</PreferenceScreen>

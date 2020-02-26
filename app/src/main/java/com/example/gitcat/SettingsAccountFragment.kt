@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.TextView
@@ -7,6 +8,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import kotlinx.android.synthetic.main.activity_home.*
+import android.text.SpannableString
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+
 
 class SettingsAccountFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -14,10 +20,18 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
 
         //로그인 계정
         val login_account = findPreference("login_account") as Preference
-        login_account.summary = "jihu02@naver.com"
+
+        val summary = SpannableStringBuilder("jihu02@naver.com")
+        summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        login_account.summary = summary
 
         //계정 로그아웃
         val logout = findPreference("logout") as Preference
+
+        val logoutTitle = SpannableStringBuilder("계정 로그아웃")
+        logoutTitle.setSpan(ForegroundColorSpan(Color.parseColor("#ff8c86")),0,logoutTitle.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        logout.title = logoutTitle
+
         val dialogView = layoutInflater.inflate(R.layout.settings_dialog,container,false)
 
         val dialogTitle = dialogView.findViewById<TextView>(R.id.dialog_title)

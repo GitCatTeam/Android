@@ -10,7 +10,6 @@
             app:allowDividerAbove="true" />
 
         <Preference
-            android:title="계정 로그아웃"
             android:key="logout"
             android:summary="다른 계정으로 로그인합니다."
             app:iconSpaceReserved="false"

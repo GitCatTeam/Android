@@ -7,7 +7,8 @@
             android:key="app_alarm"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
-            app:allowDividerAbove="true"/>
+            app:allowDividerAbove="true"
+            android:defaultValue="false"/>
 
         <ListPreference
             android:title="벨소리"
@@ -15,9 +16,8 @@
             android:entries="@array/alarm"
             android:entryValues="@array/alarm_values"
             app:iconSpaceReserved="false"
-            android:enabled="true"
-            app:defaultValue="true"
-            app:allowDividerAbove="true"/>
+            android:enabled="false"
+            app:defaultValue="true"/>
 
         <SwitchPreference
             android:title="레포트 알림"

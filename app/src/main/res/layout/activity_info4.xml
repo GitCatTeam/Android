@@ -43,81 +43,171 @@
         android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
         android:textColor="@color/colorTextDark"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.97" />
 
-    <com.yuxingxin.library.MultiRadioGroup
-        android:id="@+id/radioGroupCat"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/tabAndCatLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        android:orientation="vertical">
 
-        <RadioGroup
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="30dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:tabIndicator="@drawable/choose_cat_tab_color"
+            app:tabBackground="@drawable/choose_cat_tab_color"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextColor="#c0c0c0"
+            app:tabMode="scrollable">
 
-            <RadioButton
-                android:layout_width="122dp"
-                android:layout_height="122dp"
-                android:background="@drawable/info_list"
-                android:button="@null"
-                android:gravity="center"
-                android:layout_margin="3dp"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/img_cat_panda">
-            </RadioButton>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기본" />
 
-            <RadioButton
-                android:layout_width="122dp"
-                android:layout_height="122dp"
-                android:background="@drawable/info_list"
-                android:gravity="center"
-                android:button="@null"
-                android:layout_margin="3dp"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/img_cat_normal">
-            </RadioButton>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스페셜" />
 
-        </RadioGroup>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이벤트" />
+        </com.google.android.material.tabs.TabLayout>
 
-        <RadioGroup
+        <RelativeLayout
+            android:id="@+id/radioLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:padding="13dp"
+            android:background="@drawable/choose_cat_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
 
-            <RadioButton
-                android:layout_width="122dp"
-                android:layout_height="122dp"
-                android:background="@drawable/info_list"
-                android:button="@null"
-                android:layout_margin="3dp"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/img_cat_cheeze"/>
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="170dp">
 
-            <RadioButton
-                android:layout_width="122dp"
-                android:layout_height="122dp"
-                android:background="@drawable/info_list"
-                android:gravity="center"
-                android:button="@null"
-                android:padding="10dp"
-                android:layout_margin="3dp"
-                android:drawableLeft="@drawable/img_cat_nero"/>
-        </RadioGroup>
-    </com.yuxingxin.library.MultiRadioGroup>
+                <com.yuxingxin.library.MultiRadioGroup
+                    android:id="@+id/radioGroupCat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/choose_cat_box"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.513"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                        <RadioButton
+                            android:id="@+id/cat1"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_panda"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@+id/cat1"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/cat2"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_normal"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@+id/cat2"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/cat3"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_cheeze"
+                            android:padding="5dp"
+                            android:text="@+id/cat3" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/cat4"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_nero"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@+id/cat4" />
+
+                        <RadioButton
+                            android:id="@+id/cat5"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_panda"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@+id/cat5"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/cat6"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_margin="3dp"
+                            android:background="@drawable/info_list"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/img_cat_normal"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@+id/cat6"></RadioButton>
+                    </RadioGroup>
+                </com.yuxingxin.library.MultiRadioGroup>
+            </ScrollView>
+
+        </RelativeLayout><!--Container-->
+
+    </LinearLayout><!--Tab & Container-->
 
     <Button
         android:id="@+id/buttonGo"
@@ -130,7 +220,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupCat" />
+        app:layout_constraintTop_toBottomOf="@+id/tabAndCatLayout" />
 
     <TextView
         android:layout_width="wrap_content"

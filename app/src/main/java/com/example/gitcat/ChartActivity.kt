@@ -43,19 +43,19 @@ class ChartActivity : AppCompatActivity() {
         }
 
         /*API*/
-        compositeDisposable = CompositeDisposable()
-        compositeDisposable.add(
-            GithubAPI.getRepoList("yeji2039@gmail.com")
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.newThread())
-                .subscribe({ response: TodayCommitModel ->
-                    for (item in response.data) {
-                        Log.d("Chart", (item.count).toString())
-                    }
-                }, { error: Throwable ->
-                    Log.d("Chart", error.localizedMessage)
-                    Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
-                }))
+//        compositeDisposable = CompositeDisposable()
+//        compositeDisposable.add(
+//            GithubAPI.getRepoList("yeji2039@gmail.com")
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.newThread())
+//                .subscribe({ response: TodayCommitModel ->
+//                    for (item in response.data) {
+//                        Log.d("Chart", (item.count).toString())
+//                    }
+//                }, { error: Throwable ->
+//                    Log.d("Chart", error.localizedMessage)
+//                    Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
+//                }))
 
         //텍스트
         three_text1.text = "이번 달은 커밋을 정말 성실하게 했어요!"

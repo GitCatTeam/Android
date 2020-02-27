@@ -71,20 +71,20 @@ class CalendarFragment: Fragment() {
         })
 
         /*API*/
-        compositeDisposable = CompositeDisposable()
-        compositeDisposable.add(
-            GithubAPI.getMonthCommitCount("202002")
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.newThread())
-                .subscribe({ response: MonthCommitCountModel ->
-                    for (item in response.data) {
-                        //TODO: 여러 층으로 된 JSON 풀어가기
-                        //Log.d("Chart", (item.commits.).toString())
-                    }
-                }, { error: Throwable ->
-                    Log.d("Chart", error.localizedMessage)
-                    Toast.makeText(activity!!, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
-                }))
+//        compositeDisposable = CompositeDisposable()
+//        compositeDisposable.add(
+//            GithubAPI.getMonthCommitCount("202002")
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribeOn(Schedulers.newThread())
+//                .subscribe({ response: MonthCommitCountModel ->
+//                    for (item in response.data) {
+//                        //TODO: 여러 층으로 된 JSON 풀어가기
+//                        //Log.d("Chart", (item.commits.).toString())
+//                    }
+//                }, { error: Throwable ->
+//                    Log.d("Chart", error.localizedMessage)
+//                    Toast.makeText(activity!!, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
+//                }))
 
         val dates = ArrayList<CalendarDay>()
         val level:String = ""//level_1, level_2

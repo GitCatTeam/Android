@@ -11,6 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import android.view.View
 import com.google.android.material.tabs.TabLayout
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -49,6 +54,7 @@ class HomeActivity : AppCompatActivity() {
             }
             false
         }
+
     }
 
     override fun onBackPressed() {

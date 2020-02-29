@@ -28,6 +28,7 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.webkit.JavascriptInterface
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log.d
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 
@@ -52,13 +53,18 @@ class MainActivity : AppCompatActivity() {
             myWebView.settings.javaScriptEnabled = true
             myWebView.settings.setSupportZoom(true)
             //myWebView.addJavascriptInterface(WebPasser(),"Android")
-            myWebView.addJavascriptInterface(object : Any() {
-                @JavascriptInterface
-                fun showToast(datas: String?, msg:String) {
-                    Toast.makeText(this@MainActivity, "Keyword is $datas", Toast.LENGTH_LONG)
-                        .show()
-                }
-            }, "Android")
+            d("*+*+*+","가즈아아아")
+//            myWebView.addJavascriptInterface(object : Any() {
+//                @JavascriptInterface
+//                fun showToast(datas: String?, msg:String) {
+//                    d("*+*+","시작한다")
+//                    Toast.makeText(this@MainActivity, "Keyword is $datas, and message is $msg", Toast.LENGTH_LONG)
+//                        .show()
+//                    var dataaaa:String = ChCrypto.aesDecrypt("dddd",datas!!)
+//                    d("*+*+",dataaaa)
+//                }
+//            }, "Android")
+            myWebView.addJavascriptInterface(WebPasser(),"Android")
 
             myWebView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
             myWebView.loadUrl(myURL)
@@ -87,9 +93,11 @@ class WebPasser{
 
     @JavascriptInterface
     fun showToast(datas: String?, msg:String){
+        d("*+*+*+","시작한다")
         //var data = JSONObject(datas)
         //val obj = data.get(0) as JSONObject
-        Log.i("****************","====== ${datas}")
+        d("*+*+*+","====== ${datas}")
 
     }
+
 }

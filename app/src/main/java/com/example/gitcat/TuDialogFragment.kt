@@ -50,6 +50,7 @@ class TuDialogFragment : DialogFragment() {
         val pager = view.findViewById<View>(R.id.tu_viewpager) as ViewPager
         adapterViewPager = TuAdapter(childFragmentManager)
         pager.adapter = adapterViewPager
+        pager.pageMargin = 10
 
         val tabLayout = view.findViewById<View>(R.id.tab_layout) as TabLayout
         tabLayout.setupWithViewPager(pager,true)

@@ -13,6 +13,9 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_tu.*
 import android.R.attr.fragment
 import android.content.Intent
+import android.R.attr.fragment
+
+
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -74,7 +77,9 @@ class TuFragment : Fragment() {
         tu_btn.setOnClickListener {
             //TODO: DialogFragment 종료
             val tuDialog = TuDialogFragment()
-            tuDialog.isCancelable = true
+            val dialogFragment = fragment as TuDialogFragment
+
+            //fragmentManager!!.beginTransaction().detach(tuDialog)
             //childFragmentManager?.beginTransaction()?.detach(tuDialog).commit()
         }
 

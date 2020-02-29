@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="185dp"
-            android:background="#ddf2ff">
+            android:background="@drawable/tu_img_top">
 
             <ImageView
                 android:id="@+id/tu_image"

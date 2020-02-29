@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
 import android.util.Log
+import android.util.Log.d
+import android.util.Log.e
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.text.SimpleDateFormat
@@ -22,12 +24,16 @@ import kotlin.collections.ArrayList
 import android.widget.Toast
 import com.example.gitcat.model.MonthCommitCountModel
 import com.example.gitcat.retrofit.GithubAPI
+import com.example.gitcat.retrofit.RetrofitCreator
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +43,8 @@ private const val ARG_PARAM2 = "param2"
 //var calendarView: MaterialCalendarView? = null
 
 class CalendarFragment: Fragment() {
+
+    val dates = ArrayList<CalendarDay>()
 
     var repoList = arrayListOf<Repository>(
         Repository("레포지토리1"),
@@ -53,50 +61,50 @@ class CalendarFragment: Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
+        var apimonth : String = ""
+        var calendarDay: CalendarDay = CalendarDay.today()
+        var ymToday : String
+        if(calendarDay.month>9){
+            ymToday = calendarDay.year.toString()+calendarDay.month.toString()
+        }
+        else{
+            ymToday = calendarDay.year.toString()+"0"+calendarDay.month.toString()
+        }
+        APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",ymToday)
 
-        calendarView?.setOnDateChangedListener(OnDateSelectedListener { widget, date, selected ->
+        calendarView?.setOnDateChangedListener { widget, date, selected ->
             val Year = date.year
             val Month = date.month
             val Day = date.day
 
-            Log.i("Year test", Year.toString() + "")
-            Log.i("Month test", Month.toString() + "")
-            Log.i("Day test", Day.toString() + "")
+            Log.i("Now date", Year.toString() + "")
+            Log.i("Now date", Month.toString() + "")
+            Log.i("Now date", Day.toString() + "")
 
             val shot_Day = "$Year,$Month,$Day"
 
             Log.i("shot_Day test", shot_Day + "")
             calendarView?.clearSelection()
 
-        })
+        }
+        calendarView?.setOnMonthChangedListener { widget, date ->
+            val mYear = date.year
+            val mMonth = date.month
+            val mDay = date.day
 
-        /*API*/
-//        compositeDisposable = CompositeDisposable()
-//        compositeDisposable.add(
-//            GithubAPI.getMonthCommitCount("202002")
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.newThread())
-//                .subscribe({ response: MonthCommitCountModel ->
-//                    for (item in response.data) {
-//                        //TODO: 여러 층으로 된 JSON 풀어가기
-//                        //Log.d("Chart", (item.commits.).toString())
-//                    }
-//                }, { error: Throwable ->
-//                    Log.d("Chart", error.localizedMessage)
-//                    Toast.makeText(activity!!, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
-//                }))
+            Log.i("Move date", mYear.toString() + "")
+            Log.i("Move date", mMonth.toString() + "")
+            Log.i("Move date", mDay.toString() + "")
 
-        val dates = ArrayList<CalendarDay>()
-        val level:String = ""//level_1, level_2
+            if(mMonth>9){
+                apimonth = mYear.toString()+mMonth.toString()
+            }else{
+                apimonth = mYear.toString()+"0"+mMonth.toString()
+            }
 
-        dates.add(CalendarDay.from(2020,2,5))
-        dates.add(CalendarDay.from(2020,2,7))
-        calendarView.addDecorator(EventDecorator(dates,activity!!,"level_2"))
+            APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",apimonth)
+        }
 
-
-        //ApiSimulator(result).executeOnExecutor(Executors.newSingleThreadExecutor())
-        //ApiSimulator(result).execute()
-//        Log.i("오류오류","************************************************")
 
         //FIXME: 여기서부터 RecyclerView
         repository_recyclerview.layoutManager = LinearLayoutManager(activity)
@@ -105,6 +113,64 @@ class CalendarFragment: Fragment() {
         listAdapter.notifyDataSetChanged()
 
         return rootView
+    }
+
+    /*API*/
+    fun APIStart(calendarView:MaterialCalendarView, token:String, date:String){
+
+        val call: Call<MonthCommitCountModel> = RetrofitCreator.service.getMonthCommitCount(token,date)
+        call.enqueue(
+            object : Callback<MonthCommitCountModel> {
+                override fun onFailure(call: Call<MonthCommitCountModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                }
+
+                override fun onResponse(
+                    call: Call<MonthCommitCountModel>,
+                    response: Response<MonthCommitCountModel>
+                ) {
+                    if(response.isSuccessful){
+                        val month = response.body()!!
+                        d("*+*+", month.data.commits.toString())
+
+                        APIFlow(month.data.commits.data1,"level_1")
+                        calendarView.addDecorator(EventDecorator(dates,activity!!,"level_1"))
+                        dates.clear()
+                        APIFlow(month.data.commits.data2,"level_2")
+                        calendarView.addDecorator(EventDecorator(dates,activity!!,"level_2"))
+                        dates.clear()
+                        APIFlow(month.data.commits.data3,"level_3")
+                        calendarView.addDecorator(EventDecorator(dates,activity!!,"level_3"))
+                        dates.clear()
+                    }
+                }
+            }
+        )
+    }
+
+    fun APIFlow(array: ArrayList<String>, level: String){
+        for(date in array){
+
+            var ymd:List<String> = date.split("-")
+            if(ymd[1].toInt()<10){
+                var m = ymd[1].substring(1).toInt()
+                if(ymd[2].toInt()<10){//9월9일
+                    var d = ymd[1].substring(1).toInt()
+                    dates.add(CalendarDay.from(ymd[0].toInt(),m,d))
+                }else{//9월10일
+                    dates.add(CalendarDay.from(ymd[0].toInt(),m,ymd[2].toInt()))
+                }
+            }else{
+                if(ymd[2].toInt()<10){//10월9일
+                    var d = ymd[1].substring(1).toInt()
+                    dates.add(CalendarDay.from(ymd[0].toInt(),ymd[1].toInt(),d))
+                }else{//10월10일
+                    dates.add(CalendarDay.from(ymd[0].toInt(),ymd[1].toInt(),ymd[2].toInt()))
+                }
+            }
+        }//for문 끝
+
+
     }
 
     companion object {

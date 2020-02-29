@@ -1,20 +1,31 @@
 package com.example.gitcat.retrofit
 
-import com.example.gitcat.model.MonthCommitCountModel
-import com.example.gitcat.model.TodayCommitModel
+import com.example.gitcat.model.*
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface GithubAPI {
 
     /*오늘의 커밋수*/
-    @GET("/firstapi/todayCommitCount")
+    @GET("firstapi/todayCommitCount")
     fun getRepoList(@Query("email") email: String): Call<TodayCommitModel>
 
     /*달력잔디_일별커밋수*/
-    @GET("/calender/monthCommitCount")
-    fun getMonthCommitCount(@Query("month") month: String): Call<MonthCommitCountModel>
+    @GET("calender/commit-count")
+    fun getMonthCommitCount(@Header("Authorization") token: String, @Query("date") date: String): Call<MonthCommitCountModel>
 
+    /*달력잔디_일별 커밋 내역*/
+    @GET("calender/commit")
+    fun getMonthCommitContent(@Header("Authorization") token: String, @Query("date") date: String): Call<MonthCommitCountContentModel>
+
+    /*월간레포트_목록*/
+    @GET("monthly/list")
+    fun getMonthlyList(@Header("Authorization") token: String): Call<MonthlyListModel>
+
+    /*월간레포트_상세*/
+    @GET("monthly/detail")
+    fun getMonthlyDetail(@Header("Authorization") token: String, @Query("id") id: Int):Call<MonthlyDetailModel>
 }

@@ -23,9 +23,9 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
             app_alarm_list.isEnabled = true
             //현재 상태 summary에 띄움
 
-            val summary = SpannableStringBuilder(app_alarm_list.entry)
-            summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-            app_alarm.summary = summary
+            //val summary = SpannableStringBuilder(app_alarm_list.entry)
+            //summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            app_alarm.summary = app_alarm_list.entry
         }else{
             app_alarm_list.isEnabled = false
             app_alarm.summary = "앱에서 보내는 다양한 푸시알림을 받습니다."
@@ -37,9 +37,9 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                 app_alarm_list.isEnabled = true
                 //현재 상태 summary에 띄움
 
-                val summary = SpannableStringBuilder(app_alarm_list.entry)
-                summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                app_alarm.summary = summary
+                //val summary = SpannableStringBuilder(app_alarm_list.entry)
+                //summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                app_alarm.summary = app_alarm_list.entry
             }else if(newValue == false){
                 app_alarm_list.isEnabled = false
                 app_alarm.summary = "앱에서 보내는 다양한 푸시알림을 받습니다."
@@ -51,16 +51,16 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
             if(newValue == "1"){
                 app_alarm_list.title = "벨소리"
 
-                val summary = SpannableStringBuilder("벨소리")
-                summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                app_alarm.summary = summary
+                //val summary = SpannableStringBuilder("벨소리")
+                //summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                app_alarm.summary = "벨소리"
             }
             else if(newValue == "2"){
                 app_alarm_list.title = "진동"
 
-                val summary = SpannableStringBuilder("진동")
-                summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                app_alarm.summary = summary
+                //val summary = SpannableStringBuilder("진동")
+                //summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                app_alarm.summary = "진동"
             }
             true
         }

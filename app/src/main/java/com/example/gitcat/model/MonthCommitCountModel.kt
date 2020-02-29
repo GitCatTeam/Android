@@ -7,16 +7,21 @@ data class MonthCommitCountModel (
     val message: String,
 
     @SerializedName("data")
-    val data: List<MonthCommitCountModel_commits>
+    val data: MonthCommitCountModel_commits
 )
 
 data class MonthCommitCountModel_commits (
+    @SerializedName("commits")
+    val commits: MonthCommitCountModel_level
+)
+
+data class MonthCommitCountModel_level(
     @SerializedName("level_1")
-    val data1: List<String>,
+    val data1: ArrayList<String>,
 
     @SerializedName("level_2")
-    val data2: List<String>,
+    val data2: ArrayList<String>,
 
     @SerializedName("level_3")
-    val data3: List<String>
+    val data3: ArrayList<String>
 )

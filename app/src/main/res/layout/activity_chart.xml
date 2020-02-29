@@ -27,9 +27,9 @@
             android:layout_centerVertical="true"/>
 
         <TextView
+            android:id="@+id/chartTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2020년 1월 레포트"
             android:textAlignment="center"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
@@ -72,9 +72,9 @@
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/lastMonth"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+23"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <FrameLayout
@@ -95,9 +95,9 @@
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/totalCommit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="88"
                             android:textColor="@color/colorPrimaryDark"/>
                     </LinearLayout>
 
@@ -119,9 +119,9 @@
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/avg"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2.5"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 
 
@@ -209,19 +209,20 @@
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChart"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/pieImgText"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginStart="60dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                </com.github.mikephil.charting.charts.PieChart>
             </RelativeLayout>
 
 
@@ -274,6 +275,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

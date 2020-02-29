@@ -20,7 +20,15 @@ import com.example.gitcat.retrofit.GithubAPI
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.gitcat.model.MonthCommitCountModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.fragment_tu.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +55,7 @@ class HomeFragment : Fragment() {
 //
 //        val tabLayout = view.findViewById<View>(R.id.tab_layout) as TabLayout
 //        tabLayout.setupWithViewPager(pager,true)
+
         //튜토리얼
         val tuDialog = TuDialogFragment()
         tuDialog.show(fragmentManager!!,"addons_fragment")

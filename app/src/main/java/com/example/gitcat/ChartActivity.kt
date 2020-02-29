@@ -10,29 +10,21 @@ import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.data.BarEntry
-import com.github.mikephil.charting.components.Legend
-import androidx.core.app.ComponentActivity
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
-import android.widget.Toast
-import com.example.gitcat.model.TodayCommitModel
-import com.example.gitcat.retrofit.GithubAPI
+import com.example.gitcat.model.MonthlyDetailModel
+import com.example.gitcat.retrofit.RetrofitCreator
+import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.formatter.PercentFormatter
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import android.graphics.Paint.UNDERLINE_TEXT_FLAG
-import android.widget.TextView
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.graphics.Paint
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ChartActivity : AppCompatActivity() {
 
-    lateinit var compositeDisposable: CompositeDisposable
+    val lineEntry = ArrayList<Entry>()
+    val barMonth = arrayListOf<String>()
+    val barEntries = ArrayList<BarEntry>()
+    val pieEntry = ArrayList<PieEntry>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,62 +35,86 @@ class ChartActivity : AppCompatActivity() {
         }
 
         /*API*/
-//        compositeDisposable = CompositeDisposable()
-//        compositeDisposable.add(
-//            GithubAPI.getRepoList("yeji2039@gmail.com")
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.newThread())
-//                .subscribe({ response: TodayCommitModel ->
-//                    for (item in response.data) {
-//                        Log.d("Chart", (item.count).toString())
-//                    }
-//                }, { error: Throwable ->
-//                    Log.d("Chart", error.localizedMessage)
-//                    Toast.makeText(this, "Error ${error.localizedMessage}", Toast.LENGTH_SHORT).show()
-//                }))
+        val id: Int
+        id=intent.getStringExtra("id").toInt()
+        chartTitle.text = intent.getStringExtra("title")
+        totalCommit.text = intent.getStringExtra("commit")
+        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",id)
+        call.enqueue(
+            object : Callback<MonthlyDetailModel> {
+                override fun onFailure(call: Call<MonthlyDetailModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                }
 
-        //텍스트
-        three_text1.text = "이번 달은 커밋을 정말 성실하게 했어요!"
-        three_text2.text = "총 커밋 수도 많지만, 지난달 대비 증가한 갯수가 아주 커요."
-        three_text3.text = "거의 매일 2개 이상의 커밋을 한 당신, 대단합니다! 짝짝짝!"
+                override fun onResponse(
+                    call: Call<MonthlyDetailModel>,
+                    response: Response<MonthlyDetailModel>
+                ) {
+                    if(response.isSuccessful){
+                        val reportData = response.body()!!
 
-        lineChart()
-        pieChart()
-        barChart()
+                        //상단 텍스트
+                        lastMonth.text = reportData.data.comparedLastMonth
+                        avg.text = reportData.data.avgCount
+
+                        //LineChart
+                        var c: Float = 1F
+                        for(line in reportData.data.dailyCount.countArray){
+                            lineEntry.add(Entry(c,line.toFloat()))
+                            c++
+                        }
+                        lineChart(lineEntry)
+
+                        //PieChart
+                        for(pie in reportData.data.languageRatio.resultLanguages){
+                            pieEntry.add(PieEntry(pie.percent,pie.language))
+                        }
+                        pieChart(pieEntry)
+
+                        //BarChart
+                        for(names in reportData.data.contributedRepository.repoNames){
+                            barMonth.add(names)
+                        }
+                        var count: Float = 0F
+                        for(value in reportData.data.contributedRepository.count){
+                            barEntries.add(BarEntry(count,value))
+                            count++
+                        }
+                        barChart(barMonth,barEntries)
+
+                        //세줄평
+                        three_text1.text = reportData.data.comment[0]
+                        three_text2.text = reportData.data.comment[1]
+                        three_text3.text = reportData.data.comment[2]
+                    }
+                }
+            }
+        )
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        compositeDisposable.dispose()
     }
 
-    private fun lineChart(){
+    private fun lineChart(lineEntry: ArrayList<Entry>) {
         lineChart.description.isEnabled = false
         lineChart.setExtraOffsets(5F,10F, 5F,5F)
 
         lineChart.dragDecelerationFrictionCoef = 0.95F
 
-        val entry = ArrayList<Entry>()
-
-        entry.add(Entry(1F,1F))
-        entry.add(Entry(2F,2F))
-        entry.add(Entry(3F,0F))
-        entry.add(Entry(4F,4F))
-        entry.add(Entry(5F,3F))
-
         lineChart.animateY(1000, Easing.EaseInOutCubic)
 
-        val dataSet = LineDataSet(entry, "")
+        val dataSet = LineDataSet(lineEntry, "")
         dataSet.lineWidth = 2F
-        dataSet.circleRadius = 6F
+        dataSet.circleRadius = 2F
         dataSet.setCircleColor(Color.parseColor("#8acbf6"))
         dataSet.circleHoleColor = Color.BLUE
         dataSet.color = Color.parseColor("#8acbf6")
         dataSet.setDrawCircleHole(true)
         dataSet.setDrawCircles(true)
-        dataSet.setDrawHorizontalHighlightIndicator(false)
-        dataSet.setDrawHighlightIndicators(false)
+        dataSet.setDrawHorizontalHighlightIndicator(true)
+        dataSet.setDrawHighlightIndicators(true)
         dataSet.setDrawValues(false)
         dataSet.setDrawFilled(true)
         dataSet.fillColor = Color.parseColor("#8acbf6")
@@ -129,7 +145,7 @@ class ChartActivity : AppCompatActivity() {
         lineChart.invalidate()
     }
 
-    private fun pieChart(){
+    private fun pieChart(pieEntry: ArrayList<PieEntry>) {
         pieChart.setUsePercentValues(true)
         pieChart.description.isEnabled = false
         //pieChart.setExtraOffsets(5F,10F, 5F,5F)
@@ -141,48 +157,44 @@ class ChartActivity : AppCompatActivity() {
         pieChart.transparentCircleRadius = 40F
         pieChart.centerText = "언어비율\n(%)"
         pieChart.setCenterTextSize(10F)
+        pieChart.setDrawCenterText(true)
+        pieChart.setDrawSliceText(false)
 
-        val entry = ArrayList<PieEntry>()
 
-        entry.add(PieEntry(34F,"Korea"))
-        entry.add(PieEntry(23F,"USA"))
-        entry.add(PieEntry(14F,"UK"))
-        entry.add(PieEntry(18F,"Russia"))
-
-        val legend = Legend()
+        val legend = pieChart.legend
         legend.isEnabled = true
         legend.form = Legend.LegendForm.CIRCLE
-        legend.verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM
+        legend.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
         legend.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
         legend.orientation = Legend.LegendOrientation.VERTICAL
-        legend.setDrawInside(false)
+        legend.setDrawInside(true)
 
         pieChart.animateY(1000, Easing.EaseInOutCubic)
 
-        val dataSet = PieDataSet(entry, "")
+        val dataSet = PieDataSet(pieEntry, "")
         dataSet.sliceSpace = 3F
         dataSet.selectionShift = 5F
         dataSet.setColors(Color.parseColor("#8acbf6"),Color.parseColor("#ccebff"),Color.parseColor("#f2faff"),Color.parseColor("#eeeeee"))
 
         val data = PieData((dataSet))
-        //data.setValueTextSize(10F)
+        data.setValueTextSize(10F)
         //data.setValueTextColor(Color.YELLOW)
         data.setValueFormatter(PercentFormatter())
+        dataSet.xValuePosition= PieDataSet.ValuePosition.OUTSIDE_SLICE
+        dataSet.yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
         pieChart.data = data
-
-
 
     }
 
-    private fun barChart(){
-        val dataSet = BarDataSet(getData(),"")
+    private fun barChart(barMonth: List<String>, barEntries: ArrayList<BarEntry>){
+        val dataSet = BarDataSet(barEntries,"")
         dataSet.barBorderWidth = 0.9F
-        dataSet.setColors(Color.parseColor("#ccebff"),Color.parseColor("#8acbf6"),Color.parseColor("#f2faff"))
+        dataSet.setColors(Color.parseColor("#8acbf6"),Color.parseColor("#ccebff"),Color.parseColor("#f2faff"))
 
         //dataSet.color = ColorTemplate.COLORFUL_COLORS
 
         val data = BarData(dataSet)
-        data.setValueFormatter(PercentFormatter())
+//        data.setValueFormatter(PercentFormatter())
         val xAxis = barChart.xAxis
         xAxis.setDrawAxisLine(false)
         xAxis.setDrawGridLines(false)
@@ -194,8 +206,7 @@ class ChartActivity : AppCompatActivity() {
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.granularity = 1F
 
-        val months = arrayOf("레파1", "레파2", "레파3")
-        val formatter = IndexAxisValueFormatter(months)
+        val formatter = IndexAxisValueFormatter(barMonth)
         xAxis.valueFormatter = formatter
 
         val description = Description()
@@ -209,11 +220,4 @@ class ChartActivity : AppCompatActivity() {
         barChart.invalidate()
     }
 
-    private fun getData(): ArrayList<BarEntry> {
-        val entries = ArrayList<BarEntry>()
-        entries.add(BarEntry(0f, 30f))
-        entries.add(BarEntry(1f, 80f))
-        entries.add(BarEntry(2f, 60f))
-        return entries
-    }
 }

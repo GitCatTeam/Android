@@ -2,7 +2,7 @@ package com.example.gitcat.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MonthCommitCountContentModel(
+data class MonthCommitContentModel(
     @SerializedName("message")
     val message: String,
 
@@ -12,7 +12,7 @@ data class MonthCommitCountContentModel(
 
 data class MonthCommitCountContentModel_data(
     @SerializedName("result")
-    val result: MonthCommitCountContentModel_result
+    val result: List<MonthCommitCountContentModel_result>
 )
 
 data class MonthCommitCountContentModel_result(
@@ -20,7 +20,7 @@ data class MonthCommitCountContentModel_result(
     val repoName: String,
 
     @SerializedName("commit")
-    val commit: MonthCommitCountContentModel_commit
+    val commit: List<MonthCommitCountContentModel_commit>
 )
 
 data class MonthCommitCountContentModel_commit(

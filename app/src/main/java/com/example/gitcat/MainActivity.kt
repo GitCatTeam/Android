@@ -29,8 +29,14 @@ import android.webkit.JavascriptInterface
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log.d
+import android.webkit.CookieSyncManager.createInstance
+import android.webkit.CookieSyncManager.getInstance
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
+import java.security.spec.AlgorithmParameterSpec
+import javax.crypto.Cipher
+import javax.crypto.spec.IvParameterSpec
+import javax.crypto.spec.SecretKeySpec
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,54 +56,80 @@ class MainActivity : AppCompatActivity() {
             val myWebView: WebView = findViewById(R.id.webview)
             val myURL = "https://a.gitcat.app/api/auth/github"
 
+            myWebView.clearCache(true)
+            myWebView.clearHistory()
             myWebView.settings.javaScriptEnabled = true
-            myWebView.settings.setSupportZoom(true)
-            //myWebView.addJavascriptInterface(WebPasser(),"Android")
-            d("*+*+*+","가즈아아아")
-//            myWebView.addJavascriptInterface(object : Any() {
-//                @JavascriptInterface
-//                fun showToast(datas: String?, msg:String) {
-//                    d("*+*+","시작한다")
-//                    Toast.makeText(this@MainActivity, "Keyword is $datas, and message is $msg", Toast.LENGTH_LONG)
-//                        .show()
-//                    var dataaaa:String = ChCrypto.aesDecrypt("dddd",datas!!)
-//                    d("*+*+",dataaaa)
-//                }
-//            }, "Android")
-            myWebView.addJavascriptInterface(WebPasser(),"Android")
 
-            myWebView.settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            myWebView.settings.setSupportZoom(true)
+            myWebView.settings.domStorageEnabled = true
+            myWebView.addJavascriptInterface(WebPasser(),"java")
             myWebView.loadUrl(myURL)
-            myWebView.webChromeClient = object : WebChromeClient(){}
             myWebView.webViewClient = object : WebViewClient(){
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+
                     view?.loadUrl(url)
                     return true
                 }
             }
         }
-
     }
-
 }
 
-class WebPasser{
+//TODO: 암호화 String 안받아짐....
+class WebPasser {
 
     private var mContext: Activity? = null
     private var mWebView: WebView? = null
 
-    fun WebPasser(c: Activity, w:WebView) {
+    fun WebPasser(c: Activity, w: WebView) {
         mContext = c
         mWebView = w
     }
 
     @JavascriptInterface
-    fun showToast(datas: String?, msg:String){
-        d("*+*+*+","시작한다")
-        //var data = JSONObject(datas)
-        //val obj = data.get(0) as JSONObject
-        d("*+*+*+","====== ${datas}")
-
+    fun sendAuthInfo(datas: String?, msg: String?){
+        d("*+*+",datas!!+" "+msg!!)
     }
-
 }
+//    private var mContext: Activity? = null
+//    private var mWebView: WebView? = null
+//
+//    fun WebPasser(c: Activity, w: WebView) {
+//        mContext = c
+//        mWebView = w
+//    }
+//
+//    @JavascriptInterface
+//    fun sendAuthInfo(datas: String?, msg: String) {
+//
+//        d("*+*+*+", datas!!)
+//        val data = ChCrypto.AES_Decode(datas!!)
+//        d("*+*+", data)
+//    }
+
+//        val ivb = byteArrayOf(
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00,
+//            0x00
+//        )
+//        var textBytes : ByteArray = Base64.decode(datas!!,0)
+//        var ivs = IvParameterSpec(ivb)
+//        var newKey = SecretKeySpec(datas!!.toByteArray(), "AES")
+//        val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
+//        cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
+//        val decryptedByteValue = cipher.doFinal(textBytes)
+//        d("*+*+",decryptedByteValue.toString())
+

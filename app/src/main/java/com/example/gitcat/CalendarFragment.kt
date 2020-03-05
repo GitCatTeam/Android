@@ -22,6 +22,7 @@ import java.util.*
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 import android.widget.Toast
+import com.example.gitcat.model.MonthCommitContentModel
 import com.example.gitcat.model.MonthCommitCountModel
 import com.example.gitcat.retrofit.GithubAPI
 import com.example.gitcat.retrofit.RetrofitCreator
@@ -70,7 +71,8 @@ class CalendarFragment: Fragment() {
         else{
             ymToday = calendarDay.year.toString()+"0"+calendarDay.month.toString()
         }
-        APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",ymToday)
+        /*FIXME: Token 수정*/
+        APIStart(calendarView,"token",ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
             val Year = date.year
@@ -83,7 +85,10 @@ class CalendarFragment: Fragment() {
 
             val shot_Day = "$Year,$Month,$Day"
 
-            Log.i("shot_Day test", shot_Day + "")
+            APIContent()
+            
+            //TODO: API 붙이기
+
             calendarView?.clearSelection()
 
         }
@@ -102,11 +107,12 @@ class CalendarFragment: Fragment() {
                 apimonth = mYear.toString()+"0"+mMonth.toString()
             }
 
-            APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",apimonth)
+            /*FIXME: Token 수정*/
+            APIStart(calendarView,"token",apimonth)
         }
 
 
-        //FIXME: 여기서부터 RecyclerView
+        //여기서부터 RecyclerView
         repository_recyclerview.layoutManager = LinearLayoutManager(activity)
         val listAdapter = RepositoryAdapter(activity!!,repoList)
         repository_recyclerview.adapter = listAdapter
@@ -115,7 +121,7 @@ class CalendarFragment: Fragment() {
         return rootView
     }
 
-    /*API*/
+    /*달력 API*/
     fun APIStart(calendarView:MaterialCalendarView, token:String, date:String){
 
         val call: Call<MonthCommitCountModel> = RetrofitCreator.service.getMonthCommitCount(token,date)
@@ -131,7 +137,6 @@ class CalendarFragment: Fragment() {
                 ) {
                     if(response.isSuccessful){
                         val month = response.body()!!
-                        d("*+*+", month.data.commits.toString())
 
                         APIFlow(month.data.commits.data1,"level_1")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_1"))
@@ -169,67 +174,35 @@ class CalendarFragment: Fragment() {
                 }
             }
         }//for문 끝
+    }
+
+    /*TODO: 상세 API*/
+    fun APIContent(){
+        /*FIXME: Token 수정*/
+        val call: Call<MonthCommitContentModel> = RetrofitCreator.service.getMonthCommitContent("token","20200119")
+        call.enqueue(
+            object : Callback<MonthCommitContentModel> {
+                override fun onFailure(call: Call<MonthCommitContentModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                }
+
+                override fun onResponse(
+                    call: Call<MonthCommitContentModel>,
+                    response: Response<MonthCommitContentModel>
+                ) {
+                    if(response.isSuccessful){
+                        val date = response.body()!!
+                        d("*+*+", date.message)
 
 
+                    }
+                }
+            }
+        )
     }
 
     companion object {
         fun newInstance(): CalendarFragment = CalendarFragment()
     }
 }
-
-//private class ApiSimulator : AsyncTask<Void, Void, List<CalendarDay>> {
-//
-//
-//    lateinit var Time_Result: Array<String>
-//
-//    constructor(Time_Result: Array<String>) {
-//        this.Time_Result = Time_Result
-//    }
-//
-//    override fun doInBackground(vararg p0: Void?): List<CalendarDay> {
-//        try {
-//            Thread.sleep(500)
-//        } catch (e: InterruptedException) {
-//            e.printStackTrace()
-//        }
-//
-//        val calendar = Calendar.getInstance()
-//        val dates = ArrayList<CalendarDay>()
-//
-//        /*특정날짜 달력에 점표시해주는곳*/
-//        /*월은 0이 1월 년,일은 그대로*/
-//        //string 문자열인 Time_Result 을 받아와서 ,를 기준으로짜르고 string을 int 로 변환
-//
-//        for (i in 0 until Time_Result.size) {
-//            val day = CalendarDay.today()
-//            val time = Time_Result[i].split(",")
-//            val year = Integer.parseInt(time[0])
-//            val month = Integer.parseInt(time[1])
-//            val dayy = Integer.parseInt(time[2])
-//
-//            dates.add(day)
-//            calendar.set(year, month - 1, dayy)
-//        }
-//
-//        return dates
-//    }
-//
-//    override fun onPostExecute(calendarDays: List<CalendarDay>) {
-//        super.onPostExecute(calendarDays)
-//
-////        if (isFinishing()) {
-////            return
-////        }
-//        calendarView!!.addDecorator(
-//            EventDecorator(
-//                Color.GREEN,
-//                calendarDays,
-//                Activity()
-//            )
-//        )
-//    }
-//
-//}
-//
 

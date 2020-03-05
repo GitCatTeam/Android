@@ -12,8 +12,6 @@ import com.yuxingxin.library.MultiRadioGroup
 import kotlinx.android.synthetic.main.activity_info4.*
 import kotlinx.android.synthetic.main.fragment_choose_cat3.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 

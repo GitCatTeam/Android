@@ -14,17 +14,13 @@ import kotlinx.android.synthetic.main.fragment_tu.*
 import android.R.attr.fragment
 import android.content.Intent
 import android.R.attr.fragment
+import android.util.Log
 
-
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class TuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     private var view_id: Int? = null
@@ -76,8 +72,12 @@ class TuFragment : Fragment() {
 
         tu_btn.setOnClickListener {
             //TODO: DialogFragment 종료
-            val tuDialog = TuDialogFragment()
-            val dialogFragment = fragment as TuDialogFragment
+            //val tuDialog = TuDialogFragment()
+            //val dialogFragment = fragment as TuDialogFragment
+            //tuDialog.onClick(it)
+            Log.e("error","되나 안되나?")
+
+
 
             //fragmentManager!!.beginTransaction().detach(tuDialog)
             //childFragmentManager?.beginTransaction()?.detach(tuDialog).commit()
@@ -86,6 +86,7 @@ class TuFragment : Fragment() {
         return view
 
     }
+
 
     companion object {
 

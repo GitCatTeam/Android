@@ -67,7 +67,6 @@ class TuDialogFragment : DialogFragment() {
     }
 
 
-
     companion object {
 
         @JvmStatic

@@ -19,7 +19,7 @@ interface GithubAPI {
 
     /*달력잔디_일별 커밋 내역*/
     @GET("calender/commit")
-    fun getMonthCommitContent(@Header("Authorization") token: String, @Query("date") date: String): Call<MonthCommitCountContentModel>
+    fun getMonthCommitContent(@Header("Authorization") token: String, @Query("date") date: String): Call<MonthCommitContentModel>
 
     /*월간레포트_목록*/
     @GET("monthly/list")
@@ -28,4 +28,8 @@ interface GithubAPI {
     /*월간레포트_상세*/
     @GET("monthly/detail")
     fun getMonthlyDetail(@Header("Authorization") token: String, @Query("id") id: Int):Call<MonthlyDetailModel>
+
+    /*고양이 선택*/
+    @GET("home/cats")
+    fun getCats(@Header("Authorization") token: String): Call<CatsModel>
 }

@@ -1,32 +1,32 @@
 package com.example.gitcat
 
+import android.util.Base64
+import java.nio.charset.Charset
+import java.security.InvalidAlgorithmParameterException
+import java.security.InvalidKeyException
+import java.security.NoSuchAlgorithmException
 import java.util.*
+import javax.crypto.BadPaddingException
 import javax.crypto.Cipher
+import javax.crypto.IllegalBlockSizeException
+import javax.crypto.NoSuchPaddingException
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
-object ChCrypto{
-    @JvmStatic fun aesEncrypt(v:String, secretKey:String) = AES256.encrypt(v, secretKey)
-    @JvmStatic fun aesDecrypt(v:String, secretKey:String) = AES256.decrypt(v, secretKey)
-}
+object ChCrypto {
+    @Throws(java.io.UnsupportedEncodingException::class, NoSuchAlgorithmException::class, NoSuchPaddingException::class, InvalidKeyException::class, InvalidAlgorithmParameterException::class, IllegalBlockSizeException::class, BadPaddingException::class)
+    fun AES_Decode(str: String): String {
+        val ivBytes : ByteArray= "yejithewonderful".toByteArray()
 
-private object AES256{
-    private val encorder = Base64.getEncoder()
-    private val decorder = Base64.getDecoder()
-    private fun cipher(opmode:Int, secretKey:String):Cipher{
-        if(secretKey.length != 32) throw RuntimeException("SecretKey length is not 32 chars")
-        val c = Cipher.getInstance("AES/CBC/PKCS5Padding")
-        val sk = SecretKeySpec(secretKey.toByteArray(Charsets.UTF_8), "AES")
-        val iv = IvParameterSpec(secretKey.substring(0, 16).toByteArray(Charsets.UTF_8))
-        c.init(opmode, sk, iv)
-        return c
-    }
-    fun encrypt(str:String, secretKey:String):String{
-        val encrypted = cipher(Cipher.ENCRYPT_MODE, secretKey).doFinal(str.toByteArray(Charsets.UTF_8))
-        return String(encorder.encode(encrypted))
-    }
-    fun decrypt(str:String, secretKey:String):String{
-        val byteStr = decorder.decode(str.toByteArray(Charsets.UTF_8))
-        return String(cipher(Cipher.DECRYPT_MODE, secretKey).doFinal(byteStr))
+        //val textBytes = Base64.getDecoder().decode(ivBytes)
+        //val textBytes = Base64.getDecoder().decode(str.toByteArray(Charsets.UTF_8))
+        val textBytes = android.util.Base64.decode(str,0)
+        //byte[] textBytes = str.getBytes("UTF-8");
+        val ivSpec = IvParameterSpec(ivBytes)
+        val newKey = SecretKeySpec(("huandyoonandyoungandheeisthebest").toByteArray(charset("UTF-8")), "AES")
+        val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
+        cipher.init(Cipher.DECRYPT_MODE, newKey, ivSpec)
+        return String(cipher.doFinal(textBytes), Charset.forName("UTF-8"))
+        //return String(cipher.doFinal(Base64.decode(str,Base64.DEFAULT)),charset("UTF-8"))
     }
 }

@@ -39,7 +39,8 @@ class ChartActivity : AppCompatActivity() {
         id=intent.getStringExtra("id").toInt()
         chartTitle.text = intent.getStringExtra("title")
         totalCommit.text = intent.getStringExtra("commit")
-        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI",id)
+        /*FIXME: Token 수정*/
+        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail("token",id)
         call.enqueue(
             object : Callback<MonthlyDetailModel> {
                 override fun onFailure(call: Call<MonthlyDetailModel>, t: Throwable) {

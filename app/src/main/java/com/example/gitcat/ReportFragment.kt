@@ -45,7 +45,8 @@ class ReportFragment : Fragment() {
         var rTotalCommit: String
         var rLanguage: String
 
-        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI")
+        /*FIXME: Token 수정*/
+        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList("token")
         call.enqueue(
             object : Callback<MonthlyListModel> {
                 override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {

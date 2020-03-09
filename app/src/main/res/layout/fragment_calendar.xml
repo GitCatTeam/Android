@@ -42,20 +42,22 @@
                 android:id="@+id/calendarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-<!--                <com.prolificinteractive.materialcalendarview.MaterialCalendarView-->
-<!--                    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--                    android:id="@+id/calendarView"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    app:mcv_selectionColor="#a9dbf0cb"-->
-<!--                    app:mcv_showOtherDates="defaults" />-->
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mcv_selectionColor="#FFFFFF"
+                        />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:paddingBottom="10dp">
 
                     <FrameLayout
                         android:layout_width="12dp"

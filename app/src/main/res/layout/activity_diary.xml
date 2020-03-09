@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="냥이 수집"
+            android:text="냥콜렉션"
             android:gravity="center"
             android:layout_centerVertical="true"
             android:textAlignment="center"

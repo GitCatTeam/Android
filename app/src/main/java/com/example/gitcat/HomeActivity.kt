@@ -6,12 +6,24 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_home.*
+import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
+import android.view.View
+import com.google.android.material.tabs.TabLayout
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class HomeActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
 
         //툴바 적용
         //setSupportActionBar(findViewById(R.id.toolbar))
@@ -42,6 +54,7 @@ class HomeActivity : AppCompatActivity() {
             }
             false
         }
+
     }
 
     override fun onBackPressed() {

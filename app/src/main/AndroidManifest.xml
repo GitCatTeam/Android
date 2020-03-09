@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SettingsActivity"></activity>
+        <activity android:name=".SettingsActivity" ></activity>
+        <activity android:name=".SettingsAccountActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".SettingsAlarmActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -33,7 +35,13 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Info4Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Info5Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -48,6 +56,13 @@
         <activity
             android:name=".DiaryActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -57,8 +57,6 @@
             app:layout_constraintVertical_chainStyle="spread"
             app:layout_constraintVertical_weight="1"/>
 
-
-
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
@@ -83,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:text="개" />
         </LinearLayout>
+
 
         <ImageView
             android:id="@+id/imageView4"

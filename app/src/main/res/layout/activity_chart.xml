@@ -27,9 +27,9 @@
             android:layout_centerVertical="true"/>
 
         <TextView
+            android:id="@+id/chartTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2020년 1월 레포트"
             android:textAlignment="center"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
@@ -69,11 +69,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="지난달 대비"
+                            android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/lastMonth"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+23"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <FrameLayout
@@ -91,11 +92,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="총 커밋수"
+                            android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/totalCommit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="88"
                             android:textColor="@color/colorPrimaryDark"/>
                     </LinearLayout>
 
@@ -114,11 +116,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="하루 평균"
+                            android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
+                            android:id="@+id/avg"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2.5"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 
 
@@ -152,6 +155,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/lineImg"
                         android:text="커밋수 통계"
+                        android:textColor="@color/colorTextDark"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -199,24 +203,26 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/pieImg"
                         android:text="사용 언어 비율"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/colorTextDark"/>
                 </LinearLayout>
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChart"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/pieImgText"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginStart="60dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                </com.github.mikephil.charting.charts.PieChart>
             </RelativeLayout>
 
 
@@ -248,7 +254,8 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/barImg"
                         android:text="기여 레파지토리"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/colorTextDark"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -268,6 +275,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -275,38 +284,85 @@
 
                 </com.github.mikephil.charting.charts.BarChart>
 
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="335dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/info_list"
+                android:paddingBottom="15dp">
+
                 <LinearLayout
+                    android:id="@+id/threeImgText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:id="@+id/barImgText2"
-                    android:layout_marginLeft="16dp">
+                    android:layout_margin= "16dp">
 
                     <ImageView
-                        android:id="@+id/barImg2"
+                        android:id="@+id/catImg"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
+                        app:srcCompat="@drawable/ic_report_cat"
                         android:layout_marginTop="2dp"
-                        app:srcCompat="@drawable/ic_report_repa"
-                        tools:srcCompat="@drawable/ic_report_repa" />
+                        tools:srcCompat="@drawable/ic_report_cat" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:layout_toEndOf="@+id/barImg2"
-                        android:text="레파지토리 상세 내역"
-                        android:textSize="12sp" />
-
+                        android:layout_toEndOf="@+id/catImg"
+                        android:text="이번달 세줄평"
+                        android:textSize="12sp"
+                        android:textColor="@color/colorTextDark"/>
                 </LinearLayout>
 
-                <RelativeLayout
+                <!--세개의 줄-->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/threeImgText"
+                    android:layout_marginLeft="22dp">
 
-                </RelativeLayout>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/three_text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:textColor="@color/colorTextDark"/>
 
+                    <FrameLayout
+                        android:layout_width="290dp"
+                        android:layout_height="1dp"
+                        android:background="@color/colorTextDark"/>
+
+                    <TextView
+                        android:id="@+id/three_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:textColor="@color/colorTextDark"/>
+
+                    <FrameLayout
+                        android:layout_width="290dp"
+                        android:layout_height="1dp"
+                        android:background="@color/colorTextDark"/>
+
+                    <TextView
+                        android:id="@+id/three_text3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10sp"
+                        android:textColor="@color/colorTextDark"/>
+
+                    <FrameLayout
+                        android:layout_width="290dp"
+                        android:layout_height="1dp"
+                        android:background="@color/colorTextDark"/>
+                </LinearLayout>
+
+            </RelativeLayout>
 
 
         </LinearLayout>

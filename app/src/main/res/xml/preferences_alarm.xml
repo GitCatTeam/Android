@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <SwitchPreference
+            android:title="앱 알림 받기"
+            android:summary="앱에서 보내는 다양한 푸시알림을 받습니다."
+            android:key="app_alarm"
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true"
+            android:defaultValue="false"/>
+
+        <ListPreference
+            android:title="벨소리"
+            android:key="app_alarm_list"
+            android:entries="@array/alarm"
+            android:entryValues="@array/alarm_values"
+            app:iconSpaceReserved="false"
+            android:enabled="false"
+            app:defaultValue="true"/>
+
+        <SwitchPreference
+            android:title="레포트 알림"
+            android:key="report_alarm"
+            android:summary="월간레포트가 발간될 때 푸시알림을 받습니다."
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true"/>
+
+</PreferenceScreen>

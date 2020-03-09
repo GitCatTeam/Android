@@ -18,7 +18,7 @@
         android:layout_weight="2">
 
         <TextView
-            android:id="@+id/tv_data_type"
+            android:id="@+id/reportTitle"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:textSize="16sp"

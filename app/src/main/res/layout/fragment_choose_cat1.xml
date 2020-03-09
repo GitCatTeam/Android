@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ChooseCat1Fragment">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="248dp"
+        android:padding="14dp"
+        android:background="@drawable/choose_cat_box">
+
+        <com.yuxingxin.library.MultiRadioGroup
+            android:id="@+id/radioGroupCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RadioGroup
+                android:id="@+id/radioGroup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                <RadioButton
+                    android:id="@+id/cat1"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_panda"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@+id/cat1">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/cat2"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_normal"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@+id/cat2"/>
+
+                <RadioButton
+                    android:id="@+id/cat3"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_cheeze"
+                    android:padding="5dp"
+                    android:text="@+id/cat3" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/cat4"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_nero"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@+id/cat4" />
+
+                <RadioButton
+                    android:id="@+id/cat5"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_panda"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@+id/cat5"/>
+
+                <RadioButton
+                    android:id="@+id/cat6"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/info_list"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/img_cat_normal"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@+id/cat6"/>
+            </RadioGroup>
+        </com.yuxingxin.library.MultiRadioGroup>
+    </ScrollView>
+</FrameLayout>

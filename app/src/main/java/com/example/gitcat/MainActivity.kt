@@ -29,6 +29,7 @@ import android.webkit.JavascriptInterface
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log.d
+import android.view.WindowManager
 import android.webkit.CookieSyncManager.createInstance
 import android.webkit.CookieSyncManager.getInstance
 import com.google.android.gms.tasks.OnCompleteListener
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_main)
 
         startButton.setOnClickListener{

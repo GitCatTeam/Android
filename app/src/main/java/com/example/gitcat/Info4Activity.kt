@@ -30,6 +30,7 @@ import java.net.URL
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.view.WindowManager
 
 class Info4Activity : AppCompatActivity(), OnDataPass{
 
@@ -37,6 +38,7 @@ class Info4Activity : AppCompatActivity(), OnDataPass{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info4)
 
         backButton.setOnClickListener{

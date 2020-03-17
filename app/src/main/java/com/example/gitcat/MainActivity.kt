@@ -34,6 +34,7 @@ import android.webkit.CookieSyncManager.createInstance
 import android.webkit.CookieSyncManager.getInstance
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
+import okhttp3.internal.userAgent
 import java.security.spec.AlgorithmParameterSpec
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
@@ -77,7 +78,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//TODO: 암호화 String 안받아짐....
 class WebPasser {
 
     private var mContext: Activity? = null
@@ -90,7 +90,32 @@ class WebPasser {
 
     @JavascriptInterface
     fun sendAuthInfo(datas: String?, msg: String?){
-        d("*+*+",datas!!+" "+msg!!)
+        d("dddddddsssddddddddd",datas!!)
+        val ivb = byteArrayOf(
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00
+        )
+        var textBytes : ByteArray = Base64.decode(datas!!,0)
+        var ivs = IvParameterSpec(ivb)
+        var newKey = SecretKeySpec(datas!!.toByteArray(), "AES")
+        val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
+        cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
+        val decryptedByteValue = cipher.doFinal(textBytes)
+        d("*+*+",decryptedByteValue.toString())
     }
 }
 //    private var mContext: Activity? = null
@@ -109,29 +134,5 @@ class WebPasser {
 //        d("*+*+", data)
 //    }
 
-//        val ivb = byteArrayOf(
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00,
-//            0x00
-//        )
-//        var textBytes : ByteArray = Base64.decode(datas!!,0)
-//        var ivs = IvParameterSpec(ivb)
-//        var newKey = SecretKeySpec(datas!!.toByteArray(), "AES")
-//        val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
-//        cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
-//        val decryptedByteValue = cipher.doFinal(textBytes)
-//        d("*+*+",decryptedByteValue.toString())
+
 

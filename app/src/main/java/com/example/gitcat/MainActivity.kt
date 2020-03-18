@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         startButton.setOnClickListener{
 
-            
+
             //화면 이동
 //            var intent = Intent(this,Info1Activity::class.java)
 //            startActivity(intent)
@@ -111,7 +111,7 @@ class WebPasser {
             0x00,
             0x00
         )
-        val secretkey: String = "huandyoonandyoungandheeisthebest"
+        val secretkey: String = "알아맞춰보세요^,^"
         var textBytes : ByteArray = Base64.decode(datas!!,0)
         var ivs = IvParameterSpec(ivb)
         var newKey = SecretKeySpec(secretkey.toByteArray(Charsets.UTF_8),"AES")

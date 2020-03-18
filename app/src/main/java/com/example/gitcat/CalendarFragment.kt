@@ -32,6 +32,7 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_calendar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,10 +48,10 @@ class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
 
-    var repoList = arrayListOf<Repository>(
-        Repository("레포지토리1"),
-        Repository("레포지토리2")
-    )
+//    var repoList = arrayListOf<Repository>(
+//        Repository("안녕",RepositoryDetail(("ddd","sss"),("aaa","yyy")))
+//    )
+
     lateinit var compositeDisposable: CompositeDisposable
 
     override fun onCreateView(
@@ -111,12 +112,11 @@ class CalendarFragment: Fragment() {
             APIStart(calendarView,"token",apimonth)
         }
 
-
         //여기서부터 RecyclerView
-        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
-        val listAdapter = RepositoryAdapter(activity!!,repoList)
-        repository_recyclerview.adapter = listAdapter
-        listAdapter.notifyDataSetChanged()
+//        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
+//        val listAdapter = RepositoryAdapter(activity!!,repoList)
+//        repository_recyclerview.adapter = listAdapter
+//        listAdapter.notifyDataSetChanged()
 
         return rootView
     }
@@ -178,6 +178,10 @@ class CalendarFragment: Fragment() {
 
     /*TODO: 상세 API*/
     fun APIContent(){
+
+        var repoName: String
+        var commit: List<RepositoryDetail>
+
         /*FIXME: Token 수정*/
         val call: Call<MonthCommitContentModel> = RetrofitCreator.service.getMonthCommitContent("token","20200119")
         call.enqueue(
@@ -194,6 +198,18 @@ class CalendarFragment: Fragment() {
                         val date = response.body()!!
                         d("*+*+", date.message)
 
+                        for(data in date.data.commits){
+                            //repoName = data.repoName
+                            //commit = data.commit
+
+                            //repoList.add(Repository(repoName,commit))
+                        }
+
+                        //여기서부터 RecyclerView
+//                        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
+//                        val listAdapter = RepositoryAdapter(activity!!,repoList)
+//                        repository_recyclerview.adapter = listAdapter
+//                        listAdapter.notifyDataSetChanged()
 
                     }
                 }

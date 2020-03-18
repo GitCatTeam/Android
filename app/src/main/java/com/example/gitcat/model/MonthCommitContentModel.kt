@@ -11,8 +11,17 @@ data class MonthCommitContentModel(
 )
 
 data class MonthCommitCountContentModel_data(
-    @SerializedName("result")
-    val result: List<MonthCommitCountContentModel_result>
+    @SerializedName("score")
+    val score : String,
+
+    @SerializedName("totalCommit")
+    val totalCommit: String,
+
+    @SerializedName("item")
+    val item: String,
+
+    @SerializedName("commits")
+    val commits: List<MonthCommitCountContentModel_result>
 )
 
 data class MonthCommitCountContentModel_result(

@@ -35,6 +35,7 @@ import android.webkit.CookieSyncManager.getInstance
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import okhttp3.internal.userAgent
+import okio.Utf8
 import java.security.spec.AlgorithmParameterSpec
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
@@ -49,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         startButton.setOnClickListener{
 
+            
             //화면 이동
 //            var intent = Intent(this,Info1Activity::class.java)
 //            startActivity(intent)
@@ -109,30 +111,15 @@ class WebPasser {
             0x00,
             0x00
         )
+        val secretkey: String = "huandyoonandyoungandheeisthebest"
         var textBytes : ByteArray = Base64.decode(datas!!,0)
         var ivs = IvParameterSpec(ivb)
-        var newKey = SecretKeySpec(datas!!.toByteArray(), "AES")
+        var newKey = SecretKeySpec(secretkey.toByteArray(Charsets.UTF_8),"AES")
         val cipher = Cipher.getInstance("AES/CBC/PKCS5Padding")
         cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
-        val decryptedByteValue = cipher.doFinal(textBytes)
-        d("*+*+",decryptedByteValue.toString())
+        val decryptedByteValue = String(cipher.doFinal(textBytes),Charsets.UTF_8)
+        d("*+*+",decryptedByteValue)
     }
 }
-//    private var mContext: Activity? = null
-//    private var mWebView: WebView? = null
-//
-//    fun WebPasser(c: Activity, w: WebView) {
-//        mContext = c
-//        mWebView = w
-//    }
-//
-//    @JavascriptInterface
-//    fun sendAuthInfo(datas: String?, msg: String) {
-//
-//        d("*+*+*+", datas!!)
-//        val data = ChCrypto.AES_Decode(datas!!)
-//        d("*+*+", data)
-//    }
-
 
 

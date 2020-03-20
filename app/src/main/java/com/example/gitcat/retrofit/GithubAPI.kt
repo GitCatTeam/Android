@@ -30,13 +30,13 @@ interface GithubAPI {
     ): Call<MonthCommitContentModel>
 
     /*월간레포트_목록*/
-    @GET("monthly/list")
+    @GET("report/list")
     fun getMonthlyList(
         @Header("Authorization") token: String
     ): Call<MonthlyListModel>
 
     /*월간레포트_상세*/
-    @GET("monthly/detail")
+    @GET("report/detail")
     fun getMonthlyDetail(
         @Header("Authorization") token: String,
         @Query("id") id: Int

@@ -48,9 +48,10 @@ class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
 
-//    var repoList = arrayListOf<Repository>(
-//        Repository("안녕",RepositoryDetail(("ddd","sss"),("aaa","yyy")))
-//    )
+    var repoList = arrayListOf<Repository>(
+        Repository("안녕",listOf(RepositoryDetail("ddd","sss"),RepositoryDetail("ddd2","sss2"))),
+        Repository("낄낄",listOf(RepositoryDetail("ㄴㄴㄴ","ㅂㅂㅂ"),RepositoryDetail("ㄴㄴㄴ2","ㅂㅂㅂ2")))
+    )
 
     lateinit var compositeDisposable: CompositeDisposable
 
@@ -113,10 +114,11 @@ class CalendarFragment: Fragment() {
         }
 
         //여기서부터 RecyclerView
-//        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
-//        val listAdapter = RepositoryAdapter(activity!!,repoList)
-//        repository_recyclerview.adapter = listAdapter
-//        listAdapter.notifyDataSetChanged()
+
+        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
+        val listAdapter = RepositoryAdapter(activity!!,repoList)
+        repository_recyclerview.adapter = listAdapter
+        listAdapter.notifyDataSetChanged()
 
         return rootView
     }

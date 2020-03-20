@@ -48,9 +48,21 @@ class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
 
-    var repoList = arrayListOf<Repository>(
-        Repository("안녕",listOf(RepositoryDetail("ddd","sss"),RepositoryDetail("ddd2","sss2"))),
-        Repository("낄낄",listOf(RepositoryDetail("ㄴㄴㄴ","ㅂㅂㅂ"),RepositoryDetail("ㄴㄴㄴ2","ㅂㅂㅂ2")))
+    var repoList = arrayListOf(
+        Repository(
+            "안녕",
+            listOf(
+                RepositoryDetail("ddd","sss"),
+                RepositoryDetail("ddd2","sss2")
+            )
+        ),
+        Repository(
+            "낄낄",
+            listOf(
+                RepositoryDetail("ㄴㄴㄴ","ㅂㅂㅂ"),
+                RepositoryDetail("ㄴㄴㄴ2","ㅂㅂㅂ2")
+            )
+        )
     )
 
     lateinit var compositeDisposable: CompositeDisposable

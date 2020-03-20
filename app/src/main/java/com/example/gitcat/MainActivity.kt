@@ -98,7 +98,7 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
             0x00,
             0x00
         )
-        val secretkey: String = "비밀이지롱"
+        val secretkey: String = "huandyoonandyoungandheeisthebest"
         var textBytes : ByteArray = Base64.decode(datas!!,0)
         var ivs = IvParameterSpec(ivb)
         var newKey = SecretKeySpec(secretkey.toByteArray(Charsets.UTF_8),"AES")

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RepositoryDetailAdapter(private val context: Context, val repoDetailList: List<RepositoryDetail>) : RecyclerView.Adapter<RepositoryDetailViewHolder>() {
+class RepositoryDetailAdapter(private val context: Context, var repoDetailList: List<RepositoryDetail>) : RecyclerView.Adapter<RepositoryDetailViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryDetailViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val view = layoutInflater.inflate(R.layout.repository_commit_data_item_detail,parent,false)

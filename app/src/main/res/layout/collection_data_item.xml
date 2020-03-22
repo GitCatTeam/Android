@@ -7,13 +7,14 @@
     android:layout_margin="8dp">
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/collectionMedal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/img_medal" />
+        app:srcCompat="@drawable/img_medal"
+        android:visibility="gone"/>
 
     <ImageView
-        android:id="@+id/diaryImg"
+        android:id="@+id/collectionImg"
         android:layout_width="128dp"
         android:layout_height="112dp"
         android:layout_gravity="center"
@@ -38,15 +39,6 @@
             android:textColor="@color/colorTextDark"
             android:textSize="10sp" />
 
-        <TextView
-            android:id="@+id/collectionMajor"
-            android:layout_width="match_parent"
-            android:layout_height="14dp"
-            android:background="@drawable/textlines"
-            android:cursorVisible="false"
-            android:text="전공:"
-            android:textColor="@color/colorTextDark"
-            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/collectionDoing"

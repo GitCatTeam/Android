@@ -3,35 +3,34 @@ package com.example.gitcat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Log.d
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gitcat.model.CatsCollectionModel
 import com.example.gitcat.retrofit.RetrofitCreator
-import kotlinx.android.synthetic.main.activity_diary.*
+import kotlinx.android.synthetic.main.activity_collection.*
+import kotlinx.android.synthetic.main.collection_data_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DiaryActivity : AppCompatActivity() {
+class CollectionActivity : AppCompatActivity() {
 
-    var diaryList = arrayListOf<Diary>(
-        Diary("냥이","Java","우수한 성적으로 대기업 취직"),
-        Diary("냥냥","HTML","졸업 후 취업을 포기하고 치킨집 운영"),
-        Diary("철수","CSS","우수한 성적으로 카카오 들어감"),
-        Diary("영희","Kotlin","성공한 개발자가 됨"),
-        Diary("깃캣","C","서울역 길거리에 앉아버림"),
-        Diary("후후","Swift","우수한 성적으로 대기업 취직")
-    )
+    var collectionList = arrayListOf<Collection>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_diary)
+        setContentView(R.layout.activity_collection)
 
         backButton.setOnClickListener {
             onBackPressed()
         }
 
+        var cName:String = ""
+        var cDoing:String = ""
+
+        /*FIXME: Token 수정*/
         val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection("token")
         call.enqueue(
             object : Callback<CatsCollectionModel> {
@@ -46,17 +45,24 @@ class DiaryActivity : AppCompatActivity() {
                     if(response.isSuccessful){
                         val data = response.body()!!
 
+                        for(c in data.data){
+                            cName = "- 이름 : "+c.name
+                            cDoing = "- "+c.endingMent
+                            collectionList.add(Collection(cName,cDoing,c.isMedal,c.img))
+                        }
 
+                        val collection_recyclerview = findViewById(R.id.collection_recyclerview) as RecyclerView
+                        val listAdapter = CollectionAdapter(this@CollectionActivity,collectionList)
+                        collection_recyclerview.adapter = listAdapter
+                        collection_recyclerview.layoutManager = GridLayoutManager(this@CollectionActivity,2)
+
+                        listAdapter.notifyDataSetChanged()
                     }
                 }
             }
         )
-        val diary_recyclerview = findViewById(R.id.diary_recyclerview) as RecyclerView
-        val listAdapter = DiaryAdapter(this,diaryList)
-        diary_recyclerview.adapter = listAdapter
-        diary_recyclerview.layoutManager = GridLayoutManager(this,2)
 
-        listAdapter.notifyDataSetChanged()
+
 
     }
 }

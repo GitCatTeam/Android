@@ -2,10 +2,16 @@ package com.example.gitcat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gitcat.model.CatsCollectionModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_diary.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DiaryActivity : AppCompatActivity() {
 
@@ -26,11 +32,28 @@ class DiaryActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        val diary_recyclerview = findViewById(R.id.diary_recyclerview) as RecyclerView
+        val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection("token")
+        call.enqueue(
+            object : Callback<CatsCollectionModel> {
+                override fun onFailure(call: Call<CatsCollectionModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                }
 
+                override fun onResponse(
+                    call: Call<CatsCollectionModel>,
+                    response: Response<CatsCollectionModel>
+                ) {
+                    if(response.isSuccessful){
+                        val data = response.body()!!
+
+
+                    }
+                }
+            }
+        )
+        val diary_recyclerview = findViewById(R.id.diary_recyclerview) as RecyclerView
         val listAdapter = DiaryAdapter(this,diaryList)
         diary_recyclerview.adapter = listAdapter
-
         diary_recyclerview.layoutManager = GridLayoutManager(this,2)
 
         listAdapter.notifyDataSetChanged()

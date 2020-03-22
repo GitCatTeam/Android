@@ -112,12 +112,26 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/noCommitText"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="커밋 기록이 없습니다!"
+                android:textColor="#c0c0c0"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"/>
+
             <LinearLayout
+                android:id="@+id/commitLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 android:layout_marginTop="12dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <!--오늘의 커밋-->
                 <LinearLayout
@@ -164,9 +178,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/commit_score"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="+3"
+                                android:text="0"
                                 android:textSize="32sp" />
                         </LinearLayout>
 
@@ -191,9 +206,10 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/commit_totalCommit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="88"
+                                android:text="0"
                                 android:textColor="@color/colorTextDark"
                                 android:textSize="32sp" />
                         </LinearLayout>
@@ -219,6 +235,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/commit_item"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="없음" />
@@ -259,6 +276,7 @@
                         android:background="#FFFFFF"
                         android:layout_marginBottom="70dp"
                         android:gravity="center">
+
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/repository_recyclerview"

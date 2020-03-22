@@ -47,4 +47,10 @@ interface GithubAPI {
     fun getCats(
         @Header("Authorization") token: String
     ): Call<CatsModel>
+
+    /*냥콜렉션*/
+    @GET("collection/list")
+    fun getCatsCollection(
+        @Header("Authorization") token: String
+    ): Call<CatsCollectionModel>
 }

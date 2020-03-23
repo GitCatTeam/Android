@@ -8,18 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-
 import android.util.Log
-import android.util.Log.d
-import android.util.Log.e
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.util.*
-import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 import android.widget.Toast
 import com.example.gitcat.model.MonthCommitContentModel
@@ -28,8 +19,6 @@ import com.example.gitcat.retrofit.GithubAPI
 import com.example.gitcat.retrofit.RetrofitCreator
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -37,9 +26,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 //var calendarView: MaterialCalendarView? = null
@@ -48,22 +34,7 @@ class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
 
-    var repoList = arrayListOf(
-        Repository(
-            "안녕",
-            listOf(
-                RepositoryDetail("ddd","sss"),
-                RepositoryDetail("ddd2","sss2")
-            )
-        ),
-        Repository(
-            "낄낄",
-            listOf(
-                RepositoryDetail("ㄴㄴㄴ","ㅂㅂㅂ"),
-                RepositoryDetail("ㄴㄴㄴ2","ㅂㅂㅂ2")
-            )
-        )
-    )
+    var repoList = arrayListOf<Repository>()
 
     lateinit var compositeDisposable: CompositeDisposable
 
@@ -89,19 +60,35 @@ class CalendarFragment: Fragment() {
         APIStart(calendarView,"token",ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
-            val Year = date.year
-            val Month = date.month
-            val Day = date.day
 
-            Log.i("Now date", Year.toString() + "")
-            Log.i("Now date", Month.toString() + "")
-            Log.i("Now date", Day.toString() + "")
+            val Year = date.year.toString()
+            val Month = date.month.toString()
+            val Day = date.day.toString()
+            var dates : String = Year
 
-            val shot_Day = "$Year,$Month,$Day"
+            if(date.month<10){
+                dates += "0"+Month
+                if(date.day<10){
+                    dates += "0"+Day
+                }
+                else{
+                    dates += Day
+                }
+            }else{
+                dates += Month
+                if(date.day<10){
+                    dates += "0"+Day
+                }
+                else{
+                    dates += Day
+                }
+            }
+            //TODO: 누른 날짜만 선택되기
+            //calendarView.removeDecorator(CalendarSelectedDecorator(calendarDay,activity!!))
+            //calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
 
-            APIContent()
-            
-            //TODO: API 붙이기
+            /*FIXME: Token 수정*/
+            APIContent("token",dates)
 
             calendarView?.clearSelection()
 
@@ -124,13 +111,6 @@ class CalendarFragment: Fragment() {
             /*FIXME: Token 수정*/
             APIStart(calendarView,"token",apimonth)
         }
-
-        //여기서부터 RecyclerView
-
-        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
-        val listAdapter = RepositoryAdapter(activity!!,repoList)
-        repository_recyclerview.adapter = listAdapter
-        listAdapter.notifyDataSetChanged()
 
         return rootView
     }
@@ -167,6 +147,7 @@ class CalendarFragment: Fragment() {
         )
     }
 
+    /*날짜 계산*/
     fun APIFlow(array: ArrayList<String>, level: String){
         for(date in array){
 
@@ -190,18 +171,20 @@ class CalendarFragment: Fragment() {
         }//for문 끝
     }
 
-    /*TODO: 상세 API*/
-    fun APIContent(){
+    /*달력 상세 API*/
+    fun APIContent(token: String, dates:String){
 
-        var repoName: String
-        var commit: List<RepositoryDetail>
+        var repoName: String = ""
+        var time: String
+        var message: String
 
-        /*FIXME: Token 수정*/
-        val call: Call<MonthCommitContentModel> = RetrofitCreator.service.getMonthCommitContent("token","20200119")
+        val call: Call<MonthCommitContentModel> = RetrofitCreator.service.getMonthCommitContent(token,dates)
         call.enqueue(
             object : Callback<MonthCommitContentModel> {
                 override fun onFailure(call: Call<MonthCommitContentModel>, t: Throwable) {
-                    Log.e("*+*+", "error: $t")
+                    commitLayout.visibility = View.GONE
+                    noCommitText.visibility = View.VISIBLE
+                    noCommitText.text = "오류가 발생하였습니다. 관리자에게 문의해주세요!"
                 }
 
                 override fun onResponse(
@@ -209,23 +192,42 @@ class CalendarFragment: Fragment() {
                     response: Response<MonthCommitContentModel>
                 ) {
                     if(response.isSuccessful){
+                        commitLayout.visibility = View.VISIBLE
+                        noCommitText.visibility = View.GONE
+
                         val date = response.body()!!
-                        d("*+*+", date.message)
 
-                        for(data in date.data.commits){
-                            //repoName = data.repoName
-                            //commit = data.commit
+                        if(date.data.commits.isEmpty()){//커밋이 없는 날
+                            commitLayout.visibility = View.GONE
+                            noCommitText.visibility = View.VISIBLE
+                        }else{
+                            repoList.clear()
+                            commitLayout.visibility = View.VISIBLE
+                            noCommitText.visibility = View.GONE
 
-                            //repoList.add(Repository(repoName,commit))
-                        }
+                            commit_score.text = date.data.score
+                            commit_totalCommit.text = date.data.totalCommit
+                            commit_item.text = date.data.item
 
-                        //여기서부터 RecyclerView
-//                        repository_recyclerview.layoutManager = LinearLayoutManager(activity)
-//                        val listAdapter = RepositoryAdapter(activity!!,repoList)
-//                        repository_recyclerview.adapter = listAdapter
-//                        listAdapter.notifyDataSetChanged()
+                            for(data in date.data.commits){
+                                var commitList= arrayListOf<RepositoryDetail>()
+                                repoName = data.repoName
+                                //commit = data.commit
+                                for(commit in data.commit){
+                                    time = commit.time
+                                    message = commit.message
+                                    commitList.add(RepositoryDetail(time,message))
+                                }
+                                repoList.add(Repository(repoName,commitList))
+                            }
 
-                    }
+                            //여기서부터 RecyclerView
+                            repository_recyclerview.layoutManager = LinearLayoutManager(activity)
+                            val listAdapter = RepositoryAdapter(activity!!,repoList)
+                            repository_recyclerview.adapter = listAdapter
+                            listAdapter.notifyDataSetChanged()
+                        }//commit 비어있지 않을 때(else)
+                    }//response success end
                 }
             }
         )

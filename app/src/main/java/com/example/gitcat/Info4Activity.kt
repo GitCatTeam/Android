@@ -7,10 +7,6 @@ import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log.d
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.yuxingxin.library.MultiRadioGroup
@@ -30,7 +26,10 @@ import java.net.URL
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.view.LayoutInflater
+import android.view.View
 import android.view.WindowManager
+import android.widget.*
 
 class Info4Activity : AppCompatActivity(){
 
@@ -41,6 +40,14 @@ class Info4Activity : AppCompatActivity(){
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info4)
 
+        val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2)
+        vp_information_cat.adapter = fragmentAdapter
+        tl_information_cat.setupWithViewPager(vp_information_cat)
+
+        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)
+
+        tl_information_cat.getTabAt(0)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_basic) as RelativeLayout
+        tl_information_cat.getTabAt(1)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_special) as RelativeLayout
     }
 
 }

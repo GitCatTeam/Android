@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="함께 할 고양이를 선택해주세요!"
+        android:textSize="20sp"
         android:textColor="@color/colorTextDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,37 +35,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
+        android:textSize="12sp"
         android:textColor="@color/colorTextDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+        android:id="@+id/tl_information_cat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="@+id/vp_information_cat"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/viewPager"
-        app:layout_constraintTop_toBottomOf="@+id/txt_content">
+        app:layout_constraintStart_toStartOf="@+id/vp_information_cat"
+        app:layout_constraintTop_toBottomOf="@+id/txt_content"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/colorLightBlue"
+        app:tabTextColor="@color/colorLightGrey">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기본" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="스페셜" />
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/vp_information_cat"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/tl_information_cat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

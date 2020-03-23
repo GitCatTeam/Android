@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
+    <RelativeLayout
+        android:id="@+id/nav_choose_cat_basic"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/choose_cat_tab_color">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="13sp"
+            android:textColor="@color/colorLightGrey"
+            android:text="기본"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/nav_choose_cat_special"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/choose_cat_tab_color"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="13sp"
+            android:textColor="@color/colorLightGrey"
+            android:text="스페셜"/>
+    </RelativeLayout>
+</LinearLayout>

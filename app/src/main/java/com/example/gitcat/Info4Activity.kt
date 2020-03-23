@@ -7,10 +7,6 @@ import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log.d
-import android.widget.ImageView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayout
 import com.yuxingxin.library.MultiRadioGroup
@@ -30,99 +26,28 @@ import java.net.URL
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.view.LayoutInflater
+import android.view.View
+import android.view.WindowManager
+import android.widget.*
 
-class Info4Activity : AppCompatActivity(), OnDataPass{
+class Info4Activity : AppCompatActivity(){
 
     private var catId: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info4)
 
-        backButton.setOnClickListener{
-            onBackPressed()
-        }
+        val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2)
+        vp_information_cat.adapter = fragmentAdapter
+        tl_information_cat.setupWithViewPager(vp_information_cat)
 
-        //초기화
-        buttonGo.isEnabled = false
+        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)
 
-        //탭 이벤트
-        ////탭 사이 벌리기
-        val tab = tabLayout.getChildAt(0) as ViewGroup
-        for (i in 0 until tab.childCount - 1) {
-            val v = tab.getChildAt(i)
-            val params = v.layoutParams as ViewGroup.MarginLayoutParams
-            params.rightMargin = 20
-        }
-
-        val adapter = ChooseCatAdapter(supportFragmentManager, tabLayout.tabCount)
-        pager.adapter = adapter
-
-        pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabReselected(p0: TabLayout.Tab?) {}
-            override fun onTabUnselected(p0: TabLayout.Tab?) {}
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                pager.currentItem = tab!!.position
-            }
-
-        })
-
-        /*API*/
-        val call: Call<CatsModel> = RetrofitCreator.service.getCats("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJ5ZWppOTE3NSIsImlhdCI6MTU4MjY5ODA3MTk0NiwiZXhwIjoxNTgyNzg0NDcxOTQ2fQ.v6vUTmcT3EQblA2sU8oe8kBYnNc0srCHeNtuQSspUmI")
-        call.enqueue(
-            object : Callback<CatsModel> {
-                override fun onFailure(call: Call<CatsModel>, t: Throwable) {
-                    Log.e("*+*+", "error: $t")
-                }
-
-                override fun onResponse(
-                    call: Call<CatsModel>,
-                    response: Response<CatsModel>
-                ) {
-                    if(response.isSuccessful){
-                        val cat = response.body()!!
-                        d("*+*+", cat.message)
-
-                        for(data in cat.data.common){
-                            var img = data.profileImg
-
-                        }
-
-                    }
-                }
-            }
-        )
-
-        //다음 버튼 누르면
-        buttonGo.setOnClickListener{
-            //FIXME: d("***",catId.toString()) 로 넘겨받기~
-            //화면 이동
-            var intent = Intent(this,Info5Activity::class.java)
-            startActivity(intent)
-        }
-
-    }
-
-    override fun onDataPass(catId: Int) {
-        d("*+*+",""+catId)
-        this.catId = catId
-        if(catId != 0){
-            //버튼 활성화
-            buttonGo.isEnabled = true
-            buttonGo.setBackgroundResource(R.drawable.info_next_after)
-        }
-    }
-
-    fun drawableFromUrl(url: String): Drawable {
-        var x: Bitmap
-
-        var connection = URL(url).openConnection() as HttpURLConnection
-        connection.connect()
-        val input = connection.inputStream
-
-        x = BitmapFactory.decodeStream(input)
-        return BitmapDrawable(Resources.getSystem(), x)
+        tl_information_cat.getTabAt(0)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_basic) as RelativeLayout
+        tl_information_cat.getTabAt(1)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_special) as RelativeLayout
     }
 
 }

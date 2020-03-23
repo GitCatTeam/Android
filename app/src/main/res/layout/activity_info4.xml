@@ -7,136 +7,61 @@
     tools:context=".Info4Activity"
     android:background="#FFFFFF">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/ic_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
-
-    <TextView
-        android:id="@+id/textView5"
+    <ImageView
+        android:id="@+id/img_back_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="함께 할 고양이를 선택해주세요!"
-        android:textColor="@color/colorTextDark"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginBottom="40dp"
-        android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
         android:textColor="@color/colorTextDark"
-        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
-
-    <LinearLayout
-        android:id="@+id/tabAndCatLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:tabIndicator="@drawable/choose_cat_tab_color"
-            app:tabBackground="@drawable/choose_cat_tab_color"
-            app:tabSelectedTextColor="@color/colorPrimaryDark"
-            app:tabTextColor="#c0c0c0"
-            app:tabMode="scrollable">
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="기본"/>
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스페셜" />
-
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이벤트" />
-        </com.google.android.material.tabs.TabLayout>
-
-        <RelativeLayout
-            android:id="@+id/radioLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="13dp"
-            android:background="@drawable/choose_cat_container"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout">
-
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="277dp"
-                android:layout_height="248dp"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
-
-        </RelativeLayout><!--Container-->
-
-    </LinearLayout><!--Tab & Container-->
-
-    <Button
-        android:id="@+id/buttonGo"
-        android:layout_width="136dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="82dp"
-        android:background="@drawable/info_next"
-        android:text="다음으로"
-        android:enabled="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabAndCatLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/img_back_btn" />
 
     <TextView
+        android:id="@+id/txt_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="4/5"
-        android:textColor="#c0c0c0"
+        android:layout_marginTop="8dp"
+        android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/colorTextDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGo"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_information_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/vp_information_cat"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/vp_information_cat"
+        app:layout_constraintTop_toBottomOf="@+id/txt_content"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/colorLightBlue"
+        app:tabTextColor="@color/colorLightGrey">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_information_cat"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tl_information_cat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

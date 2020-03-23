@@ -7,10 +7,8 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 class ChooseCatAdapter(fm: FragmentManager, private var tabCount: Int) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment {
         when(position){
-            0 -> return ChooseCat1Fragment()
-            1 -> return ChooseCat2Fragment()
-            2 -> return ChooseCat3Fragment()
-            else -> return ChooseCat1Fragment()
+            0 -> return BasicCatFragment()
+            else -> return SpecialCatFragment()
         }
     }
 

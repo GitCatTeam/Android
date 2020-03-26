@@ -9,10 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import android.util.Log
+import android.util.Log.d
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.gitcat.model.MonthCommitContentModel
 import com.example.gitcat.model.MonthCommitCountModel
 import com.example.gitcat.retrofit.GithubAPI
@@ -47,6 +50,7 @@ class CalendarFragment: Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
+        val loading = rootView.findViewById<ImageView>(R.id.loading_img)
         var apimonth : String = ""
         var calendarDay: CalendarDay = CalendarDay.today()
         var ymToday : String
@@ -56,11 +60,16 @@ class CalendarFragment: Fragment() {
         else{
             ymToday = calendarDay.year.toString()+"0"+calendarDay.month.toString()
         }
+
+        Glide.with(this@CalendarFragment).load(R.raw.gif_loading).into(loading)
+
+
         /*FIXME: Token 수정*/
-        APIStart(calendarView,"token",ymToday)
+        d("*+*+*+",ymToday)
+        APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
-
+            loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             val Year = date.year.toString()
             val Month = date.month.toString()
             val Day = date.day.toString()
@@ -87,8 +96,10 @@ class CalendarFragment: Fragment() {
             //calendarView.removeDecorator(CalendarSelectedDecorator(calendarDay,activity!!))
             //calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
 
+
+
             /*FIXME: Token 수정*/
-            APIContent("token",dates)
+            APIContent("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",dates)
 
             calendarView?.clearSelection()
 
@@ -109,7 +120,7 @@ class CalendarFragment: Fragment() {
             }
 
             /*FIXME: Token 수정*/
-            APIStart(calendarView,"token",apimonth)
+            APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",apimonth)
         }
 
         return rootView
@@ -192,6 +203,9 @@ class CalendarFragment: Fragment() {
                     response: Response<MonthCommitContentModel>
                 ) {
                     if(response.isSuccessful){
+
+                        this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
+
                         commitLayout.visibility = View.VISIBLE
                         noCommitText.visibility = View.GONE
 

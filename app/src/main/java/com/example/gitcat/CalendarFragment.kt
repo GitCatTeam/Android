@@ -66,7 +66,7 @@ class CalendarFragment: Fragment() {
 
         /*FIXME: Token 수정*/
         d("*+*+*+",ymToday)
-        APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",ymToday)
+        APIStart(calendarView,"token",ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
@@ -99,7 +99,7 @@ class CalendarFragment: Fragment() {
 
 
             /*FIXME: Token 수정*/
-            APIContent("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",dates)
+            APIContent("token",dates)
 
             calendarView?.clearSelection()
 
@@ -120,7 +120,7 @@ class CalendarFragment: Fragment() {
             }
 
             /*FIXME: Token 수정*/
-            APIStart(calendarView,"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJDaG95b29ueW91bmc5OCIsImlhdCI6MTU4NDQyMzUxMjQ2MSwiZXhwIjoxNTg0NTA5OTEyNDYxfQ.I_vbFs8rN-Z1HiY9mr4brJ9wrvjJHT4Ln6zaZhuIaCg",apimonth)
+            APIStart(calendarView,"token",apimonth)
         }
 
         return rootView

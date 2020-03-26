@@ -58,9 +58,9 @@ class TuFragment : Fragment() {
         else if(view_id==2){
             tu_image.setImageDrawable(activity!!.getDrawable(R.drawable.img_tutorial_3))
             tu_num.text = "03"
-            tu_title.text = "달력과 레포트로 나의 개발 돌아보기"
+            tu_title.text = "달력과 리포트로 나의 개발 돌아보기"
             tu_content.text = "하단의 커밋달력을 통해 일일 커밋 현황을,\n" +
-                    "레포트를 통해 매달 개발 통걔를 확인할 수 있어요."
+                    "레포트를 통해 매달 개발 통계를 확인할 수 있어요."
         }
         else if(view_id==3){
             tu_image.setImageDrawable(activity!!.getDrawable(R.drawable.img_tutorial_4))

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="30dp">
+    android:layout_height="wrap_content">
     <RelativeLayout
         android:id="@+id/nav_choose_cat_basic"
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
             android:text="기본"/>
     </RelativeLayout>
@@ -22,13 +22,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/choose_cat_tab_color"
-        >
+        android:background="@drawable/choose_cat_tab_color">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
             android:text="스페셜"/>
     </RelativeLayout>

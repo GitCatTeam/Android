@@ -44,11 +44,16 @@ class Info4Activity : AppCompatActivity(){
         vp_information_cat.adapter = fragmentAdapter
         tl_information_cat.setupWithViewPager(vp_information_cat)
 
-        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)
+//TODO: tab margin 주기
 
-        tl_information_cat.getTabAt(0)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_basic) as RelativeLayout
-        tl_information_cat.getTabAt(1)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_special) as RelativeLayout
+//        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_NFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)
+//
+//
+//        tl_information_cat.getTabAt(0)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_basic) as RelativeLayout
+//        tl_information_cat.getTabAt(1)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_special) as RelativeLayout
     }
 
 }
+
+
 

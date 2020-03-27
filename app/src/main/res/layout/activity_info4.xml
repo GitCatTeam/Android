@@ -43,25 +43,23 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_information_cat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/vp_information_cat"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/vp_information_cat"
-        app:layout_constraintTop_toBottomOf="@+id/txt_content"
-        app:tabIndicatorHeight="0dp"
+        app:tabBackground="@drawable/choose_cat_tab_color"
+        app:tabTextColor="@color/colorLightGrey"
         app:tabSelectedTextColor="@color/colorLightBlue"
-        app:tabTextColor="@color/colorLightGrey">
-
+        android:layout_marginHorizontal="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_content"
+        app:tabIndicatorHeight="0dp">
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_information_cat"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tl_information_cat" />
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/tl_information_cat"
+        tools:layout_editor_absoluteX="60dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

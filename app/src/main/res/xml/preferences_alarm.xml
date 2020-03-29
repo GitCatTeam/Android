@@ -20,9 +20,9 @@
             app:defaultValue="true"/>
 
         <SwitchPreference
-            android:title="레포트 알림"
+            android:title="리포트 알림"
             android:key="report_alarm"
-            android:summary="월간레포트가 발간될 때 푸시알림을 받습니다."
+            android:summary="월간리포트가 발간될 때 푸시알림을 받습니다."
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             app:allowDividerAbove="true"/>

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="175dp"
-    android:background="#FFFFFF">
+    android:layout_height="125dp"
+    android:background="@drawable/dev_data_bottom_line">
 
     <ImageView
         android:id="@+id/dev_img"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_marginLeft="15dp"
         android:background="@drawable/info_list"
         android:layout_gravity="center"/>
 
@@ -15,7 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp">
         <TextView
             android:id="@+id/dev_role"
             android:layout_width="wrap_content"

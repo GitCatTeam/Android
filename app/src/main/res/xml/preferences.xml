@@ -40,7 +40,11 @@
             android:title="개발자 소개"
             android:key="etc_dev"
             app:allowDividerBelow="true"
-            app:iconSpaceReserved="false"/>
+            app:iconSpaceReserved="false">
+            <intent
+                android:targetPackage="com.example.gitcat"
+                android:targetClass="com.example.gitcat.SettingsDevActivity"/>
+        </Preference>
 
         <Preference
             android:title="앱 평점주기 / 리뷰"

@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/asset_main_x" />
+        app:srcCompat="@drawable/img_logo_blue" />
 
     <TextView
         android:id="@+id/textView"
@@ -39,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_main_cat_x" />
+        app:srcCompat="@drawable/img_cat_start" />
 
     <Button
         android:id="@+id/startButton"

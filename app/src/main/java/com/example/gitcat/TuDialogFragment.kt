@@ -1,15 +1,13 @@
 package com.example.gitcat
 
-import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
+import android.widget.LinearLayout
 import androidx.fragment.app.DialogFragment
-import android.util.DisplayMetrics
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
@@ -36,13 +34,16 @@ class TuDialogFragment : DialogFragment() {
         dialog?.window?.requestFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog?.setCancelable(false)
-        dialog?.window?.setGravity(Gravity.CENTER)
+        dialog?.window?.setGravity(Gravity.LEFT or Gravity.TOP)
 
-        val metrics = resources.displayMetrics
-        val screenWidth = (metrics.widthPixels * 0.95).toInt()
-        val screenHeight = (metrics.heightPixels * 0.95).toInt()
 
-        dialog?.window?.setLayout(screenWidth,screenHeight)
+
+//        val metrics = resources.displayMetrics
+//        val screenWidth = (metrics.widthPixels * 0.95).toInt()
+//        val screenHeight = (metrics.heightPixels * 0.95).toInt()
+
+//        dialog?.window?.setLayout(screenWidth,screenHeight)
+        //dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
 
         val tuLayout = view.findViewById<View>(R.id.tu_layout)
         tuLayout?.bringToFront()

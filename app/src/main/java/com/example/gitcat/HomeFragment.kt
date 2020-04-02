@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
@@ -39,7 +40,9 @@ class HomeFragment : Fragment() {
 
         //튜토리얼
         val tuDialog = TuDialogFragment()
+        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
         tuDialog.show(fragmentManager!!,"addons_fragment")
+
 
         //하단 탭 버튼 리스너
         view.diaryIcon.setOnClickListener { view ->

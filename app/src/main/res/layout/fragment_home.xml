@@ -21,26 +21,31 @@
             app:layout_constraintVertical_weight="1"
             tools:layout_editor_absoluteX="16dp">
 
-            <ImageButton
-                android:id="@+id/diaryIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="#FFFFFF"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="60dp"
-                android:src="@drawable/ic_diary"/>
+                android:layout_centerInParent="true">
 
-            <ImageButton
-                android:id="@+id/settingsIcon"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="#FFFFFF"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/ic_set_ios" />
+                <ImageView
+                    android:id="@+id/diaryIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_diary" />
+
+                <ImageView
+                    android:id="@+id/settingsIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_set_ios" />
+
+            </LinearLayout>
+
         </RelativeLayout>
 
         <TextView

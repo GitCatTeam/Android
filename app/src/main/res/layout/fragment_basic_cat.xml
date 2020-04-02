@@ -2,14 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".BasicCatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_choose_cat_basic"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorTextDark"
-        android:text="basic" />
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>

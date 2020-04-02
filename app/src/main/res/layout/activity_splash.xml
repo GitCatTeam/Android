@@ -16,6 +16,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/asset_1_2_x" />
+        app:srcCompat="@drawable/logo_gitcat_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

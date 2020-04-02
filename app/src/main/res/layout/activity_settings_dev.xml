@@ -61,7 +61,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_chainStyle="spread"
                 app:layout_constraintVertical_weight="1"
-                app:srcCompat="@drawable/img_gitcatfamily_clean" />
+                app:srcCompat="@drawable/img_introduce" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

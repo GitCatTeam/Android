@@ -15,6 +15,8 @@ import android.R.attr.fragment
 import android.content.Intent
 import android.R.attr.fragment
 import android.util.Log
+import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -24,6 +26,7 @@ class TuFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var view_id: Int? = null
+
 
     override fun setArguments(args: Bundle?) {
         view_id = args?.getInt("R_id")
@@ -35,12 +38,16 @@ class TuFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_tu, container, false)
-        val tu_image = view.findViewById<ImageView>(R.id.tu_image)
-        val tu_num = view.findViewById<TextView>(R.id.tu_num)
-        val tu_title = view.findViewById<TextView>(R.id.tu_title)
-        val tu_content = view.findViewById<TextView>(R.id.tu_content)
-        var tu_btn = view.findViewById<Button>(R.id.tu_btn)
+        return view
+    }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        init()
+    }
+
+    fun init(){
         if(view_id==0){
             tu_image.setImageDrawable(activity!!.getDrawable(R.drawable.img_tutorial_1))
             tu_num.text = "01"
@@ -68,23 +75,10 @@ class TuFragment : Fragment() {
             tu_title.text = "튜토리얼 진행하고 고양이 받기"
             tu_content.visibility = View.GONE
             tu_btn.visibility = View.VISIBLE
+            tu_btn.setOnClickListener {
+                //TODO: close 구현
+            }
         }
-
-        tu_btn.setOnClickListener {
-            //TODO: DialogFragment 종료
-            //val tuDialog = TuDialogFragment()
-            //val dialogFragment = fragment as TuDialogFragment
-            //tuDialog.onClick(it)
-            Log.e("error","되나 안되나?")
-
-
-
-            //fragmentManager!!.beginTransaction().detach(tuDialog)
-            //childFragmentManager?.beginTransaction()?.detach(tuDialog).commit()
-        }
-
-        return view
-
     }
 
 

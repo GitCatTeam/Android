@@ -35,7 +35,6 @@ class TuAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
                 bundle.putInt("R_id", 3 )
                 fragment = TuFragment()
                 fragment.arguments = bundle
-
             }
         }
         return fragment

@@ -76,7 +76,9 @@ class TuFragment : Fragment() {
             tu_content.visibility = View.GONE
             tu_btn.visibility = View.VISIBLE
             tu_btn.setOnClickListener {
-                //TODO: close 구현
+                //화면 닫기 구현
+                val fr = parentFragment as TuDialogFragment
+                fr.dismiss()
             }
         }
     }

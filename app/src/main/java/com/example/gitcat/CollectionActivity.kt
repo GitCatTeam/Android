@@ -36,6 +36,7 @@ class CollectionActivity : AppCompatActivity() {
             object : Callback<CatsCollectionModel> {
                 override fun onFailure(call: Call<CatsCollectionModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
+                    showErrorPopup(t.toString(),this@CollectionActivity)
                 }
 
                 override fun onResponse(
@@ -57,6 +58,8 @@ class CollectionActivity : AppCompatActivity() {
                         collection_recyclerview.layoutManager = GridLayoutManager(this@CollectionActivity,2)
 
                         listAdapter.notifyDataSetChanged()
+                    }else{
+                        showErrorPopup(response.message(),this@CollectionActivity)
                     }
                 }
             }

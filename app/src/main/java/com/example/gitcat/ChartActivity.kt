@@ -45,6 +45,7 @@ class ChartActivity : AppCompatActivity() {
             object : Callback<MonthlyDetailModel> {
                 override fun onFailure(call: Call<MonthlyDetailModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
+                    showErrorPopup(t.toString(),this@ChartActivity)
                 }
 
                 override fun onResponse(
@@ -87,6 +88,9 @@ class ChartActivity : AppCompatActivity() {
                         three_text1.text = reportData.data.comment[0]
                         three_text2.text = reportData.data.comment[1]
                         three_text3.text = reportData.data.comment[2]
+                    }
+                    else{
+                        showErrorPopup(response.message(),this@ChartActivity)
                     }
                 }
             }

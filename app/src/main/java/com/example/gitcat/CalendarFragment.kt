@@ -134,6 +134,7 @@ class CalendarFragment: Fragment() {
             object : Callback<MonthCommitCountModel> {
                 override fun onFailure(call: Call<MonthCommitCountModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
+                    showErrorPopup(t.toString(),activity!!)
                 }
 
                 override fun onResponse(
@@ -152,6 +153,9 @@ class CalendarFragment: Fragment() {
                         APIFlow(month.data.commits.data3,"level_3")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_3"))
                         dates.clear()
+                    }
+                    else{
+                        showErrorPopup(response.message(),activity!!)
                     }
                 }
             }
@@ -242,6 +246,10 @@ class CalendarFragment: Fragment() {
                             listAdapter.notifyDataSetChanged()
                         }//commit 비어있지 않을 때(else)
                     }//response success end
+                    else{
+                        this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
+                        showErrorPopup(response.message(),activity!!)
+                    }
                 }
             }
         )

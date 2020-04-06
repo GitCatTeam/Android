@@ -74,10 +74,12 @@
             android:textColor="@color/colorPrimaryDark" />
 
         <TextView
+            android:id="@+id/goGithub"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="가입하러가기"
-            android:textColor="@color/colorPrimaryDark" />
+            android:text="가입하러 가기"
+            android:layout_marginLeft="5dp"
+            android:textColorLink="@color/colorPrimaryDark" />
     </LinearLayout>
 
     <WebView

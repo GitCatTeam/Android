@@ -14,7 +14,7 @@ import com.google.android.material.tabs.TabLayout
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import android.util.Log
 
 
 class HomeActivity : AppCompatActivity() {
@@ -31,23 +31,23 @@ class HomeActivity : AppCompatActivity() {
         //var actionBar = supportActionBar
 
         //초기화
-        loadFragment(HomeFragment())
+        loadFragment(HomeFragment(),"home")
         navigationView.selectedItemId = R.id.nav_home
 
         navigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.nav_cal->{
-                    loadFragment(CalendarFragment())
+                    loadFragment(CalendarFragment(),"calendar")
                     //actionBar!!.title = "커밋달력"
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_home->{
-                    loadFragment(HomeFragment())
+                    loadFragment(HomeFragment(),"home")
                     //actionBar!!.title = ""
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_report->{
-                    loadFragment(ReportFragment())
+                    loadFragment(ReportFragment(),"report")
                     //actionBar!!.title = "레포트"
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -62,11 +62,11 @@ class HomeActivity : AppCompatActivity() {
         System.exit(0)
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    private fun loadFragment(fragment: Fragment,tag: String) {
         // load fragment
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, fragment)
-        transaction.addToBackStack(null)
+        transaction.addToBackStack(tag)
         transaction.commit()
     }
 

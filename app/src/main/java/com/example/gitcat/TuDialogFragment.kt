@@ -1,16 +1,18 @@
 package com.example.gitcat
 
-import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
-import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
-import android.widget.LinearLayout
+import android.widget.Button
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.fragment_tu.*
+import kotlinx.android.synthetic.main.fragment_tu_dialog.*
 
 
 class TuDialogFragment : DialogFragment() {
@@ -36,27 +38,24 @@ class TuDialogFragment : DialogFragment() {
         dialog?.setCancelable(false)
         dialog?.window?.setGravity(Gravity.LEFT or Gravity.TOP)
 
+        return view
+    }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-//        val metrics = resources.displayMetrics
-//        val screenWidth = (metrics.widthPixels * 0.95).toInt()
-//        val screenHeight = (metrics.heightPixels * 0.95).toInt()
+        init()
+    }
 
-//        dialog?.window?.setLayout(screenWidth,screenHeight)
-        //dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
-
-        val tuLayout = view.findViewById<View>(R.id.tu_layout)
+    fun init(){
+        val tuLayout = view?.findViewById<View>(R.id.tu_layout)
         tuLayout?.bringToFront()
 
-        val pager = view.findViewById<View>(R.id.tu_viewpager) as ViewPager
         adapterViewPager = TuAdapter(childFragmentManager)
-        pager.adapter = adapterViewPager
-        pager.pageMargin = 10
+        tu_viewpager.adapter = adapterViewPager
+        tu_viewpager.pageMargin = 10
 
-        val tabLayout = view.findViewById<View>(R.id.tab_layout) as TabLayout
-        tabLayout.setupWithViewPager(pager,true)
-
-        return view
+        tab_layout.setupWithViewPager(tu_viewpager,true)
     }
 
     override fun onDetach() {

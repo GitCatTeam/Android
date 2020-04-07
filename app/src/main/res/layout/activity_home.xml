@@ -6,6 +6,7 @@
     android:id="@+id/container">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:theme="@style/BottomNavigationView"
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
         android:layout_height="61dp"

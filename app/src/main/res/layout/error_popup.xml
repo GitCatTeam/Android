@@ -5,6 +5,7 @@
 
     <TextView
         android:id="@+id/error_text"
+        android:fontFamily="@font/bbtree_r"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
+            android:fontFamily="@font/bbtree_b"
             android:background="@android:color/transparent"
             android:textColor="@color/colorPrimaryDark"/>
 

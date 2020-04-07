@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개발자 소개"
+            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/devBack"
             android:layout_marginLeft="40dp"

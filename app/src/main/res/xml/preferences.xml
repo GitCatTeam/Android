@@ -8,7 +8,8 @@
             android:key="set_account"
             android:summary="연동된 깃 계정을 관리합니다."
             app:iconSpaceReserved="false"
-            app:allowDividerBelow="true" >
+            app:allowDividerBelow="true"
+            android:layout="@layout/settings_content">
             <intent
                 android:targetPackage="com.example.gitcat"
                 android:targetClass="com.example.gitcat.SettingsAccountActivity"/>
@@ -20,7 +21,8 @@
             android:summary="앱내 알림을 조정합니다."
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
-            app:allowDividerAbove="true">
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content">
             <intent
                 android:targetPackage="com.example.gitcat"
                 android:targetClass="com.example.gitcat.SettingsAlarmActivity"/>
@@ -31,7 +33,8 @@
             android:key="set_cat"
             android:summary="현재 육성중인 고양씨를 초기화합니다."
             app:iconSpaceReserved="false"
-            app:allowDividerAbove="true" />
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="기타" app:iconSpaceReserved="false" android:layout="@layout/settings_category">
@@ -40,7 +43,8 @@
             android:title="개발자 소개"
             android:key="etc_dev"
             app:allowDividerBelow="true"
-            app:iconSpaceReserved="false">
+            app:iconSpaceReserved="false"
+            android:layout="@layout/settings_content">
             <intent
                 android:targetPackage="com.example.gitcat"
                 android:targetClass="com.example.gitcat.SettingsDevActivity"/>
@@ -51,13 +55,15 @@
             android:key="etc_review"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
-            app:allowDividerAbove="true"/>
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content"/>
 
         <Preference
             android:title="깃캣 인스타그램"
             android:key="etc_instagram"
             app:iconSpaceReserved="false"
-            app:allowDividerAbove="true">
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://www.instagram.com/gitcat_story"/>

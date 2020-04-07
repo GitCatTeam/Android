@@ -25,6 +25,7 @@
             android:paddingTop="17dp"
             android:paddingLeft="16dp"
             android:paddingBottom="9dp"
+            android:fontFamily="@font/bbtree_b"
             android:text="2020년 1월 레포트"
             />
 
@@ -43,6 +44,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="총 커밋수"
+                android:fontFamily="@font/bbtree_r"
                 android:textSize="13sp"/>
 
             <TextView
@@ -51,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="88회"
+                android:fontFamily="@font/bbtree_b"
                 android:textSize="13sp"/>
         </LinearLayout>
 
@@ -63,6 +66,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="주 사용 언어"
+                android:fontFamily="@font/bbtree_r"
                 android:textSize="13sp"/>
 
             <TextView
@@ -71,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="JavaScript"
+                android:fontFamily="@font/bbtree_b"
                 android:textSize="13sp"/>
         </LinearLayout>
 

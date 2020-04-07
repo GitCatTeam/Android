@@ -16,4 +16,9 @@
         <item name="android:textColorPrimary">@color/colorTextDark</item>
     </style>
 
+    <style name="BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/bbtree_r</item>
+    </style>
+
 </resources>

@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="레퍼지토리 이름"
+        android:fontFamily="@font/bbtree_b"
         android:textColor="#c0c0c0"
         android:layout_marginBottom="11dp"/>
 

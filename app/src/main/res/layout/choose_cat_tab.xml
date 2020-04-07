@@ -15,7 +15,8 @@
             android:layout_centerInParent="true"
             android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
-            android:text="기본"/>
+            android:text="기본"
+            android:fontFamily="@font/bbtree_r"/>
     </RelativeLayout>
     <RelativeLayout
         android:id="@+id/nav_choose_cat_special"
@@ -29,6 +30,7 @@
             android:layout_centerInParent="true"
             android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
-            android:text="스페셜"/>
+            android:text="스페셜"
+            android:fontFamily="@font/bbtree_r"/>
     </RelativeLayout>
 </LinearLayout>

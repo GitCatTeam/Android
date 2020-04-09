@@ -68,6 +68,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:text="이름"
+                    android:fontFamily="@font/bbtree_b"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp" />
 
@@ -79,6 +80,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="4dp"
                     android:text="깃허브이메일주소"
+                    android:fontFamily="@font/bbtree_r"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="18sp"
                     android:paddingBottom="20dp"/>

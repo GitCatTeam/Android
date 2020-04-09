@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="알림 설정"
+            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/alarmBack"
             android:layout_marginLeft="40dp"

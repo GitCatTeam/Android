@@ -5,6 +5,7 @@
         <Preference
             android:title="로그인 계정"
             android:key="login_account"
+            android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             app:allowDividerAbove="true" />
@@ -12,6 +13,7 @@
         <Preference
             android:key="logout"
             android:summary="다른 계정으로 로그인합니다."
+            android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             app:allowDividerAbove="true" />

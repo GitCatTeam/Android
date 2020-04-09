@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="개발자 소개"
+            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/devBack"
             android:layout_marginLeft="40dp"
@@ -61,7 +62,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_chainStyle="spread"
                 app:layout_constraintVertical_weight="1"
-                app:srcCompat="@drawable/img_gitcatfamily_clean" />
+                app:srcCompat="@drawable/img_introduce" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

@@ -51,6 +51,7 @@ class ReportFragment : Fragment() {
             object : Callback<MonthlyListModel> {
                 override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
+                    showErrorPopup(t.toString(),activity!!)
                 }
 
                 override fun onResponse(
@@ -80,6 +81,8 @@ class ReportFragment : Fragment() {
                         report_recyclerview.adapter = listAdapter
 
                         listAdapter.notifyDataSetChanged()
+                    }else{
+                        showErrorPopup(response.message(),activity!!)
                     }
                 }
             }

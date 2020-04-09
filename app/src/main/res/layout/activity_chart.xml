@@ -31,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
+            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
@@ -69,10 +70,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="지난달 대비"
+                            android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/lastMonth"
+                            android:fontFamily="@font/bbtree_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -92,12 +95,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="총 커밋수"
+                            android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/totalCommit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorPrimaryDark"/>
                     </LinearLayout>
 
@@ -116,10 +121,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="하루 평균"
+                            android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
                         <TextView
                             android:id="@+id/avg"
+                            android:fontFamily="@font/bbtree_b"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -155,6 +162,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/lineImg"
                         android:text="커밋수 통계"
+                        android:fontFamily="@font/bbtree_b"
                         android:textColor="@color/colorTextDark"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -203,6 +211,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/pieImg"
                         android:text="사용 언어 비율"
+                        android:fontFamily="@font/bbtree_b"
                         android:textSize="12sp"
                         android:textColor="@color/colorTextDark"/>
                 </LinearLayout>
@@ -254,6 +263,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/barImg"
                         android:text="기여 레파지토리"
+                        android:fontFamily="@font/bbtree_b"
                         android:textSize="12sp"
                         android:textColor="@color/colorTextDark"/>
 
@@ -261,6 +271,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="TOP 3"
+                        android:fontFamily="@font/bbtree_b"
                         android:textSize="12sp"
                         android:layout_marginStart="5dp"
                         android:textColor="@color/colorPrimaryDark"/>
@@ -313,6 +324,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/catImg"
                         android:text="이번달 세줄평"
+                        android:fontFamily="@font/bbtree_b"
                         android:textSize="12sp"
                         android:textColor="@color/colorTextDark"/>
                 </LinearLayout>
@@ -330,6 +342,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
+                        android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"/>
 
                     <FrameLayout
@@ -342,6 +355,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
+                        android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"/>
 
                     <FrameLayout
@@ -354,6 +368,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
+                        android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"/>
 
                     <FrameLayout

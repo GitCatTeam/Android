@@ -26,6 +26,7 @@
             android:singleLine="true"
             android:layout_centerVertical="true"
             android:text="연구실 문제 효율성을 떨어지지만 정확도 높여 가나다라마바사아자차카타파하"
+            android:fontFamily="@font/bbtree_r"
             android:textColor="@color/colorTextDark"
             android:textSize="12sp" />
 
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:text="12:00"
+            android:fontFamily="@font/bbtree_l"
             android:textSize="10sp"
             android:layout_centerVertical="true"
             android:textColor="@color/colorPrimaryDark"

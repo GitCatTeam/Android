@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+        android:fontFamily="@font/bbtree_b"
         android:textStyle="bold"
         android:textColor="@color/colorTextDark"/>
 
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
+        android:fontFamily="@font/bbtree_r"
         android:layout_marginTop="20dp"
         android:textColor="@color/colorTextDark"/>
 
@@ -32,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="취소"
+            android:fontFamily="@font/bbtree_b"
             android:layout_marginRight="32dp"
             android:textColor="@color/colorPrimaryDark"/>
 
@@ -40,6 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
+            android:fontFamily="@font/bbtree_b"
             android:textColor="#ff8c86"/>
     </LinearLayout>
 

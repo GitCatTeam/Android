@@ -10,32 +10,19 @@ import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
-import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONArray
 import java.net.URL
 import org.json.JSONObject
-import com.google.gson.Gson
-import android.R.attr.data
 import android.app.Activity
+import android.text.Html
+import android.text.method.LinkMovementMethod
+import android.text.util.Linkify
 import android.webkit.*
-import java.util.*
-import androidx.core.app.ComponentActivity.ExtraData
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.webkit.JavascriptInterface
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.util.Log.d
 import android.view.WindowManager
-import android.webkit.CookieSyncManager.createInstance
-import android.webkit.CookieSyncManager.getInstance
-import androidx.core.content.ContextCompat.*
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.iid.FirebaseInstanceId
-import okhttp3.internal.userAgent
-import okio.Utf8
-import java.security.spec.AlgorithmParameterSpec
+import android.widget.TextView
+import java.util.regex.Pattern
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
@@ -46,6 +33,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_main)
+
+        var mTransform: Linkify.TransformFilter = Linkify.TransformFilter(){ m,s ->
+            return@TransformFilter ""
+        }
+        var pattern : Pattern = Pattern.compile("가입하러 가기")
+        Linkify.addLinks(goGithub,pattern,"https://github.com/",null,mTransform)
+        goGithub.movementMethod = LinkMovementMethod.getInstance()
 
         startButton.setOnClickListener{
 

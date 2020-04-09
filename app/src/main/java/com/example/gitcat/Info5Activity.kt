@@ -32,8 +32,6 @@ class Info5Activity : AppCompatActivity() {
                 //calcText.text= "${text.length}자"
             }
             override fun afterTextChanged(s: Editable) {
-                okName.visibility = View.VISIBLE
-
                 buttonGo.isEnabled = true
                 buttonGo.setBackgroundResource(R.drawable.info_next_after)
             }

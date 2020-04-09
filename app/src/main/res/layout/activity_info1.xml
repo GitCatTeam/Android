@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="개발자님에 대해 더 알고싶어요!"
+        android:fontFamily="@font/bbtree_b"
         android:textColor="@color/colorTextDark"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +41,7 @@
         android:text="개인 정보는 통계 이외의 다른 용도로 사용되지 않아요."
         android:textColor="@color/colorTextDark"
         android:textSize="12sp"
+        android:fontFamily="@font/bbtree_r"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -63,6 +65,7 @@
         android:cursorVisible="false"
         android:inputType="textPersonName"
         android:text="jihu02@naver.com"
+        android:fontFamily="@font/bbtree_b"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
@@ -90,6 +93,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="40dp"
                 android:text="성별을 알려주세요"
+                android:fontFamily="@font/bbtree_b"
                 android:textColor="@color/colorTextDark"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/radioGroupSex"
@@ -115,6 +119,7 @@
                     android:background="@drawable/circle"
                     android:button="@android:color/background_light"
                     android:text="여자"
+                    android:fontFamily="@font/bbtree_r"
                     android:textAlignment="center"
                     android:textColor="@drawable/circle" />
 
@@ -126,6 +131,7 @@
                     android:background="@drawable/circle"
                     android:button="@android:color/background_light"
                     android:text="남자"
+                    android:fontFamily="@font/bbtree_r"
                     android:textAlignment="center"
                     android:textColor="@drawable/circle" />
 
@@ -138,6 +144,7 @@
                     android:background="@drawable/circle"
                     android:button="@android:color/background_light"
                     android:text="기타"
+                    android:fontFamily="@font/bbtree_r"
                     android:textAlignment="center"
                     android:textColor="@drawable/circle" />
             </RadioGroup>
@@ -150,6 +157,7 @@
                 android:background="@drawable/info_next"
                 android:textColor="#FFFFFF"
                 android:text="다음으로"
+                android:fontFamily="@font/bbtree_b"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -160,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="1/5"
+                android:fontFamily="@font/bbtree_r"
                 android:textColor="#c0c0c0"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Github 계정 관리"
+            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
             android:layout_alignLeft="@+id/accountBack"
             android:layout_marginLeft="40dp"

@@ -28,6 +28,7 @@
         android:text="개발을 하신 지 얼마나 되었나요?"
         android:textColor="@color/colorTextDark"
         android:textSize="20sp"
+        android:fontFamily="@font/bbtree_b"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +45,7 @@
         android:text="더 나은 깃캣이 되기 위한, 사용자 현황 파악의 목적입니다 :)"
         android:textColor="@color/colorTextDark"
         android:textSize="12sp"
+        android:fontFamily="@font/bbtree_r"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +70,7 @@
             android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="개발에 관심이 있음"
+            android:fontFamily="@font/bbtree_r"
             android:textAlignment="center"
             android:textColor="@drawable/info_list" />
 
@@ -80,6 +83,7 @@
             android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="관련 학부생/대학원생"
+            android:fontFamily="@font/bbtree_r"
             android:textAlignment="center"
             android:textColor="@drawable/info_list" />
 
@@ -93,6 +97,7 @@
             android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="1년차"
+            android:fontFamily="@font/bbtree_r"
             android:textAlignment="center"
             android:textColor="@drawable/info_list" />
 
@@ -106,6 +111,7 @@
             android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="3년차"
+            android:fontFamily="@font/bbtree_r"
             android:textAlignment="center"
             android:textColor="@drawable/info_list" />
 
@@ -119,6 +125,7 @@
             android:background="@drawable/info_list"
             android:button="@android:color/background_light"
             android:text="5년차 이상"
+            android:fontFamily="@font/bbtree_r"
             android:textAlignment="center"
             android:textColor="@drawable/info_list" />
     </RadioGroup>
@@ -129,6 +136,7 @@
         android:layout_height="32dp"
         android:layout_marginBottom="16dp"
         android:text="다음으로"
+        android:fontFamily="@font/bbtree_b"
         android:enabled="false"
         android:textColor="#FFFFFF"
         android:background="@drawable/info_next"
@@ -144,6 +152,7 @@
         android:text="3/5"
         android:textColor="#c0c0c0"
         android:textSize="12sp"
+        android:fontFamily="@font/bbtree_r"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

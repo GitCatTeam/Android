@@ -36,7 +36,7 @@ class SettingsDevActivity : AppCompatActivity() {
         )
         settingDevList.add(
             SettingsDev(getDrawable(R.drawable.img_hyesun),"Android Developer","바바리","고독한 안드로이드 개발자 바바리에요.\n"+
-                    "차근차근 꾸준히 발전하는 중이랍니다:)")
+                    "안드 외길 인생을 걷고 있어요 :)")
         )
         settingDevList.add(
             SettingsDev(getDrawable(R.drawable.img_juhee),"Designer","얼룩냥이","디자인을 좋아하지만 아직 많이 서툰 아마추어에요.\n" +

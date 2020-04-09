@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,9 +30,9 @@ class CollectionActivity : AppCompatActivity() {
 
         var cName:String = ""
         var cDoing:String = ""
+        val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
 
-        /*FIXME: Token 수정*/
-        val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection("token")
+        val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection(settings.getString("token",""))
         call.enqueue(
             object : Callback<CatsCollectionModel> {
                 override fun onFailure(call: Call<CatsCollectionModel>, t: Throwable) {

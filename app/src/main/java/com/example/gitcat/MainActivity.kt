@@ -15,9 +15,12 @@ import org.json.JSONArray
 import java.net.URL
 import org.json.JSONObject
 import android.app.Activity
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.text.Html
 import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
+import android.util.Log.d
 import android.webkit.*
 import android.webkit.JavascriptInterface
 import android.view.WindowManager
@@ -99,10 +102,17 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         val cipher = Cipher.getInstance("AES/CBC/PKCS7Padding")
         cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
         val decryptedByteValue = String(cipher.doFinal(textBytes),Charsets.UTF_8)
-        val jsonString = "{"+decryptedByteValue.substring(20)
+        val jsonString = "{\""+decryptedByteValue.substring(20)
         val jsonObject = JSONObject(jsonString)
 
+        val settings: SharedPreferences = mContext!!.getSharedPreferences("gitcat", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
+
         if(jsonObject.getString("isFirst").compareTo("true")==0){
+            editor.putString("githubId",jsonObject.getString("githubId"))
+            editor.putString("profileImg",jsonObject.getString("profileImg"))
+            editor.putString("token",jsonObject.getString("token"))
+            editor.commit()
             val intent = Intent(mContext,Info1Activity::class.java)
             mContext?.startActivity(intent)
         }

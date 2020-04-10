@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.app.Activity
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Bundle
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.gitcat.model.MonthCommitContentModel
 import com.example.gitcat.model.MonthCommitCountModel
@@ -36,7 +38,6 @@ private const val ARG_PARAM2 = "param2"
 class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
-
     var repoList = arrayListOf<Repository>()
 
     lateinit var compositeDisposable: CompositeDisposable
@@ -45,8 +46,9 @@ class CalendarFragment: Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
 
+        val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
+            AppCompatActivity.MODE_PRIVATE)
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
@@ -64,9 +66,7 @@ class CalendarFragment: Fragment() {
         Glide.with(this@CalendarFragment).load(R.raw.gif_loading).into(loading)
 
 
-        /*FIXME: Token 수정*/
-        d("*+*+*+",ymToday)
-        APIStart(calendarView,"token",ymToday)
+        APIStart(calendarView,settings.getString("token",""),ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
@@ -96,10 +96,7 @@ class CalendarFragment: Fragment() {
             //calendarView.removeDecorator(CalendarSelectedDecorator(calendarDay,activity!!))
             //calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
 
-
-
-            /*FIXME: Token 수정*/
-            APIContent("token",dates)
+            APIContent(settings.getString("token",""),dates)
 
             calendarView?.clearSelection()
 
@@ -119,8 +116,7 @@ class CalendarFragment: Fragment() {
                 apimonth = mYear.toString()+"0"+mMonth.toString()
             }
 
-            /*FIXME: Token 수정*/
-            APIStart(calendarView,"token",apimonth)
+            APIStart(calendarView,settings.getString("token",""),apimonth)
         }
 
         return rootView

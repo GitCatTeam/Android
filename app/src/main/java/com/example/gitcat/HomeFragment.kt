@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     val tuDialog = TuDialogFragment()
     val graduateDialog = GraduateDialogFragment()
+    val upgradeDialog = UpgradeDialogFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +50,10 @@ class HomeFragment : Fragment() {
         //tuDialog.show(fragmentManager!!,"addons_fragment")
 
         //졸업 다이얼로그
-        graduateDialog.show(fragmentManager!!,"graduate_fragment")
+        //graduateDialog.show(fragmentManager!!,"graduate_fragment")
+
+        //업그레이드 다이얼로그
+        //upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
 
         //하단 탭 버튼 리스너
         diaryIcon.setOnClickListener { view ->

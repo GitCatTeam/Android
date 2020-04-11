@@ -1,14 +1,21 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gitcat.model.InfoModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_info5.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Info5Activity : AppCompatActivity() {
 
@@ -23,6 +30,8 @@ class Info5Activity : AppCompatActivity() {
 
         //초기화
         buttonGo.isEnabled = false
+        val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
 
         editCatName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -38,6 +47,29 @@ class Info5Activity : AppCompatActivity() {
         })
 
         buttonGo.setOnClickListener{
+            editor.putString("name",editCatName.text.toString())
+            //TODO: 정보 입력 API(PUT방식)
+            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""))
+            call.enqueue(
+                object : Callback<InfoModel> {
+                    override fun onFailure(call: Call<InfoModel>, t: Throwable) {
+                        Log.e("*+*+", "error: $t")
+                        showErrorPopup(t.toString(),this@Info5Activity)
+                    }
+
+                    override fun onResponse(
+                        call: Call<InfoModel>,
+                        response: Response<InfoModel>
+                    ) {
+                        if(response.isSuccessful){
+                            val data = response.body()!!
+
+                        }else{
+                            showErrorPopup(response.message(),this@Info5Activity)
+                        }
+                    }
+                }
+            )
             //화면 이동
             var intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)

@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.util.Log.d
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +39,8 @@ class ReportFragment : Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_report,container,false)
         val report_recyclerview = rootView.findViewById(R.id.report_recyclerview) as RecyclerView
         report_recyclerview.layoutManager = LinearLayoutManager(activity)
+        val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
+            AppCompatActivity.MODE_PRIVATE)
 
         //API
 
@@ -45,8 +49,7 @@ class ReportFragment : Fragment() {
         var rTotalCommit: String
         var rLanguage: String
 
-        /*FIXME: Token 수정*/
-        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList("token")
+        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token",""))
         call.enqueue(
             object : Callback<MonthlyListModel> {
                 override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {

@@ -1,11 +1,8 @@
 package com.example.gitcat.retrofit
 
 import com.example.gitcat.model.*
-import io.reactivex.Observable
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface GithubAPI {
 
@@ -48,9 +45,33 @@ interface GithubAPI {
         @Header("Authorization") token: String
     ): Call<DataModel>
 
+    /*부가 정보 입력*/
+    @PUT("auth/additional")
+    fun putInfo(
+        @Header("Authorization") token: String
+    ): Call<InfoModel>
+
     /*냥콜렉션*/
     @GET("collection/list")
     fun getCatsCollection(
         @Header("Authorization") token: String
     ): Call<CatsCollectionModel>
+
+    /*로그아웃*/
+    @POST("auth/logout")
+    fun postLogout(
+        @Header("Authorization") token: String
+    ): Call<LogoutModel>
+
+    /*고양이 초기화*/
+    @DELETE("home/cats")
+    fun deleteCats(
+        @Header("Authorization") token: String
+    ): Call<DeleteCatsModel>
+
+    /*회원 탈퇴*/
+    @DELETE("auth/withdraw")
+    fun deleteWithdraw(
+        @Header("Authorization") token: String
+    ): Call<WithdrawModel>
 }

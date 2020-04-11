@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -34,13 +35,15 @@ class ChartActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
+
         /*API*/
         val id: Int
         id=intent.getStringExtra("id").toInt()
         chartTitle.text = intent.getStringExtra("title")
         totalCommit.text = intent.getStringExtra("commit")
-        /*FIXME: Token 수정*/
-        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail("token",id)
+
+        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail(settings.getString("token",""),id)
         call.enqueue(
             object : Callback<MonthlyDetailModel> {
                 override fun onFailure(call: Call<MonthlyDetailModel>, t: Throwable) {

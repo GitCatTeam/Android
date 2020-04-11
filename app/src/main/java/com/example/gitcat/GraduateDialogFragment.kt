@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.DialogFragment
+import kotlinx.android.synthetic.main.fragment_graduate_dialog.*
 
 /**
  * A simple [Fragment] subclass.
@@ -31,6 +32,8 @@ class GraduateDialogFragment : DialogFragment() {
         init()
     }
     fun init(){
-        val graduateLayout = view?.findViewById<View>(R.id.graduate_layout)
+        btn_graduate_check.setOnClickListener {
+            dismiss()
+        }
     }
 }

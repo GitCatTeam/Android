@@ -18,4 +18,12 @@
             app:allowDividerBelow="true"
             app:allowDividerAbove="true" />
 
+        <Preference
+            android:key="withdraw"
+            android:title="회원 탈퇴"
+            android:layout="@layout/settings_content"
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true" />
+
 </PreferenceScreen>

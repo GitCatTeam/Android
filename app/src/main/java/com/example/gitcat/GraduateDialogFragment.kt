@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -34,6 +35,8 @@ class GraduateDialogFragment : DialogFragment() {
     fun init(){
         btn_graduate_check.setOnClickListener {
             dismiss()
+            val intent = Intent(context,CollectionActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -16,7 +16,11 @@ class ChooseCatViewHolder(view: View):RecyclerView.ViewHolder(view){
     fun bind(data: ChooseCatBasicModel){
         Glide.with(itemView).load(data.profileImg).into(img)
         constraint.setOnClickListener {
-            it.isSelected = !it.isSelected
+//            it.isSelected = !it.isSelected
         }
     }
+    fun select(data: List<ChooseCatBasicModel>){
+
+    }
+
 }

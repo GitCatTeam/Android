@@ -24,6 +24,7 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     val tuDialog = TuDialogFragment()
+    val graduateDialog = GraduateDialogFragment()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +45,11 @@ class HomeFragment : Fragment() {
 
     fun init(){
         //튜토리얼
-        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-        tuDialog.show(fragmentManager!!,"addons_fragment")
+        //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+        //tuDialog.show(fragmentManager!!,"addons_fragment")
 
+        //졸업 다이얼로그
+        graduateDialog.show(fragmentManager!!,"graduate_fragment")
 
         //하단 탭 버튼 리스너
         diaryIcon.setOnClickListener { view ->

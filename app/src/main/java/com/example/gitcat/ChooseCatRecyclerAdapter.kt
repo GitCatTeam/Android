@@ -17,5 +17,6 @@ class ChooseCatRecyclerAdapter(private val context:Context):RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: ChooseCatViewHolder, position: Int) {
         holder.bind(data[position])
+        holder.select(data)
     }
 }

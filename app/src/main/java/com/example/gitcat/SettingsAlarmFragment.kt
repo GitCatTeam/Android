@@ -21,6 +21,8 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
         val is_alarm = prefs.getBoolean("app_alarm", false)
         app_alarm_list.title = app_alarm_list.entry
 
+
+
         if(is_alarm == true){//활성화 상태이면
             app_alarm_list.isEnabled = true
             app_alarm.summary = app_alarm_list.entry

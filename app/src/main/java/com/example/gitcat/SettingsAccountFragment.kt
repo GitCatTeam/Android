@@ -1,5 +1,7 @@
 package com.example.gitcat
 
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.view.ViewGroup
@@ -12,16 +14,27 @@ import android.text.SpannableString
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.gitcat.model.LogoutModel
+import com.example.gitcat.model.WithdrawModel
+import com.example.gitcat.retrofit.RetrofitCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class SettingsAccountFragment : PreferenceFragmentCompat() {
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         addPreferencesFromResource(R.xml.preferences_account)
 
+        val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
+            AppCompatActivity.MODE_PRIVATE)
+
         //로그인 계정
         val login_account = findPreference("login_account") as Preference
 
-        val summary = SpannableStringBuilder("jihu02@naver.com")
+        val summary = SpannableStringBuilder(settings.getString("githubId",""))
         summary.setSpan(ForegroundColorSpan(Color.parseColor("#88cdf6")), 0, summary.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         login_account.summary = summary
 
@@ -32,6 +45,9 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
         logoutTitle.setSpan(ForegroundColorSpan(Color.parseColor("#ff8c86")),0,logoutTitle.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         logout.title = logoutTitle
 
+        //회원 탈퇴
+        val withdraw = findPreference("withdraw") as Preference
+
         val dialogView = layoutInflater.inflate(R.layout.settings_dialog,container,false)
 
         val dialogTitle = dialogView.findViewById<TextView>(R.id.dialog_title)
@@ -39,6 +55,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
         val dialogCancel = dialogView.findViewById<TextView>(R.id.dialog_cancel)
         val dialogOK = dialogView.findViewById<TextView>(R.id.dialog_ok)
 
+        /*로그아웃*/
         logout.setOnPreferenceClickListener {
             val builder = AlertDialog.Builder(activity!!)
             val ad = builder.create()
@@ -55,7 +72,73 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
+                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
+                call.enqueue(
+                    object : Callback<LogoutModel> {
+                        override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
+                            Log.e("*+*+", "error: $t")
+                        }
+
+                        override fun onResponse(
+                            call: Call<LogoutModel>,
+                            response: Response<LogoutModel>
+                        ) {
+                            if(response.isSuccessful){
+                                //FIXME: 로그아웃 API
+                                //TODO: SharedPreference 삭제해야 함
+                                var intent = Intent(context!!,MainActivity::class.java)
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                )
+
+            }
+
+            ad.show()
+
+            true
+        }
+
+
+        /*회원 탈퇴*/
+        withdraw.setOnPreferenceClickListener {
+            val builder = AlertDialog.Builder(activity!!)
+            val ad = builder.create()
+
+            if (dialogView.parent != null) {
+                (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
+            }
+            ad.setView(dialogView)
+            dialogTitle.text = "회원 탈퇴"
+            dialogMessage.text = "현재 로그인 되어 있는 Github계정을\n" +
+                    "회원 탈퇴 하시겠습니까?"
+
+            dialogCancel.setOnClickListener {
                 ad.dismiss()
+            }
+            dialogOK.setOnClickListener {
+                val call: Call<Unit> = RetrofitCreator.service.deleteWithdraw(settings.getString("token",""))
+                call.enqueue(
+                    object : Callback<Unit> {
+                        override fun onFailure(call: Call<Unit>, t: Throwable) {
+                            Log.e("*+*+", "error: $t")
+                        }
+
+                        override fun onResponse(
+                            call: Call<Unit>,
+                            response: Response<Unit>
+                        ) {
+                            if(response.isSuccessful){
+                                //FIXME: 회원탈퇴 API
+                                //TODO: SharedPreference 삭제해야 함
+                                var intent = Intent(context!!,MainActivity::class.java)
+                                startActivity(intent)
+                            }
+                        }
+                    }
+                )
+
             }
 
             ad.show()

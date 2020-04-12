@@ -7,6 +7,15 @@
     tools:context=".Info1Activity"
     android:background="#FFFFFF">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clayout1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1">
+
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="16dp"
@@ -47,7 +56,6 @@
 
     <ImageView
         android:id="@+id/profileImg"
-        android:background="@drawable/circle"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginTop="32dp"
@@ -73,43 +81,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileImg" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/firstLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clayout1"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
                 android:text="성별을 알려주세요"
                 android:fontFamily="@font/bbtree_b"
                 android:textColor="@color/colorTextDark"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/radioGroupSex"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.523"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"/>
 
             <RadioGroup
                 android:id="@+id/radioGroupSex"
                 android:layout_width="wrap_content"
                 android:layout_height="84dp"
-                android:layout_marginTop="40dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:layout_constraintVertical_chainStyle="spread">
 
                 <RadioButton
                     android:id="@+id/radio0"
@@ -153,20 +158,18 @@
                 android:id="@+id/buttonGo"
                 android:layout_width="136dp"
                 android:layout_height="32dp"
-                android:layout_marginTop="8dp"
                 android:background="@drawable/info_next"
                 android:textColor="#FFFFFF"
                 android:text="다음으로"
                 android:fontFamily="@font/bbtree_b"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroupSex" />
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupSex"
+                app:layout_constraintVertical_chainStyle="spread"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
                 android:text="1/5"
                 android:fontFamily="@font/bbtree_r"
                 android:textColor="#c0c0c0"
@@ -175,68 +178,61 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonGo"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_chainStyle="spread" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/secondLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clayout1">
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp"
                 android:text="생년월일을 알려주세요"
                 android:fontFamily="@font/bbtree_b"
                 android:textColor="@color/colorTextDark"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/date_picker"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.523"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <DatePicker
                 android:id="@+id/date_picker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 android:theme="@style/MyDatePickerSpinnerStyle"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
                 android:id="@+id/buttonGo2"
                 android:layout_width="136dp"
                 android:layout_height="32dp"
-                android:layout_marginBottom="16dp"
                 android:background="@drawable/info_next_after"
                 android:text="다음으로"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/date_picker" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
                 android:text="2/5"
                 android:textColor="#c0c0c0"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonGo2"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonGo2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

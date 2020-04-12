@@ -1,5 +1,6 @@
 package com.example.gitcat.retrofit
 
+import com.example.gitcat.Info
 import com.example.gitcat.model.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -48,7 +49,8 @@ interface GithubAPI {
     /*부가 정보 입력*/
     @PUT("auth/additional")
     fun putInfo(
-        @Header("Authorization") token: String
+        @Header("Authorization") token: String,
+        @Body info: InfoModel
     ): Call<InfoModel>
 
     /*냥콜렉션*/
@@ -67,11 +69,11 @@ interface GithubAPI {
     @DELETE("home/cats")
     fun deleteCats(
         @Header("Authorization") token: String
-    ): Call<DeleteCatsModel>
+    ): Call<Unit>
 
     /*회원 탈퇴*/
     @DELETE("auth/withdraw")
     fun deleteWithdraw(
         @Header("Authorization") token: String
-    ): Call<WithdrawModel>
+    ): Call<Unit>
 }

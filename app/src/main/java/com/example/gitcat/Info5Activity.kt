@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.util.Log.d
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -48,8 +49,9 @@ class Info5Activity : AppCompatActivity() {
 
         buttonGo.setOnClickListener{
             editor.putString("name",editCatName.text.toString())
-            //TODO: 정보 입력 API(PUT방식)
-            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""))
+
+            val info = InfoModel(settings.getString("name",""),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
+            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""),info)
             call.enqueue(
                 object : Callback<InfoModel> {
                     override fun onFailure(call: Call<InfoModel>, t: Throwable) {
@@ -63,16 +65,22 @@ class Info5Activity : AppCompatActivity() {
                     ) {
                         if(response.isSuccessful){
                             val data = response.body()!!
+                            d("*+*+token",settings.getString("token",""))
+                            d("*+*+",data.name)
+                            d("*+*+",data.gender)
+                            d("*+*+",data.birth)
+                            d("*+*+",data.devCareer)
 
+                            //화면 이동
+                            var intent = Intent(this@Info5Activity,HomeActivity::class.java)
+                            startActivity(intent)
                         }else{
                             showErrorPopup(response.message(),this@Info5Activity)
                         }
                     }
                 }
             )
-            //화면 이동
-            var intent = Intent(this,HomeActivity::class.java)
-            startActivity(intent)
+
         }
 
     }

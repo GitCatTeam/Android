@@ -18,7 +18,7 @@
             android:entryValues="@array/alarm_values"
             app:iconSpaceReserved="false"
             android:enabled="false"
-            app:defaultValue="true"/>
+            app:defaultValue="true" />
 
         <SwitchPreference
             android:title="리포트 알림"

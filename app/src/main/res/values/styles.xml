@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>
+<!--        <item name="android:dialogTheme">@style/AppTheme.Dialog</item>-->
+<!--        <item name="android:alertDialogTheme">@style/AppTheme.Dialog</item>-->
+<!--        <item name="alertDialogTheme">@style/AppTheme.Dialog</item>-->
+<!--        <item name="android:dialogPreferenceStyle">@style/AppTheme.Dialog</item>-->
+<!--        <item name="android:dialogLayout">@style/AppTheme.Dialog</item>-->
     </style>
 
 
@@ -18,6 +23,13 @@
 
     <style name="BottomNavigationView"
         parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/bbtree_r</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimary</item>
         <item name="fontFamily">@font/bbtree_r</item>
     </style>
 

@@ -2,46 +2,34 @@ package com.example.gitcat
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import android.os.Bundle
+import androidx.fragment.app.FragmentStatePagerAdapter
 
-class TuAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    private val NUM_ITEMS = 4
-    private lateinit var fragment: TuFragment
+class TuAdapter(fm: FragmentManager,val num_fragment: Int) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        var bundle: Bundle? = null
+        val fragment = TuFragment()
+        val bundle = Bundle(1)
         when(position){
             0 -> {
-                bundle = Bundle()
-                bundle.putInt("R_id", 0 )
-                fragment = TuFragment()
-                fragment.arguments = bundle
+                bundle.putInt("R_id",  position)
             }
             1 -> {
-                bundle = Bundle()
-                bundle.putInt("R_id", 1 )
-                fragment = TuFragment()
-                fragment.arguments = bundle
+                bundle.putInt("R_id", position)
             }
             2 -> {
-                bundle = Bundle()
-                bundle.putInt("R_id", 2 )
-                fragment = TuFragment()
-                fragment.arguments = bundle
+                bundle.putInt("R_id", position)
             }
             3 -> {
-                bundle = Bundle()
-                bundle.putInt("R_id", 3 )
-                fragment = TuFragment()
-                fragment.arguments = bundle
+                bundle.putInt("R_id", position)
             }
         }
+        fragment.arguments = bundle
         return fragment
     }
 
     override fun getCount(): Int {
-        return NUM_ITEMS
+        return num_fragment
     }
 
 }

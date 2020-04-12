@@ -5,18 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_tu.*
 import android.R.attr.fragment
 import android.content.Intent
 import android.R.attr.fragment
+import android.opengl.Visibility
 import android.util.Log
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.fragment_tu_dialog.*
+import java.util.*
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -27,10 +28,6 @@ class TuFragment : Fragment() {
     private var param2: String? = null
     private var view_id: Int? = null
 
-
-    override fun setArguments(args: Bundle?) {
-        view_id = args?.getInt("R_id")
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +41,7 @@ class TuFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        view_id = arguments!!.getInt("R_id")
         init()
     }
 
@@ -82,6 +80,7 @@ class TuFragment : Fragment() {
             }
         }
     }
+
 
 
     companion object {

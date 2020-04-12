@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gitcat.model.ChooseCatBasicModel
 import com.example.gitcat.model.DataModel
@@ -48,13 +49,17 @@ class BasicCatFragment : Fragment() {
         val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
         call.enqueue(object : Callback<DataModel>{
             override fun onFailure(call: Call<DataModel>, t: Throwable) {
-
+                showErrorPopup(t.toString(),activity!!)
             }
 
             override fun onResponse(call: Call<DataModel>, response: Response<DataModel>) {
-                val data = response.body()!!.data
-                chooseCatRecycleradapter.data = data.normal
-                chooseCatRecycleradapter.notifyDataSetChanged()
+                if(response.isSuccessful) {
+                    val data = response.body()!!.data
+                    chooseCatRecycleradapter.data = data.normal
+                    chooseCatRecycleradapter.notifyDataSetChanged()
+                }else{
+                    showErrorPopup(response.message(),activity!!)
+                }
             }
         })
     }

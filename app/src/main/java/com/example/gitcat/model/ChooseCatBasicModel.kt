@@ -7,8 +7,10 @@ data class DataModel(
 )
 
 data class ChooseCatModel(
-    var normal: ArrayList<ChooseCatSpecialModel>,
-    var special: ArrayList<ChooseCatBasicModel>
+    var isNewExist: Boolean,
+    var normal: ArrayList<ChooseCatBasicModel>,
+    var special: ArrayList<ChooseCatSpecialModel>,
+    var new: ArrayList<CatNewModel>
 )
 
 data class ChooseCatBasicModel (
@@ -17,5 +19,10 @@ data class ChooseCatBasicModel (
 )
 
 data class ChooseCatSpecialModel(
-    var id: Int
+    var id: Int,
+    var profileImg: String
+)
+data class CatNewModel(
+    var profileImg: String,
+    var description: String
 )

@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +15,12 @@ class ChooseCatViewHolder(view: View):RecyclerView.ViewHolder(view){
     val img:ImageView = view.findViewById(R.id.img_choose_cat_item)
     fun bind(data: ChooseCatBasicModel){
         Glide.with(itemView).load(data.profileImg).into(img)
-        constraint.setOnFocusChangeListener { item, isSelected ->
-            item.isSelected = isSelected
+        constraint.setOnClickListener {
+//            it.isSelected = !it.isSelected
         }
     }
+    fun select(data: List<ChooseCatBasicModel>){
+
+    }
+
 }

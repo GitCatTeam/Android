@@ -34,6 +34,7 @@ class Info3Activity : AppCompatActivity() {
         buttonGo.setOnClickListener{
             editor.putString("devCareer",devCareer)
             //화면 이동
+
             var intent = Intent(this,Info4Activity::class.java)
             startActivity(intent)
         }

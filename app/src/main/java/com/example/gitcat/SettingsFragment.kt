@@ -52,16 +52,16 @@ class SettingsFragment : PreferenceFragmentCompat(){
             }
             dialogOK.setOnClickListener {
 
-                val call: Call<DeleteCatsModel> = RetrofitCreator.service.deleteCats("token")
+                val call: Call<Unit> = RetrofitCreator.service.deleteCats(settings.getString("token",""))
                 call.enqueue(
-                    object : Callback<DeleteCatsModel> {
-                        override fun onFailure(call: Call<DeleteCatsModel>, t: Throwable) {
+                    object : Callback<Unit> {
+                        override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
                         }
 
                         override fun onResponse(
-                            call: Call<DeleteCatsModel>,
-                            response: Response<DeleteCatsModel>
+                            call: Call<Unit>,
+                            response: Response<Unit>
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 고양이 초기화 API

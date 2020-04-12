@@ -72,7 +72,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
-                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout("token")
+                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<LogoutModel> {
                         override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
@@ -85,8 +85,9 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 로그아웃 API
-                                //var intent = Intent(this@SettingsAccountFragment,MainActivity::class.java)
-                                //startActivity(intent)
+                                //TODO: SharedPreference 삭제해야 함
+                                var intent = Intent(context!!,MainActivity::class.java)
+                                startActivity(intent)
                             }
                         }
                     }
@@ -117,21 +118,22 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
-                val call: Call<WithdrawModel> = RetrofitCreator.service.deleteWithdraw("token")
+                val call: Call<Unit> = RetrofitCreator.service.deleteWithdraw(settings.getString("token",""))
                 call.enqueue(
-                    object : Callback<WithdrawModel> {
-                        override fun onFailure(call: Call<WithdrawModel>, t: Throwable) {
+                    object : Callback<Unit> {
+                        override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
                         }
 
                         override fun onResponse(
-                            call: Call<WithdrawModel>,
-                            response: Response<WithdrawModel>
+                            call: Call<Unit>,
+                            response: Response<Unit>
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 회원탈퇴 API
-                                //var intent = Intent(this@SettingsAccountFragment,MainActivity::class.java)
-                                //startActivity(intent)
+                                //TODO: SharedPreference 삭제해야 함
+                                var intent = Intent(context!!,MainActivity::class.java)
+                                startActivity(intent)
                             }
                         }
                     }

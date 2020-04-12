@@ -46,8 +46,8 @@ class HomeFragment : Fragment() {
 
     fun init(){
         //튜토리얼
-        //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-        //tuDialog.show(fragmentManager!!,"addons_fragment")
+        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+        tuDialog.show(fragmentManager!!,"addons_fragment")
 
         //졸업 다이얼로그
         //graduateDialog.show(fragmentManager!!,"graduate_fragment")

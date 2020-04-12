@@ -4,11 +4,14 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
+import android.widget.TableLayout
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_tu.*
@@ -20,7 +23,7 @@ class TuDialogFragment : DialogFragment() {
     private var param1: String? = null
     private var param2: String? = null
     //private val view: View? = null
-    var adapterViewPager: FragmentPagerAdapter? = null
+    var adapterViewPager: FragmentStatePagerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +52,40 @@ class TuDialogFragment : DialogFragment() {
 
     fun init(){
         val tuLayout = view?.findViewById<View>(R.id.tu_layout)
-        tuLayout?.bringToFront()
+        //tuLayout?.bringToFront()
 
-        adapterViewPager = TuAdapter(childFragmentManager)
+        adapterViewPager = TuAdapter(childFragmentManager,4)
         tu_viewpager.adapter = adapterViewPager
+        tu_viewpager.offscreenPageLimit = 3
         tu_viewpager.pageMargin = 10
 
-        tab_layout.setupWithViewPager(tu_viewpager,true)
+        tab_layout.setupWithViewPager(tu_viewpager)
+        tab_layout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabReselected(p0: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabUnselected(p0: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabSelected(p0: TabLayout.Tab?) {
+                when(p0){
+                    tab_layout.getTabAt(0) -> hide()
+                    tab_layout.getTabAt(1) -> {
+                        rl_tutorial_explanation2.visibility = View.VISIBLE
+                        rl_tutorial_explanation3.visibility = View.GONE
+                        tuNavigationView.visibility = View.GONE
+                    }
+                    tab_layout.getTabAt(2) -> {
+                        rl_tutorial_explanation2.visibility = View.GONE
+                        rl_tutorial_explanation3.visibility = View.VISIBLE
+                        tuNavigationView.visibility = View.VISIBLE
+                    }
+                    tab_layout.getTabAt(3) -> hide()
+                }
+            }
+        })
     }
 
     override fun onDetach() {
@@ -64,6 +94,12 @@ class TuDialogFragment : DialogFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    private fun hide(){
+        rl_tutorial_explanation2.visibility = View.GONE
+        rl_tutorial_explanation3.visibility = View.GONE
+        tuNavigationView.visibility = View.GONE
     }
 
 

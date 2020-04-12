@@ -54,6 +54,8 @@ class TuDialogFragment : DialogFragment() {
         val tuLayout = view?.findViewById<View>(R.id.tu_layout)
         //tuLayout?.bringToFront()
 
+        tuNavigationView.selectedItemId = R.id.nav_home
+
         adapterViewPager = TuAdapter(childFragmentManager,4)
         tu_viewpager.adapter = adapterViewPager
         tu_viewpager.offscreenPageLimit = 3

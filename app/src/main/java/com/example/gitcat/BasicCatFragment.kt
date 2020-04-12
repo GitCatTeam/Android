@@ -45,7 +45,7 @@ class BasicCatFragment : Fragment() {
         }
 
         //통신
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJHaXRDYXQiLCJzdWIiOiJvbmlzbGV5IiwiaWF0IjoxNTg1MDY2MDI0MTYxLCJleHAiOjE1ODUxNTI0MjQxNjF9.YkZxDrK4oeAf4olQEyJww8KoVgKRyFcUnklq3ZxA4qE"
+        val token = ""
         val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
         call.enqueue(object : Callback<DataModel>{
             override fun onFailure(call: Call<DataModel>, t: Throwable) {

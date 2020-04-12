@@ -27,9 +27,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:layout_marginBottom="5dp"
                             android:text="고양이 수집 내역 버튼"
-                            android:textSize="24sp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/nanum"
+                            android:textSize="32sp"
                             android:textColor="#ffffff" />
 
                         <ImageView
@@ -91,9 +92,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="19sp"
+                            android:textSize="30sp"
+                            android:fontFamily="@font/nanum"
                             android:text="이번달 커밋 현황 \u0026 월별 커밋 통계"
-                            android:textColor="@color/colorWhite"/>
+                            android:textColor="@color/colorWhite" />
 
                         <ImageView
                             android:id="@+id/imageView12"

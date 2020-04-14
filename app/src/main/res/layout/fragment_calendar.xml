@@ -167,8 +167,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="78dp"
-                        android:layout_weight="3">
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:layout_marginBottom="20dp">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -181,6 +182,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="얻은 점수"
+                                android:layout_marginBottom="16dp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp" />
@@ -191,7 +193,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:fontFamily="@font/bbtree_r"
-                                android:textSize="32sp" />
+                                android:textSize="32sp"/>
                         </LinearLayout>
 
                         <FrameLayout
@@ -211,6 +213,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="총 커밋수"
+                                android:layout_marginBottom="16dp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp" />
@@ -222,7 +225,7 @@
                                 android:text="0"
                                 android:fontFamily="@font/bbtree_r"
                                 android:textColor="@color/colorTextDark"
-                                android:textSize="32sp" />
+                                android:textSize="32sp"/>
                         </LinearLayout>
 
                         <FrameLayout
@@ -242,6 +245,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="얻은 아이템"
+                                android:layout_marginBottom="16dp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="14sp" />

@@ -44,13 +44,22 @@ class Info5Activity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {
                 buttonGo.isEnabled = true
                 buttonGo.setBackgroundResource(R.drawable.info_next_after)
+
             }
         })
 
         buttonGo.setOnClickListener{
-            editor.putString("name",editCatName.text.toString())
 
-            val info = InfoModel(settings.getString("name",""),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
+            editor.putString("name",editCatName.text.toString())
+            editor.apply()
+
+            d("*+*+",editCatName.text.toString())
+            d("*+*+",settings.getString("gender","0"))
+            d("*+*+",settings.getString("birth","1"))
+            d("*+*+",settings.getString("devCareer","2"))
+            d("*+*+",settings.getString("token","3"))
+
+            val info = InfoModel(editCatName.text.toString(),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
             val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""),info)
             call.enqueue(
                 object : Callback<InfoModel> {
@@ -65,17 +74,12 @@ class Info5Activity : AppCompatActivity() {
                     ) {
                         if(response.isSuccessful){
                             val data = response.body()!!
-                            d("*+*+token",settings.getString("token",""))
-                            d("*+*+",data.name)
-                            d("*+*+",data.gender)
-                            d("*+*+",data.birth)
-                            d("*+*+",data.devCareer)
 
                             //화면 이동
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
                             startActivity(intent)
                         }else{
-                            showErrorPopup(response.message(),this@Info5Activity)
+                            showErrorPopup("["+response.code().toString()+"] "+response.message(),this@Info5Activity)
                         }
                     }
                 }

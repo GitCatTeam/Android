@@ -72,6 +72,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
+                NewToken(context!!)
                 val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<LogoutModel> {
@@ -88,6 +89,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //TODO: SharedPreference 삭제해야 함
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }
@@ -133,8 +136,11 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                             if(response.isSuccessful){
                                 //FIXME: 회원탈퇴 API
                                 //TODO: SharedPreference 삭제해야 함
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }

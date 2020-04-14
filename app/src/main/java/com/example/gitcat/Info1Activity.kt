@@ -42,11 +42,11 @@ class Info1Activity : AppCompatActivity() {
 
         buttonGo.setOnClickListener{
             if(radioSex.equals("여자")){
-                editor.putString("gender","여자")
+                editor.putString("gender","F")
             }else if(radioSex.equals("남자")){
-                editor.putString("gender","남자")
+                editor.putString("gender","M")
             }else{
-                editor.putString("gender","기타")
+                editor.putString("gender","E")
             }
 
             //두번째 화면인 datePicker 등장
@@ -58,6 +58,8 @@ class Info1Activity : AppCompatActivity() {
 
         buttonGo2.setOnClickListener {
             editor.putString("birth",birth)
+            editor.apply()
+
             //화면 이동
             var intent = Intent(this,Info3Activity::class.java)
             startActivity(intent)

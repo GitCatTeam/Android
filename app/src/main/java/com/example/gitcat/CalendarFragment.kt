@@ -151,7 +151,7 @@ class CalendarFragment: Fragment() {
                         dates.clear()
                     }
                     else{
-                        showErrorPopup(response.message(),activity!!)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
                     }
                 }
             }
@@ -244,7 +244,7 @@ class CalendarFragment: Fragment() {
                     }//response success end
                     else{
                         this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
-                        showErrorPopup(response.message(),activity!!)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
                     }
                 }
             }

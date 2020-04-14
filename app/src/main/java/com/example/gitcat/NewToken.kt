@@ -45,7 +45,7 @@ fun NewToken(context: Context){
                         editor.apply()
 
                     }else{
-                        showErrorPopup(response.message(),context)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context)
                     }
                 }
             }

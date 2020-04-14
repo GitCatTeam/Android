@@ -93,7 +93,7 @@ class ChartActivity : AppCompatActivity() {
                         three_text3.text = reportData.data.comment[2]
                     }
                     else{
-                        showErrorPopup(response.message(),this@ChartActivity)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),this@ChartActivity)
                     }
                 }
             }

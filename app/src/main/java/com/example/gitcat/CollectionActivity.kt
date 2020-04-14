@@ -60,7 +60,7 @@ class CollectionActivity : AppCompatActivity() {
 
                         listAdapter.notifyDataSetChanged()
                     }else{
-                        showErrorPopup(response.message(),this@CollectionActivity)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),this@CollectionActivity)
                     }
                 }
             }

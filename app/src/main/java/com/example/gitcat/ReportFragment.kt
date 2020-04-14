@@ -85,7 +85,7 @@ class ReportFragment : Fragment() {
 
                         listAdapter.notifyDataSetChanged()
                     }else{
-                        showErrorPopup(response.message(),activity!!)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
                     }
                 }
             }

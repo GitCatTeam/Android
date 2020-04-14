@@ -88,6 +88,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //TODO: SharedPreference 삭제해야 함
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }
@@ -135,6 +137,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //TODO: SharedPreference 삭제해야 함
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }

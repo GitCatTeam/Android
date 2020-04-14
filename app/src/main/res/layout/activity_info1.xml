@@ -91,7 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/clayout1"
-            android:visibility="gone">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/textView4"
@@ -104,7 +104,8 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_chainStyle="spread"/>
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroupSex"/>
 
             <RadioGroup
                 android:id="@+id/radioGroupSex"
@@ -114,7 +115,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:layout_constraintVertical_chainStyle="spread">
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintBottom_toTopOf="@+id/buttonGo">
 
                 <RadioButton
                     android:id="@+id/radio0"
@@ -165,15 +167,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroupSex"
-                app:layout_constraintVertical_chainStyle="spread"/>
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintBottom_toTopOf="@id/one"/>
 
             <TextView
+                android:id="@+id/one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1/5"
                 android:fontFamily="@font/bbtree_r"
                 android:textColor="#c0c0c0"
                 android:textSize="12sp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -189,7 +194,9 @@
             app:layout_constraintVertical_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clayout1">
+            app:layout_constraintTop_toBottomOf="@+id/clayout1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textView5"
@@ -201,7 +208,8 @@
                 android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/date_picker"/>
 
             <DatePicker
                 android:id="@+id/date_picker"
@@ -212,7 +220,8 @@
                 android:theme="@style/MyDatePickerSpinnerStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                app:layout_constraintBottom_toTopOf="@+id/buttonGo2"/>
 
             <Button
                 android:id="@+id/buttonGo2"
@@ -222,17 +231,22 @@
                 android:text="다음으로"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/date_picker" />
+                app:layout_constraintTop_toBottomOf="@+id/date_picker"
+                app:layout_constraintBottom_toTopOf="@id/two"/>
 
             <TextView
+                android:id="@+id/two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2/5"
                 android:textColor="#c0c0c0"
                 android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonGo2" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonGo2"
+                app:layout_constraintVertical_chainStyle="spread"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

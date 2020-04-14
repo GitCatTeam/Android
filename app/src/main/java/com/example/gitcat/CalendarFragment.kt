@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.fragment_calendar.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.net.HttpURLConnection
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -53,6 +54,7 @@ class CalendarFragment: Fragment() {
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
         val loading = rootView.findViewById<ImageView>(R.id.loading_img)
+
         var apimonth : String = ""
         var calendarDay: CalendarDay = CalendarDay.today()
         var ymToday : String
@@ -65,7 +67,7 @@ class CalendarFragment: Fragment() {
 
         Glide.with(this@CalendarFragment).load(R.raw.gif_loading).into(loading)
 
-
+        NewToken(context!!)
         APIStart(calendarView,settings.getString("token",""),ymToday)
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
@@ -95,7 +97,7 @@ class CalendarFragment: Fragment() {
             //TODO: 누른 날짜만 선택되기
             //calendarView.removeDecorator(CalendarSelectedDecorator(calendarDay,activity!!))
             //calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
-
+            NewToken(context!!)
             APIContent(settings.getString("token",""),dates)
 
             calendarView?.clearSelection()
@@ -115,7 +117,7 @@ class CalendarFragment: Fragment() {
             }else{
                 apimonth = mYear.toString()+"0"+mMonth.toString()
             }
-
+            NewToken(context!!)
             APIStart(calendarView,settings.getString("token",""),apimonth)
         }
 
@@ -166,7 +168,7 @@ class CalendarFragment: Fragment() {
             if(ymd[1].toInt()<10){
                 var m = ymd[1].substring(1).toInt()
                 if(ymd[2].toInt()<10){//9월9일
-                    var d = ymd[1].substring(1).toInt()
+                    var d = ymd[2].substring(1).toInt()
                     dates.add(CalendarDay.from(ymd[0].toInt(),m,d))
                 }else{//9월10일
                     dates.add(CalendarDay.from(ymd[0].toInt(),m,ymd[2].toInt()))
@@ -189,13 +191,16 @@ class CalendarFragment: Fragment() {
         var time: String
         var message: String
 
+
         val call: Call<MonthCommitContentModel> = RetrofitCreator.service.getMonthCommitContent(token,dates)
         call.enqueue(
             object : Callback<MonthCommitContentModel> {
                 override fun onFailure(call: Call<MonthCommitContentModel>, t: Throwable) {
+                    this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
                     commitLayout.visibility = View.GONE
                     noCommitText.visibility = View.VISIBLE
                     noCommitText.text = "오류가 발생하였습니다. 관리자에게 문의해주세요!"
+                    d("*+*+",t.toString())
                 }
 
                 override fun onResponse(

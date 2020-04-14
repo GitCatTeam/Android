@@ -4,6 +4,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.d
 import android.view.WindowManager
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -33,10 +35,12 @@ class Info3Activity : AppCompatActivity() {
 
         buttonGo.setOnClickListener{
             editor.putString("devCareer",devCareer)
+            editor.apply()
             //화면 이동
 
-            var intent = Intent(this,Info4Activity::class.java)
+            var intent = Intent(this,Info5Activity::class.java)
             startActivity(intent)
+
         }
 
         //기간이 클릭되면

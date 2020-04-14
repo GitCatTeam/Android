@@ -52,7 +52,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
-
+                NewToken(context!!)
                 val call: Call<Unit> = RetrofitCreator.service.deleteCats(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<Unit> {

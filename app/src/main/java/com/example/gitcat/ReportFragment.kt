@@ -49,6 +49,7 @@ class ReportFragment : Fragment() {
         var rTotalCommit: String
         var rLanguage: String
 
+        NewToken(context!!)
         val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token",""))
         call.enqueue(
             object : Callback<MonthlyListModel> {

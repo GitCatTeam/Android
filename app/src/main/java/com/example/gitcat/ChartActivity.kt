@@ -43,6 +43,7 @@ class ChartActivity : AppCompatActivity() {
         chartTitle.text = intent.getStringExtra("title")
         totalCommit.text = intent.getStringExtra("commit")
 
+        NewToken(this)
         val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail(settings.getString("token",""),id)
         call.enqueue(
             object : Callback<MonthlyDetailModel> {

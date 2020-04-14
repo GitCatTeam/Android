@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -65,6 +66,8 @@ class SettingsFragment : PreferenceFragmentCompat(){
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 고양이 초기화 API
+                                var intent = Intent(context!!,Info4Activity::class.java)
+                                startActivity(intent)
                             }
                         }
                     }

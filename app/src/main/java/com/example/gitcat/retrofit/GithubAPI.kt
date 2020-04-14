@@ -76,4 +76,10 @@ interface GithubAPI {
     fun deleteWithdraw(
         @Header("Authorization") token: String
     ): Call<Unit>
+
+    /*토큰 재발급*/
+    @GET("auth/refresh-token")
+    fun getRefreshToken(
+        @Header("Authorization") refreshToken: String
+    ): Call<RefreshTokenModel>
 }

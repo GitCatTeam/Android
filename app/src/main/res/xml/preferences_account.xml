@@ -20,7 +20,7 @@
 
         <Preference
             android:key="withdraw"
-            android:title="회원 탈퇴"
+            android:title="GitCat 탈퇴하기"
             android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"

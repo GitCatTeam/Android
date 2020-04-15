@@ -82,7 +82,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vp_information_cat"
         app:layout_constraintVertical_bias="0.0"
-        android:elevation="0dp"/>
+        android:elevation="0dp"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/textView7"

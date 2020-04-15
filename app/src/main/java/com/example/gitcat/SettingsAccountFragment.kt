@@ -72,6 +72,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
+                NewToken(context!!)
                 val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<LogoutModel> {
@@ -88,6 +89,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //TODO: SharedPreference 삭제해야 함
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }
@@ -110,9 +113,10 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
             }
             ad.setView(dialogView)
-            dialogTitle.text = "회원 탈퇴"
-            dialogMessage.text = "현재 로그인 되어 있는 Github계정을\n" +
-                    "회원 탈퇴 하시겠습니까?"
+            dialogTitle.text = "GitCat 탈퇴하기"
+            dialogMessage.text = "GitCat 내의 모든 정보를 삭제하고\n" +
+                    "정말로 탈퇴하시겠습니까?\n" +
+                    "사라진 계정 정보는 복구할 수 없습니다!"
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()
@@ -132,8 +136,11 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                             if(response.isSuccessful){
                                 //FIXME: 회원탈퇴 API
                                 //TODO: SharedPreference 삭제해야 함
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }

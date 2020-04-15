@@ -43,6 +43,7 @@ class ChartActivity : AppCompatActivity() {
         chartTitle.text = intent.getStringExtra("title")
         totalCommit.text = intent.getStringExtra("commit")
 
+        NewToken(this)
         val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail(settings.getString("token",""),id)
         call.enqueue(
             object : Callback<MonthlyDetailModel> {
@@ -93,7 +94,7 @@ class ChartActivity : AppCompatActivity() {
                         three_text3.text = reportData.data.comment[2]
                     }
                     else{
-                        showErrorPopup(response.message(),this@ChartActivity)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),this@ChartActivity)
                     }
                 }
             }

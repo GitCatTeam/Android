@@ -25,6 +25,7 @@ import android.webkit.*
 import android.webkit.JavascriptInterface
 import android.view.WindowManager
 import android.widget.TextView
+import com.auth0.android.jwt.JWT
 import java.util.regex.Pattern
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
@@ -103,18 +104,27 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         cipher.init(Cipher.DECRYPT_MODE,newKey,ivs)
         val decryptedByteValue = String(cipher.doFinal(textBytes),Charsets.UTF_8)
         val jsonString = "{\""+decryptedByteValue.substring(20)
+
         val jsonObject = JSONObject(jsonString)
 
         val settings: SharedPreferences = mContext!!.getSharedPreferences("gitcat", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = settings.edit()
+        editor.putString("githubId",jsonObject.getString("githubId"))
+        editor.putString("profileImg",jsonObject.getString("profileImg"))
+        editor.putString("token",jsonObject.getString("token"))
+        editor.putString("refreshToken",jsonObject.getString("refreshToken"))
+
+        val jwt = JWT(jsonObject.getString("token"))
+        val issuedAt = jwt.issuedAt//시작
+        val expiresAt = jwt.expiresAt//마감
+        editor.putLong("expire",expiresAt!!.time)
+        editor.commit()
 
         if(jsonObject.getString("isFirst").compareTo("true")==0){
-            editor.putString("githubId",jsonObject.getString("githubId"))
-            editor.putString("profileImg",jsonObject.getString("profileImg"))
-            editor.putString("token",jsonObject.getString("token"))
-            editor.commit()
             val intent = Intent(mContext,Info1Activity::class.java)
             mContext?.startActivity(intent)
+        }else{
+            //사용자가 처음이 아닐 때
         }
     }
 }

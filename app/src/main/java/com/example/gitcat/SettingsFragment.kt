@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -51,7 +52,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
-
+                NewToken(context!!)
                 val call: Call<Unit> = RetrofitCreator.service.deleteCats(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<Unit> {
@@ -65,6 +66,10 @@ class SettingsFragment : PreferenceFragmentCompat(){
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 고양이 초기화 API
+                                var intent = Intent(context!!,Info4Activity::class.java)
+                                startActivity(intent)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                             }
                         }
                     }

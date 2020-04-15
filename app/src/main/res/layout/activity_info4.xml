@@ -68,22 +68,23 @@
     <Button
         android:id="@+id/btn_choose_cat_next"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="12dp"
-        app:layout_constraintVertical_chainStyle="packed"
         android:background="@drawable/info_next"
+        android:elevation="0dp"
+        android:enabled="false"
         android:fontFamily="@font/bbtree_b"
         android:paddingHorizontal="44dp"
         android:text="다음으로"
+        android:textColor="@color/colorWhite"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vp_information_cat"
         app:layout_constraintVertical_bias="0.0"
-        android:elevation="0dp"
-        android:enabled="false"/>
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/textView7"

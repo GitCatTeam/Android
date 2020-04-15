@@ -1,13 +1,16 @@
 package com.example.gitcat
 
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.gitcat.model.ChooseCatBasicModel
 import com.example.gitcat.model.DataModel
@@ -38,14 +41,18 @@ class BasicCatFragment : Fragment() {
     }
 
     private fun init(){
+        val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
+            AppCompatActivity.MODE_PRIVATE)
+
         chooseCatRecycleradapter = ChooseCatRecyclerAdapter(context!!)
         recycler_choose_cat_basic.apply{
             adapter= chooseCatRecycleradapter
             layoutManager = GridLayoutManager(context,3)
         }
+        chooseCatRecycleradapter.data = listOf(ChooseCatBasicModel(1,""))
 
         //통신
-        val token = ""
+        val token = settings.getString("token","")
         val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
         call.enqueue(object : Callback<DataModel>{
             override fun onFailure(call: Call<DataModel>, t: Throwable) {

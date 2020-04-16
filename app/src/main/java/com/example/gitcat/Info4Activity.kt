@@ -44,6 +44,10 @@ class Info4Activity : AppCompatActivity(){
         vp_information_cat.adapter = fragmentAdapter
         tl_information_cat.setupWithViewPager(vp_information_cat)
 
+        img_back_btn.setOnClickListener {
+            onBackPressed()
+        }
+
 //TODO: tab margin 주기
 
 //        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_NFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)

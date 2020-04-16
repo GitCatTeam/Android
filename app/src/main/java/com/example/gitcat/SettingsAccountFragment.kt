@@ -86,7 +86,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 로그아웃 API
-                                //TODO: SharedPreference 삭제해야 함
+                                settings.edit().clear().commit()
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)
                             }else{
@@ -135,7 +136,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                         ) {
                             if(response.isSuccessful){
                                 //FIXME: 회원탈퇴 API
-                                //TODO: SharedPreference 삭제해야 함
+                                settings.edit().clear().commit()
 
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 startActivity(intent)

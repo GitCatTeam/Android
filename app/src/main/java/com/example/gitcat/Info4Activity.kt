@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Paint
@@ -30,23 +31,53 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import com.example.gitcat.model.ChooseCatNewModel
+import com.example.gitcat.model.DataModel
 
 class Info4Activity : AppCompatActivity(){
 
     private var catId: Int = 0
+    private lateinit var newDialogFragment :NewDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info4)
 
-        val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2)
-        vp_information_cat.adapter = fragmentAdapter
-        tl_information_cat.setupWithViewPager(vp_information_cat)
-
         img_back_btn.setOnClickListener {
             onBackPressed()
         }
+
+
+        //통신
+        val settings: SharedPreferences = getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
+
+        val token = settings.getString("token","")
+        val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
+        call.enqueue(object : Callback<DataModel>{
+            override fun onFailure(call: Call<DataModel>, t: Throwable) {
+                showErrorPopup(t.toString(),applicationContext)
+            }
+
+            override fun onResponse(call: Call<DataModel>, response: Response<DataModel>) {
+                if(response.isSuccessful) {
+                    val data = response.body()!!.data
+
+                    val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2, data)
+                    vp_information_cat.adapter = fragmentAdapter
+                    tl_information_cat.setupWithViewPager(vp_information_cat)
+
+                    if(data.isNewExist){
+                        //새로운 고양이 모달창
+                        newDialogFragment = NewDialogFragment(data.new)
+                        newDialogFragment.show(supportFragmentManager,"newDialogFragment")
+                    }
+
+                }else{
+                    showErrorPopup(response.message(),applicationContext)
+                }
+            }
+        })
 
 //TODO: tab margin 주기
 

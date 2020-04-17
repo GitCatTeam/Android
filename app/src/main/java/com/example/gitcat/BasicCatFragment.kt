@@ -26,7 +26,7 @@ import java.util.*
 /**
  * A simple [Fragment] subclass.
  */
-class BasicCatFragment : Fragment() {
+class BasicCatFragment(private val data: ArrayList<ChooseCatBasicModel>) : Fragment() {
 
     lateinit var chooseCatRecycleradapter: ChooseCatRecyclerAdapter
     override fun onCreateView(
@@ -43,33 +43,12 @@ class BasicCatFragment : Fragment() {
     }
 
     private fun init(){
-        val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
-            AppCompatActivity.MODE_PRIVATE)
-
         chooseCatRecycleradapter = ChooseCatRecyclerAdapter(context!!,activity?.btn_choose_cat_next!!)
         recycler_choose_cat_basic.apply{
             adapter= chooseCatRecycleradapter
             layoutManager = GridLayoutManager(context,3)
         }
-        chooseCatRecycleradapter.data = listOf(ChooseCatBasicModel(1,""))
-
-        //통신
-        val token = settings.getString("token","")
-        val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
-        call.enqueue(object : Callback<DataModel>{
-            override fun onFailure(call: Call<DataModel>, t: Throwable) {
-                showErrorPopup(t.toString(),activity!!)
-            }
-
-            override fun onResponse(call: Call<DataModel>, response: Response<DataModel>) {
-                if(response.isSuccessful) {
-                    val data = response.body()!!.data
-                    chooseCatRecycleradapter.data = data.normal
-                    chooseCatRecycleradapter.notifyDataSetChanged()
-                }else{
-                    showErrorPopup(response.message(),activity!!)
-                }
-            }
-        })
+        chooseCatRecycleradapter.data = data
+        chooseCatRecycleradapter.notifyDataSetChanged()
     }
 }

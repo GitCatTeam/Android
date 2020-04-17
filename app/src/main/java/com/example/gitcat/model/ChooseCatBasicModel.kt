@@ -10,7 +10,7 @@ data class ChooseCatModel(
     var isNewExist: Boolean,
     var normal: ArrayList<ChooseCatBasicModel>,
     var special: ArrayList<ChooseCatSpecialModel>,
-    var new: ArrayList<CatNewModel>
+    var new: ArrayList<ChooseCatNewModel>
 )
 
 data class ChooseCatBasicModel (
@@ -22,7 +22,7 @@ data class ChooseCatSpecialModel(
     var id: Int,
     var profileImg: String
 )
-data class CatNewModel(
+data class ChooseCatNewModel(
     var profileImg: String,
     var description: String
 )

@@ -4,11 +4,13 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gitcat.model.ChooseCatBasicModel
 
-class ChooseCatRecyclerAdapter(private val context:Context):RecyclerView.Adapter<ChooseCatViewHolder>() {
+class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):RecyclerView.Adapter<ChooseCatViewHolder>() {
     var data = listOf<ChooseCatBasicModel>()
     var select = -1
 
@@ -33,6 +35,8 @@ class ChooseCatRecyclerAdapter(private val context:Context):RecyclerView.Adapter
                 notifyItemChanged(select)
                 select = position
             }
+            button.isEnabled = true
+            button.setBackgroundResource(R.drawable.info_next_after)
         }
 
     }

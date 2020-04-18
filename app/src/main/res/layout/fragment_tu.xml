@@ -33,6 +33,7 @@
             android:background="@drawable/tu_circle"
             android:layout_gravity="center"
             android:text="01"
+            android:fontFamily="@font/bbtree_b"
             android:paddingTop="5dp"
             android:textSize="18sp"
             android:lineHeight="15sp"
@@ -47,6 +48,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textColor="@color/colorTextDark"
+            android:fontFamily="@font/bbtree_b"
             android:textAlignment="center"
             android:layout_marginBottom="14dp"/>
 
@@ -55,6 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#8acbf6"
+            android:fontFamily="@font/bbtree_r"
             android:textSize="14sp"
             android:textAlignment="center"/>
 
@@ -65,6 +68,7 @@
             android:text="튜토리얼 시작하기"
             android:layout_gravity="center"
             android:textColor="#FFFFFF"
+            android:fontFamily="@font/bbtree_b"
             android:background="@drawable/info_next_after"
             android:visibility="gone"/>
 

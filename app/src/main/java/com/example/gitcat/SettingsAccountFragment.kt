@@ -78,6 +78,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                     object : Callback<LogoutModel> {
                         override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
+                            showErrorPopup(t.toString(),context!!)
                         }
 
                         override fun onResponse(
@@ -85,7 +86,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                             response: Response<LogoutModel>
                         ) {
                             if(response.isSuccessful){
-                                //FIXME: 로그아웃 API
+                                //로그아웃
                                 settings.edit().clear().commit()
 
                                 var intent = Intent(context!!,MainActivity::class.java)
@@ -128,6 +129,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                     object : Callback<Unit> {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
+                            showErrorPopup(t.toString(),context!!)
                         }
 
                         override fun onResponse(
@@ -135,7 +137,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                             response: Response<Unit>
                         ) {
                             if(response.isSuccessful){
-                                //FIXME: 회원탈퇴 API
+                                //회원탈퇴 API
                                 settings.edit().clear().commit()
 
                                 var intent = Intent(context!!,MainActivity::class.java)

@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -13,12 +14,18 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
 
         Handler().postDelayed({
             // This method will be executed once the timer is over
             // Start your app main activity
 
-            startActivity(Intent(this,MainActivity::class.java))
+            //SharedPreference가 있다면 HomeActivity로, 없다면 MainActivity로
+            if(settings.getString("token","").isEmpty()){
+                startActivity(Intent(this,MainActivity::class.java))
+            }else{
+                startActivity(Intent(this,HomeActivity::class.java))
+            }
 
             // close this activity
             finish()

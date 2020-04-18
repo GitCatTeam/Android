@@ -121,10 +121,13 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         editor.commit()
 
         if(jsonObject.getString("isFirst").compareTo("true")==0){
+            //사용자가 처음일 때
             val intent = Intent(mContext,Info1Activity::class.java)
             mContext?.startActivity(intent)
         }else{
             //사용자가 처음이 아닐 때
+            val intent = Intent(mContext,HomeActivity::class.java)
+            mContext?.startActivity(intent)
         }
     }
 }

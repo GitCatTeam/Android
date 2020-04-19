@@ -17,9 +17,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="1"
-            tools:layout_editor_absoluteX="16dp">
+            app:layout_constraintVertical_weight="2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -31,8 +29,8 @@
                     android:id="@+id/diaryIcon"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/ic_diary" />
 
                 <ImageView
@@ -52,31 +50,31 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:text="오늘의 커밋수"
-            android:textSize="24sp"
+            app:layout_constraintVertical_weight="1"
+            android:fontFamily="@font/bbtree_l"
             android:gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            android:text="오늘의 커밋수"
+            android:textColor="@color/colorTextDark"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="1"/>
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="9dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="3">
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_chainStyle="spread_inside">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum"
                 android:text="25"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="110sp" />
@@ -87,47 +85,42 @@
                 android:text="개" />
         </LinearLayout>
 
-
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:src="@drawable/img_cat_hand"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="4"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginBottom="62dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/ic_box_ios"
-            android:gravity="center"
             android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="2">
+            app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="닉네임 보일 곳"
+                android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="22sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -148,7 +141,8 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"

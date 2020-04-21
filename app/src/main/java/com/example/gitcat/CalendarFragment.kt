@@ -54,6 +54,7 @@ class CalendarFragment: Fragment() {
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
         val loading = rootView.findViewById<ImageView>(R.id.loading_img)
+        var beforeDay: CalendarDay = CalendarDay.today()
 
         var apimonth : String = ""
         var calendarDay: CalendarDay = CalendarDay.today()
@@ -69,7 +70,6 @@ class CalendarFragment: Fragment() {
 
         NewToken(context!!)
         APIStart(calendarView,settings.getString("token",""),ymToday)
-
         calendarView?.setOnDateChangedListener { widget, date, selected ->
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             val Year = date.year.toString()
@@ -94,12 +94,14 @@ class CalendarFragment: Fragment() {
                     dates += Day
                 }
             }
-            //TODO: 누른 날짜만 선택되기
-            //calendarView.removeDecorator(CalendarSelectedDecorator(calendarDay,activity!!))
-            //calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
+
+            //하나씩 선택되는 drawable
+            calendarView.addDecorator(CalendarUnselectedDecorator(beforeDay,activity!!))
+            calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
+            beforeDay = date
+
             NewToken(context!!)
             APIContent(settings.getString("token",""),dates)
-
             calendarView?.clearSelection()
 
         }
@@ -226,7 +228,16 @@ class CalendarFragment: Fragment() {
 
                             commit_score.text = date.data.score
                             commit_totalCommit.text = date.data.totalCommit
-                            commit_item.text = date.data.item
+                            if(date.data.item.length==0){
+                                commit_item.text="없음!"
+                                commit_item.textSize = 14F
+                                commit_item.setTextColor(resources.getColor(R.color.colorText))
+                            }else{
+                                commit_item.text = date.data.item
+                                commit_item.textSize = 20F
+                                commit_item.setTextColor(resources.getColor(R.color.colorTextDark))
+                            }
+
 
                             for(data in date.data.commits){
                                 var commitList= arrayListOf<RepositoryDetail>()

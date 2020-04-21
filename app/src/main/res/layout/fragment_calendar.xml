@@ -255,7 +255,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="없음"
-                                android:fontFamily="@font/bbtree_r"/>
+                                android:textSize="20sp"
+                                android:fontFamily="@font/bbtree_r"
+                                android:textColor="@color/colorTextDark"/>
                         </LinearLayout>
 
 

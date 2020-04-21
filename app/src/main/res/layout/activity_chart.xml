@@ -70,6 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="지난달 대비"
+                            android:layout_marginBottom="11dp"
                             android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
@@ -77,7 +78,8 @@
                             android:id="@+id/lastMonth"
                             android:fontFamily="@font/bbtree_b"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"/>
                     </LinearLayout>
 
                     <FrameLayout
@@ -95,6 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="총 커밋수"
+                            android:layout_marginBottom="11dp"
                             android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
@@ -103,7 +106,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bbtree_b"
-                            android:textColor="@color/colorPrimaryDark"/>
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18sp"/>
                     </LinearLayout>
 
                 <FrameLayout
@@ -121,6 +125,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="하루 평균"
+                            android:layout_marginBottom="11dp"
                             android:fontFamily="@font/bbtree_b"
                             android:textColor="@color/colorTextDark"
                             android:textSize="13sp"/>
@@ -128,7 +133,8 @@
                             android:id="@+id/avg"
                             android:fontFamily="@font/bbtree_b"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"/>
                     </LinearLayout>
                 
 
@@ -153,7 +159,6 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         app:srcCompat="@drawable/ic_report_graph"
-                        android:layout_marginTop="2dp"
                         tools:srcCompat="@drawable/ic_report_graph" />
 
                     <TextView
@@ -201,7 +206,6 @@
                         android:id="@+id/pieImg"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
-                        android:layout_marginTop="2dp"
                         app:srcCompat="@drawable/ic_report_language"
                         tools:srcCompat="@drawable/ic_report_language" />
 
@@ -253,7 +257,6 @@
                         android:id="@+id/barImg"
                         android:layout_width="14dp"
                         android:layout_height="14dp"
-                        android:layout_marginTop="2dp"
                         app:srcCompat="@drawable/ic_report_repa"
                         tools:srcCompat="@drawable/ic_report_repa" />
 
@@ -286,8 +289,9 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -301,6 +305,7 @@
                 android:layout_width="335dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/info_list"
                 android:paddingBottom="15dp">
 
@@ -315,7 +320,6 @@
                         android:layout_width="14dp"
                         android:layout_height="14dp"
                         app:srcCompat="@drawable/ic_report_cat"
-                        android:layout_marginTop="2dp"
                         tools:srcCompat="@drawable/ic_report_cat" />
 
                     <TextView
@@ -343,12 +347,14 @@
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
                         android:fontFamily="@font/bbtree_r"
-                        android:textColor="@color/colorTextDark"/>
+                        android:textColor="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"/>
+                        android:background="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
 
                     <TextView
                         android:id="@+id/three_text2"
@@ -356,12 +362,14 @@
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
                         android:fontFamily="@font/bbtree_r"
-                        android:textColor="@color/colorTextDark"/>
+                        android:textColor="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"/>
+                        android:background="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
 
                     <TextView
                         android:id="@+id/three_text3"
@@ -369,12 +377,14 @@
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
                         android:fontFamily="@font/bbtree_r"
-                        android:textColor="@color/colorTextDark"/>
+                        android:textColor="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"/>
+                        android:background="@color/colorTextDark"
+                        android:layout_marginBottom="1dp"/>
                 </LinearLayout>
 
             </RelativeLayout>

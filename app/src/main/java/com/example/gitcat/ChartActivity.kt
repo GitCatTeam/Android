@@ -115,10 +115,10 @@ class ChartActivity : AppCompatActivity() {
         lineChart.animateY(1000, Easing.EaseInOutCubic)
 
         val dataSet = LineDataSet(lineEntry, "")
-        dataSet.lineWidth = 2F
+        dataSet.lineWidth = 1F
         dataSet.circleRadius = 2F
         dataSet.setCircleColor(Color.parseColor("#8acbf6"))
-        dataSet.circleHoleColor = Color.BLUE
+        dataSet.circleHoleColor = Color.parseColor("#8acbf6")
         dataSet.color = Color.parseColor("#8acbf6")
         dataSet.setDrawCircleHole(true)
         dataSet.setDrawCircles(true)

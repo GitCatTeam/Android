@@ -58,6 +58,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                     object : Callback<Unit> {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
+                            showErrorPopup(t.toString(),context!!)
                         }
 
                         override fun onResponse(
@@ -65,7 +66,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                             response: Response<Unit>
                         ) {
                             if(response.isSuccessful){
-                                //FIXME: 고양이 초기화 API
+                                //고양이 초기화 API
                                 var intent = Intent(context!!,Info4Activity::class.java)
                                 startActivity(intent)
                             }else{

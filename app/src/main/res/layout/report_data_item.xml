@@ -1,97 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="336dp"
+    android:layout_width="336dp"
     android:layout_height="117dp"
-    android:background="@drawable/info_list"
-    android:layout_marginTop="16dp">
+    android:layout_marginTop="16dp"
+    android:background="@drawable/default_radius_rect"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="2">
-
-        <TextView
-            android:id="@+id/reportTitle"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="16sp"
-            android:paddingTop="17dp"
-            android:paddingLeft="16dp"
-            android:paddingBottom="9dp"
-            android:fontFamily="@font/bbtree_b"
-            android:text="2020년 1월 레포트"
-            />
-
-        <FrameLayout
-            android:layout_width="170dp"
-            android:layout_height="1dp"
-            android:background="#1f000000"
-            android:layout_marginLeft="16dp"
-            android:layout_marginBottom="10dp"/>
-
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp">
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="총 커밋수"
-                android:fontFamily="@font/bbtree_r"
-                android:textSize="13sp"/>
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/totalCommit"
+                android:id="@+id/reportTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="88회"
                 android:fontFamily="@font/bbtree_b"
-                android:textSize="13sp"/>
-        </LinearLayout>
+                android:paddingLeft="16dp"
+                android:paddingTop="17dp"
+                android:paddingBottom="9dp"
+                android:text="2020년 1월 레포트"
+                android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp">
+            <FrameLayout
+                android:layout_width="170dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="10dp"
+                android:background="#1f000000" />
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="주 사용 언어"
-                android:fontFamily="@font/bbtree_r"
-                android:textSize="13sp"/>
-
-            <TextView
-                android:id="@+id/language"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
-                android:text="JavaScript"
-                android:fontFamily="@font/bbtree_b"
-                android:textSize="13sp"/>
-        </LinearLayout>
+                android:paddingLeft="16dp">
 
-    </LinearLayout>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="총 커밋수"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/totalCommit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="88회"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="주 사용 언어"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="JavaScript"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/img_cat_sad" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/img_cat_sad" />
         </LinearLayout>
 
     </LinearLayout>
@@ -99,6 +100,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="@drawable/report_bottom_line"
-        android:layout_gravity="end"/>
+        android:layout_gravity="end"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/report_bottom_line" />
 </LinearLayout>

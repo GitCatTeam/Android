@@ -56,7 +56,7 @@
         android:id="@+id/radioGroupLong"
         android:layout_width="277dp"
         android:layout_height="299dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -214,7 +214,7 @@
             <DatePicker
                 android:id="@+id/date_picker"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner"
                 android:theme="@style/MyDatePickerSpinnerStyle"

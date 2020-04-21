@@ -38,9 +38,14 @@ class Info3Activity : AppCompatActivity() {
             editor.apply()
             //화면 이동
 
-            var intent = Intent(this,Info4Activity::class.java)
-            startActivity(intent)
-
+            //만약 isfirst가 true 라면 HomeActivity로, 아니라면 Info4Activity로
+            if(settings.getString("isFirst","").compareTo("true")==0){
+                var intent = Intent(this,HomeActivity::class.java)
+                startActivity(intent)
+            }else{
+                var intent = Intent(this,Info4Activity::class.java)
+                startActivity(intent)
+            }
         }
 
         //기간이 클릭되면

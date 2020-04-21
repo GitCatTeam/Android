@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="155dp"
     android:layout_height="202dp"
-    android:background="@drawable/info_list"
+    android:background="@drawable/default_radius_rect"
     android:layout_margin="8dp">
 
     <ImageView

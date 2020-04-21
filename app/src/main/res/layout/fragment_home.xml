@@ -17,33 +17,56 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="2">
+            app:layout_constraintVertical_weight="3">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerInParent="true">
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp">
 
                 <ImageView
                     android:id="@+id/diaryIcon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/ic_diary" />
+                    android:src="@drawable/ic_diary"
+                    android:padding="10dp"/>
 
                 <ImageView
                     android:id="@+id/settingsIcon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/ic_set_ios" />
+                    android:src="@drawable/ic_set_ios"
+                    android:padding="10dp"/>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:id="@+id/img_btn_new_data"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_newdata"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="화면 새로고침"
+                    android:textColor="@color/colorLightBlue"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
         </RelativeLayout>
 
         <TextView
@@ -65,11 +88,12 @@
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_chainStyle="spread_inside">
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,85 +106,149 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_l"
+                android:textColor="@color/colorTextDark"
+                android:textSize="24sp"
                 android:text="개" />
         </LinearLayout>
 
+
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_cat_hand"
+            android:id="@+id/img_home_cat_gif"
+            android:layout_width="270dp"
+            android:layout_height="202dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_box_ios"
-            android:orientation="vertical"
-            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4">
+            app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif"
+            android:layout_marginBottom="30dp"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="50dp">
 
             <TextView
+                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="닉네임 보일 곳"
                 android:layout_gravity="center"
+                android:text="닉네임 보일 곳"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:fontFamily="@font/nanum"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11">
+
+                <ImageView
+                    android:id="@+id/img_btn_score_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="3dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_question" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_r"
+                    android:textColor="@color/colorTextDark"
                     android:text="오늘의 득점 : "
                     android:textSize="13sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3" />
+                    android:layout_marginHorizontal="6dp"
+                    android:text="3"
+                    android:fontFamily="@font/nanum"
+                    android:textSize="22sp"
+                    android:textColor="@color/colorTextDark"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(출석 1 + 누적 2)" />
+                    android:text="(출석 1 + 누적 2)"
+                    android:fontFamily="@font/nanum"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorTextDark"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아이템까지 : "
+                    android:fontFamily="@font/bbtree_r"
+                    android:textColor="@color/colorTextDark"
                     android:textSize="13sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="22" />
+                    android:text="22"
+                    android:textSize="22sp"
+                    android:fontFamily="@font/nanum"
+                    android:textColor="@color/colorTextDark"
+                    android:layout_marginHorizontal="6dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(중고노트북1)" />
+                    android:text="(중고노트북1)"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/nanum"
+                    android:textColor="@color/colorTextDark"/>
             </LinearLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_talkballoon_new"
+            app:layout_constraintEnd_toEndOf="@+id/img_home_cat_gif"
+            app:layout_constraintTop_toTopOf="@+id/img_home_cat_gif" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="손이 아프다냥"
+            android:fontFamily="@font/nanum"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextDark"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+            app:layout_constraintEnd_toEndOf="@+id/imageView10"
+            app:layout_constraintStart_toStartOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

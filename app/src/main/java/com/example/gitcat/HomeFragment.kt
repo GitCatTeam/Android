@@ -12,6 +12,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_tu.*
 
@@ -48,6 +49,9 @@ class HomeFragment : Fragment() {
         //튜토리얼
         tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
         tuDialog.show(fragmentManager!!,"addons_fragment")
+
+        //홈 gif 처리
+        Glide.with(this).load(R.raw.gif_write_cat).into(img_home_cat_gif)
 
         //졸업 다이얼로그
         //graduateDialog.show(fragmentManager!!,"graduate_fragment")

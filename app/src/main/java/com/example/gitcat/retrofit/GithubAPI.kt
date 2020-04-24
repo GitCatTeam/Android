@@ -46,6 +46,13 @@ interface GithubAPI {
         @Header("Authorization") token: String
     ): Call<DataModel>
 
+    /*고양이 추가*/
+    @POST("home/cats")
+    fun postCats(
+        @Header("Authorization") token: String,
+        @Body cats: AddCatModel
+    ): Call<AddCatModel>
+
     /*부가 정보 입력*/
     @PUT("auth/additional")
     fun putInfo(

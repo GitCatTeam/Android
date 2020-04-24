@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
             // Start your app main activity
 
             //SharedPreference가 있다면 HomeActivity로, 없다면 MainActivity로
-            if(settings.getString("token","").isEmpty()){
+            if(settings.getString("devCareer","").isEmpty()){
                 startActivity(Intent(this,MainActivity::class.java))
             }else{
                 startActivity(Intent(this,HomeActivity::class.java))

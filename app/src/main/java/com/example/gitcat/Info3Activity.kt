@@ -36,6 +36,8 @@ class Info3Activity : AppCompatActivity() {
         buttonGo.setOnClickListener{
             editor.putString("devCareer",devCareer)
             editor.apply()
+
+            d("*+*+",settings.getString("token","토큰없어"))
             //화면 이동
 
             //만약 isfirst가 true 라면 HomeActivity로, 아니라면 Info4Activity로

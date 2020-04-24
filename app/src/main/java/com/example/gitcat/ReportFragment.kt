@@ -65,26 +65,32 @@ class ReportFragment : Fragment() {
                     if(response.isSuccessful){
                         val reportData = response.body()!!
 
-                        for(data in reportData.data.resultList){
-                            rId = data.id.toString()
-                            rTitle = data.title
-                            rTotalCommit = data.totalCount
-                            rLanguage = data.mainLanguage
-                            reportList.add(Report(rId,rTitle,rTotalCommit,rLanguage))
-                        }
+                        if(reportData.data.resultList.isEmpty()){
+                            noReport.visibility = View.VISIBLE
+                            report_scroll.visibility = View.GONE
+                        }else{
+                            for(data in reportData.data.resultList){
+                                rId = data.id.toString()
+                                rTitle = data.title
+                                rTotalCommit = data.totalCount
+                                rLanguage = data.mainLanguage
+                                reportList.add(Report(rId,rTitle,rTotalCommit,rLanguage))
+                            }
 
-                        val listAdapter = ReportAdapter(activity!!,reportList){report ->
-                            val intent = Intent(context, ChartActivity::class.java)
-                            intent.putExtra("id",report.id)
-                            intent.putExtra("title",report.title)
-                            intent.putExtra("commit", report.totalCommit)
+                            val listAdapter = ReportAdapter(activity!!,reportList){report ->
+                                val intent = Intent(context, ChartActivity::class.java)
+                                intent.putExtra("id",report.id)
+                                intent.putExtra("title",report.title)
+                                intent.putExtra("commit", report.totalCommit)
 
-                            startActivity(intent)
-                        }
+                                startActivity(intent)
+                            }
 
-                        report_recyclerview.adapter = listAdapter
+                            report_recyclerview.adapter = listAdapter
 
-                        listAdapter.notifyDataSetChanged()
+                            listAdapter.notifyDataSetChanged()
+                        }//데이터 들어있을 때 end
+
                     }else{
                         showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
                     }

@@ -46,20 +46,30 @@ class CollectionActivity : AppCompatActivity() {
                     response: Response<CatsCollectionModel>
                 ) {
                     if(response.isSuccessful){
+
                         val data = response.body()!!
 
-                        for(c in data.data){
-                            cName = "- 이름 : "+c.name
-                            cDoing = "- "+c.endingMent
-                            collectionList.add(Collection(cName,cDoing,c.isMedal,c.img))
-                        }
+                        if(data.data.isEmpty()){
+                            noCollection.visibility = View.VISIBLE
+                            collection_scroll.visibility = View.GONE
+                        }else{//데이터가 들어있다면
+                            noCollection.visibility = View.GONE
+                            collection_scroll.visibility = View.VISIBLE
 
-                        val collection_recyclerview = findViewById(R.id.collection_recyclerview) as RecyclerView
-                        val listAdapter = CollectionAdapter(this@CollectionActivity,collectionList)
-                        collection_recyclerview.adapter = listAdapter
-                        collection_recyclerview.layoutManager = GridLayoutManager(this@CollectionActivity,2)
+                            for(c in data.data){
+                                cName = "- 이름 : "+c.name
+                                cDoing = "- "+c.endingMent
+                                collectionList.add(Collection(cName,cDoing,c.isMedal,c.img))
+                            }
 
-                        listAdapter.notifyDataSetChanged()
+                            val collection_recyclerview = findViewById(R.id.collection_recyclerview) as RecyclerView
+                            val listAdapter = CollectionAdapter(this@CollectionActivity,collectionList)
+                            collection_recyclerview.adapter = listAdapter
+                            collection_recyclerview.layoutManager = GridLayoutManager(this@CollectionActivity,2)
+
+                            listAdapter.notifyDataSetChanged()
+                        }//데이터 들어있다면 end
+
                     }else{
                         showErrorPopup("["+response.code().toString()+"] "+response.message(),this@CollectionActivity)
                     }

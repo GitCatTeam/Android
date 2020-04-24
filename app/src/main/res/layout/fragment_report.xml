@@ -14,32 +14,46 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:background="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread"
-            app:layout_constraintVertical_weight="1"
-            android:background="#FFFFFF">
+            app:layout_constraintVertical_weight="1">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="리포트"
-                android:fontFamily="@font/bbtree_b"
                 android:layout_centerVertical="true"
+                android:fontFamily="@font/bbtree_b"
+                android:text="리포트"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textAlignment="center" />
+                android:textSize="18sp" />
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/noReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/img_noreport"
+            tools:srcCompat="@drawable/img_noreport" />
+
         <ScrollView
+            android:id="@+id/report_scroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            android:visibility="gone">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/report_recyclerview"

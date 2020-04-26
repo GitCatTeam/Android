@@ -115,6 +115,7 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         editor.putString("refreshToken",jsonObject.getString("refreshToken"))
         editor.putString("isFirst",jsonObject.getString("isFirst"))
 
+        Log.e("token",jsonObject.getString("token"))
         val jwt = JWT(jsonObject.getString("token"))
         val issuedAt = jwt.issuedAt//시작
         val expiresAt = jwt.expiresAt//마감

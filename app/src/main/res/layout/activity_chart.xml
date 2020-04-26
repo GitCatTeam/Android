@@ -60,7 +60,7 @@
                 android:layout_width="336dp"
                 android:layout_height="78dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list">
+                android:background="@drawable/default_radius_rect">
                     <LinearLayout
                     android:layout_width="113dp"
                     android:layout_height="78dp"
@@ -144,7 +144,7 @@
                 android:layout_width="335dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list">
+                android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
                     android:id="@+id/lineImgText"
@@ -193,7 +193,7 @@
                 android:layout_width="335dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/info_list">
+                android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -244,7 +244,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:background="@drawable/info_list">
+                android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -306,7 +306,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/info_list"
+                android:background="@drawable/default_radius_rect"
                 android:paddingBottom="15dp">
 
                 <LinearLayout

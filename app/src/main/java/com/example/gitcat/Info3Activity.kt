@@ -12,9 +12,14 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.gitcat.model.InfoModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_info3.*
 import kotlinx.android.synthetic.main.activity_info3.backButton
 import kotlinx.android.synthetic.main.activity_info3.buttonGo
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Info3Activity : AppCompatActivity() {
 
@@ -36,10 +41,35 @@ class Info3Activity : AppCompatActivity() {
         buttonGo.setOnClickListener{
             editor.putString("devCareer",devCareer)
             editor.apply()
-            //화면 이동
 
-            var intent = Intent(this,Info5Activity::class.java)
-            startActivity(intent)
+            d("*+*+",settings.getString("token","토큰없어"))
+
+            //화면 이동
+            val info = InfoModel(settings.getString("githubId",""),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
+            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""),info)
+            call.enqueue(
+                object : Callback<InfoModel> {
+                    override fun onFailure(call: Call<InfoModel>, t: Throwable) {
+                        Log.e("*+*+", "error: $t")
+                        showErrorPopup(t.toString(),this@Info3Activity)
+                    }
+
+                    override fun onResponse(
+                        call: Call<InfoModel>,
+                        response: Response<InfoModel>
+                    ) {
+                        if(response.isSuccessful){
+                            val data = response.body()!!
+
+                            //이 화면을 거친다는 것 자체가 첫 로그인이라는 것. 튜토리얼로 이동
+                            var intent = Intent(this@Info3Activity,HomeActivity::class.java)
+                            startActivity(intent)
+                        }else{
+                            showErrorPopup("["+response.code().toString()+"] "+response.message(),this@Info3Activity)
+                        }
+                    }
+                }
+            )
 
         }
 

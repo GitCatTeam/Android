@@ -113,6 +113,7 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         editor.putString("profileImg",jsonObject.getString("profileImg"))
         editor.putString("token",jsonObject.getString("token"))
         editor.putString("refreshToken",jsonObject.getString("refreshToken"))
+        editor.putString("isFirst",jsonObject.getString("isFirst"))
 
         val jwt = JWT(jsonObject.getString("token"))
         val issuedAt = jwt.issuedAt//시작

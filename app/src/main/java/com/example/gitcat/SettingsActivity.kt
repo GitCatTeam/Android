@@ -20,7 +20,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
         Glide.with(this).load(settings.getString("profileImg","")).apply(RequestOptions.circleCropTransform()).into(profile)
-        username.text = settings.getString("name","")
+        username.text = settings.getString("catName","")
         useremail.text = settings.getString("githubId","")
 
         supportFragmentManager.beginTransaction().replace(R.id.settingsFrame,SettingsFragment()).commit()

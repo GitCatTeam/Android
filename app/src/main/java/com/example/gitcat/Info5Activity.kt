@@ -11,7 +11,7 @@ import android.util.Log.d
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gitcat.model.InfoModel
+import com.example.gitcat.model.AddCatModel
 import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_info5.*
 import retrofit2.Call
@@ -50,32 +50,25 @@ class Info5Activity : AppCompatActivity() {
 
         buttonGo.setOnClickListener{
 
-            editor.putString("name",editCatName.text.toString())
+            editor.putString("catName",editCatName.text.toString())
             editor.apply()
 
-            d("*+*+",editCatName.text.toString())
-            d("*+*+",settings.getString("gender","0"))
-            d("*+*+",settings.getString("birth","1"))
-            d("*+*+",settings.getString("devCareer","2"))
-            d("*+*+",settings.getString("token","3"))
-
-            val info = InfoModel(editCatName.text.toString(),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
-            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""),info)
+            val cat = AddCatModel(settings.getInt("catId",0),editCatName.text.toString())
+            val call: Call<AddCatModel> = RetrofitCreator.service.postCats(settings.getString("token",""),cat)
             call.enqueue(
-                object : Callback<InfoModel> {
-                    override fun onFailure(call: Call<InfoModel>, t: Throwable) {
+                object : Callback<AddCatModel> {
+                    override fun onFailure(call: Call<AddCatModel>, t: Throwable) {
                         Log.e("*+*+", "error: $t")
                         showErrorPopup(t.toString(),this@Info5Activity)
                     }
 
                     override fun onResponse(
-                        call: Call<InfoModel>,
-                        response: Response<InfoModel>
+                        call: Call<AddCatModel>,
+                        response: Response<AddCatModel>
                     ) {
                         if(response.isSuccessful){
                             val data = response.body()!!
 
-                            //화면 이동
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
                             startActivity(intent)
                         }else{

@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -23,6 +24,12 @@ class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):R
 
     override fun onBindViewHolder(holder: ChooseCatViewHolder, position: Int) {
         holder.bind(data[position])
+        //shared 저장
+        val settings: SharedPreferences = context.getSharedPreferences("gitcat",Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
+        editor.putString("catImageUrl",null)
+        editor.commit()
+
         //하나만 선택
         if(select == -1){
             holder.relative.isSelected = false
@@ -37,6 +44,9 @@ class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):R
             }
             button.isEnabled = true
             button.setBackgroundResource(R.drawable.info_next_after)
+
+            editor.putString("catImageUrl",data[select].profileImg)
+            editor.apply()
         }
 
     }

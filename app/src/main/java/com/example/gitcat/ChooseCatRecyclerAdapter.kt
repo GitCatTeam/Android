@@ -28,6 +28,7 @@ class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):R
         val settings: SharedPreferences = context.getSharedPreferences("gitcat",Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = settings.edit()
         editor.putString("catImageUrl",null)
+        editor.putInt("catId",-1)
         editor.commit()
 
         //하나만 선택
@@ -46,6 +47,7 @@ class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):R
             button.setBackgroundResource(R.drawable.info_next_after)
 
             editor.putString("catImageUrl",data[select].profileImg)
+            editor.putInt("catId",data[select].id)
             editor.apply()
         }
 

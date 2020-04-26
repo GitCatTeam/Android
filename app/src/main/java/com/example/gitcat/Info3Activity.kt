@@ -38,7 +38,7 @@ class Info3Activity : AppCompatActivity() {
             editor.apply()
             //화면 이동
 
-            var intent = Intent(this,Info4Activity::class.java)
+            var intent = Intent(this,Info5Activity::class.java)
             startActivity(intent)
 
         }

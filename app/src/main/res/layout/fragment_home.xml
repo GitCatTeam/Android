@@ -73,6 +73,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintVertical_weight="1"
             android:fontFamily="@font/bbtree_l"
             android:gravity="center"
@@ -93,7 +94,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
             app:layout_constraintVertical_chainStyle="spread_inside"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -115,8 +116,12 @@
 
         <ImageView
             android:id="@+id/img_home_cat_gif"
-            android:layout_width="270dp"
-            android:layout_height="202dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="270dp"
+            android:minHeight="202dp"
+            android:maxWidth="370dp"
+            android:maxHeight="302dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
@@ -132,7 +137,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="70dp"
             android:paddingVertical="20dp"
             android:paddingHorizontal="50dp">
 

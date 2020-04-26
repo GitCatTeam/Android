@@ -11,9 +11,12 @@ import android.util.Log.d
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.gitcat.model.AddCatModel
 import com.example.gitcat.retrofit.RetrofitCreator
+import kotlinx.android.synthetic.main.activity_chart.*
 import kotlinx.android.synthetic.main.activity_info5.*
+import kotlinx.android.synthetic.main.activity_info5.backButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,6 +36,12 @@ class Info5Activity : AppCompatActivity() {
         buttonGo.isEnabled = false
         val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
         val editor: SharedPreferences.Editor = settings.edit()
+
+        //고양이를 선택했다면
+        settings.getString("catImageUrl",null).let {
+            Glide.with(this).load(it).into(myCatImg)
+        }
+
 
         editCatName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {

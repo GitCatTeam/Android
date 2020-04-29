@@ -8,15 +8,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
 import com.bumptech.glide.Glide
+import com.example.gitcat.model.HomeModel
+import com.example.gitcat.model.LogoutModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_tu.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -48,12 +52,14 @@ class HomeFragment : Fragment() {
     }
 
     fun init(){
-        //튜토리얼
-        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-        tuDialog.show(fragmentManager!!,"addons_fragment")
+        Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(img_home_cat_loading)
+        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+        callApi(settings.getString("token",""))
 
-        //홈 gif 처리
-        Glide.with(this).load(R.raw.gif_write_cat).into(img_home_cat_gif)
+        //튜토리얼
+        //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+        //tuDialog.show(fragmentManager!!,"addons_fragment")
+
 
         //졸업 다이얼로그
         //graduateDialog.show(fragmentManager!!,"graduate_fragment")
@@ -71,7 +77,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity,SettingsActivity::class.java)
             startActivity(intent)
         }
-
     }
 
     override fun onAttach(context: Context) {
@@ -82,11 +87,50 @@ class HomeFragment : Fragment() {
         super.onDestroy()
     }
 
-    private fun callApi(){
+    private fun callApi(token: String){
+        img_home_cat_loading.visibility = View.VISIBLE
+        val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
+        call.enqueue(
+            object : Callback<LogoutModel>{
+                override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
+                    showErrorPopup(t.toString(),context!!)
+                }
 
+                override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
+                    if(response.isSuccessful){
+                        afterCallApi(token)
+                    }else{
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                    }
+                }
+            }
+        )
     }
-    private fun beforeCallApi(){
+    private fun afterCallApi(token: String){
+        val call: Call<HomeModel> = RetrofitCreator.service.getHomeMain(token)
+        call.enqueue(
+            object : Callback<HomeModel>{
+                override fun onFailure(call: Call<HomeModel>, t: Throwable) {
+                    showErrorPopup(t.toString(),context!!)
+                }
 
+                override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                    if(response.isSuccessful){
+                        img_home_cat_loading.visibility = View.GONE
+                        val data = response.body()?.data
+                        txt_home_commit_count.text = data?.todayCommitCount.toString()
+                        //홈 gif 처리
+                        Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
+                        txt_home_nickname.text = data?.catName
+                        txt_home_today_score.text = data?.todayScore.toString()
+                        txt_home_next_level_score.text = data?.nextLevelScore.toString()
+                        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+                    }else{
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                    }
+                }
+            }
+        )
     }
 
 

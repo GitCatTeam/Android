@@ -89,4 +89,16 @@ interface GithubAPI {
     fun getRefreshToken(
         @Header("Authorization") refreshToken: String
     ): Call<RefreshTokenModel>
+
+    /*커밋 업데이트*/
+    @POST("home/commits")
+    fun getCommitsUpdate(
+        @Header("Authorization") token: String
+    ): Call<LogoutModel>
+
+    /*홈화면*/
+    @GET("home/main")
+    fun getHomeMain(
+        @Header("Authorization") token: String
+    ): Call<HomeModel>
 }

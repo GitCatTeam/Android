@@ -52,12 +52,13 @@ class HomeFragment : Fragment() {
     }
 
     fun init(){
+        Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(img_home_cat_loading)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         callApi(settings.getString("token",""))
 
         //튜토리얼
-        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-        tuDialog.show(fragmentManager!!,"addons_fragment")
+        //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+        //tuDialog.show(fragmentManager!!,"addons_fragment")
 
 
         //졸업 다이얼로그
@@ -87,6 +88,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun callApi(token: String){
+        img_home_cat_loading.visibility = View.VISIBLE
         val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
         call.enqueue(
             object : Callback<LogoutModel>{
@@ -114,6 +116,7 @@ class HomeFragment : Fragment() {
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                     if(response.isSuccessful){
+                        img_home_cat_loading.visibility = View.GONE
                         val data = response.body()?.data
                         txt_home_commit_count.text = data?.todayCommitCount.toString()
                         //홈 gif 처리

@@ -17,7 +17,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="3">
+            app:layout_constraintVertical_weight="2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -73,7 +73,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             app:layout_constraintVertical_weight="1"
             android:fontFamily="@font/bbtree_l"
             android:gravity="center"
@@ -94,13 +94,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
             app:layout_constraintVertical_chainStyle="spread_inside"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="30dp">
 
             <TextView
+                android:id="@+id/txt_home_commit_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/nanum"
-                android:text="25"
+                android:text="-"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="110sp" />
 
@@ -141,12 +142,23 @@
             android:paddingVertical="20dp"
             android:paddingHorizontal="50dp">
 
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_blueline_ios"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_home_nickname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_home_nickname"
+                app:layout_constraintVertical_bias="0.83" />
+
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/txt_home_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="닉네임 보일 곳"
+                android:text="닉네임"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="22sp"
@@ -159,10 +171,8 @@
                 android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11">
+                app:layout_constraintStart_toStartOf="@+id/ll_item"
+                app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname">
 
                 <ImageView
                     android:id="@+id/img_btn_score_explain"
@@ -182,24 +192,18 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txt_home_today_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
-                    android:text="3"
+                    android:text="null"
                     android:fontFamily="@font/nanum"
                     android:textSize="22sp"
-                    android:textColor="@color/colorTextDark"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(출석 1 + 누적 2)"
-                    android:fontFamily="@font/nanum"
-                    android:textSize="14sp"
                     android:textColor="@color/colorTextDark"/>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -216,18 +220,20 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/txt_home_next_level_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="22"
+                    android:text="null"
                     android:textSize="22sp"
                     android:fontFamily="@font/nanum"
                     android:textColor="@color/colorTextDark"
                     android:layout_marginHorizontal="6dp"/>
 
                 <TextView
+                    android:id="@+id/txt_home_next_level_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(중고노트북1)"
+                    android:text="(중고노트북)"
                     android:textSize="14sp"
                     android:fontFamily="@font/nanum"
                     android:textColor="@color/colorTextDark"/>
@@ -256,5 +262,9 @@
             app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    <ImageView
+        android:id="@+id/img_home_cat_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 </FrameLayout>

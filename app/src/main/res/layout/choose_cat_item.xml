@@ -7,8 +7,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/selector_choose_cat"
-    android:layout_margin="8dp"
-    android:elevation="5dp">
+    android:layout_margin="8dp">
 
     <ImageView
         android:id="@+id/img_choose_cat_item"

@@ -69,6 +69,9 @@ class ReportFragment : Fragment() {
                             noReport.visibility = View.VISIBLE
                             report_scroll.visibility = View.GONE
                         }else{
+                            noReport.visibility = View.GONE
+                            report_scroll.visibility = View.VISIBLE
+
                             for(data in reportData.data.resultList){
                                 rId = data.id.toString()
                                 rTitle = data.title

@@ -33,6 +33,7 @@ class HomeFragment : Fragment() {
     val tuDialog = TuDialogFragment()
     val graduateDialog = GraduateDialogFragment()
     val upgradeDialog = UpgradeDialogFragment()
+    var token: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +55,8 @@ class HomeFragment : Fragment() {
     fun init(){
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(img_home_cat_loading)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
-        callApi(settings.getString("token",""))
+        token = settings.getString("token","")
+        callApi(token)
 
         //튜토리얼
         //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
@@ -85,6 +87,11 @@ class HomeFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        callApi(token)
     }
 
     private fun callApi(token: String){
@@ -118,6 +125,14 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         img_home_cat_loading.visibility = View.GONE
                         val data = response.body()?.data
+
+                        //졸업하면
+                        if(data?.isGraduate!!){
+                            //졸업 다이얼로그
+                            graduateDialog.show(fragmentManager!!,"graduate_fragment")
+                        }
+
+                        //홈화면 보여주기
                         txt_home_commit_count.text = data?.todayCommitCount.toString()
                         //홈 gif 처리
                         Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)

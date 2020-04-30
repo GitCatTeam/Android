@@ -40,6 +40,8 @@ class GraduateDialogFragment : DialogFragment() {
         }
         img_btn_graduate_exit.setOnClickListener {
             dismiss()
+            val intent = Intent(context,Info4Activity::class.java)
+            startActivity(intent)
         }
     }
 }

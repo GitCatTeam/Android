@@ -67,6 +67,16 @@ class Info4Activity : AppCompatActivity(){
                     vp_information_cat.adapter = fragmentAdapter
                     tl_information_cat.setupWithViewPager(vp_information_cat)
 
+                    val tabgroup = tl_information_cat.getChildAt(0) as ViewGroup
+                    val tab: View =tabgroup.getChildAt(0)
+                    val margin :ViewGroup.MarginLayoutParams = tab.layoutParams as ViewGroup.MarginLayoutParams
+                    margin.setMargins(0,0,20,0)
+
+                    val tab2: View =tabgroup.getChildAt(1)
+                    val margin2 :ViewGroup.MarginLayoutParams = tab2.layoutParams as ViewGroup.MarginLayoutParams
+                    margin2.setMargins(20,0,0,0)
+
+
                     if(data.isNewExist){
                         //새로운 고양이 모달창
                         newDialogFragment = NewDialogFragment(data.new)
@@ -78,14 +88,6 @@ class Info4Activity : AppCompatActivity(){
                 }
             }
         })
-
-//TODO: tab margin 주기
-
-//        val choose_cat_tab:View=(this.getSystemService(android.content.Context.LAYOUT_NFLATER_SERVICE) as LayoutInflater).inflate(R.layout.choose_cat_tab,null,false)
-//
-//
-//        tl_information_cat.getTabAt(0)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_basic) as RelativeLayout
-//        tl_information_cat.getTabAt(1)?.customView=choose_cat_tab.findViewById(R.id.nav_choose_cat_special) as RelativeLayout
     }
 
 }

@@ -55,16 +55,15 @@ class HomeFragment : Fragment() {
     fun init(){
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(img_home_cat_loading)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+        NewToken(context!!)
         token = settings.getString("token","")
+        Log.e("token","$token")
         callApi(token)
 
         //튜토리얼
         //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
         //tuDialog.show(fragmentManager!!,"addons_fragment")
 
-
-        //졸업 다이얼로그
-        //graduateDialog.show(fragmentManager!!,"graduate_fragment")
 
         //업그레이드 다이얼로그
         //upgradeDialog.show(fragmentManager!!,"upgrade_fragment")

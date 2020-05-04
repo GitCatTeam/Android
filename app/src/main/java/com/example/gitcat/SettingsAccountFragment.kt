@@ -124,6 +124,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 ad.dismiss()
             }
             dialogOK.setOnClickListener {
+                NewToken(context!!)
                 val call: Call<Unit> = RetrofitCreator.service.deleteWithdraw(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<Unit> {

@@ -47,7 +47,7 @@
         <activity
             android:name=".Info5Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity" android:configChanges="screenSize|orientation">
         </activity>
         <activity android:name=".ChartActivity" />
         <activity

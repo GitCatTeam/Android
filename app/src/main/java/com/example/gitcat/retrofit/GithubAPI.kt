@@ -2,7 +2,11 @@ package com.example.gitcat.retrofit
 
 import com.example.gitcat.Info
 import com.example.gitcat.model.*
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.http.*
 
 interface GithubAPI {
@@ -18,7 +22,7 @@ interface GithubAPI {
     fun getMonthCommitCount(
         @Header("Authorization") token: String,
         @Query("date") date: String
-    ): Call<MonthCommitCountModel>
+    ): Call<JsonObject>
 
     /*달력잔디_일별 커밋 내역*/
     @GET("calender/commit")

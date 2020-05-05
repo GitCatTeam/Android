@@ -13,6 +13,9 @@ data class MonthCommitCountModel (
 data class MonthCommitCountModel_commits (
     @SerializedName("commits")
     val commits: MonthCommitCountModel_level
+
+//    @SerializedName("detailCommits")
+//    val detailCommits: map...?
 )
 
 data class MonthCommitCountModel_level(

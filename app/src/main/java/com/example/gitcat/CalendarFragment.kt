@@ -22,15 +22,21 @@ import com.example.gitcat.model.MonthCommitContentModel
 import com.example.gitcat.model.MonthCommitCountModel
 import com.example.gitcat.retrofit.GithubAPI
 import com.example.gitcat.retrofit.RetrofitCreator
+import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.reflect.TypeToken
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_calendar.*
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.net.HttpURLConnection
+import kotlin.reflect.typeOf
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -40,6 +46,7 @@ class CalendarFragment: Fragment() {
 
     val dates = ArrayList<CalendarDay>()
     var repoList = arrayListOf<Repository>()
+    var detailCommits = JSONObject()
 
     lateinit var compositeDisposable: CompositeDisposable
 
@@ -76,22 +83,29 @@ class CalendarFragment: Fragment() {
             val Month = date.month.toString()
             val Day = date.day.toString()
             var dates : String = Year
+            var dateScore : String = Year
 
             if(date.month<10){
                 dates += "0"+Month
+                dateScore += "-0"+Month
                 if(date.day<10){
                     dates += "0"+Day
+                    dateScore += "-0"+Day
                 }
                 else{
                     dates += Day
+                    dateScore += "-"+Day
                 }
             }else{
                 dates += Month
+                dateScore += "-"+Month
                 if(date.day<10){
                     dates += "0"+Day
+                    dateScore += "-0"+Day
                 }
                 else{
                     dates += Day
+                    dateScore += "-"+Day
                 }
             }
 
@@ -99,6 +113,32 @@ class CalendarFragment: Fragment() {
             calendarView.addDecorator(CalendarUnselectedDecorator(beforeDay,activity!!))
             calendarView.addDecorator(CalendarSelectedDecorator(date,activity!!))
             beforeDay = date
+
+            //날짜에 맞는 값들 뿌려주기
+            val list = detailCommits.get(dateScore)
+            val jo = JSONObject(list.toString())
+            val keyList = ArrayList<String>()
+            val valueList = ArrayList<String>()
+            val iterator = jo.keys()
+            while(iterator.hasNext()){
+                val name = iterator.next().toString()
+                keyList.add(name)
+            }
+            for(i in 0 until keyList.size){
+                valueList.add(jo.getString(keyList.get(i)))
+                //count, score, levelUp 순으로
+            }
+            commit_score.text = valueList[1]
+            commit_totalCommit.text = valueList[0]
+            if(valueList[2].isEmpty()){
+                commit_item.text="없음!"
+                commit_item.textSize = 14F
+                commit_item.setTextColor(resources.getColor(R.color.colorText))
+            }else{
+                commit_item.text = valueList[2]
+                commit_item.textSize = 20F
+                commit_item.setTextColor(resources.getColor(R.color.colorTextDark))
+            }
 
             NewToken(context!!)
             APIContent(settings.getString("token",""),dates)
@@ -119,6 +159,10 @@ class CalendarFragment: Fragment() {
             }else{
                 apimonth = mYear.toString()+"0"+mMonth.toString()
             }
+
+            //아마 초기화
+            detailCommits = JSONObject()
+
             NewToken(context!!)
             APIStart(calendarView,settings.getString("token",""),apimonth)
         }
@@ -129,28 +173,58 @@ class CalendarFragment: Fragment() {
     /*달력 API*/
     fun APIStart(calendarView:MaterialCalendarView, token:String, date:String){
 
-        val call: Call<MonthCommitCountModel> = RetrofitCreator.service.getMonthCommitCount(token,date)
+        val call: Call<JsonObject> = RetrofitCreator.service.getMonthCommitCount(token,date)
         call.enqueue(
-            object : Callback<MonthCommitCountModel> {
-                override fun onFailure(call: Call<MonthCommitCountModel>, t: Throwable) {
+            object : Callback<JsonObject> {
+                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
                     showErrorPopup(t.toString(),activity!!)
                 }
 
                 override fun onResponse(
-                    call: Call<MonthCommitCountModel>,
-                    response: Response<MonthCommitCountModel>
+                    call: Call<JsonObject>,
+                    response: Response<JsonObject>
                 ) {
                     if(response.isSuccessful){
-                        val month = response.body()!!
+                        val month = response.body()!!.toString()
 
-                        APIFlow(month.data.commits.data1,"level_1")
+                        val jsonObject = JSONObject(month)
+                        val data = jsonObject.getJSONObject("data")
+                        val commits = data.getJSONObject("commits")
+                        detailCommits = data.getJSONObject("detailCommits")
+
+                        val level1 = commits.getJSONArray("level_1")
+                        val level1_list = ArrayList<String>()
+                        for(i in 0 until level1.length()){
+                            level1_list.add(level1.get(i).toString())
+                        }
+
+                        val level2 = commits.getJSONArray("level_2")
+                        val level2_list = ArrayList<String>()
+                        for(i in 0 until level2.length()){
+                            level2_list.add(level2.get(i).toString())
+                        }
+
+                        val level3 = commits.getJSONArray("level_3")
+                        val level3_list = ArrayList<String>()
+                        for(i in 0 until level3.length()){
+                            level3_list.add(level3.get(i).toString())
+                        }
+
+                        /*
+                        * 리스트 APIFLOW에 각각 넣어주고 - ok
+                        * detailCount는 전역 json에 담기 - ok
+                        * 그리고 클릭 리스너에서 key에 맞는 값 넣어주기
+                        * month 움직일 때마다 전역 json 초기화 시켜주기 - ok
+                        * */
+
+                        APIFlow(level1_list,"level_1")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_1"))
                         dates.clear()
-                        APIFlow(month.data.commits.data2,"level_2")
+                        APIFlow(level2_list,"level_2")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_2"))
                         dates.clear()
-                        APIFlow(month.data.commits.data3,"level_3")
+                        APIFlow(level3_list,"level_3")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_3"))
                         dates.clear()
                     }
@@ -164,9 +238,9 @@ class CalendarFragment: Fragment() {
 
     /*날짜 계산*/
     fun APIFlow(array: ArrayList<String>, level: String){
-        for(date in array){
 
-            var ymd:List<String> = date.split("-")
+        for(i in 0 until array.size){
+            var ymd:List<String> = array.get(i).split("-")
             if(ymd[1].toInt()<10){
                 var m = ymd[1].substring(1).toInt()
                 if(ymd[2].toInt()<10){//9월9일
@@ -183,7 +257,8 @@ class CalendarFragment: Fragment() {
                     dates.add(CalendarDay.from(ymd[0].toInt(),ymd[1].toInt(),ymd[2].toInt()))
                 }
             }
-        }//for문 끝
+        }
+
     }
 
     /*달력 상세 API*/
@@ -225,19 +300,6 @@ class CalendarFragment: Fragment() {
                             repoList.clear()
                             commitLayout.visibility = View.VISIBLE
                             noCommitText.visibility = View.GONE
-
-                            commit_score.text = date.data.score
-                            commit_totalCommit.text = date.data.totalCommit
-                            if(date.data.item.length==0){
-                                commit_item.text="없음!"
-                                commit_item.textSize = 14F
-                                commit_item.setTextColor(resources.getColor(R.color.colorText))
-                            }else{
-                                commit_item.text = date.data.item
-                                commit_item.textSize = 20F
-                                commit_item.setTextColor(resources.getColor(R.color.colorTextDark))
-                            }
-
 
                             for(data in date.data.commits){
                                 var commitList= arrayListOf<RepositoryDetail>()

@@ -220,21 +220,186 @@
                         android:textColor="@color/colorTextDark"/>
                 </LinearLayout>
 
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/pieChart"
-                    android:layout_width="300dp"
-                    android:layout_height="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_below="@+id/pieImgText"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginStart="60dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_marginLeft="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center">
+
+                        <LinearLayout
+                            android:id="@+id/firstlegend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <FrameLayout
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/pie_0"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/firstlegend_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorTextDark"
+                                android:fontFamily="@font/bbtree_r"
+                                android:layout_marginLeft="6dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="----"
+                                android:textColor="@color/colorText"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"/>
+
+                            <TextView
+                                android:id="@+id/firstlegend_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/bbtree_b"
+                                android:textColor="@color/colorPrimaryDark"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/secondlegend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <FrameLayout
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/pie_1"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/secondlegend_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorTextDark"
+                                android:fontFamily="@font/bbtree_r"
+                                android:layout_marginLeft="6dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="----"
+                                android:textColor="@color/colorText"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"/>
+
+                            <TextView
+                                android:id="@+id/secondlegend_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/bbtree_b"
+                                android:textColor="@color/colorTextDark"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/thirdlegend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <FrameLayout
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/pie_2"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/thirdlegend_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorTextDark"
+                                android:fontFamily="@font/bbtree_r"
+                                android:layout_marginLeft="6dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="----"
+                                android:textColor="@color/colorText"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"/>
+
+                            <TextView
+                                android:id="@+id/thirdlegend_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/bbtree_b"
+                                android:textColor="@color/colorTextDark"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fourthlegend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <FrameLayout
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/pie_3"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:id="@+id/fourthlegend_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorTextDark"
+                                android:fontFamily="@font/bbtree_r"
+                                android:layout_marginLeft="6dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="----"
+                                android:textColor="@color/colorText"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"/>
+
+                            <TextView
+                                android:id="@+id/fourthlegend_percent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:fontFamily="@font/bbtree_b"
+                                android:textColor="@color/colorTextDark"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!---->
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </LinearLayout>
 
             </RelativeLayout>
 

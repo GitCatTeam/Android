@@ -12,6 +12,8 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.data.BarEntry
 import android.util.Log
+import android.util.Log.d
+import android.view.View
 import com.example.gitcat.model.MonthlyDetailModel
 import com.example.gitcat.retrofit.RetrofitCreator
 import com.github.mikephil.charting.components.Legend
@@ -26,6 +28,8 @@ class ChartActivity : AppCompatActivity() {
     val barMonth = arrayListOf<String>()
     val barEntries = ArrayList<BarEntry>()
     val pieEntry = ArrayList<PieEntry>()
+    val pieLegendName = ArrayList<String>()
+    val pieLegendPercent = ArrayList<Float>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,8 +78,46 @@ class ChartActivity : AppCompatActivity() {
                         //PieChart
                         for(pie in reportData.data.languageRatio.resultLanguages){
                             pieEntry.add(PieEntry(pie.percent,pie.language))
+                            pieLegendName.add(pie.language)
+                            pieLegendPercent.add(pie.percent)
                         }
                         pieChart(pieEntry)
+                        //pieChart legend 처리
+                        val pieCount = pieLegendName.size
+                        if(pieCount.equals(1)){
+                            secondlegend.visibility = View.GONE
+                            thirdlegend.visibility = View.GONE
+                            fourthlegend.visibility = View.GONE
+
+                            firstlegend_name.text = pieLegendName[0]
+                            firstlegend_percent.text = pieLegendPercent[0].toString()+"%"
+                        }else if(pieCount.equals(2)){
+                            thirdlegend.visibility = View.GONE
+                            fourthlegend.visibility = View.GONE
+
+                            firstlegend_name.text = pieLegendName[0]
+                            firstlegend_percent.text = pieLegendPercent[0].toString()+"%"
+                            secondlegend_name.text = pieLegendName[1]
+                            secondlegend_percent.text = pieLegendPercent[1].toString()+"%"
+                        }else if(pieCount.equals(3)){
+                            fourthlegend.visibility = View.GONE
+
+                            firstlegend_name.text = pieLegendName[0]
+                            firstlegend_percent.text = pieLegendPercent[0].toString()+"%"
+                            secondlegend_name.text = pieLegendName[1]
+                            secondlegend_percent.text = pieLegendPercent[1].toString()+"%"
+                            thirdlegend_name.text = pieLegendName[2]
+                            thirdlegend_percent.text = pieLegendPercent[2].toString()+"%"
+                        }else{
+                            firstlegend_name.text = pieLegendName[0]
+                            firstlegend_percent.text = pieLegendPercent[0].toString()+"%"
+                            secondlegend_name.text = pieLegendName[1]
+                            secondlegend_percent.text = pieLegendPercent[1].toString()+"%"
+                            thirdlegend_name.text = pieLegendName[2]
+                            thirdlegend_percent.text = pieLegendPercent[2].toString()+"%"
+                            fourthlegend_name.text = pieLegendName[3]
+                            fourthlegend_percent.text = pieLegendPercent[3].toString()+"%"
+                        }
 
                         //BarChart
                         for(names in reportData.data.contributedRepository.repoNames){
@@ -159,7 +201,7 @@ class ChartActivity : AppCompatActivity() {
         pieChart.description.isEnabled = false
         //pieChart.setExtraOffsets(5F,10F, 5F,5F)
 
-        pieChart.dragDecelerationFrictionCoef = 0.95F
+        //pieChart.dragDecelerationFrictionCoef = 0.95F 애니메이션
 
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
@@ -169,14 +211,13 @@ class ChartActivity : AppCompatActivity() {
         pieChart.setDrawCenterText(true)
         pieChart.setDrawSliceText(false)
 
-
         val legend = pieChart.legend
-        legend.isEnabled = true
-        legend.form = Legend.LegendForm.CIRCLE
-        legend.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
-        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
-        legend.orientation = Legend.LegendOrientation.VERTICAL
-        legend.setDrawInside(true)
+        legend.isEnabled = false
+        //legend.form = Legend.LegendForm.CIRCLE
+        //legend.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
+        //legend.horizontalAlignment = Legend.LegendHorizontalAlignment.LEFT
+        //legend.orientation = Legend.LegendOrientation.VERTICAL
+        legend.setDrawInside(false)
 
         pieChart.animateY(1000, Easing.EaseInOutCubic)
 

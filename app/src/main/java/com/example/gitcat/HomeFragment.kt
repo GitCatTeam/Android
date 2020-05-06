@@ -57,7 +57,6 @@ class HomeFragment : Fragment() {
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         NewToken(context!!)
         token = settings.getString("token","")
-        Log.e("token","$token")
         callApi(token)
 
         //튜토리얼
@@ -121,24 +120,35 @@ class HomeFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                    img_home_cat_loading.visibility = View.GONE
                     if(response.isSuccessful){
-                        img_home_cat_loading.visibility = View.GONE
-                        val data = response.body()?.data
+                        response.body()?.let {
+                            val data = response.body()?.data
 
-                        //졸업하면
-                        if(data?.isGraduate!!){
-                            //졸업 다이얼로그
-                            graduateDialog.show(fragmentManager!!,"graduate_fragment")
+                            //졸업하면
+                            if (data?.isGraduate!!) {
+                                //졸업 다이얼로그
+                                graduateDialog.show(fragmentManager!!, "graduate_fragment")
+                            }
+
+                            //홈화면 보여주기
+                            txt_home_commit_count.text = data?.todayCommitCount.toString()
+                            //홈 gif 처리
+                            Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
+                            txt_home_nickname.text = data?.catName
+                            txt_home_today_score.text = data?.todayScore.toString()
+                            txt_home_next_level_score.text = data?.nextLevelScore.toString()
+                            txt_home_next_level_item.text = "(${data?.nextLevelStr})"
                         }
-
-                        //홈화면 보여주기
-                        txt_home_commit_count.text = data?.todayCommitCount.toString()
-                        //홈 gif 처리
-                        Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
-                        txt_home_nickname.text = data?.catName
-                        txt_home_today_score.text = data?.todayScore.toString()
-                        txt_home_next_level_score.text = data?.nextLevelScore.toString()
-                        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+                        if(response.body()==null){
+                            cl_home_info_content.visibility = View.INVISIBLE
+                            btn_home_choose_cat_again.visibility = View.VISIBLE
+                            txt_home_commit_count.text = "-"
+                            btn_home_choose_cat_again.setOnClickListener {
+                                val intent = Intent(context, Info4Activity::class.java)
+                                startActivity(intent)
+                            }
+                        }
                     }else{
                         showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                     }

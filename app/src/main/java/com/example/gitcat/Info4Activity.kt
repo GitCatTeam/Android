@@ -88,6 +88,10 @@ class Info4Activity : AppCompatActivity(){
                 }
             }
         })
+        btn_choose_cat_next.setOnClickListener {
+            val intent = Intent(this, Info5Activity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

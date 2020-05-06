@@ -22,10 +22,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="함께 할 고양이를 선택해주세요!"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/bbtree_b"
-        android:textSize="20sp"
+        android:text="함께 할 고양이를 선택해주세요!"
         android:textColor="@color/colorTextDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_back_btn" />
@@ -35,10 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
-        android:textSize="12sp"
         android:fontFamily="@font/bbtree_r"
+        android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
         android:textColor="@color/colorTextDark"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/tl_information_cat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_title" />
@@ -46,22 +49,25 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_information_cat"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
-        app:tabBackground="@drawable/choose_cat_tab_color"
-        app:tabTextColor="@color/colorLightGrey"
-        app:tabSelectedTextColor="@color/colorLightBlue"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/vp_information_cat"
         app:layout_constraintTop_toBottomOf="@+id/txt_content"
-        app:tabIndicatorHeight="0dp">
-    </com.google.android.material.tabs.TabLayout>
+        app:tabBackground="@drawable/choose_cat_tab_color"
+        app:tabIndicatorHeight="0dp"
+        app:tabSelectedTextColor="@color/colorLightBlue"
+        app:tabTextColor="@color/colorLightGrey"
+        tools:layout_editor_absoluteX="50dp"></com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_information_cat"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_choose_cat_next"
         app:layout_constraintTop_toBottomOf="@+id/tl_information_cat"
         tools:layout_editor_absoluteX="60dp" />
 
@@ -91,6 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
         android:text="4/5"
         android:textColor="@color/colorLightGrey"
         app:layout_constraintBottom_toBottomOf="parent"

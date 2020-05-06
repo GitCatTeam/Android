@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.DialogFragment
@@ -40,8 +41,6 @@ class GraduateDialogFragment : DialogFragment() {
         }
         img_btn_graduate_exit.setOnClickListener {
             dismiss()
-            val intent = Intent(context,Info4Activity::class.java)
-            startActivity(intent)
         }
     }
 }

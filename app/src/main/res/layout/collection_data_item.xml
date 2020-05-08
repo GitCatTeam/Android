@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="155dp"
-    android:layout_height="202dp"
+    android:layout_height="192dp"
     android:background="@drawable/default_radius_rect"
     android:layout_margin="8dp">
 
@@ -38,7 +38,7 @@
             android:text="이름:"
             android:fontFamily="@font/nanum"
             android:textColor="@color/colorTextDark"
-            android:textSize="10sp" />
+            android:textSize="14sp" />
 
 
         <TextView
@@ -50,7 +50,7 @@
             android:text="우수 성적으로 졸업하여 대기업 취직"
             android:fontFamily="@font/nanum"
             android:textColor="@color/colorTextDark"
-            android:textSize="10sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 

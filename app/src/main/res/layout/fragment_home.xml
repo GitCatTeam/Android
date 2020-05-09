@@ -118,11 +118,9 @@
         <ImageView
             android:id="@+id/img_home_cat_gif"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="270dp"
-            android:minHeight="202dp"
-            android:maxWidth="370dp"
-            android:maxHeight="302dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/cl_home_info_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
@@ -277,9 +275,5 @@
             app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:id="@+id/img_home_cat_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
+
 </FrameLayout>

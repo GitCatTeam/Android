@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
     val tuDialog = TuDialogFragment()
     val graduateDialog = GraduateDialogFragment()
     val upgradeDialog = UpgradeDialogFragment()
+
     var token: String = ""
 
     override fun onCreateView(
@@ -53,9 +55,10 @@ class HomeFragment : Fragment() {
     }
 
     fun init(){
-        Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(img_home_cat_loading)
-        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+
+        Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
         NewToken(context!!)
+        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         token = settings.getString("token","")
         callApi(token)
 
@@ -77,6 +80,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity,SettingsActivity::class.java)
             startActivity(intent)
         }
+        //새로고침
+        img_btn_new_data.setOnClickListener {
+            callApi(token)
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -93,7 +100,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun callApi(token: String){
-        img_home_cat_loading.visibility = View.VISIBLE
+        activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
         val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
         call.enqueue(
             object : Callback<LogoutModel>{
@@ -120,7 +127,7 @@ class HomeFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                    img_home_cat_loading.visibility = View.GONE
+                    activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
                     if(response.isSuccessful){
                         response.body()?.let {
                             val data = response.body()?.data

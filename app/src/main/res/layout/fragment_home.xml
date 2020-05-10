@@ -73,8 +73,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="15dp"
-            app:layout_constraintVertical_weight="1"
+            android:layout_marginTop="34dp"
             android:fontFamily="@font/bbtree_l"
             android:gravity="center"
             android:text="오늘의 커밋수"
@@ -82,19 +81,20 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_weight="1" />
 
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_chainStyle="spread_inside"
-            android:layout_marginTop="30dp">
+            app:layout_constraintVertical_chainStyle="spread_inside">
 
             <TextView
                 android:id="@+id/txt_home_commit_count"
@@ -109,9 +109,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bbtree_l"
+                android:text="개"
                 android:textColor="@color/colorTextDark"
-                android:textSize="24sp"
-                android:text="개" />
+                android:textSize="24sp" />
         </LinearLayout>
 
 
@@ -119,11 +119,11 @@
             android:id="@+id/img_home_cat_gif"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
+            android:layout_marginVertical="10dp"
             android:padding="20dp"
             app:layout_constraintBottom_toTopOf="@+id/cl_home_info_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintHorizontal_bias="0.46"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -131,14 +131,14 @@
             android:id="@+id/cl_home_info_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="54dp"
             android:background="@drawable/ic_box_ios"
+            android:paddingHorizontal="35dp"
+            android:paddingVertical="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif"
-            android:layout_marginBottom="70dp"
-            android:paddingVertical="20dp"
-            android:paddingHorizontal="50dp">
+            app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif">
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -156,11 +156,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/nanum"
                 android:text="닉네임"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
                 android:textSize="22sp"
-                android:fontFamily="@font/nanum"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -169,8 +169,8 @@
                 android:id="@+id/img_btn_score_explain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_question"
                 android:layout_marginRight="3dp"
+                android:src="@drawable/ic_question"
                 app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
                 app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
                 app:layout_constraintTop_toTopOf="@+id/linearLayout3"
@@ -214,8 +214,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이템까지 : "
                     android:fontFamily="@font/bbtree_r"
+                    android:text="아이템까지 : "
                     android:textColor="@color/colorTextDark"
                     android:textSize="13sp" />
 
@@ -223,20 +223,20 @@
                     android:id="@+id/txt_home_next_level_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="null"
-                    android:textSize="22sp"
+                    android:layout_marginHorizontal="6dp"
                     android:fontFamily="@font/nanum"
+                    android:text="null"
                     android:textColor="@color/colorTextDark"
-                    android:layout_marginHorizontal="6dp"/>
+                    android:textSize="22sp" />
 
                 <TextView
                     android:id="@+id/txt_home_next_level_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="(중고노트북)"
-                    android:textSize="14sp"
                     android:fontFamily="@font/nanum"
-                    android:textColor="@color/colorTextDark"/>
+                    android:text="(중고노트북)"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="14sp" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -261,6 +261,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/img_talkballoon_new"
+            android:translationX="10dp"
             app:layout_constraintEnd_toEndOf="@+id/img_home_cat_gif"
             app:layout_constraintTop_toTopOf="@+id/img_home_cat_gif" />
 
@@ -268,10 +269,11 @@
             android:id="@+id/txt_bubble_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="손이 아프다냥"
             android:fontFamily="@font/nanum"
-            android:textSize="16sp"
+            android:text="손이 아프다냥"
             android:textColor="@color/colorTextDark"
+            android:textSize="16sp"
+            android:translationX="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/img_bubble_line"
             app:layout_constraintEnd_toEndOf="@+id/img_bubble_line"
             app:layout_constraintStart_toStartOf="@+id/img_bubble_line"

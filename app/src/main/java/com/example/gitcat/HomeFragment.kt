@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import androidx.fragment.app.FragmentPagerAdapter
 import com.bumptech.glide.Glide
+import com.example.gitcat.model.HomeData
 import com.example.gitcat.model.HomeModel
 import com.example.gitcat.model.LogoutModel
 import com.example.gitcat.retrofit.RetrofitCreator
@@ -126,20 +127,15 @@ class HomeFragment : Fragment() {
                                 val graduateDialog = GraduateDialogFragment()
                                 graduateDialog.show(fragmentManager!!, "graduate_fragment")
                             }else if(data?.isLeave!!) {
+                                nullCat()
                                 val leaveCatFragment = LeaveCatFragment()
                                 leaveCatFragment.show(fragmentManager!!, "leave_fragment")
                             }else if(data?.isLevelUp!!){
+                                homeCat(data)
                                 val upgradeDialog = UpgradeDialogFragment()
                                 upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
                             }else{
-                                //홈화면 보여주기
-                                txt_home_commit_count.text = data?.todayCommitCount.toString()
-                                //홈 gif 처리
-                                Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
-                                txt_home_nickname.text = data?.catName
-                                txt_home_today_score.text = data?.todayScore.toString()
-                                txt_home_next_level_score.text = data?.nextLevelScore.toString()
-                                txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+                                homeCat(data)
                             }
                         }
                     }else{
@@ -150,7 +146,18 @@ class HomeFragment : Fragment() {
         )
     }
 
-    fun nullCat(){
+    private fun homeCat(data: HomeData){
+        //홈화면 보여주기
+        txt_home_commit_count.text = data?.todayCommitCount.toString()
+        //홈 gif 처리
+        Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
+        txt_home_nickname.text = data?.catName
+        txt_home_today_score.text = data?.todayScore.toString()
+        txt_home_next_level_score.text = data?.nextLevelScore.toString()
+        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+    }
+
+    private fun nullCat(){
         cl_home_info_content.visibility = View.INVISIBLE
         btn_home_choose_cat_again.visibility = View.VISIBLE
         img_bubble_line.visibility = View.GONE

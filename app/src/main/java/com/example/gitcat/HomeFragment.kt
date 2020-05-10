@@ -32,9 +32,6 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     val tuDialog = TuDialogFragment()
-    val graduateDialog = GraduateDialogFragment()
-    val upgradeDialog = UpgradeDialogFragment()
-
     var token: String = ""
 
     override fun onCreateView(
@@ -67,9 +64,6 @@ class HomeFragment : Fragment() {
         //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
         //tuDialog.show(fragmentManager!!,"addons_fragment")
 
-
-        //업그레이드 다이얼로그
-        //upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
 
         //하단 탭 버튼 리스너
         diaryIcon.setOnClickListener { view ->
@@ -129,8 +123,15 @@ class HomeFragment : Fragment() {
                             if (data?.isGraduate!!) {
                                 nullCat()
                                 //졸업 다이얼로그
+                                val graduateDialog = GraduateDialogFragment()
                                 graduateDialog.show(fragmentManager!!, "graduate_fragment")
-                            }else {
+                            }else if(data?.isLeave!!) {
+                                val leaveCatFragment = LeaveCatFragment()
+                                leaveCatFragment.show(fragmentManager!!, "leave_fragment")
+                            }else if(data?.isLevelUp!!){
+                                val upgradeDialog = UpgradeDialogFragment()
+                                upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
+                            }else{
                                 //홈화면 보여주기
                                 txt_home_commit_count.text = data?.todayCommitCount.toString()
                                 //홈 gif 처리

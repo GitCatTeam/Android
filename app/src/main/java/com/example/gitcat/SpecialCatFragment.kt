@@ -12,7 +12,6 @@ import com.example.gitcat.model.ChooseCatSpecialModel
  * A simple [Fragment] subclass.
  */
 class SpecialCatFragment(private val data: ArrayList<ChooseCatSpecialModel>) : Fragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -21,5 +20,7 @@ class SpecialCatFragment(private val data: ArrayList<ChooseCatSpecialModel>) : F
         return inflater.inflate(R.layout.fragment_special_cat, container, false)
     }
 
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
 }

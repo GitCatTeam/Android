@@ -31,6 +31,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.widget.*
+import androidx.viewpager.widget.ViewPager
 import com.example.gitcat.model.ChooseCatNewModel
 import com.example.gitcat.model.DataModel
 
@@ -38,6 +39,7 @@ class Info4Activity : AppCompatActivity(){
 
     private var catId: Int = 0
     private lateinit var newDialogFragment :NewDialogFragment
+    private lateinit var prepareDialogFragment: PrepareDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,26 @@ class Info4Activity : AppCompatActivity(){
                     val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2, data)
                     vp_information_cat.adapter = fragmentAdapter
                     tl_information_cat.setupWithViewPager(vp_information_cat)
+                    vp_information_cat.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
+                        override fun onPageSelected(position: Int) {
+                            if(position == 1){
+                                prepareDialogFragment = PrepareDialogFragment()
+                                prepareDialogFragment.show(supportFragmentManager,"prepare_fragment")
+                            }
+                        }
+
+                        override fun onPageScrollStateChanged(state: Int) {
+
+                        }
+
+                        override fun onPageScrolled(
+                            position: Int,
+                            positionOffset: Float,
+                            positionOffsetPixels: Int
+                        ) {
+
+                        }
+                    })
 
                     val tabgroup = tl_information_cat.getChildAt(0) as ViewGroup
                     val tab: View =tabgroup.getChildAt(0)

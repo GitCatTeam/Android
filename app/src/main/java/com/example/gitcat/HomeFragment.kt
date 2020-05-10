@@ -32,9 +32,6 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     val tuDialog = TuDialogFragment()
-    val graduateDialog = GraduateDialogFragment()
-    val upgradeDialog = UpgradeDialogFragment()
-
     var token: String = ""
 
     override fun onCreateView(
@@ -67,9 +64,6 @@ class HomeFragment : Fragment() {
         //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
         //tuDialog.show(fragmentManager!!,"addons_fragment")
 
-
-        //업그레이드 다이얼로그
-        //upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
 
         //하단 탭 버튼 리스너
         diaryIcon.setOnClickListener { view ->
@@ -122,33 +116,30 @@ class HomeFragment : Fragment() {
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                     activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
                     if(response.isSuccessful){
-                        response.body()?.let {
-                            val data = response.body()?.data
-
-                            //졸업하면
-                            if (data?.isGraduate!!) {
-                                //졸업 다이얼로그
-                                graduateDialog.show(fragmentManager!!, "graduate_fragment")
-                            }
-
-                            //홈화면 보여주기
-                            txt_home_commit_count.text = data?.todayCommitCount.toString()
-                            //홈 gif 처리
-                            Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
-                            txt_home_nickname.text = data?.catName
-                            txt_home_today_score.text = data?.todayScore.toString()
-                            txt_home_next_level_score.text = data?.nextLevelScore.toString()
-                            txt_home_next_level_item.text = "(${data?.nextLevelStr})"
-                        }
+                        val data = response.body()?.data
                         if(response.body()==null){
-                            cl_home_info_content.visibility = View.INVISIBLE
-                            btn_home_choose_cat_again.visibility = View.VISIBLE
-                            img_bubble_line.visibility = View.GONE
-                            Glide.with(context!!).load(R.drawable.img_cat_null).into(img_home_cat_gif)
-                            txt_home_commit_count.text = "-"
-                            btn_home_choose_cat_again.setOnClickListener {
-                                val intent = Intent(context, Info4Activity::class.java)
-                                startActivity(intent)
+                            nullCat()
+                        }else{
+                            if (data?.isGraduate!!) {
+                                nullCat()
+                                //졸업 다이얼로그
+                                val graduateDialog = GraduateDialogFragment()
+                                graduateDialog.show(fragmentManager!!, "graduate_fragment")
+                            }else if(data?.isLeave!!) {
+                                val leaveCatFragment = LeaveCatFragment()
+                                leaveCatFragment.show(fragmentManager!!, "leave_fragment")
+                            }else if(data?.isLevelUp!!){
+                                val upgradeDialog = UpgradeDialogFragment()
+                                upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
+                            }else{
+                                //홈화면 보여주기
+                                txt_home_commit_count.text = data?.todayCommitCount.toString()
+                                //홈 gif 처리
+                                Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
+                                txt_home_nickname.text = data?.catName
+                                txt_home_today_score.text = data?.todayScore.toString()
+                                txt_home_next_level_score.text = data?.nextLevelScore.toString()
+                                txt_home_next_level_item.text = "(${data?.nextLevelStr})"
                             }
                         }
                     }else{
@@ -159,6 +150,18 @@ class HomeFragment : Fragment() {
         )
     }
 
+    fun nullCat(){
+        cl_home_info_content.visibility = View.INVISIBLE
+        btn_home_choose_cat_again.visibility = View.VISIBLE
+        img_bubble_line.visibility = View.GONE
+        txt_bubble_content.visibility = View.GONE
+        Glide.with(context!!).load(R.drawable.img_cat_null).into(img_home_cat_gif)
+        txt_home_commit_count.text = "-"
+        btn_home_choose_cat_again.setOnClickListener {
+            val intent = Intent(context, Info4Activity::class.java)
+            startActivity(intent)
+        }
+    }
     companion object {
         fun newInstance(): HomeFragment = HomeFragment()
     }

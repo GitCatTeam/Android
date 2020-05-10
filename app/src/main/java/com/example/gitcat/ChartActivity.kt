@@ -108,7 +108,7 @@ class ChartActivity : AppCompatActivity() {
                             secondlegend_percent.text = pieLegendPercent[1].toString()+"%"
                             thirdlegend_name.text = pieLegendName[2]
                             thirdlegend_percent.text = pieLegendPercent[2].toString()+"%"
-                        }else{
+                        }else if(pieCount.equals(4)){
                             firstlegend_name.text = pieLegendName[0]
                             firstlegend_percent.text = pieLegendPercent[0].toString()+"%"
                             secondlegend_name.text = pieLegendName[1]
@@ -117,6 +117,11 @@ class ChartActivity : AppCompatActivity() {
                             thirdlegend_percent.text = pieLegendPercent[2].toString()+"%"
                             fourthlegend_name.text = pieLegendName[3]
                             fourthlegend_percent.text = pieLegendPercent[3].toString()+"%"
+                        }else{
+                            firstlegend.visibility = View.GONE
+                            secondlegend.visibility = View.GONE
+                            thirdlegend.visibility = View.GONE
+                            fourthlegend.visibility = View.GONE
                         }
                         //BarChart
                         for(names in reportData.data.contributedRepository.repoNames){
@@ -253,7 +258,7 @@ class ChartActivity : AppCompatActivity() {
         //dataSet.color = ColorTemplate.COLORFUL_COLORS
 
         val data = BarData(dataSet)
-//        data.setValueFormatter(PercentFormatter())
+        data.setValueFormatter(PercentFormatter())
         val xAxis = barChart.xAxis
         xAxis.setDrawAxisLine(false)
         xAxis.setDrawGridLines(false)

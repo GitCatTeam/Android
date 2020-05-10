@@ -115,34 +115,40 @@ class CalendarFragment: Fragment() {
             beforeDay = date
 
             //날짜에 맞는 값들 뿌려주기
-            val list = detailCommits.get(dateScore)
-            val jo = JSONObject(list.toString())
-            val keyList = ArrayList<String>()
-            val valueList = ArrayList<String>()
-            val iterator = jo.keys()
-            while(iterator.hasNext()){
-                val name = iterator.next().toString()
-                keyList.add(name)
-            }
-            for(i in 0 until keyList.size){
-                valueList.add(jo.getString(keyList.get(i)))
-                //count, score, levelUp 순으로
-            }
-            commit_score.text = valueList[1]
-            commit_totalCommit.text = valueList[0]
-            if(valueList[2].isEmpty()){
-                commit_item.text="없음!"
-                commit_item.textSize = 14F
-                commit_item.setTextColor(resources.getColor(R.color.colorText))
+            if (detailCommits.isNull(dateScore)){//못찾을 때
+                loading_img.visibility = View.GONE
+                noCommitText.visibility = View.VISIBLE
+                commitLayout.visibility = View.GONE
             }else{
-                commit_item.text = valueList[2]
-                commit_item.textSize = 20F
-                commit_item.setTextColor(resources.getColor(R.color.colorTextDark))
-            }
+                val list = detailCommits.get(dateScore)
+                val jo = JSONObject(list.toString())
+                val keyList = ArrayList<String>()
+                val valueList = ArrayList<String>()
+                val iterator = jo.keys()
+                while(iterator.hasNext()){
+                    val name = iterator.next().toString()
+                    keyList.add(name)
+                }
+                for(i in 0 until keyList.size){
+                    valueList.add(jo.getString(keyList.get(i)))
+                    //count, score, levelUp 순으로
+                }
+                commit_score.text = valueList[1]
+                commit_totalCommit.text = valueList[0]
+                if(valueList[2].isEmpty()){
+                    commit_item.text="없음!"
+                    commit_item.textSize = 14F
+                    commit_item.setTextColor(resources.getColor(R.color.colorText))
+                }else{
+                    commit_item.text = valueList[2]
+                    commit_item.textSize = 20F
+                    commit_item.setTextColor(resources.getColor(R.color.colorTextDark))
+                }
 
-            NewToken(context!!)
-            APIContent(settings.getString("token",""),dates)
-            calendarView?.clearSelection()
+                NewToken(context!!)
+                APIContent(settings.getString("token",""),dates)
+                calendarView?.clearSelection()
+            }
 
         }
         calendarView?.setOnMonthChangedListener { widget, date ->

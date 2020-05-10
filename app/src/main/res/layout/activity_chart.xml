@@ -181,6 +181,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +234,7 @@
                     android:layout_marginLeft="20dp">
 
                     <LinearLayout
-                        android:layout_width="100dp"
+                        android:layout_width="140dp"
                         android:orientation="vertical"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center">
@@ -254,7 +255,7 @@
                                 android:id="@+id/firstlegend_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
+                                android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
                                 android:fontFamily="@font/bbtree_r"
                                 android:layout_marginLeft="6dp"/>
@@ -271,8 +272,7 @@
                                 android:id="@+id/firstlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:layout_gravity="right"
+                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorPrimaryDark"/>
                         </LinearLayout>
@@ -292,7 +292,7 @@
                                 android:id="@+id/secondlegend_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
+                                android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
                                 android:fontFamily="@font/bbtree_r"
                                 android:layout_marginLeft="6dp"/>
@@ -309,8 +309,7 @@
                                 android:id="@+id/secondlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:layout_gravity="right"
+                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorTextDark"/>
                         </LinearLayout>
@@ -330,7 +329,7 @@
                                 android:id="@+id/thirdlegend_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
+                                android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
                                 android:fontFamily="@font/bbtree_r"
                                 android:layout_marginLeft="6dp"/>
@@ -347,8 +346,7 @@
                                 android:id="@+id/thirdlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:layout_gravity="right"
+                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorTextDark"/>
                         </LinearLayout>
@@ -368,7 +366,7 @@
                                 android:id="@+id/fourthlegend_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
+                                android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
                                 android:fontFamily="@font/bbtree_r"
                                 android:layout_marginLeft="6dp"/>
@@ -385,8 +383,7 @@
                                 android:id="@+id/fourthlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:layout_gravity="right"
+                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
                                 android:textColor="@color/colorTextDark"/>
                         </LinearLayout>
@@ -396,7 +393,7 @@
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pieChart"
-                        android:layout_width="200dp"
+                        android:layout_width="150dp"
                         android:layout_height="match_parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -460,7 +457,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

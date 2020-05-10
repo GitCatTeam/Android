@@ -165,6 +165,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/img_btn_score_explain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_question"
+                android:layout_marginRight="3dp"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+                app:layout_constraintVertical_bias="0.6" />
+
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
@@ -172,21 +183,12 @@
                 app:layout_constraintStart_toStartOf="@+id/ll_item"
                 app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname">
 
-                <ImageView
-                    android:id="@+id/img_btn_score_explain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginRight="3dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_question" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bbtree_r"
-                    android:textColor="@color/colorTextDark"
                     android:text="오늘의 득점 : "
+                    android:textColor="@color/colorTextDark"
                     android:textSize="13sp" />
 
                 <TextView
@@ -194,10 +196,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="6dp"
-                    android:text="null"
                     android:fontFamily="@font/nanum"
-                    android:textSize="22sp"
-                    android:textColor="@color/colorTextDark"/>
+                    android:text="null"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="22sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -253,8 +255,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif" />
+
         <ImageView
-            android:id="@+id/imageView10"
+            android:id="@+id/img_bubble_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/img_talkballoon_new"
@@ -262,17 +265,17 @@
             app:layout_constraintTop_toTopOf="@+id/img_home_cat_gif" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txt_bubble_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="손이 아프다냥"
             android:fontFamily="@font/nanum"
             android:textSize="16sp"
             android:textColor="@color/colorTextDark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-            app:layout_constraintEnd_toEndOf="@+id/imageView10"
-            app:layout_constraintStart_toStartOf="@+id/imageView10"
-            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+            app:layout_constraintBottom_toBottomOf="@+id/img_bubble_line"
+            app:layout_constraintEnd_toEndOf="@+id/img_bubble_line"
+            app:layout_constraintStart_toStartOf="@+id/img_bubble_line"
+            app:layout_constraintTop_toTopOf="@+id/img_bubble_line" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

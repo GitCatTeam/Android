@@ -1,7 +1,9 @@
 package com.example.gitcat
 
 import android.app.Activity
+import android.graphics.Color
 import android.graphics.drawable.Drawable
+import android.text.style.ForegroundColorSpan
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
@@ -22,6 +24,7 @@ class CalendarSelectedDecorator : DayViewDecorator {
     override fun decorate(view: DayViewFacade?) {
         //view!!.setSelectionDrawable(drawable)
         view!!.setBackgroundDrawable(drawable)
+        view!!.addSpan(ForegroundColorSpan(Color.BLACK))
         //view!!.addSpan(DotSpan(5f, color))
     }
 

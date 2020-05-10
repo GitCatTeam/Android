@@ -241,11 +241,11 @@ class ChartActivity : AppCompatActivity() {
         dataSet.setColors(Color.parseColor("#8acbf6"),Color.parseColor("#ccebff"),Color.parseColor("#f2faff"),Color.parseColor("#eeeeee"))
 
         val data = PieData((dataSet))
-        data.setValueTextSize(10F)
+        data.setValueTextSize(0F)
         //data.setValueTextColor(Color.YELLOW)
         data.setValueFormatter(PercentFormatter())
-        dataSet.xValuePosition= PieDataSet.ValuePosition.OUTSIDE_SLICE
-        dataSet.yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
+        //dataSet.xValuePosition= PieDataSet.ValuePosition.OUTSIDE_SLICE
+        //dataSet.yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
         pieChart.data = data
 
     }

@@ -118,10 +118,15 @@ class ChartActivity : AppCompatActivity() {
                             fourthlegend_name.text = pieLegendName[3]
                             fourthlegend_percent.text = pieLegendPercent[3].toString()+"%"
                         }
-
                         //BarChart
                         for(names in reportData.data.contributedRepository.repoNames){
-                            barMonth.add(names)
+                            var barname:List<String> = names.split("/")
+                            if(barname[1].length>13){
+                                barMonth.add(barname[1].substring(0,12)+"..")
+                            }else{
+                                barMonth.add(barname[1])
+                            }
+
                         }
                         var count: Float = 0F
                         for(value in reportData.data.contributedRepository.count){
@@ -175,6 +180,10 @@ class ChartActivity : AppCompatActivity() {
         //data.setValueTextColor(Color.YELLOW)
 
         lineChart.data = data
+
+        val legend = lineChart.legend
+        legend.isEnabled = false
+        legend.setDrawInside(false)
 
         val xAxis = lineChart.xAxis
         xAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -238,7 +247,7 @@ class ChartActivity : AppCompatActivity() {
 
     private fun barChart(barMonth: List<String>, barEntries: ArrayList<BarEntry>){
         val dataSet = BarDataSet(barEntries,"")
-        dataSet.barBorderWidth = 0.9F
+//        dataSet.barBorderWidth = 0.5F
         dataSet.setColors(Color.parseColor("#8acbf6"),Color.parseColor("#ccebff"),Color.parseColor("#f2faff"))
 
         //dataSet.color = ColorTemplate.COLORFUL_COLORS
@@ -253,6 +262,10 @@ class ChartActivity : AppCompatActivity() {
         leftAxis.isEnabled = false
         rightAxis.isEnabled = false
 
+        val legend = barChart.legend
+        legend.isEnabled = false
+        legend.setDrawInside(false)
+
         xAxis.position = XAxis.XAxisPosition.BOTTOM
         xAxis.granularity = 1F
 
@@ -264,7 +277,7 @@ class ChartActivity : AppCompatActivity() {
         barChart.description = description
 
         barChart.data = data
-        barChart.setFitBars(true)
+        barChart.setFitBars(false)
         barChart.setTouchEnabled(false)
         barChart.animateY(1000,Easing.EaseInOutCubic)
         barChart.invalidate()

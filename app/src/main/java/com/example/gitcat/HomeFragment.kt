@@ -60,6 +60,7 @@ class HomeFragment : Fragment() {
         NewToken(context!!)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         token = settings.getString("token","")
+        Log.e("token","$token")
         callApi(token)
 
         //튜토리얼
@@ -84,14 +85,6 @@ class HomeFragment : Fragment() {
         img_btn_new_data.setOnClickListener {
             callApi(token)
         }
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onResume() {
@@ -150,6 +143,8 @@ class HomeFragment : Fragment() {
                         if(response.body()==null){
                             cl_home_info_content.visibility = View.INVISIBLE
                             btn_home_choose_cat_again.visibility = View.VISIBLE
+                            img_bubble_line.visibility = View.GONE
+                            Glide.with(context!!).load(R.drawable.img_cat_null).into(img_home_cat_gif)
                             txt_home_commit_count.text = "-"
                             btn_home_choose_cat_again.setOnClickListener {
                                 val intent = Intent(context, Info4Activity::class.java)
@@ -163,7 +158,6 @@ class HomeFragment : Fragment() {
             }
         )
     }
-
 
     companion object {
         fun newInstance(): HomeFragment = HomeFragment()

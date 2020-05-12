@@ -28,34 +28,14 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 class Info5Activity : AppCompatActivity() {
 
-    private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info5)
 
         backButton.setOnClickListener{
             onBackPressed()
         }
-
-//        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-
-//        val lp = window.attributes
-//        lp.flags = lp.flags and WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN.inv()
-//        window.attributes = lp
-//
-        //TODO:키보드 스크롤아 왜 안되니
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        window.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)
-
-        keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
-            onShowKeyboard = { keyboardHeight ->
-                sv_root.run {
-                    smoothScrollTo(scrollX, scrollY + keyboardHeight)
-                }
-            })
-
 
         //초기화
         buttonGo.isEnabled = false
@@ -66,8 +46,7 @@ class Info5Activity : AppCompatActivity() {
         settings.getString("catImageUrl",null).let {
             Glide.with(this).load(it).into(myCatImg)
         }
-
-
+        
         editCatName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
@@ -76,7 +55,6 @@ class Info5Activity : AppCompatActivity() {
                 //calcText.text= "${text.length}자"
             }
             override fun afterTextChanged(s: Editable) {
-                //TODO: 텍스트 다시 0일 때 enable false
                 buttonGo.isEnabled = true
                 buttonGo.setBackgroundResource(R.drawable.info_next_after)
 

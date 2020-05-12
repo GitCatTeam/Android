@@ -59,25 +59,25 @@
                     android:layout_height="90dp"
                     android:layout_centerHorizontal="true" />
 
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/profile"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:text="이름"
-                    android:fontFamily="@font/bbtree_b"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="18sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/username"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/profile"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:text="이름"-->
+<!--                    android:fontFamily="@font/bbtree_b"-->
+<!--                    android:textColor="@color/colorPrimaryDark"-->
+<!--                    android:textSize="18sp" />-->
 
                 <TextView
                     android:id="@+id/useremail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/username"
+                    android:layout_below="@+id/profile"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="10dp"
                     android:text="깃허브이메일주소"
                     android:fontFamily="@font/bbtree_r"
                     android:textColor="@color/colorPrimaryDark"

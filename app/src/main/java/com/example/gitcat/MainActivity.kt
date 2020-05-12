@@ -72,6 +72,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }
 
 class WebPasser(val mContext: Activity?, val mWebView: WebView?) {

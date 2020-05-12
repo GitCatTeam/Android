@@ -52,10 +52,10 @@ class HomeFragment : Fragment() {
     fun init(){
 
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
-        NewToken(context!!)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         token = settings.getString("token","")
         Log.e("token","$token")
+        NewToken(context!!)
         callApi(token)
 
         //튜토리얼

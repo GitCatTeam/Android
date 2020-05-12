@@ -1,109 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Info5Activity"
+    android:background="#FFFFFF"
+    android:id="@+id/sv_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Info5Activity"
-    android:background="#FFFFFF">
+    android:fillViewport="true">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/ic_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="고양이 이름을 정해주세요"
-        android:textColor="@color/colorTextDark"
-        android:textSize="20sp"
-        android:fontFamily="@font/bbtree_b"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="40dp"
-        android:text="거의 다 끝났어요, 조금만 더!"
-        android:textColor="@color/colorTextDark"
-        android:textSize="12sp"
-        android:fontFamily="@font/bbtree_r"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <ImageView
-        android:id="@+id/myCatImg"
-        android:layout_width="176dp"
-        android:layout_height="176dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/img_cat_panda" />
-
-    <EditText
-        android:id="@+id/editCatName"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:hint="최대 5자까지"
-        android:fontFamily="@font/bbtree_r"
-        android:backgroundTint="@color/colorLightGrey"
-        android:maxLength="5"
-        android:textAlignment="center"
-        android:textColor="@color/colorTextDark"
-        android:textColorHint="@color/colorText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myCatImg" />
-
-    <Button
-        android:id="@+id/buttonGo"
-        android:layout_width="136dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="64dp"
-        android:text="시작하기"
-        android:textColor="@color/colorWhite"
-        android:fontFamily="@font/bbtree_b"
-        android:enabled="false"
-        android:background="@drawable/info_next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCatName"
-        app:layout_constraintVertical_bias="0.711" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="5/5"
-        android:fontFamily="@font/bbtree_r"
-        android:textColor="#c0c0c0"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGo"
-        app:layout_constraintVertical_bias="0.0" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/ic_back"
+                    app:layout_constraintBottom_toTopOf="@+id/textView5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.04"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.17" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="96dp"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="고양이 이름을 정해주세요"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="20sp"
+                    android:layout_gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="거의 다 끝났어요, 조금만 더!"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.503"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+                <ImageView
+                    android:id="@+id/myCatImg"
+                    android:layout_width="176dp"
+                    android:layout_height="176dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/img_cat_panda" />
+
+                <EditText
+                    android:id="@+id/editCatName"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="76dp"
+                    android:backgroundTint="@color/colorLightGrey"
+                    android:fontFamily="@font/bbtree_r"
+                    android:hint="최대 5자까지"
+                    android:maxLength="5"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextDark"
+                    android:textColorHint="@color/colorText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/myCatImg" />
+
+                <Button
+                    android:id="@+id/buttonGo"
+                    android:layout_width="136dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="64dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/info_next"
+                    android:enabled="false"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="시작하기"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editCatName" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="5/5"
+                    android:textColor="#c0c0c0"
+                    android:textSize="12sp"
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonGo"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</ScrollView>

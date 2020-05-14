@@ -3,6 +3,8 @@ package com.example.gitcat
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +22,11 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.concurrent.schedule
+import kotlin.concurrent.timer
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -31,6 +38,8 @@ class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     val tuDialog = TuDialogFragment()
     var token: String = ""
+    var timer: Timer = Timer()
+    var handler = Handler()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -84,6 +93,16 @@ class HomeFragment : Fragment() {
         callApi(token)
     }
 
+    override fun onDestroy() {
+        timer.cancel()
+        super.onDestroy()
+    }
+
+    override fun onPause() {
+        timer.cancel()
+        super.onPause()
+    }
+
     private fun callApi(token: String){
         activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
         val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
@@ -97,7 +116,11 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         afterCallApi(token)
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+                        settings.edit().clear().commit()
+                        val intent = Intent(context,MainActivity::class.java)
+                        startActivity(intent)
+                        activity?.finish()
                     }
                 }
             }
@@ -136,11 +159,31 @@ class HomeFragment : Fragment() {
                             }
                         }
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+                        settings.edit().clear().commit()
+                        val intent = Intent(context,MainActivity::class.java)
+                        startActivity(intent)
                     }
                 }
             }
         )
+    }
+    private fun startTimerTask(ments: ArrayList<String>){
+        var index=0
+        var setBubbleText= Runnable{
+            txt_bubble_content.text = ments[index]
+            index++
+            if(index==ments.size) index = 0
+        }
+        handler.postDelayed(setBubbleText,2000)
+        var timerTask = object: TimerTask(){
+            override fun run() {
+
+                activity?.runOnUiThread(setBubbleText)
+            }
+        }
+
+        timer.schedule(timerTask, 1000, 4000)
     }
 
     private fun homeCat(data: HomeData){
@@ -152,12 +195,13 @@ class HomeFragment : Fragment() {
         txt_home_today_score.text = data?.todayScore.toString()
         txt_home_next_level_score.text = data?.nextLevelScore.toString()
         txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+        //멘트 바꿔주기
+        startTimerTask(data?.ments)
     }
 
     private fun nullCat(){
         cl_home_info_content.visibility = View.INVISIBLE
         btn_home_choose_cat_again.visibility = View.VISIBLE
-        img_bubble_line.visibility = View.GONE
         txt_bubble_content.visibility = View.GONE
         Glide.with(context!!).load(R.drawable.img_cat_null).into(img_home_cat_gif)
         txt_home_commit_count.text = "-"

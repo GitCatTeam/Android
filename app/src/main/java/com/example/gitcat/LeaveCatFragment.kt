@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_leave_cat.*
 /**
  * A simple [Fragment] subclass.
  */
-class LeaveCatFragment : DialogFragment() {
+class LeaveCatFragment(val name: String) : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +35,7 @@ class LeaveCatFragment : DialogFragment() {
     }
 
     fun init(){
+        txt_leave_cat_nickname.text=name
         img_btn_leave_cat_close.setOnClickListener {
             dismiss()
         }

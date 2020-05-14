@@ -32,31 +32,80 @@
             app:layout_constraintStart_toStartOf="@+id/imageView13"
             app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
-        <TextView
-            android:id="@+id/textView6"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/bbtree_r"
-            android:text="축하합니다~!\n컴냥컴냥해씨가 졸업하게되었어요.\n그동안 수고하셨어요:)"
-            android:textAlignment="center"
-            android:textSize="14sp"
+            android:padding="5dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView13"
             app:layout_constraintStart_toStartOf="@+id/imageView13"
-            app:layout_constraintTop_toBottomOf="@+id/imageView13" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView13">
+
+            <TextView
+                android:id="@+id/txt_graduate_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_b"
+                android:text=""
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_graduate_content2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_graduate_content2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_graduate_content2" />
+
+            <TextView
+                android:id="@+id/txt_graduate_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:gravity="center"
+                android:text="축하합니다~!"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_graduate_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:gravity="center"
+                android:text="씨가 졸업하게되었어요."
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_graduate_nickname"
+                app:layout_constraintTop_toBottomOf="@+id/txt_graduate_content1" />
+
+            <TextView
+                android:id="@+id/txt_graduate_content3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:gravity="center"
+                android:text="그동안 수고하셨어요:)"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_graduate_content2"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <Button
             android:id="@+id/btn_graduate_check"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:background="@drawable/button_blue_round"
             android:fontFamily="@font/bbtree_b"
             android:text="확인하러 가기"
+            android:layout_marginTop="13dp"
             android:textColor="@color/colorWhite"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <ImageView
             android:id="@+id/img_btn_graduate_exit"

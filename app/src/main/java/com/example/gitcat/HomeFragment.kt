@@ -116,11 +116,7 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         afterCallApi(token)
                     }else{
-                        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
-                        settings.edit().clear().commit()
-                        val intent = Intent(context,MainActivity::class.java)
-                        startActivity(intent)
-                        activity?.finish()
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                     }
                 }
             }
@@ -144,25 +140,22 @@ class HomeFragment : Fragment() {
                             if (data?.isGraduate!!) {
                                 nullCat()
                                 //졸업 다이얼로그
-                                val graduateDialog = GraduateDialogFragment()
+                                val graduateDialog = GraduateDialogFragment(data?.catName)
                                 graduateDialog.show(fragmentManager!!, "graduate_fragment")
                             }else if(data?.isLeave!!) {
                                 nullCat()
-                                val leaveCatFragment = LeaveCatFragment()
+                                val leaveCatFragment = LeaveCatFragment(data?.catName)
                                 leaveCatFragment.show(fragmentManager!!, "leave_fragment")
                             }else if(data?.isLevelUp!!){
                                 homeCat(data)
-                                val upgradeDialog = UpgradeDialogFragment()
+                                val upgradeDialog = UpgradeDialogFragment(data?.catName)
                                 upgradeDialog.show(fragmentManager!!,"upgrade_fragment")
                             }else{
                                 homeCat(data)
                             }
                         }
                     }else{
-                        val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
-                        settings.edit().clear().commit()
-                        val intent = Intent(context,MainActivity::class.java)
-                        startActivity(intent)
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                     }
                 }
             }
@@ -178,7 +171,6 @@ class HomeFragment : Fragment() {
         handler.postDelayed(setBubbleText,2000)
         var timerTask = object: TimerTask(){
             override fun run() {
-
                 activity?.runOnUiThread(setBubbleText)
             }
         }
@@ -196,7 +188,7 @@ class HomeFragment : Fragment() {
         txt_home_next_level_score.text = data?.nextLevelScore.toString()
         txt_home_next_level_item.text = "(${data?.nextLevelStr})"
         //멘트 바꿔주기
-        startTimerTask(data?.ments)
+        //startTimerTask(data?.ments)
     }
 
     private fun nullCat(){

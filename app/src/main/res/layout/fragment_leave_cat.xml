@@ -39,26 +39,86 @@
             android:id="@+id/img_leave_cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_cat_byebye"
             android:layout_marginTop="5dp"
+            android:src="@drawable/img_cat_byebye"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_leave_cat_title" />
-        <TextView
-            android:id="@+id/txt_leave_cat_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
             android:paddingHorizontal="40sp"
             android:paddingBottom="20dp"
-            android:text="저런!\n컴냥컴냥해씨가 떠나고 말았어요.\n앞으로 다른 고양씨들도\n떠나보내지 않으려면\n조금 더 꾸준한 커밋이 필요해요."
-            android:textSize="14sp"
-            android:fontFamily="@font/bbtree_r"
-            android:textColor="@color/colorTextDark"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_leave_cat" />
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/img_leave_cat"
+            app:layout_constraintStart_toStartOf="@+id/img_leave_cat"
+            app:layout_constraintTop_toBottomOf="@+id/img_leave_cat">
+
+            <TextView
+                android:id="@+id/txt_leave_cat_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_b"
+                android:text=""
+                android:textColor="@color/colorTextDark"
+                android:textSize="14sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_leave_cat_content2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_leave_cat_content2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txt_leave_cat_content2" />
+
+            <TextView
+                android:id="@+id/txt_leave_cat_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="저런!"
+                android:textColor="@color/colorTextDark"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_leave_cat_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="씨가 떠나고 말았어요."
+                android:textColor="@color/colorTextDark"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_leave_cat_nickname"
+                app:layout_constraintTop_toBottomOf="@+id/txt_leave_cat_content1" />
+
+            <TextView
+                android:id="@+id/txt_leave_cat_content3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="앞으로 다른 고양씨들도"
+                android:textColor="@color/colorTextDark"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_leave_cat_content2" />
+
+            <TextView
+                android:id="@+id/txt_leave_cat_content4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="떠나보내지 않으려면\n조금 더 꾸준한 커밋이 필요해요."
+                android:textColor="@color/colorTextDark"
+                android:textSize="14sp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_leave_cat_content3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

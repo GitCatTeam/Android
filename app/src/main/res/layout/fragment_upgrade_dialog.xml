@@ -31,26 +31,77 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/bbtree_b"
             android:text="아이템 업그레이드!"
             android:textSize="20sp"
-            android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView14"
             app:layout_constraintStart_toStartOf="@+id/imageView14"
             app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="컴냥컴냥해씨의 아이템이\n업그레이드 되었어요.\n개발이 좀 더 수월해지겠어요!"
-            android:textSize="14sp"
-            android:textAlignment="center"
-            android:fontFamily="@font/bbtree_r"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView14"
             app:layout_constraintStart_toStartOf="@+id/imageView14"
-            app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView14">
+
+            <TextView
+                android:id="@+id/txt_upgrade_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_b"
+                android:text="bbbbbbb"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintEnd_toStartOf="@+id/txt_upgrade_content1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_upgrade_content1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="씨의 아이템이"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_upgrade_nickname"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txt_upgrade_content2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="업그레이드 되었어요."
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_upgrade_content1" />
+
+            <TextView
+                android:id="@+id/txt_upgrade_content3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bbtree_r"
+                android:text="개발이 좀 더 수월해지겠어요!"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_upgrade_content2" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

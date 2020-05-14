@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_graduate_dialog.*
 /**
  * A simple [Fragment] subclass.
  */
-class GraduateDialogFragment : DialogFragment() {
+class GraduateDialogFragment(val name: String) : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +34,7 @@ class GraduateDialogFragment : DialogFragment() {
         init()
     }
     fun init(){
+        txt_graduate_nickname.text=name
         btn_graduate_check.setOnClickListener {
             dismiss()
             val intent = Intent(context,CollectionActivity::class.java)

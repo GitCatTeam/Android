@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_upgrade_dialog.*
 /**
  * A simple [Fragment] subclass.
  */
-class UpgradeDialogFragment : DialogFragment() {
+class UpgradeDialogFragment(val name: String) : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +32,7 @@ class UpgradeDialogFragment : DialogFragment() {
         init()
     }
     fun init(){
+        txt_upgrade_nickname.text = name
         img_btn_upgrade_exit.setOnClickListener {
             dismiss()
         }

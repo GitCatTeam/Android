@@ -54,7 +54,8 @@
         <activity
             android:name=".Info5Activity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".HomeActivity" android:configChanges="screenSize|orientation" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ChartActivity" android:screenOrientation="portrait" />

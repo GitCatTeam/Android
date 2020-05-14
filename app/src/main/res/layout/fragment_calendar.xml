@@ -19,6 +19,15 @@
         app:layout_constraintVertical_weight="1"
         android:background="#FFFFFF">
 
+        <ImageView
+            android:id="@+id/refreshCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_newdata"
+            tools:srcCompat="@drawable/ic_newdata"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

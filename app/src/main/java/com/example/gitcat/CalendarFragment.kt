@@ -60,6 +60,7 @@ class CalendarFragment: Fragment() {
         val rootView = inflater.inflate(R.layout.fragment_calendar, container, false)
         val calendarView = rootView.findViewById<MaterialCalendarView>(R.id.calendarView)
         val repository_recyclerview = rootView.findViewById(R.id.repository_recyclerview) as RecyclerView
+        val refreshCalendar = rootView.findViewById<ImageView>(R.id.refreshCalendar)
         val loading = rootView.findViewById<ImageView>(R.id.loading_img)
         var beforeDay: CalendarDay = CalendarDay.today()
 
@@ -77,6 +78,12 @@ class CalendarFragment: Fragment() {
 
         NewToken(context!!)
         APIStart(calendarView,settings.getString("token",""),ymToday)
+
+        refreshCalendar.setOnClickListener {
+            NewToken(context!!)
+            APIStart(calendarView,settings.getString("token",""),ymToday)
+        }
+
         calendarView?.setOnDateChangedListener { widget, date, selected ->
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             val Year = date.year.toString()

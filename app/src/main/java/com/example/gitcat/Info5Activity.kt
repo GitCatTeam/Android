@@ -20,12 +20,17 @@ import kotlinx.android.synthetic.main.activity_info5.backButton
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class Info5Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+//        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_info5)
 
         backButton.setOnClickListener{
@@ -41,8 +46,7 @@ class Info5Activity : AppCompatActivity() {
         settings.getString("catImageUrl",null).let {
             Glide.with(this).load(it).into(myCatImg)
         }
-
-
+        
         editCatName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
@@ -90,4 +94,5 @@ class Info5Activity : AppCompatActivity() {
         }
 
     }
+
 }

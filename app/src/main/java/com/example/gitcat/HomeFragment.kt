@@ -38,7 +38,7 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     var token: String = ""
-    lateinit var handler: Handler
+    var handler: Handler?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,7 +83,7 @@ class HomeFragment : Fragment() {
         }
         //새로고침
         img_btn_new_data.setOnClickListener {
-            handler.removeMessages(1000)
+            handler?.removeMessages(1000)
             callApi(token)
         }
     }
@@ -159,8 +159,8 @@ class HomeFragment : Fragment() {
         )
     }
     private fun startTimerTask(ments: ArrayList<String>){
-        var index=0
         handler = object: Handler(){
+            var index = 0
             override fun handleMessage(msg: Message?) {
                 super.handleMessage(msg)
                 txt_bubble_content.text = ments[index]
@@ -169,12 +169,12 @@ class HomeFragment : Fragment() {
                 sendEmptyMessageDelayed(1000,3000)
             }
         }
-        handler.sendEmptyMessage(1000)
+        handler?.sendEmptyMessage(1000)
     }
 
     override fun onPause() {
         super.onPause()
-        handler.removeMessages(1000)
+        handler?.removeMessages(1000)
     }
 
     private fun homeCat(data: HomeData){

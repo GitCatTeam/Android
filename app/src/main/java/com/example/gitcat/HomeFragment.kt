@@ -67,15 +67,6 @@ class HomeFragment : Fragment() {
         Log.e("token","$token")
         callApi(token)
 
-        //첫 로그인 시 튜토리얼
-        val isFirst = settings.getString("isFirst","")
-        if(isFirst.equals("true")){
-            val tuDialog = TuDialogFragment()
-            //튜토리얼
-            tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-            tuDialog.show(fragmentManager!!,"addons_fragment")
-        }
-
         img_btn_score_explain.setOnClickListener {
             val scoreDialog = ScoreDialogFragment()
             scoreDialog.show(fragmentManager!!,"score_fragment")
@@ -143,6 +134,18 @@ class HomeFragment : Fragment() {
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                     activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
+                    //첫 로그인 시 튜토리얼
+                    val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+                    val isFirst = settings.getString("isFirst","")
+                    if(isFirst.equals("true")){
+                        val editor: SharedPreferences.Editor = settings.edit()
+                        editor.putString("isFirst","false")
+                        editor.commit()
+                        val tuDialog = TuDialogFragment()
+                        //튜토리얼
+                        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+                        tuDialog.show(fragmentManager!!,"addons_fragment")
+                    }
                     if(response.isSuccessful){
                         val data = response.body()?.data
                         if(response.body()==null){

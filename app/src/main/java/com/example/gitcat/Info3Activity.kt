@@ -63,6 +63,8 @@ class Info3Activity : AppCompatActivity() {
 
                             //이 화면을 거친다는 것 자체가 첫 로그인이라는 것. 튜토리얼로 이동
                             var intent = Intent(this@Info3Activity,HomeActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }else{
                             showErrorPopup("["+response.code().toString()+"] "+response.message(),this@Info3Activity)

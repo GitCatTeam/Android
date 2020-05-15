@@ -83,6 +83,8 @@ class Info5Activity : AppCompatActivity() {
                             val data = response.body()!!
 
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }else{
                             showErrorPopup("["+response.code().toString()+"] "+response.message(),this@Info5Activity)

@@ -83,6 +83,7 @@ class HomeFragment : Fragment() {
         }
         //새로고침
         img_btn_new_data.setOnClickListener {
+            handler.removeMessages(1000)
             callApi(token)
         }
     }

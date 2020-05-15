@@ -90,6 +90,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 settings.edit().clear().commit()
 
                                 var intent = Intent(context!!,MainActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                             }else{
                                 showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
@@ -142,6 +144,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 settings.edit().clear().commit()
 
                                 var intent = Intent(context!!,MainActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                             }else{
                                 showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)

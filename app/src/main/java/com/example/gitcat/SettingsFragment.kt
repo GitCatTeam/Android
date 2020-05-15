@@ -1,6 +1,7 @@
 package com.example.gitcat
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -68,6 +69,8 @@ class SettingsFragment : PreferenceFragmentCompat(){
                             if(response.isSuccessful){
                                 //고양이 초기화 API
                                 var intent = Intent(context!!,Info4Activity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                             }else{
                                 showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)

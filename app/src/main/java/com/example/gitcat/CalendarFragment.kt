@@ -18,6 +18,7 @@ import kotlin.collections.ArrayList
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.gitcat.model.LogoutModel
 import com.example.gitcat.model.MonthCommitContentModel
 import com.example.gitcat.model.MonthCommitCountModel
 import com.example.gitcat.retrofit.GithubAPI
@@ -79,9 +80,27 @@ class CalendarFragment: Fragment() {
         NewToken(context!!)
         APIStart(calendarView,settings.getString("token",""),ymToday)
 
-        refreshCalendar.setOnClickListener {
+        refreshCalendar.setOnClickListener {//새로고침
             NewToken(context!!)
-            APIStart(calendarView,settings.getString("token",""),ymToday)
+            val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(settings.getString("token",""))
+            call.enqueue(
+                object : Callback<LogoutModel>{
+                    override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
+                        showErrorPopup(t.toString(),context!!)
+                    }
+
+                    override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
+                        if(response.isSuccessful){
+                            loading_img.visibility = View.VISIBLE//로딩화면 나타나기
+                            APIStart(calendarView,settings.getString("token",""),ymToday)
+
+                        }else{
+                            showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        }
+                    }
+                }
+            )
+
         }
 
         calendarView?.setOnDateChangedListener { widget, date, selected ->
@@ -240,6 +259,8 @@ class CalendarFragment: Fragment() {
                         APIFlow(level3_list,"level_3")
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_3"))
                         dates.clear()
+
+                        loading_img.visibility = View.GONE//로딩화면 나타나기
                     }
                     else{
                         showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)

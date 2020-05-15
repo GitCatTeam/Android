@@ -21,12 +21,13 @@
 
         <ImageView
             android:id="@+id/refreshCalendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="7dp"
             app:srcCompat="@drawable/ic_newdata"
             tools:srcCompat="@drawable/ic_newdata"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"/>
+            android:layout_marginLeft="10dp"/>
 
         <TextView
             android:layout_width="match_parent"

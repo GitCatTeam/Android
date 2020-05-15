@@ -62,9 +62,9 @@ class HomeFragment : Fragment() {
 
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+        NewToken(context!!)
         token = settings.getString("token","")
         Log.e("token","$token")
-        NewToken(context!!)
         callApi(token)
 
         //튜토리얼
@@ -102,6 +102,8 @@ class HomeFragment : Fragment() {
         timer.cancel()
         super.onPause()
     }
+
+    
 
     private fun callApi(token: String){
         activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE

@@ -253,7 +253,7 @@
 
                             <TextView
                                 android:id="@+id/firstlegend_name"
-                                android:layout_width="50dp"
+                                android:layout_width="55dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
@@ -290,7 +290,7 @@
 
                             <TextView
                                 android:id="@+id/secondlegend_name"
-                                android:layout_width="50dp"
+                                android:layout_width="55dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
@@ -327,7 +327,7 @@
 
                             <TextView
                                 android:id="@+id/thirdlegend_name"
-                                android:layout_width="50dp"
+                                android:layout_width="55dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"
@@ -364,7 +364,7 @@
 
                             <TextView
                                 android:id="@+id/fourthlegend_name"
-                                android:layout_width="50dp"
+                                android:layout_width="55dp"
                                 android:layout_height="wrap_content"
                                 android:textSize="10sp"
                                 android:textColor="@color/colorTextDark"

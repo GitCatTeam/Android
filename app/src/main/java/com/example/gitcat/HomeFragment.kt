@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.bumptech.glide.Glide
@@ -36,7 +37,6 @@ private const val ARG_PARAM2 = "param2"
 
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
-    val tuDialog = TuDialogFragment()
     var token: String = ""
     var timer: Timer = Timer()
     var handler = Handler()
@@ -67,10 +67,19 @@ class HomeFragment : Fragment() {
         Log.e("token","$token")
         callApi(token)
 
-        //튜토리얼
-        //tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-        //tuDialog.show(fragmentManager!!,"addons_fragment")
+        //첫 로그인 시 튜토리얼
+        val isFirst = settings.getString("isFirst","")
+        if(isFirst.equals("true")){
+            val tuDialog = TuDialogFragment()
+            //튜토리얼
+            tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+            tuDialog.show(fragmentManager!!,"addons_fragment")
+        }
 
+        img_btn_score_explain.setOnClickListener {
+            val scoreDialog = ScoreDialogFragment()
+            scoreDialog.show(fragmentManager!!,"score_fragment")
+        }
 
         //하단 탭 버튼 리스너
         diaryIcon.setOnClickListener { view ->

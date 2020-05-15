@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ScoreDialogFragment"
+    android:background="@drawable/info_list">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/img_btn_score_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_modulex"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_score_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="잠깐!\n점수는 어떻게 얻나요?"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp"
+            android:fontFamily="@font/bbtree_b"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_btn_score_back" />
+
+        <TextView
+            android:id="@+id/txt_score_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/bbtree_r"
+            android:text="- 고양씨를 생성한 이후 커밋을 했다면,\n   1점을 얻을 수 있어요.\n\n- 5개 이상의 커밋을 하면, 1점을 추가로\n   획득할 수 있어요.\n\n* 첫 고양씨는 커밋으로 1점만 획득해도\n  졸업할 수 있지만, 다음 고양씨부터는"
+            android:textColor="@color/colorTextDark"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_score_title" />
+
+        <TextView
+            android:id="@+id/txt_score_content2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bbtree_b"
+            android:text="  점점 난이도가 올라갑니다!"
+            android:textColor="@color/colorTextDark"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txt_score_content"
+            app:layout_constraintTop_toBottomOf="@+id/txt_score_content" />
+
+        <TextView
+            android:id="@+id/txt_score_content3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bbtree_r"
+            android:text=" 화이팅!"
+            android:textColor="@color/colorTextDark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_score_content2"
+            app:layout_constraintStart_toEndOf="@+id/txt_score_content2"
+            app:layout_constraintTop_toTopOf="@+id/txt_score_content2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

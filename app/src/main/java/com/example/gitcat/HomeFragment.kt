@@ -38,8 +38,7 @@ private const val ARG_PARAM2 = "param2"
 class HomeFragment : Fragment() {
     var adapterViewPager: FragmentPagerAdapter? = null
     var token: String = ""
-    var timer: Timer = Timer()
-    var handler = Handler()
+    var handler: Handler?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,15 +66,6 @@ class HomeFragment : Fragment() {
         Log.e("token","$token")
         callApi(token)
 
-        //첫 로그인 시 튜토리얼
-        val isFirst = settings.getString("isFirst","")
-        if(isFirst.equals("true")){
-            val tuDialog = TuDialogFragment()
-            //튜토리얼
-            tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
-            tuDialog.show(fragmentManager!!,"addons_fragment")
-        }
-
         img_btn_score_explain.setOnClickListener {
             val scoreDialog = ScoreDialogFragment()
             scoreDialog.show(fragmentManager!!,"score_fragment")
@@ -93,26 +83,10 @@ class HomeFragment : Fragment() {
         }
         //새로고침
         img_btn_new_data.setOnClickListener {
+            handler?.removeMessages(1000)
             callApi(token)
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        callApi(token)
-    }
-
-    override fun onDestroy() {
-        timer.cancel()
-        super.onDestroy()
-    }
-
-    override fun onPause() {
-        timer.cancel()
-        super.onPause()
-    }
-
-    
 
     private fun callApi(token: String){
         activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
@@ -143,6 +117,18 @@ class HomeFragment : Fragment() {
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                     activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
+                    //첫 로그인 시 튜토리얼
+                    val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+                    val isFirst = settings.getString("isFirst","")
+                    if(isFirst.equals("true")){
+                        val editor: SharedPreferences.Editor = settings.edit()
+                        editor.putString("isFirst","false")
+                        editor.commit()
+                        val tuDialog = TuDialogFragment()
+                        //튜토리얼
+                        tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+                        tuDialog.show(fragmentManager!!,"addons_fragment")
+                    }
                     if(response.isSuccessful){
                         val data = response.body()?.data
                         if(response.body()==null){
@@ -173,20 +159,22 @@ class HomeFragment : Fragment() {
         )
     }
     private fun startTimerTask(ments: ArrayList<String>){
-        var index=0
-        var setBubbleText= Runnable{
-            txt_bubble_content.text = ments[index]
-            index++
-            if(index==ments.size) index = 0
-        }
-        handler.postDelayed(setBubbleText,2000)
-        var timerTask = object: TimerTask(){
-            override fun run() {
-                activity?.runOnUiThread(setBubbleText)
+        handler = object: Handler(){
+            var index = 0
+            override fun handleMessage(msg: Message?) {
+                super.handleMessage(msg)
+                txt_bubble_content.text = ments[index]
+                index++
+                if(index==ments.size) index = 0
+                sendEmptyMessageDelayed(1000,3000)
             }
         }
+        handler?.sendEmptyMessage(1000)
+    }
 
-        timer.schedule(timerTask, 1000, 4000)
+    override fun onPause() {
+        super.onPause()
+        handler?.removeMessages(1000)
     }
 
     private fun homeCat(data: HomeData){
@@ -199,7 +187,7 @@ class HomeFragment : Fragment() {
         txt_home_next_level_score.text = data?.nextLevelScore.toString()
         txt_home_next_level_item.text = "(${data?.nextLevelStr})"
         //멘트 바꿔주기
-        //startTimerTask(data?.ments)
+        startTimerTask(data?.ments)
     }
 
     private fun nullCat(){

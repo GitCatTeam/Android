@@ -125,11 +125,19 @@ class ChartActivity : AppCompatActivity() {
                         }
                         //BarChart
                         for(names in reportData.data.contributedRepository.repoNames){
-                            var barname:List<String> = names.split("/")
-                            if(barname[1].length>13){
-                                barMonth.add(barname[1].substring(0,12)+"..")
+                            if("/" in names){
+                                var barname:List<String> = names.split("/")
+                                if(barname[1].length>13){
+                                    barMonth.add(barname[1].substring(0,12)+"..")
+                                }else{
+                                    barMonth.add(barname[1])
+                                }
                             }else{
-                                barMonth.add(barname[1])
+                                if(names.length>13){
+                                    barMonth.add(names.substring(0,12)+"..")
+                                }else{
+                                    barMonth.add(names)
+                                }
                             }
 
                         }

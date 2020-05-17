@@ -24,7 +24,6 @@ class SplashActivity : AppCompatActivity() {
             if(settings.getString("devCareer","").isEmpty()){
                 startActivity(Intent(this,MainActivity::class.java))
             }else{
-                NewToken(this)
                 startActivity(Intent(this,HomeActivity::class.java))
             }
 

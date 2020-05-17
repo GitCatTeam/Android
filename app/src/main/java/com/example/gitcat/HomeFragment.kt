@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
-
+        NewToken(context!!)
         return view
     }
 
@@ -58,10 +58,9 @@ class HomeFragment : Fragment() {
     }
 
     fun init(){
-
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
+
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
-        NewToken(context!!)
         token = settings.getString("token","")
         Log.e("token","$token")
         callApi(token)

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ChartActivity">
 
     <RelativeLayout
@@ -11,132 +11,132 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread"
-        app:layout_constraintVertical_weight="1">
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_back_blue"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"/>
+            app:srcCompat="@drawable/ic_back_blue" />
 
         <TextView
             android:id="@+id/chartTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
+            android:fontFamily="@font/bbtree_b"
+            android:textAlignment="center"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="18sp" />
     </RelativeLayout>
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="60dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <LinearLayout
             android:id="@+id/chartLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            
+            android:gravity="center"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="336dp"
                 android:layout_height="78dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect">
-                    <LinearLayout
+
+                <LinearLayout
                     android:layout_width="113dp"
                     android:layout_height="78dp"
                     android:gravity="center"
                     android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="지난달 대비"
-                            android:layout_marginBottom="11dp"
-                            android:fontFamily="@font/bbtree_b"
-                            android:textColor="@color/colorTextDark"
-                            android:textSize="13sp"/>
-                        <TextView
-                            android:id="@+id/lastMonth"
-                            android:fontFamily="@font/bbtree_b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"/>
-                    </LinearLayout>
 
-                    <FrameLayout
-                        android:layout_width="1dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        android:background="@color/colorText"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="11dp"
+                        android:fontFamily="@font/bbtree_b"
+                        android:text="지난달 대비"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="13sp" />
 
-                    <LinearLayout
-                        android:layout_width="113dp"
-                        android:layout_height="78dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="총 커밋수"
-                            android:layout_marginBottom="11dp"
-                            android:fontFamily="@font/bbtree_b"
-                            android:textColor="@color/colorTextDark"
-                            android:textSize="13sp"/>
-                        <TextView
-                            android:id="@+id/totalCommit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/bbtree_b"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="18sp"/>
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/lastMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_b"
+                        android:textSize="18sp" />
+                </LinearLayout>
 
                 <FrameLayout
                     android:layout_width="1dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
-                    android:background="@color/colorText"/>
+                    android:background="@color/colorText" />
 
-                    <LinearLayout
-                        android:layout_width="113dp"
-                        android:layout_height="78dp"
-                        android:gravity="center"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="하루 평균"
-                            android:layout_marginBottom="11dp"
-                            android:fontFamily="@font/bbtree_b"
-                            android:textColor="@color/colorTextDark"
-                            android:textSize="13sp"/>
-                        <TextView
-                            android:id="@+id/avg"
-                            android:fontFamily="@font/bbtree_b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="18sp"/>
-                    </LinearLayout>
-                
+                <LinearLayout
+                    android:layout_width="113dp"
+                    android:layout_height="78dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="11dp"
+                        android:fontFamily="@font/bbtree_b"
+                        android:text="총 커밋수"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/totalCommit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_b"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="1dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:background="@color/colorText" />
+
+                <LinearLayout
+                    android:layout_width="113dp"
+                    android:layout_height="78dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="11dp"
+                        android:fontFamily="@font/bbtree_b"
+                        android:text="하루 평균"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/avg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_b"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -166,8 +166,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/lineImg"
-                        android:text="커밋수 통계"
                         android:fontFamily="@font/bbtree_b"
+                        android:text="커밋수 통계"
                         android:textColor="@color/colorTextDark"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -197,11 +197,11 @@
                 android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
+                    android:id="@+id/pieImgText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginLeft="16dp"
-                    android:id="@+id/pieImgText">
+                    android:layout_marginTop="16dp">
 
                     <ImageView
                         android:id="@+id/pieImg"
@@ -215,29 +215,29 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/pieImg"
-                        android:text="사용 언어 비율"
                         android:fontFamily="@font/bbtree_b"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorTextDark"/>
+                        android:text="사용 언어 비율"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_below="@+id/pieImgText"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginLeft="20dp">
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="140dp"
-                        android:orientation="vertical"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center">
+                        android:layout_gravity="center"
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:id="@+id/firstlegend"
@@ -248,33 +248,33 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:background="@drawable/pie_0"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/pie_0" />
 
                             <TextView
                                 android:id="@+id/firstlegend_name"
                                 android:layout_width="55dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
-                                android:textColor="@color/colorTextDark"
+                                android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
-                                android:layout_marginLeft="6dp"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="----"
-                                android:textColor="@color/colorText"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="5dp"
+                                android:text="----"
+                                android:textColor="@color/colorText" />
 
                             <TextView
                                 android:id="@+id/firstlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
-                                android:textColor="@color/colorPrimaryDark"/>
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -282,36 +282,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:background="@drawable/pie_1"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/pie_1" />
 
                             <TextView
                                 android:id="@+id/secondlegend_name"
                                 android:layout_width="55dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
-                                android:textColor="@color/colorTextDark"
+                                android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
-                                android:layout_marginLeft="6dp"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="----"
-                                android:textColor="@color/colorText"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="5dp"
+                                android:text="----"
+                                android:textColor="@color/colorText" />
 
                             <TextView
                                 android:id="@+id/secondlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
-                                android:textColor="@color/colorTextDark"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -319,36 +320,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:background="@drawable/pie_2"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/pie_2" />
 
                             <TextView
                                 android:id="@+id/thirdlegend_name"
                                 android:layout_width="55dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
-                                android:textColor="@color/colorTextDark"
+                                android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
-                                android:layout_marginLeft="6dp"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="----"
-                                android:textColor="@color/colorText"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="5dp"
+                                android:text="----"
+                                android:textColor="@color/colorText" />
 
                             <TextView
                                 android:id="@+id/thirdlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
-                                android:textColor="@color/colorTextDark"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -356,36 +358,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:background="@drawable/pie_3"
-                                android:layout_gravity="center"/>
+                                android:layout_gravity="center"
+                                android:background="@drawable/pie_3" />
 
                             <TextView
                                 android:id="@+id/fourthlegend_name"
                                 android:layout_width="55dp"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
-                                android:textColor="@color/colorTextDark"
+                                android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
-                                android:layout_marginLeft="6dp"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="----"
-                                android:textColor="@color/colorText"
                                 android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="5dp"
+                                android:text="----"
+                                android:textColor="@color/colorText" />
 
                             <TextView
                                 android:id="@+id/fourthlegend_percent"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="10sp"
                                 android:fontFamily="@font/bbtree_b"
-                                android:textColor="@color/colorTextDark"/>
+                                android:textColor="@color/colorTextDark"
+                                android:textSize="10sp" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -409,15 +412,15 @@
                 android:layout_width="335dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="vertical"
-                android:background="@drawable/default_radius_rect">
+                android:background="@drawable/default_radius_rect"
+                android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/barImgText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:id="@+id/barImgText"
-                    android:layout_marginLeft="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp">
 
                     <ImageView
                         android:id="@+id/barImg"
@@ -431,19 +434,19 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/barImg"
-                        android:text="기여 레파지토리"
                         android:fontFamily="@font/bbtree_b"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorTextDark"/>
+                        android:text="기여 레파지토리"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TOP 3"
-                        android:fontFamily="@font/bbtree_b"
-                        android:textSize="12sp"
                         android:layout_marginStart="5dp"
-                        android:textColor="@color/colorPrimaryDark"/>
+                        android:fontFamily="@font/bbtree_b"
+                        android:text="TOP 3"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -454,8 +457,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="40dp"
                     android:layout_marginBottom="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -479,7 +482,7 @@
                     android:id="@+id/threeImgText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin= "16dp">
+                    android:layout_margin="16dp">
 
                     <ImageView
                         android:id="@+id/catImg"
@@ -493,64 +496,64 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/catImg"
-                        android:text="이번달 세줄평"
                         android:fontFamily="@font/bbtree_b"
-                        android:textSize="12sp"
-                        android:textColor="@color/colorTextDark"/>
+                        android:text="이번달 세줄평"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <!--세개의 줄-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
                     android:layout_below="@id/threeImgText"
-                    android:layout_marginLeft="22dp">
+                    android:layout_marginLeft="22dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/three_text1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10sp"
+                        android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:textSize="10sp" />
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/colorTextDark" />
 
                     <TextView
                         android:id="@+id/three_text2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10sp"
+                        android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:textSize="10sp" />
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/colorTextDark" />
 
                     <TextView
                         android:id="@+id/three_text3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="10sp"
+                        android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:textSize="10sp" />
 
                     <FrameLayout
                         android:layout_width="290dp"
                         android:layout_height="1dp"
-                        android:background="@color/colorTextDark"
-                        android:layout_marginBottom="1dp"/>
+                        android:layout_marginBottom="1dp"
+                        android:background="@color/colorTextDark" />
                 </LinearLayout>
 
             </RelativeLayout>

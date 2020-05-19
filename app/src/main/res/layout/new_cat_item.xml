@@ -19,10 +19,12 @@
 
     <TextView
         android:id="@+id/txt_new_cat_content"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:text="새로운 고양이 설명\n"
+        android:text="새로운 고양이 설명"
         android:textSize="14sp"
+        android:ellipsize="none"
+        android:maxLines="2"
         android:textColor="@color/colorTextDark"
         android:fontFamily="@font/bbtree_r"
         android:layout_marginLeft="16dp"

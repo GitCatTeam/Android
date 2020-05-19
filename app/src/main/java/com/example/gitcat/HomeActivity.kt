@@ -15,6 +15,7 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
+import android.widget.Toast
 import com.google.android.material.shadow.ShadowViewDelegate
 import com.google.android.material.shape.MaterialShapeDrawable
 
@@ -22,11 +23,11 @@ import com.google.android.material.shape.MaterialShapeDrawable
 
 class HomeActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        NewToken(this)
 
         //툴바 적용
         //setSupportActionBar(findViewById(R.id.toolbar))
@@ -58,6 +59,11 @@ class HomeActivity : AppCompatActivity() {
             false
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        NewToken(this)
     }
 
     override fun onBackPressed() {

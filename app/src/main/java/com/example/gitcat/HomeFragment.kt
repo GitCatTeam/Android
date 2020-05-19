@@ -48,12 +48,14 @@ class HomeFragment : Fragment() {
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         NewToken(context!!)
+        Log.e("fragment","create view")
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Log.e("fragment","activity created")
         init()
     }
 
@@ -88,6 +90,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun callApi(token: String){
+        Log.e("call api","call api first")
+
         activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
         val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
         call.enqueue(
@@ -165,7 +169,7 @@ class HomeFragment : Fragment() {
                 txt_bubble_content.text = ments[index]
                 index++
                 if(index==ments.size) index = 0
-                sendEmptyMessageDelayed(1000,3000)
+                sendEmptyMessageDelayed(1000,6000)
             }
         }
         handler?.sendEmptyMessage(1000)
@@ -174,6 +178,11 @@ class HomeFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         handler?.removeMessages(1000)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        NewToken(context!!)
     }
 
     private fun homeCat(data: HomeData){

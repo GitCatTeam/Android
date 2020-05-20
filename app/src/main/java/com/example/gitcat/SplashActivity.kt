@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -20,10 +21,14 @@ class SplashActivity : AppCompatActivity() {
             // This method will be executed once the timer is over
             // Start your app main activity
 
-            //SharedPreference가 있다면 HomeActivity로, 없다면 MainActivity로
-            if(settings.getString("devCareer","").isEmpty()){
-                startActivity(Intent(this,MainActivity::class.java))
-            }else{
+            if(settings.getString("devCareer","").isEmpty()){//정보입력 안한 사람
+                //d("*+*+",settings.getString("devCareer","ddd"))
+                if(settings.getString("token","").isNotEmpty()){ //토큰이 있다면 -> 회원인데 휴대폰 바꾼 사람이 로그인 한 이후 앱 들어올 때
+                    startActivity(Intent(this,HomeActivity::class.java))
+                }else{ //토큰이 없다면 -> 새로운 사람
+                    startActivity(Intent(this,MainActivity::class.java))
+                }
+            }else{//정보입력 한 사람
                 startActivity(Intent(this,HomeActivity::class.java))
             }
 

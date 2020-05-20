@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
-        NewToken(context!!)
+        //NewToken(context!!)
         Log.e("fragment","create view")
         return view
     }
@@ -104,7 +104,13 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         afterCallApi(token)
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        if(response.code().toString()=="401"){
+                            NewToken(context!!)
+                            val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
+                            callApi(settings.getString("token",""))
+                        }else{
+                            showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        }
                     }
                 }
             }

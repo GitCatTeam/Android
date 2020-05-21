@@ -73,7 +73,11 @@ class SettingsFragment : PreferenceFragmentCompat(){
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                             }else{
-                                showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                                if(response.code()>=500){
+                                    showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                                }else{
+                                    showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                                }
                             }
                         }
                     }

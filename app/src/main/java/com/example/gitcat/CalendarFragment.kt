@@ -95,7 +95,11 @@ class CalendarFragment: Fragment() {
                             APIStart(calendarView,settings.getString("token",""),ymToday)
 
                         }else{
-                            showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                            if(response.code()>=500){
+                                showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                            }else{
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                            }
                         }
                     }
                 }
@@ -263,7 +267,11 @@ class CalendarFragment: Fragment() {
                         loading_img.visibility = View.GONE//로딩화면 나타나기
                     }
                     else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
+                        if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                        }else{
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                        }
                     }
                 }
             }
@@ -356,7 +364,11 @@ class CalendarFragment: Fragment() {
                     }//response success end
                     else{
                         this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),activity!!)
+                        if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                        }else{
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                        }
                     }
                 }
             }

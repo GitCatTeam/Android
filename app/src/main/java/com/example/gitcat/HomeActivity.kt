@@ -1,5 +1,6 @@
 package com.example.gitcat
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -16,9 +17,15 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
 import android.widget.Toast
+import com.auth0.android.jwt.JWT
+import com.example.gitcat.model.RefreshTokenModel
+import com.example.gitcat.retrofit.RetrofitCreator
 import com.google.android.material.shadow.ShadowViewDelegate
 import com.google.android.material.shape.MaterialShapeDrawable
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -27,13 +34,27 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        NewToken(this)
-
+        init()
         //툴바 적용
         //setSupportActionBar(findViewById(R.id.toolbar))
         //getSupportActionBar()?.title = ""
         //var actionBar = supportActionBar
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        System.exit(0)
+    }
+
+    private fun loadFragment(fragment: Fragment,tag: String) {
+        // load fragment
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.addToBackStack(tag)
+        transaction.commit()
+    }
+
+    private fun init(){
         //초기화
         loadFragment(HomeFragment(),"home")
         navigationView.selectedItemId = R.id.nav_home
@@ -58,27 +79,7 @@ class HomeActivity : AppCompatActivity() {
             }
             false
         }
-
     }
-
-    override fun onResume() {
-        super.onResume()
-        NewToken(this)
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        System.exit(0)
-    }
-
-    private fun loadFragment(fragment: Fragment,tag: String) {
-        // load fragment
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.addToBackStack(tag)
-        transaction.commit()
-    }
-
 
 
     //액션버튼 메뉴 액션바에 집어 넣기

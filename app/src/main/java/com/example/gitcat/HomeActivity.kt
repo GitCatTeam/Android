@@ -34,16 +34,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        newtoken()
+        init()
         //툴바 적용
         //setSupportActionBar(findViewById(R.id.toolbar))
         //getSupportActionBar()?.title = ""
         //var actionBar = supportActionBar
-    }
-
-    override fun onResume() {
-        super.onResume()
-        newtoken()
     }
 
     override fun onBackPressed() {
@@ -83,48 +78,6 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
             false
-        }
-    }
-
-    private fun newtoken(){
-        val settings: SharedPreferences = getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
-        val editor: SharedPreferences.Editor = settings.edit()
-
-        if(Date(settings.getLong("expire", 0)) < Calendar.getInstance().time){ //현재시간이 만료시간을 뛰어넘을때
-            val call: Call<RefreshTokenModel> = RetrofitCreator.service.getRefreshToken(settings.getString("refreshToken",""))
-            call.enqueue(
-                object : Callback<RefreshTokenModel> {
-                    override fun onFailure(call: Call<RefreshTokenModel>, t: Throwable) {
-                        Log.e("*+*+", "error: $t")
-                        showErrorPopup(t.toString(),this@HomeActivity)
-                    }
-
-                    override fun onResponse(
-                        call: Call<RefreshTokenModel>,
-                        response: Response<RefreshTokenModel>
-                    ) {
-                        if(response.isSuccessful){
-                            val data = response.body()!!
-
-                            editor.putString("token",data.data.accessToken)
-                            editor.putString("refreshToken",data.data.refreshToken)
-
-                            val jwt = JWT(data.data.accessToken)
-                            val issuedAt = jwt.issuedAt//시작
-                            val expiresAt = jwt.expiresAt//마감
-
-                            editor.putLong("expire",expiresAt!!.time)
-                            editor.apply()
-
-                            init()
-                        }else{
-                            showErrorPopup("["+response.code().toString()+"] "+response.message(),this@HomeActivity)
-                        }
-                    }
-                }
-            )
-        }else{
-            init()
         }
     }
 

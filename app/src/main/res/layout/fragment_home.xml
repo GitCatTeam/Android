@@ -89,7 +89,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="55dp"
             app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,10 +117,12 @@
 
         <ImageView
             android:id="@+id/img_home_cat_gif"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="15dp"
             android:padding="20dp"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintBottom_toTopOf="@+id/cl_home_info_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.46"
@@ -129,11 +131,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_home_info_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="260dp"
+            android:layout_height="100dp"
             android:layout_marginBottom="54dp"
             android:background="@drawable/ic_box_ios"
-            android:paddingHorizontal="35dp"
             android:paddingVertical="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -160,10 +161,15 @@
                 android:text="닉네임"
                 android:textAlignment="center"
                 android:textColor="@color/colorTextDark"
-                android:textSize="22sp"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="22sp"
+                android:autoSizeMaxTextSize="42sp"
+                android:autoSizeStepGranularity="2sp"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"/>
 
             <ImageView
                 android:id="@+id/img_btn_score_explain"
@@ -180,6 +186,7 @@
                 android:id="@+id/linearLayout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/ll_item"
                 app:layout_constraintStart_toStartOf="@+id/ll_item"
                 app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname">
 
@@ -207,6 +214,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout3">

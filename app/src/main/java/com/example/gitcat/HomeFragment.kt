@@ -61,7 +61,6 @@ class HomeFragment : Fragment() {
 
     fun init(){
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
-
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
         token = settings.getString("token","")
         Log.e("token","$token")
@@ -104,13 +103,7 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         afterCallApi(token)
                     }else{
-                        if(response.code().toString()=="401"){
-                            NewToken(context!!)
-                            val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
-                            callApi(settings.getString("token",""))
-                        }else{
-                            showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
-                        }
+                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
                     }
                 }
             }

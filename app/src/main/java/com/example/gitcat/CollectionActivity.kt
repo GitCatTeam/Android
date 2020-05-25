@@ -38,7 +38,7 @@ class CollectionActivity : AppCompatActivity() {
             object : Callback<CatsCollectionModel> {
                 override fun onFailure(call: Call<CatsCollectionModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
-                    showErrorPopup(t.toString(),this@CollectionActivity)
+                    showErrorPopup("재로그인을 해주세요!",this@CollectionActivity)
                 }
 
                 override fun onResponse(
@@ -72,9 +72,9 @@ class CollectionActivity : AppCompatActivity() {
 
                     }else{
                         if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",this@CollectionActivity)
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@CollectionActivity)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",this@CollectionActivity)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@CollectionActivity)
                         }
                     }
                 }

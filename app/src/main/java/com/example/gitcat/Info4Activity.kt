@@ -58,7 +58,7 @@ class Info4Activity : AppCompatActivity(){
         val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
         call.enqueue(object : Callback<DataModel>{
             override fun onFailure(call: Call<DataModel>, t: Throwable) {
-                showErrorPopup(t.toString(),applicationContext)
+                showErrorPopup("재로그인을 해주세요!",applicationContext)
             }
 
             override fun onResponse(call: Call<DataModel>, response: Response<DataModel>) {
@@ -108,9 +108,9 @@ class Info4Activity : AppCompatActivity(){
                 }else{
                     //showErrorPopup(response.message(),applicationContext)
                     if(response.code()>=500){
-                        showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",this@Info4Activity)
+                        showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info4Activity)
                     }else{
-                        showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",this@Info4Activity)
+                        showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@Info4Activity)
                     }
                 }
             }

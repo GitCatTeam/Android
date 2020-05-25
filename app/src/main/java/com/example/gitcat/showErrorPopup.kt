@@ -3,10 +3,12 @@ package com.example.gitcat
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.content.Intent
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 fun showErrorPopup(errorMessage: String, context: Context){
     val inflater = context.getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -21,6 +23,9 @@ fun showErrorPopup(errorMessage: String, context: Context){
     val errorOk = view.findViewById<Button>(R.id.error_ok)
     errorOk.setOnClickListener {
         alertDialog.dismiss()
+        val settings = context.getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
+        settings.edit().clear().commit() //내부 db 초기화
+        context.startActivity(Intent(context,MainActivity::class.java)) //재로그인하기 위해서
     }
 
     alertDialog.setView(view)

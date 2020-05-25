@@ -96,14 +96,14 @@ class HomeFragment : Fragment() {
         call.enqueue(
             object : Callback<LogoutModel>{
                 override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
-                    showErrorPopup(t.toString(),context!!)
+                    showErrorPopup("재로그인을 해주세요!",context!!)
                 }
 
                 override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
                     if(response.isSuccessful){
                         afterCallApi(token)
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                        showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
                     }
                 }
             }
@@ -114,10 +114,11 @@ class HomeFragment : Fragment() {
         call.enqueue(
             object : Callback<HomeModel>{
                 override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-                    showErrorPopup(t.toString(),context!!)
+                    showErrorPopup("재로그인을 해주세요!",context!!)
                 }
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                    Log.e("call api","aftercall api first")
                     activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
                     //첫 로그인 시 튜토리얼
                     val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
@@ -155,9 +156,9 @@ class HomeFragment : Fragment() {
                         }
                     }else{
                         if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
                         }
                     }
                 }
@@ -224,7 +225,7 @@ class HomeFragment : Fragment() {
                 object : Callback<RefreshTokenModel> {
                     override fun onFailure(call: Call<RefreshTokenModel>, t: Throwable) {
                         Log.e("*+*+", "error: $t")
-                        showErrorPopup(t.toString(),context!!)
+                        showErrorPopup("재로그인을 해주세요!",context!!)
                     }
 
                     override fun onResponse(
@@ -247,7 +248,7 @@ class HomeFragment : Fragment() {
                             Log.e("token","refresh token")
                             callApi(settings.getString("token",""))
                         }else{
-                            showErrorPopup("["+response.code().toString()+"] "+response.message(),context!!)
+                            showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
                         }
                     }
                 }

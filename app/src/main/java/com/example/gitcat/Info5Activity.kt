@@ -72,7 +72,7 @@ class Info5Activity : AppCompatActivity() {
                 object : Callback<AddCatModel> {
                     override fun onFailure(call: Call<AddCatModel>, t: Throwable) {
                         Log.e("*+*+", "error: $t")
-                        showErrorPopup(t.toString(),this@Info5Activity)
+                        showErrorPopup("재로그인을 해주세요!",this@Info5Activity)
                     }
 
                     override fun onResponse(
@@ -88,9 +88,9 @@ class Info5Activity : AppCompatActivity() {
                             startActivity(intent)
                         }else{
                             if(response.code()>=500){
-                                showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",this@Info5Activity)
+                                showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info5Activity)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",this@Info5Activity)
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@Info5Activity)
                             }
                         }
                     }

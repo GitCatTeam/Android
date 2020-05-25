@@ -24,7 +24,7 @@ fun NewToken(context: Context){
             object : Callback<RefreshTokenModel> {
                 override fun onFailure(call: Call<RefreshTokenModel>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
-                    showErrorPopup(t.toString(),context)
+                    showErrorPopup("재로그인을 해주세요!",context)
                 }
 
                 override fun onResponse(
@@ -45,7 +45,7 @@ fun NewToken(context: Context){
                         editor.apply()
 
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] "+response.message(),context)
+                        showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context)
                     }
                 }
             }

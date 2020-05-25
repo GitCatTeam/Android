@@ -78,7 +78,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                     object : Callback<LogoutModel> {
                         override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
-                            showErrorPopup(t.toString(),context!!)
+                            showErrorPopup("재로그인을 해주세요!",context!!)
                         }
 
                         override fun onResponse(
@@ -95,9 +95,9 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 startActivity(intent)
                             }else{
                                 if(response.code()>=500){
-                                    showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                                    showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                                    showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
                                 }
                             }
                         }
@@ -136,7 +136,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                     object : Callback<Unit> {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {
                             Log.e("*+*+", "error: $t")
-                            showErrorPopup(t.toString(),context!!)
+                            showErrorPopup("재로그인을 해주세요!",context!!)
                         }
 
                         override fun onResponse(
@@ -153,9 +153,9 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 startActivity(intent)
                             }else{
                                 if(response.code()>=500){
-                                    showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                                    showErrorPopup("[네트워크 오류] 재로그인 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                                    showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인 해주세요!",context!!)
                                 }
                             }
                         }

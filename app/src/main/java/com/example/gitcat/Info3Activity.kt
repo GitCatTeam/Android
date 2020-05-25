@@ -51,7 +51,7 @@ class Info3Activity : AppCompatActivity() {
                 object : Callback<InfoModel> {
                     override fun onFailure(call: Call<InfoModel>, t: Throwable) {
                         Log.e("*+*+", "error: $t")
-                        showErrorPopup(t.toString(),this@Info3Activity)
+                        showErrorPopup("재로그인을 해주세요!",this@Info3Activity)
                     }
 
                     override fun onResponse(
@@ -68,9 +68,9 @@ class Info3Activity : AppCompatActivity() {
                             startActivity(intent)
                         }else{
                             if(response.code()>=500){
-                                showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",this@Info3Activity)
+                                showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info3Activity)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",this@Info3Activity)
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@Info3Activity)
                             }
                         }
                     }

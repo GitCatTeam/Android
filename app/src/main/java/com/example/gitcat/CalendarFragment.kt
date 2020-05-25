@@ -86,7 +86,7 @@ class CalendarFragment: Fragment() {
             call.enqueue(
                 object : Callback<LogoutModel>{
                     override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
-                        showErrorPopup(t.toString(),context!!)
+                        showErrorPopup("재로그인을 해주세요!",context!!)
                     }
 
                     override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
@@ -96,9 +96,9 @@ class CalendarFragment: Fragment() {
 
                         }else{
                             if(response.code()>=500){
-                                showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                                showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
                             }
                         }
                     }
@@ -214,7 +214,7 @@ class CalendarFragment: Fragment() {
             object : Callback<JsonObject> {
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                     Log.e("*+*+", "error: $t")
-                    showErrorPopup(t.toString(),activity!!)
+                    showErrorPopup("재로그인을 해주세요!",activity!!)
                 }
 
                 override fun onResponse(
@@ -268,9 +268,9 @@ class CalendarFragment: Fragment() {
                     }
                     else{
                         if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
                         }
                     }
                 }
@@ -365,9 +365,9 @@ class CalendarFragment: Fragment() {
                     else{
                         this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
                         if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 잠시 후에 다시 시도해주세요",context!!)
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"관리자에게 문의해주세요",context!!)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
                         }
                     }
                 }

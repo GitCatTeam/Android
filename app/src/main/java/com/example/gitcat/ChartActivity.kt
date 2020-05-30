@@ -78,7 +78,11 @@ class ChartActivity : AppCompatActivity() {
                         //PieChart
                         for(pie in reportData.data.languageRatio.resultLanguages){
                             pieEntry.add(PieEntry(pie.percent,pie.language))
-                            pieLegendName.add(pie.language)
+                            if(pie.language.length>11){
+                                pieLegendName.add(pie.language.substring(0,10)+"..")
+                            }else{
+                                pieLegendName.add(pie.language)
+                            }
                             pieLegendPercent.add(pie.percent)
                         }
                         pieChart(pieEntry)
@@ -207,7 +211,7 @@ class ChartActivity : AppCompatActivity() {
         xAxis.setTextColor(Color.BLACK)
         xAxis.enableGridDashedLine(8F, 24F, 0F)
 
-        val yLAxis = lineChart.axisLeft
+        //val yLAxis = lineChart.axisLeft
         //오류뜸 yLAxis.textColor = COLOR.BLACK
 
         val yRAxis = lineChart.axisRight

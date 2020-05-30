@@ -97,7 +97,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
+                                    showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
                                 }
                             }
                         }
@@ -155,7 +155,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인 해주세요!",context!!)
+                                    showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
                                 }
                             }
                         }

@@ -11,8 +11,8 @@
             app:allowDividerBelow="true"
             android:layout="@layout/settings_content">
             <intent
-                android:targetPackage="com.example.gitcat"
-                android:targetClass="com.example.gitcat.SettingsAccountActivity"/>
+                android:targetPackage="com.catlove.gitcat"
+                android:targetClass="com.catlove.gitcat.SettingsAccountActivity"/>
         </Preference>
 
 <!--        <Preference-->
@@ -24,8 +24,8 @@
 <!--            app:allowDividerAbove="true"-->
 <!--            android:layout="@layout/settings_content">-->
 <!--            <intent-->
-<!--                android:targetPackage="com.example.gitcat"-->
-<!--                android:targetClass="com.example.gitcat.SettingsAlarmActivity"/>-->
+<!--                android:targetPackage="com.catlove.gitcat"-->
+<!--                android:targetClass="com.catlove.gitcat.SettingsAlarmActivity"/>-->
 <!--        </Preference>-->
 
         <Preference
@@ -46,8 +46,8 @@
             app:iconSpaceReserved="false"
             android:layout="@layout/settings_content">
             <intent
-                android:targetPackage="com.example.gitcat"
-                android:targetClass="com.example.gitcat.SettingsDevActivity"/>
+                android:targetPackage="com.catlove.gitcat"
+                android:targetClass="com.catlove.gitcat.SettingsDevActivity"/>
         </Preference>
 
         <Preference

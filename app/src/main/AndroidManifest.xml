@@ -33,7 +33,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
             android:name=".Info1Activity"
             android:theme="@style/Theme.AppCompat.NoActionBar"

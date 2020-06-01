@@ -51,8 +51,7 @@ class Info5Activity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, before: Int) {
-                val text = s.toString()
-                //calcText.text= "${text.length}자"
+
             }
             override fun afterTextChanged(s: Editable) {
                 buttonGo.isEnabled = true
@@ -67,7 +66,7 @@ class Info5Activity : AppCompatActivity() {
             editor.apply()
 
             val cat = AddCatModel(settings.getInt("catId",0),editCatName.text.toString())
-            val call: Call<AddCatModel> = RetrofitCreator.service.postCats(settings.getString("token",""),cat)
+            val call: Call<AddCatModel> = RetrofitCreator.service.postCats(settings.getString("token","")!!,cat)
             call.enqueue(
                 object : Callback<AddCatModel> {
                     override fun onFailure(call: Call<AddCatModel>, t: Throwable) {
@@ -80,7 +79,6 @@ class Info5Activity : AppCompatActivity() {
                         response: Response<AddCatModel>
                     ) {
                         if(response.isSuccessful){
-                            val data = response.body()!!
 
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)

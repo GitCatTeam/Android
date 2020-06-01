@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:577623438496:android:5d96d389218ea5e78b45c5",
         "android_client_info": {
-          "package_name": "com.example.gitcat"
+          "package_name": "com.catlove.gitcat"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "577623438496-bc62hvie0jcpnrge33anks92dvrosc3p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.gitcat",
+            "package_name": "com.catlove.gitcat",
             "certificate_hash": "e3d2f9473244dc7b2abebee76a20fd74cf97bd03"
           }
         },

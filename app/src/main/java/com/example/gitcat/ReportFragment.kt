@@ -50,7 +50,7 @@ class ReportFragment : Fragment() {
         var rLanguage: String
 
         NewToken(context!!)
-        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token",""))
+        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token","")!!)
         call.enqueue(
             object : Callback<MonthlyListModel> {
                 override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {

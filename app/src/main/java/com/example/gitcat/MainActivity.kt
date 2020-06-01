@@ -26,6 +26,7 @@ import android.webkit.JavascriptInterface
 import android.view.WindowManager
 import android.widget.TextView
 import com.auth0.android.jwt.JWT
+import java.io.File
 import java.util.regex.Pattern
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        //window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_main)
 
         var mTransform: Linkify.TransformFilter = Linkify.TransformFilter(){ m,s ->
@@ -54,8 +55,10 @@ class MainActivity : AppCompatActivity() {
             val myWebView: WebView = findViewById(R.id.webview)
             val myURL = "https://a.gitcat.app/api/auth/github"
 
-            myWebView.clearCache(true)
-            myWebView.clearHistory()
+            //캐시 삭제
+            CookieManager.getInstance().removeSessionCookies(null)
+            CookieManager.getInstance().removeAllCookies(null)
+
             myWebView.settings.javaScriptEnabled = true
 
             myWebView.settings.setSupportZoom(true)
@@ -65,7 +68,9 @@ class MainActivity : AppCompatActivity() {
             myWebView.loadUrl(myURL)
             myWebView.webViewClient = object : WebViewClient(){
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-
+                    view?.clearCache(true)
+                    view?.clearFormData()
+                    view?.clearHistory()
                     view?.loadUrl(url)
                     return true
                 }
@@ -133,6 +138,8 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         }else{
             //사용자가 처음이 아닐 때
             val intent = Intent(mContext,HomeActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             mContext?.startActivity(intent)
         }
     }

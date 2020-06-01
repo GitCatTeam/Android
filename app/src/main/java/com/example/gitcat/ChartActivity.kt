@@ -78,7 +78,11 @@ class ChartActivity : AppCompatActivity() {
                         //PieChart
                         for(pie in reportData.data.languageRatio.resultLanguages){
                             pieEntry.add(PieEntry(pie.percent,pie.language))
-                            pieLegendName.add(pie.language)
+                            if(pie.language.length>11){
+                                pieLegendName.add(pie.language.substring(0,10)+"..")
+                            }else{
+                                pieLegendName.add(pie.language)
+                            }
                             pieLegendPercent.add(pie.percent)
                         }
                         pieChart(pieEntry)
@@ -157,7 +161,7 @@ class ChartActivity : AppCompatActivity() {
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@ChartActivity)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@ChartActivity)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",this@ChartActivity)
                         }
                     }
                 }
@@ -207,7 +211,7 @@ class ChartActivity : AppCompatActivity() {
         xAxis.setTextColor(Color.BLACK)
         xAxis.enableGridDashedLine(8F, 24F, 0F)
 
-        val yLAxis = lineChart.axisLeft
+        //val yLAxis = lineChart.axisLeft
         //오류뜸 yLAxis.textColor = COLOR.BLACK
 
         val yRAxis = lineChart.axisRight

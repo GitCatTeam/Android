@@ -67,6 +67,9 @@ class CalendarFragment: Fragment() {
 
         var apimonth : String = ""
         var calendarDay: CalendarDay = CalendarDay.today()
+
+        calendarView.addDecorator(CalendarTodayDecorator(activity!!))//오늘 날짜
+
         var ymToday : String
         if(calendarDay.month>9){
             ymToday = calendarDay.year.toString()+calendarDay.month.toString()
@@ -81,6 +84,7 @@ class CalendarFragment: Fragment() {
         APIStart(calendarView,settings.getString("token",""),ymToday)
 
         refreshCalendar.setOnClickListener {//새로고침
+            loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             NewToken(context!!)
             val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(settings.getString("token",""))
             call.enqueue(
@@ -91,14 +95,14 @@ class CalendarFragment: Fragment() {
 
                     override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
                         if(response.isSuccessful){
-                            loading_img.visibility = View.VISIBLE//로딩화면 나타나기
+
                             APIStart(calendarView,settings.getString("token",""),ymToday)
 
                         }else{
                             if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
                             }
                         }
                     }
@@ -264,13 +268,13 @@ class CalendarFragment: Fragment() {
                         calendarView.addDecorator(EventDecorator(dates,activity!!,"level_3"))
                         dates.clear()
 
-                        loading_img.visibility = View.GONE//로딩화면 나타나기
+                        loading_img.visibility = View.GONE//로딩화면 사라지기
                     }
                     else{
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
                         }
                     }
                 }
@@ -367,7 +371,7 @@ class CalendarFragment: Fragment() {
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",context!!)
+                            showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
                         }
                     }
                 }

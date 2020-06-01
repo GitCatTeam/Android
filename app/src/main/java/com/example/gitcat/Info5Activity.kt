@@ -51,7 +51,7 @@ class Info5Activity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
             }
             override fun onTextChanged(s: CharSequence, start: Int, count: Int, before: Int) {
-
+                //calcText.text= "${text.length}자"
             }
             override fun afterTextChanged(s: Editable) {
                 buttonGo.isEnabled = true
@@ -79,6 +79,7 @@ class Info5Activity : AppCompatActivity() {
                         response: Response<AddCatModel>
                     ) {
                         if(response.isSuccessful){
+                            //val data = response.body()!!
 
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -88,7 +89,7 @@ class Info5Activity : AppCompatActivity() {
                             if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info5Activity)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"재로그인을 해주세요!",this@Info5Activity)
+                                showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",this@Info5Activity)
                             }
                         }
                     }

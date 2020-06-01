@@ -50,9 +50,12 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="336dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="78dp"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
@@ -141,7 +144,9 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_width="335dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect">
@@ -191,7 +196,9 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="335dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect">
@@ -228,13 +235,14 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
                     android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="140dp"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:orientation="vertical">
@@ -248,12 +256,13 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/pie_0" />
 
                             <TextView
                                 android:id="@+id/firstlegend_name"
-                                android:layout_width="55dp"
+                                android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
@@ -286,12 +295,13 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/pie_1" />
 
                             <TextView
                                 android:id="@+id/secondlegend_name"
-                                android:layout_width="55dp"
+                                android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
@@ -324,12 +334,13 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/pie_2" />
 
                             <TextView
                                 android:id="@+id/thirdlegend_name"
-                                android:layout_width="55dp"
+                                android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
@@ -362,12 +373,13 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
+                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/pie_3" />
 
                             <TextView
                                 android:id="@+id/fourthlegend_name"
-                                android:layout_width="55dp"
+                                android:layout_width="60dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="6dp"
                                 android:fontFamily="@font/bbtree_r"
@@ -397,6 +409,7 @@
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pieChart"
                         android:layout_width="150dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_height="match_parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -409,7 +422,9 @@
 
 
             <LinearLayout
-                android:layout_width="335dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect"
@@ -471,7 +486,9 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_width="335dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"

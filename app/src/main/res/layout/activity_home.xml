@@ -40,4 +40,14 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:background="@color/colorWhite"/>
+
+    <ImageView
+        android:id="@+id/img_home_refresh_loading"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

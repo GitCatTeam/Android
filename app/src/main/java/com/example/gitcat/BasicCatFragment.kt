@@ -47,6 +47,7 @@ class BasicCatFragment(private val data: ArrayList<ChooseCatBasicModel>) : Fragm
         recycler_choose_cat_basic.apply{
             adapter= chooseCatRecycleradapter
             layoutManager = GridLayoutManager(context,3)
+            addItemDecoration(ItemDecoration(14,14))
         }
         chooseCatRecycleradapter.data = data
         chooseCatRecycleradapter.notifyDataSetChanged()

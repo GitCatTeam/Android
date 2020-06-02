@@ -46,7 +46,7 @@
         android:textColor="@color/colorTextDark"
         android:textSize="12sp"
         android:fontFamily="@font/bbtree_r"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupLong"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

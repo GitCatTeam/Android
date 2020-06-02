@@ -66,7 +66,7 @@ class Info5Activity : AppCompatActivity() {
             editor.apply()
 
             val cat = AddCatModel(settings.getInt("catId",0),editCatName.text.toString())
-            val call: Call<AddCatModel> = RetrofitCreator.service.postCats(settings.getString("token",""),cat)
+            val call: Call<AddCatModel> = RetrofitCreator.service.postCats(settings.getString("token","")!!,cat)
             call.enqueue(
                 object : Callback<AddCatModel> {
                     override fun onFailure(call: Call<AddCatModel>, t: Throwable) {

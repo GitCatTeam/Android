@@ -58,7 +58,7 @@
                     android:textColor="@color/colorTextDark"
                     android:textSize="12sp"
                     android:layout_gravity="center"
-                    app:layout_constraintBottom_toTopOf="@+id/imageView3"
+                    app:layout_constraintBottom_toTopOf="@+id/myCatImg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.503"
                     app:layout_constraintStart_toStartOf="parent"

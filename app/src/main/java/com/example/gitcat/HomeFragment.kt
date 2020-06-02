@@ -51,20 +51,23 @@ class HomeFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         //NewToken(context!!)
         Log.e("fragment","create view")
+
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
 
-        Log.e("fragment","activity created")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.e("fragment","view created")
         init()
     }
 
+
     fun init(){
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
+        Glide.with(this@HomeFragment).load(R.raw.gif_loading).into(activity?.findViewById<ImageView>(R.id.img_home_refresh_loading)!!)
 
-        newtoken()
+        newtoken(1)
 
         img_btn_score_explain.setOnClickListener {
             val scoreDialog = ScoreDialogFragment()
@@ -84,14 +87,17 @@ class HomeFragment : Fragment() {
         //새로고침
         img_btn_new_data.setOnClickListener {
             handler?.removeMessages(1000)
-            callApi(token)
+            newtoken(2)
         }
     }
 
-    private fun callApi(token: String){
-        Log.e("call api","call api first")
+    private fun callApi(token: String, check: Int){
+        if(check==1){
+            activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
+        }else{
+            activity?.findViewById<ImageView>(R.id.img_home_refresh_loading)!!.visibility = View.VISIBLE
+        }
 
-        activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.VISIBLE
         val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(token)
         call.enqueue(
             object : Callback<LogoutModel>{
@@ -101,7 +107,7 @@ class HomeFragment : Fragment() {
 
                 override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
                     if(response.isSuccessful){
-                        afterCallApi(token)
+                        afterCallApi(token,check)
                     }else{
                         showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
                     }
@@ -109,7 +115,7 @@ class HomeFragment : Fragment() {
             }
         )
     }
-    private fun afterCallApi(token: String){
+    private fun afterCallApi(token: String,check: Int){
         val call: Call<HomeModel> = RetrofitCreator.service.getHomeMain(token)
         call.enqueue(
             object : Callback<HomeModel>{
@@ -118,8 +124,12 @@ class HomeFragment : Fragment() {
                 }
 
                 override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                    Log.e("call api","aftercall api first")
-                    activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
+                    if(check==1){
+                        activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!.visibility = View.GONE
+                    }else{
+                        activity?.findViewById<ImageView>(R.id.img_home_refresh_loading)!!.visibility = View.GONE
+                    }
+
                     //첫 로그인 시 튜토리얼
                     val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
                     val isFirst = settings.getString("isFirst","")
@@ -214,8 +224,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun newtoken(){
-
+    private fun newtoken(check: Int){
         val settings: SharedPreferences = context!!.getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = settings.edit()
 
@@ -246,7 +255,7 @@ class HomeFragment : Fragment() {
                             editor.apply()
 
                             Log.e("token","refresh token")
-                            callApi(settings.getString("token",""))
+                            callApi(settings.getString("token",""),check)
                         }else{
                             showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
                         }
@@ -255,7 +264,7 @@ class HomeFragment : Fragment() {
             )
         }else{
             Log.e("token","no refresh token")
-            callApi(settings.getString("token",""))
+            callApi(settings.getString("token",""),check)
         }
     }
     companion object {

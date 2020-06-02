@@ -27,12 +27,12 @@ class ChooseCatRecyclerAdapter(private val context:Context,var button: Button):R
 
         //하나만 선택
         if(select == -1){
-            holder.relative.isSelected = false
+            holder.constraint.isSelected = false
         }else{
-            holder.relative.isSelected = select == position
+            holder.constraint.isSelected = select == position
         }
-        holder.relative.setOnClickListener{
-            holder.relative.isSelected = true
+        holder.constraint.setOnClickListener{
+            holder.constraint.isSelected = true
             if(select != position) {
                 notifyItemChanged(select)
                 select = position

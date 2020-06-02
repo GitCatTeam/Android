@@ -14,10 +14,10 @@
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            android:layout_height="55dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="2">
+            app:layout_constraintVertical_chainStyle="spread_inside">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -72,17 +72,15 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginTop="34dp"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_l"
             android:gravity="center"
             android:text="오늘의 커밋수"
             android:textColor="@color/colorTextDark"
             android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_weight="1" />
+            app:layout_constraintStart_toStartOf="parent" />
 
 
         <LinearLayout
@@ -93,8 +91,7 @@
             app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_chainStyle="spread_inside">
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
             <TextView
                 android:id="@+id/txt_home_commit_count"

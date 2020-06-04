@@ -72,6 +72,10 @@ class Info5Activity : AppCompatActivity() {
                         if(response.isSuccessful){
                             //val data = response.body()!!
 
+                            val editor: SharedPreferences.Editor = settings.edit()
+                            editor.putBoolean("doAPI",true)
+                            editor.apply()
+
                             var intent = Intent(this@Info5Activity,HomeActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

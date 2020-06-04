@@ -14,7 +14,8 @@
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.08"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside">
@@ -30,10 +31,10 @@
                     android:id="@+id/diaryIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginRight="5dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_diary"
-                    android:padding="10dp"/>
+                    android:layout_marginRight="5dp"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_diary" />
 
                 <ImageView
                     android:id="@+id/settingsIcon"
@@ -41,31 +42,33 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_set_ios"
-                    android:padding="10dp"/>
+                    android:padding="10dp"
+                    android:src="@drawable/ic_set_ios" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp">
+
                 <ImageView
                     android:id="@+id/img_btn_new_data"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:padding="10dp"
-                    android:src="@drawable/ic_newdata"/>
+                    android:src="@drawable/ic_newdata" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/bbtree_b"
                     android:text="화면 새로고침"
                     android:textColor="@color/colorLightBlue"
-                    android:layout_gravity="center"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -80,14 +83,16 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+            app:layout_constraintVertical_bias="1.0" />
 
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,10 +121,9 @@
             android:id="@+id/img_home_cat_gif"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="15dp"
+            app:layout_constraintHeight_percent="0.35"
             android:padding="20dp"
             app:layout_constraintWidth_percent="0.8"
-            app:layout_constraintHeight_percent="0.4"
             app:layout_constraintBottom_toTopOf="@+id/cl_home_info_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.46"
@@ -128,9 +132,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_home_info_content"
-            android:layout_width="260dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="54dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.65"
+            app:layout_constraintHeight_percent="0.15"
+            android:layout_marginBottom="50dp"
             android:background="@drawable/ic_box_ios"
             android:paddingVertical="10dp"
             app:layout_constraintBottom_toBottomOf="parent"

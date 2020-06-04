@@ -28,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         //window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_main)
 
+        val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
+        editor.putBoolean("doAPI",true)
+        editor.apply()
+        
         var mTransform: Linkify.TransformFilter = Linkify.TransformFilter(){ m,s ->
             return@TransformFilter ""
         }

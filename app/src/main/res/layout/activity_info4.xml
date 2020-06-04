@@ -7,104 +7,144 @@
     tools:context=".Info4Activity"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/img_back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back" />
-
-    <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="@font/bbtree_b"
-        android:text="함께 할 고양이를 선택해주세요!"
-        android:textColor="@color/colorTextDark"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/txt_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_back_btn" />
-
-    <TextView
-        android:id="@+id/txt_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/bbtree_r"
-        android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
-        android:textColor="@color/colorTextDark"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/tl_information_cat"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tl_information_cat"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/vp_information_cat"
-        app:layout_constraintEnd_toEndOf="@+id/vp_information_cat"
-        app:layout_constraintStart_toStartOf="@+id/vp_information_cat"
-        app:layout_constraintTop_toBottomOf="@+id/txt_content"
-        app:tabBackground="@drawable/choose_cat_tab_color"
-        app:tabGravity="fill"
-        app:tabMaxWidth="0dp"
-        app:tabIndicatorHeight="0dp"
-        app:tabSelectedTextColor="@color/colorLightBlue"
-        app:tabTextColor="@color/colorLightGrey"></com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_information_cat"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_info4_first"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="60dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_choose_cat_next"
-        app:layout_constraintTop_toBottomOf="@+id/tl_information_cat"
-        tools:layout_editor_absoluteX="60dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cl_info4_second"
+        app:layout_constraintVertical_weight="0.8"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btn_choose_cat_next"
-        android:layout_width="wrap_content"
-        android:layout_height="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/info_next"
-        android:elevation="0dp"
-        android:enabled="false"
-        android:fontFamily="@font/bbtree_b"
-        android:paddingHorizontal="44dp"
-        android:text="다음으로"
-        android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vp_information_cat"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed" />
+        <ImageView
+            android:id="@+id/img_back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35"
+            app:srcCompat="@drawable/ic_back" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp"
-        android:text="4/5"
-        android:textColor="@color/colorLightGrey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_choose_cat_next"
-        app:layout_constraintVertical_bias="0.0" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_info4_second"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_info4_third"
+        app:layout_constraintVertical_weight="0.8"
+        app:layout_constraintTop_toBottomOf="@+id/cl_info4_first">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bbtree_b"
+            android:text="함께 할 고양이를 선택해주세요!"
+            android:textColor="@color/colorTextDark"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txt_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bbtree_r"
+            android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
+            android:textColor="@color/colorTextDark"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_info4_third"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/cl_info4_fourth"
+        app:layout_constraintVertical_weight="6"
+        app:layout_constraintTop_toBottomOf="@+id/cl_info4_second">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_information_cat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/vp_information_cat"
+            app:layout_constraintEnd_toEndOf="@id/vp_information_cat"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/vp_information_cat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1"
+            app:tabBackground="@drawable/choose_cat_tab_color"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
+            app:tabMaxWidth="0dp"
+            app:tabSelectedTextColor="@color/colorLightBlue"
+            app:tabTextColor="@color/colorLightGrey" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_information_cat"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="24dp"
+            app:layout_constraintVertical_weight="10"
+            android:layout_marginHorizontal="50dp"
+            app:layout_constraintTop_toBottomOf="@id/tl_information_cat"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_info4_fourth"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintTop_toBottomOf="@id/cl_info4_third"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btn_choose_cat_next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/info_next"
+            android:elevation="0dp"
+            android:enabled="false"
+            android:fontFamily="@font/bbtree_b"
+            android:text="다음으로"
+            android:textColor="@color/colorWhite"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_info4_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <TextView
+            android:id="@+id/txt_info4_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4/5"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorLightGrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_choose_cat_next" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

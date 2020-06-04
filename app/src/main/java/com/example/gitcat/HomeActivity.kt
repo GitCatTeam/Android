@@ -12,7 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import android.view.View
 import com.google.android.material.tabs.TabLayout
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.util.Log
@@ -26,13 +25,24 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.fragment.app.FragmentManager
 
 
 class HomeActivity : AppCompatActivity() {
 
+    private var fragmentManager: FragmentManager? = null
+    private var cf: Fragment? = null
+    private var hf: Fragment? = null
+    private var rf: Fragment? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        fragmentManager = supportFragmentManager
 
         init()
         //툴바 적용
@@ -54,25 +64,58 @@ class HomeActivity : AppCompatActivity() {
         transaction.commit()
     }
 
+    private fun loadFragment2(fragment: Fragment, tag: String){
+        fragmentManager!!.beginTransaction().add(R.id.container, fragment,tag).commit()
+    }
+
     private fun init(){
         //초기화
+        hf = HomeFragment()
         loadFragment(HomeFragment(),"home")
+
         navigationView.selectedItemId = R.id.nav_home
 
         navigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.nav_cal->{
-                    loadFragment(CalendarFragment(),"calendar")
+                    //loadFragment(CalendarFragment(),"calendar")
+
+                    if(cf == null) {
+                        cf = CalendarFragment()
+                        loadFragment2(cf!!,"calendar")
+                    }
+                    if(cf != null) fragmentManager!!.beginTransaction().show(cf!!).commit()
+                    if(hf != null) fragmentManager!!.beginTransaction().hide(hf!!).commit()
+                    if(rf != null) fragmentManager!!.beginTransaction().hide(rf!!).commit()
+
                     //actionBar!!.title = "커밋달력"
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_home->{
-                    loadFragment(HomeFragment(),"home")
+                    //loadFragment(HomeFragment(),"home")
+
+                    if(hf == null) {
+                        hf = HomeFragment()
+                        loadFragment2(hf!!,"home")
+                    }
+                    if(cf != null) fragmentManager!!.beginTransaction().hide(cf!!).commit()
+                    if(hf != null) fragmentManager!!.beginTransaction().show(hf!!).commit()
+                    if(rf != null) fragmentManager!!.beginTransaction().hide(rf!!).commit()
+
                     //actionBar!!.title = ""
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.nav_report->{
-                    loadFragment(ReportFragment(),"report")
+                    //loadFragment(ReportFragment(),"report")
+
+                    if(rf == null) {
+                        rf = ReportFragment()
+                        loadFragment2(rf!!,"report")
+                    }
+                    if(cf != null) fragmentManager!!.beginTransaction().hide(cf!!).commit()
+                    if(hf != null) fragmentManager!!.beginTransaction().hide(hf!!).commit()
+                    if(rf != null) fragmentManager!!.beginTransaction().show(rf!!).commit()
+
                     //actionBar!!.title = "레포트"
                     return@setOnNavigationItemSelectedListener true
                 }

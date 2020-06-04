@@ -135,7 +135,10 @@ class HomeFragment : Fragment() {
                     }else{
                         activity?.findViewById<ImageView>(R.id.img_home_refresh_loading)!!.visibility = View.GONE
                     }
-
+                    val tuDialog = TuDialogFragment()
+                    //튜토리얼
+                    tuDialog.setStyle(DialogFragment.STYLE_NO_TITLE,android.R.style.Theme_Holo_Light)
+                    tuDialog.show(fragmentManager!!,"addons_fragment")
                     //첫 로그인 시 튜토리얼
                     val settings: SharedPreferences = context!!.getSharedPreferences("gitcat",AppCompatActivity.MODE_PRIVATE)
                     val isFirst = settings.getString("isFirst","")

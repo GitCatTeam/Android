@@ -32,6 +32,10 @@ class SplashActivity : AppCompatActivity() {
                 startActivity(Intent(this,HomeActivity::class.java))
             }
 
+            val editor: SharedPreferences.Editor = settings.edit()
+            editor.putBoolean("doAPI",true)
+            editor.apply()
+
             // close this activity
             finish()
         }, SPLASH_TIME_OUT)

@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
     var token: String = ""
     var handler: Handler?= null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,15 +51,16 @@ class HomeFragment : Fragment() {
 
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         //NewToken(context!!)
+
         Log.e("fragment","create view")
 
         return view
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.e("fragment","view created")
+
         init()
     }
 
@@ -67,7 +69,12 @@ class HomeFragment : Fragment() {
         Glide.with(this@HomeFragment).load(R.raw.gif_cat_loading).into(activity?.findViewById<ImageView>(R.id.img_home_cat_loading)!!)
         Glide.with(this@HomeFragment).load(R.raw.gif_loading).into(activity?.findViewById<ImageView>(R.id.img_home_refresh_loading)!!)
 
-        newtoken(1)
+        val settings: SharedPreferences = activity!!.getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
+
+        if(settings.getBoolean("doAPI",true)){
+            newtoken(1)
+        }
+        //newtoken(1)
 
         img_btn_score_explain.setOnClickListener {
             val scoreDialog = ScoreDialogFragment()
@@ -116,6 +123,8 @@ class HomeFragment : Fragment() {
         )
     }
     private fun afterCallApi(token: String,check: Int){
+        val settings: SharedPreferences = activity!!.getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
         val call: Call<HomeModel> = RetrofitCreator.service.getHomeMain(token)
         call.enqueue(
             object : Callback<HomeModel>{
@@ -164,6 +173,8 @@ class HomeFragment : Fragment() {
                                 homeCat(data)
                             }
                         }
+                        editor.putBoolean("doAPI",false)
+                        editor.apply()
                     }else{
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)

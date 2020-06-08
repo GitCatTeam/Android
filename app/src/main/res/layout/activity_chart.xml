@@ -537,7 +537,7 @@
                         android:textSize="10sp" />
 
                     <FrameLayout
-                        android:layout_width="290dp"
+                        android:layout_width="250dp"
                         android:layout_height="1dp"
                         android:layout_marginBottom="1dp"
                         android:background="@color/colorTextDark" />
@@ -552,7 +552,7 @@
                         android:textSize="10sp" />
 
                     <FrameLayout
-                        android:layout_width="290dp"
+                        android:layout_width="250dp"
                         android:layout_height="1dp"
                         android:layout_marginBottom="1dp"
                         android:background="@color/colorTextDark" />
@@ -567,7 +567,7 @@
                         android:textSize="10sp" />
 
                     <FrameLayout
-                        android:layout_width="290dp"
+                        android:layout_width="250dp"
                         android:layout_height="1dp"
                         android:layout_marginBottom="1dp"
                         android:background="@color/colorTextDark" />

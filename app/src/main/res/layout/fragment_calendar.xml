@@ -210,7 +210,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/bbtree_r"
                                     android:text="0"
-                                    android:textSize="32sp" />
+                                    android:textSize="30sp" />
                             </LinearLayout>
 
                             <FrameLayout

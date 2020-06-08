@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val editor: SharedPreferences.Editor = settings.edit()
         editor.putBoolean("doAPI",true)
         editor.apply()
-        
+
         var mTransform: Linkify.TransformFilter = Linkify.TransformFilter(){ m,s ->
             return@TransformFilter ""
         }

@@ -88,8 +88,12 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity,SettingsActivity::class.java)
             startActivity(intent)
         }
-        //새로고침
+        //새로고침 이미지, 텍스트 선택 가능
         img_btn_new_data.setOnClickListener {
+            handler?.removeMessages(1000)
+            newtoken(2)
+        }
+        btn_new_data.setOnClickListener {
             handler?.removeMessages(1000)
             newtoken(2)
         }

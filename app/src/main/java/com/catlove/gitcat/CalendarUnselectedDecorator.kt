@@ -7,7 +7,7 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
 
 class CalendarUnselectedDecorator : DayViewDecorator{
-    private lateinit var drawable: Drawable
+    private var drawable: Drawable
     private var dates: CalendarDay? = null
 
     constructor(dates: CalendarDay, context: Activity){

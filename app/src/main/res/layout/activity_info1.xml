@@ -16,17 +16,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="1">
 
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:background="@drawable/ic_back"
-        app:layout_constraintBottom_toTopOf="@+id/textView1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/ic_back"
+            app:layout_constraintBottom_toTopOf="@+id/textView1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/textView1"
@@ -116,7 +116,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
                 app:layout_constraintVertical_chainStyle="spread"
-                app:layout_constraintBottom_toTopOf="@+id/buttonGo">
+                app:layout_constraintBottom_toTopOf="@+id/cl_info1">
 
                 <RadioButton
                     android:id="@+id/radio0"
@@ -156,34 +156,42 @@
                     android:textColor="@drawable/circle" />
             </RadioGroup>
 
-            <Button
-                android:id="@+id/buttonGo"
-                android:layout_width="136dp"
-                android:layout_height="32dp"
-                android:background="@drawable/info_next"
-                android:textColor="#FFFFFF"
-                android:text="다음으로"
-                android:fontFamily="@font/bbtree_b"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroupSex"
-                app:layout_constraintVertical_chainStyle="spread"
-                app:layout_constraintBottom_toTopOf="@id/one"/>
-
-            <TextView
-                android:id="@+id/one"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_info1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1/5"
-                android:fontFamily="@font/bbtree_r"
-                android:textColor="#c0c0c0"
-                android:textSize="12sp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonGo"
-                app:layout_constraintVertical_chainStyle="spread" />
+                app:layout_constraintTop_toBottomOf="@+id/radioGroupSex">
+
+
+                <Button
+                    android:id="@+id/buttonGo"
+                    android:layout_width="136dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/info_next"
+                    android:fontFamily="@font/bbtree_b"
+                    android:text="다음으로"
+                    android:textColor="#FFFFFF"
+                    app:layout_constraintBottom_toTopOf="@+id/one"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="1/5"
+                    android:textColor="#c0c0c0"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonGo" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

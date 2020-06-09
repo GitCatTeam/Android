@@ -37,7 +37,7 @@ class EventDecorator : DayViewDecorator {
 
     override fun decorate(view: DayViewFacade?) {
         view!!.setSelectionDrawable(drawable)
-        view!!.addSpan(ForegroundColorSpan(Color.BLACK))
+        //view!!.addSpan(ForegroundColorSpan(Color.BLACK))
         //view!!.addSpan(DotSpan(5f, color))
     }
 }

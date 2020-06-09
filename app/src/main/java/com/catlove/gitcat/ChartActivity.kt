@@ -129,14 +129,14 @@ class ChartActivity : AppCompatActivity() {
                         for(names in reportData.data.contributedRepository.repoNames){
                             if("/" in names){
                                 var barname:List<String> = names.split("/")
-                                if(barname[1].length>13){
-                                    barMonth.add(barname[1].substring(0,12)+"..")
+                                if(barname[1].length>10){
+                                    barMonth.add(barname[1].substring(0,10)+"..")
                                 }else{
                                     barMonth.add(barname[1])
                                 }
                             }else{
                                 if(names.length>13){
-                                    barMonth.add(names.substring(0,12)+"..")
+                                    barMonth.add(names.substring(0,10)+"..")
                                 }else{
                                     barMonth.add(names)
                                 }

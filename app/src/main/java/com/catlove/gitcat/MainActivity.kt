@@ -33,13 +33,6 @@ class MainActivity : AppCompatActivity() {
         editor.putBoolean("doAPI",true)
         editor.apply()
 
-        var mTransform: Linkify.TransformFilter = Linkify.TransformFilter(){ m,s ->
-            return@TransformFilter ""
-        }
-        var pattern : Pattern = Pattern.compile("가입하러 가기")
-        Linkify.addLinks(goGithub,pattern,"https://github.com/",null,mTransform)
-        goGithub.movementMethod = LinkMovementMethod.getInstance()
-
         startButton.setOnClickListener{
 
 

@@ -24,7 +24,7 @@ class CalendarTodayDecorator : DayViewDecorator {
     override fun decorate(view: DayViewFacade?) {
         view!!.setSelectionDrawable(drawable)
         //view!!.setBackgroundDrawable(drawable)
-        view!!.addSpan(ForegroundColorSpan(Color.parseColor("#89ccf6")))
+        view!!.addSpan(ForegroundColorSpan(Color.parseColor("#38AAF0")))
     }
 
 

@@ -279,7 +279,7 @@
 
         <TextView
             android:id="@+id/txt_bubble_content"
-            android:layout_width="105dp"
+            android:layout_width="108dp"
             android:layout_height="wrap_content"
             android:background="@drawable/img_talkballoon_new"
             android:ellipsize="none"
@@ -288,7 +288,7 @@
             android:maxLines="2"
             android:paddingTop="8dp"
             android:paddingBottom="12dp"
-            android:paddingHorizontal="12dp"
+            android:paddingHorizontal="14dp"
             android:text=""
             android:textColor="@color/colorTextDark"
             android:textSize="16sp"

@@ -15,10 +15,10 @@
         android:background="@drawable/ic_back"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.26999998" />
 
     <TextView
         android:id="@+id/textView5"
@@ -134,25 +134,27 @@
         android:id="@+id/buttonGo"
         android:layout_width="136dp"
         android:layout_height="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="다음으로"
-        android:fontFamily="@font/bbtree_b"
-        android:enabled="false"
-        android:textColor="#FFFFFF"
         android:background="@drawable/info_next"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:enabled="false"
+        android:fontFamily="@font/bbtree_b"
+        android:text="다음으로"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupLong" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupLong"
+        app:layout_constraintVertical_bias="0.6"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:fontFamily="@font/bbtree_r"
         android:text="3/5"
         android:textColor="#c0c0c0"
         android:textSize="12sp"
-        android:fontFamily="@font/bbtree_r"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

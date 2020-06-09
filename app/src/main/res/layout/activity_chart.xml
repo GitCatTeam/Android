@@ -236,15 +236,17 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:gravity="center"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="20dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="15dp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:layout_toStartOf="@+id/pieChart"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -256,8 +258,8 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/pie_0" />
 
                             <TextView
@@ -274,7 +276,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
-                                android:text="----"
+                                android:text="---"
                                 android:textColor="@color/colorText" />
 
                             <TextView
@@ -295,8 +297,8 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/pie_1" />
 
                             <TextView
@@ -313,7 +315,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
-                                android:text="----"
+                                android:text="---"
                                 android:textColor="@color/colorText" />
 
                             <TextView
@@ -334,8 +336,8 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/pie_2" />
 
                             <TextView
@@ -352,7 +354,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
-                                android:text="----"
+                                android:text="---"
                                 android:textColor="@color/colorText" />
 
                             <TextView
@@ -373,8 +375,8 @@
                             <FrameLayout
                                 android:layout_width="8dp"
                                 android:layout_height="8dp"
-                                android:layout_marginLeft="5dp"
                                 android:layout_gravity="center"
+                                android:layout_marginLeft="5dp"
                                 android:background="@drawable/pie_3" />
 
                             <TextView
@@ -391,7 +393,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginRight="5dp"
-                                android:text="----"
+                                android:text="---"
                                 android:textColor="@color/colorText" />
 
                             <TextView
@@ -408,9 +410,8 @@
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/pieChart"
-                        android:layout_width="150dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

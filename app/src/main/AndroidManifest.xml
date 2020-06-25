@@ -6,61 +6,73 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="com.catlove.gitcat.SettingsDevActivity" android:screenOrientation="portrait"/>
-        <activity android:name="com.catlove.gitcat.SettingsActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".RepoAuthActivity">
+        </activity>
         <activity
-            android:name="com.catlove.gitcat.SettingsAccountActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:name=".SettingsDevActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.catlove.gitcat.SettingsAlarmActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:name=".SettingsActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.catlove.gitcat.SplashActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
+            android:name=".SettingsAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".SettingsAlarmActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.catlove.gitcat.MainActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity
-            android:name="com.catlove.gitcat.Info1Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.catlove.gitcat.Info3Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.catlove.gitcat.Info4Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name="com.catlove.gitcat.Info5Activity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name="com.catlove.gitcat.HomeActivity" android:configChanges="screenSize|orientation" android:screenOrientation="portrait">
-        </activity>
-        <activity android:name="com.catlove.gitcat.ChartActivity" android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="com.catlove.gitcat.CollectionActivity"
+            android:name=".Info1Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Info3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Info4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+        <activity
+            android:name=".Info5Activity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="screenSize|orientation"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ChartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CollectionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
-        <service android:name="com.catlove.gitcat.MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

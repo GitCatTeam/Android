@@ -117,7 +117,11 @@ class HomeFragment : Fragment() {
                     if(response.isSuccessful){
                         afterCallApi(token,check)
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
+                        if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                        }else{
+                            showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
+                        }
                     }
                 }
             }
@@ -180,7 +184,7 @@ class HomeFragment : Fragment() {
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",context!!)
+                            showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
                         }
                     }
                 }
@@ -269,7 +273,7 @@ class HomeFragment : Fragment() {
                             Log.e("token","refresh token")
                             callApi(settings.getString("token",""),check)
                         }else{
-                            showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context!!)
+                            showErrorPopup("[오류] 재로그인을 해주세요!",context!!)
                         }
                     }
                 }

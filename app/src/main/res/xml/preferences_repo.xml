@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference
+        android:title="Public Repository만 반영하기"
+        android:summary="GitHub 계정에 public으로 공개된 repository만 반영합니다.
+private repository의 커밋은 반영되지 않습니다"
+        android:layout="@layout/settings_content_long"
+        app:iconSpaceReserved="false"
+        android:key="repo_public"/>
+
+    <CheckBoxPreference
+        android:title="Private Repository도 반영하기"
+        android:summary="GitHub 계정의 모든 repository만 반영합니다.
+private repository 접근을 위해 읽기/쓰기가 포함된 Full-Access
+권한이 요청되지만, 실제로는 읽기 권한만 활용됩니다."
+        android:layout="@layout/settings_content_long"
+        app:iconSpaceReserved="false"
+        android:key="repo_private"
+        app:allowDividerAbove="true"/>
+</PreferenceScreen>

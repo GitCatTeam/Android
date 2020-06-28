@@ -71,7 +71,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="지난달 대비"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/lastMonth"
@@ -100,7 +100,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="총 커밋수"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/totalCommit"
@@ -130,7 +130,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="하루 평균"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:id="@+id/avg"
@@ -174,7 +174,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="커밋수 통계"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <com.github.mikephil.charting.charts.LineChart
@@ -225,7 +225,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="사용 언어 비율"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -453,7 +453,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="기여 레파지토리"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -462,7 +462,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="TOP 3"
                         android:textColor="@color/colorPrimaryDark"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <com.github.mikephil.charting.charts.BarChart
@@ -517,7 +517,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="이번달 세줄평"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
                 </LinearLayout>
 
                 <!--세개의 줄-->
@@ -535,7 +535,7 @@
                         android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="10sp" />
+                        android:textSize="11sp" />
 
                     <FrameLayout
                         android:layout_width="250dp"
@@ -550,7 +550,7 @@
                         android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="10sp" />
+                        android:textSize="11sp" />
 
                     <FrameLayout
                         android:layout_width="250dp"
@@ -565,7 +565,7 @@
                         android:layout_marginBottom="1dp"
                         android:fontFamily="@font/bbtree_r"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="10sp" />
+                        android:textSize="11sp" />
 
                     <FrameLayout
                         android:layout_width="250dp"

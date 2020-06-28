@@ -145,7 +145,7 @@
                     android:gravity="center"
                     android:text="커밋 기록이 없습니다!"
                     android:textColor="#c0c0c0"
-                    android:textSize="12sp" />
+                    android:textSize="13sp" />
 
                 <LinearLayout
                     android:id="@+id/commitLayout"
@@ -179,7 +179,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/bbtree_b"
-                                android:text="오늘의 커밋" />
+                                android:text="오늘의 커밋"
+                                android:textSize="15sp"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -202,7 +203,7 @@
                                     android:fontFamily="@font/bbtree_b"
                                     android:text="얻은 점수"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
 
                                 <TextView
                                     android:id="@+id/commit_score"
@@ -233,7 +234,7 @@
                                     android:fontFamily="@font/bbtree_b"
                                     android:text="총 커밋수"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
 
                                 <TextView
                                     android:id="@+id/commit_totalCommit"
@@ -265,7 +266,7 @@
                                     android:fontFamily="@font/bbtree_b"
                                     android:text="얻은 아이템"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="14sp" />
+                                    android:textSize="15sp" />
 
                                 <TextView
                                     android:id="@+id/commit_item"
@@ -304,7 +305,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/bbtree_b"
-                                android:text="커밋 내역 상세" />
+                                android:text="커밋 내역 상세"
+                                android:textSize="15sp"/>
                         </LinearLayout>
 
                         <RelativeLayout

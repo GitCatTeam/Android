@@ -68,7 +68,6 @@
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             app:allowDividerAbove="true"
-            android:enabled="false"
             android:layout="@layout/settings_content">
             <intent
                 android:action="android.intent.action.VIEW"

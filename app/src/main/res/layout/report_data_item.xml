@@ -29,7 +29,7 @@
                 android:paddingTop="17dp"
                 android:paddingBottom="9dp"
                 android:text="2020년 1월 레포트"
-                android:textSize="16sp" />
+                android:textSize="17sp" />
 
             <FrameLayout
                 android:layout_width="170dp"
@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bbtree_r"
                     android:text="총 커밋수"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/totalCommit"
@@ -57,7 +57,7 @@
                     android:fontFamily="@font/bbtree_b"
                     android:text="88회"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bbtree_r"
                     android:text="주 사용 언어"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/language"
@@ -79,7 +79,7 @@
                     android:fontFamily="@font/bbtree_b"
                     android:text="JavaScript"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="13sp" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>

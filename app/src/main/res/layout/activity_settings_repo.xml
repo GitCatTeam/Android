@@ -18,7 +18,7 @@
         app:layout_constraintVertical_weight="1">
 
         <ImageView
-            android:id="@+id/accountBack"
+            android:id="@+id/repoBack"
             android:layout_width="16dp"
             android:layout_height="16dp"
             app:srcCompat="@drawable/ic_back"
@@ -28,18 +28,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Github 계정 관리"
+            android:text="GitHub Repository 권한 설정"
             android:textColor="@color/colorTextDark"
             android:fontFamily="@font/bbtree_b"
             android:layout_centerVertical="true"
-            android:layout_alignLeft="@+id/accountBack"
+            android:layout_alignLeft="@+id/repoBack"
             android:layout_marginLeft="40dp"
             android:textSize="18sp"/>
 
     </RelativeLayout>
 
+
     <FrameLayout
-        android:id="@+id/settingsAccountFrame"
+        android:id="@+id/settingsRepoFrame"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -84,7 +84,7 @@ class Info5Activity : AppCompatActivity() {
                             if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info5Activity)
                             }else{
-                                showErrorPopup("["+response.code().toString()+" 오류] "+"내부 서버 오류",this@Info5Activity)
+                                showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",this@Info5Activity)
                             }
                         }
                     }

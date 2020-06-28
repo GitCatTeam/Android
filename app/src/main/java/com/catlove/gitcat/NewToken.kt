@@ -44,7 +44,7 @@ fun NewToken(context: Context){
                         editor.apply()
 
                     }else{
-                        showErrorPopup("["+response.code().toString()+"] 재로그인을 해주세요!",context)
+                        showErrorPopup("[오류] 재로그인을 해주세요!",context)
                     }
                 }
             }

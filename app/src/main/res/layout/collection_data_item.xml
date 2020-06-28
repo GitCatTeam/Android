@@ -32,25 +32,25 @@
         <TextView
             android:id="@+id/collectionName"
             android:layout_width="match_parent"
-            android:layout_height="14dp"
+            android:layout_height="20dp"
             android:background="@drawable/textlines"
             android:cursorVisible="false"
             android:text="이름:"
             android:fontFamily="@font/nanum"
             android:textColor="@color/colorTextDark"
-            android:textSize="14sp" />
+            android:textSize="15sp"/>
 
 
         <TextView
             android:id="@+id/collectionDoing"
             android:layout_width="match_parent"
-            android:layout_height="14dp"
+            android:layout_height="20dp"
             android:background="@drawable/textlines"
             android:cursorVisible="false"
             android:text="우수 성적으로 졸업하여 대기업 취직"
             android:fontFamily="@font/nanum"
             android:textColor="@color/colorTextDark"
-            android:textSize="14sp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
 

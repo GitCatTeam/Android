@@ -30,11 +30,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         if(remoteMessage.notification != null) {
             Log.d(TAG, "Notification Message Body: ${remoteMessage.notification?.body}")
-            sendNotification(remoteMessage.notification?.body)
+            sendNotification(remoteMessage.notification?.body,remoteMessage.notification?.title)
         }
     }
 
-    private fun sendNotification(body: String?) {
+    private fun sendNotification(body: String?, title: String?) {
         val intent = Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             putExtra("Notification", body)
@@ -45,11 +45,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         var notificationBuilder = NotificationCompat.Builder(this,"Notification")
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Push Notification FCM")
             .setContentText(body)
             .setAutoCancel(true)
             .setSound(notificationSound)
             .setContentIntent(pendingIntent)
+            .setContentTitle(title)
 
         var notificationManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(0, notificationBuilder.build())

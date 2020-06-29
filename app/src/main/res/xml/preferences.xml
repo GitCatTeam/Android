@@ -16,16 +16,12 @@
         </Preference>
 
         <Preference
-            android:title="GitHub Repository 권한 설정"
+            android:title="GitHub Repository 권한 변경"
             android:key="set_repo"
-            android:summary="커밋 내역 수집을 위해 접근할 GitHub Repository 범위를 설정합니다. "
+            android:summary="커밋 내역 수집을 위해 접근할 GitHub Repository 범위를 변경합니다."
             app:iconSpaceReserved="false"
             app:allowDividerAbove="true"
-            android:layout="@layout/settings_content">
-            <intent
-                android:targetPackage="com.catlove.gitcat"
-                android:targetClass="com.catlove.gitcat.SettingsRepoActivity"/>
-        </Preference>
+            android:layout="@layout/settings_content"/>
 
 <!--        <Preference-->
 <!--            android:title="알림 설정"-->

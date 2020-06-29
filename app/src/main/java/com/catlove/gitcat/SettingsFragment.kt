@@ -11,6 +11,7 @@ import androidx.preference.PreferenceFragmentCompat
 import kotlinx.android.synthetic.main.activity_home.*
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.catlove.gitcat.model.LogoutModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,14 +25,80 @@ class SettingsFragment : PreferenceFragmentCompat(){
         setPreferencesFromResource(R.xml.preferences,rootKey)
 
         val set_cat = findPreference("set_cat") as Preference
+        val set_repo = findPreference("set_repo") as Preference
         val dialogView = layoutInflater.inflate(R.layout.settings_dialog,container,false)
 
         val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
             AppCompatActivity.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
+
         val dialogTitle = dialogView.findViewById<TextView>(R.id.dialog_title)
         val dialogMessage = dialogView.findViewById<TextView>(R.id.dialog_message)
         val dialogCancel = dialogView.findViewById<TextView>(R.id.dialog_cancel)
         val dialogOK = dialogView.findViewById<TextView>(R.id.dialog_ok)
+
+        set_repo.setOnPreferenceClickListener {
+            val builder = AlertDialog.Builder(activity!!)
+            val ad = builder.create()
+
+            if (dialogView.parent != null) {
+                (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
+            }
+            ad.setView(dialogView)
+
+            dialogTitle.text = "접근 권한 변경"
+            dialogMessage.text = "기존의 "+ settings.getString("repoAuth","")+" 권한을 변경하시겠습니까?\n\n" +
+                    "*재로그인이 필요합니다"
+
+            dialogCancel.setOnClickListener {
+                ad.dismiss()
+            }
+
+            dialogOK.setOnClickListener {
+                NewToken(context!!)
+                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
+                call.enqueue(
+                    object : Callback<LogoutModel> {
+                        override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
+                            Log.e("*+*+", "error: $t")
+                            showErrorPopup("재로그인을 해주세요!",context!!)
+                        }
+
+                        override fun onResponse(
+                            call: Call<LogoutModel>,
+                            response: Response<LogoutModel>
+                        ) {
+                            if(response.isSuccessful){
+                                //로그아웃
+                                settings.edit().clear().commit()
+
+                                //레포계정
+                                editor.putBoolean("newPeople",true)
+                                editor.commit()
+
+                                var intent = Intent(context!!,MainActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+
+
+                            }else{
+                                if(response.code()>=500){
+                                    showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else{
+                                    showErrorPopup("재로그인을 해주세요!",context!!)
+                                }
+                            }
+                        }
+                    }
+                )
+
+            }
+            ad.show()
+
+            true
+
+        }
 
         set_cat.setOnPreferenceClickListener {
             val builder = AlertDialog.Builder(activity!!)

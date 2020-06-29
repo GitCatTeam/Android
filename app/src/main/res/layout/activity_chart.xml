@@ -71,7 +71,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="지난달 대비"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/lastMonth"
@@ -100,7 +100,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="총 커밋수"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/totalCommit"
@@ -130,7 +130,7 @@
                         android:fontFamily="@font/bbtree_b"
                         android:text="하루 평균"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="14sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/avg"

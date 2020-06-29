@@ -28,6 +28,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
 
         val settings: SharedPreferences = requireActivity().getSharedPreferences("gitcat",
             AppCompatActivity.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = settings.edit()
 
         //로그인 계정
         val login_account = findPreference("login_account") as Preference
@@ -87,15 +88,21 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //로그아웃
                                 settings.edit().clear().commit()
 
+                                //레포계정
+                                editor.putBoolean("newPeople",true)
+                                editor.commit()
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
+
+
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
+                                    showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
                             }
                         }
@@ -145,6 +152,10 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 //회원탈퇴 API
                                 settings.edit().clear().commit()
 
+                                //레포계정
+                                editor.putBoolean("newPeople",true)
+                                editor.commit()
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -153,7 +164,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
+                                    showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
                             }
                         }

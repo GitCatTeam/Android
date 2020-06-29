@@ -16,7 +16,6 @@ fun showErrorPopup(errorMessage: String, context: Context){
     textView.text = errorMessage
 
     val alertDialog = AlertDialog.Builder(context)
-        .setTitle("Error")
         .create()
 
     val errorOk = view.findViewById<Button>(R.id.error_ok)

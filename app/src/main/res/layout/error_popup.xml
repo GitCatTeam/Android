@@ -4,6 +4,17 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/error_title"
+        android:fontFamily="@font/bbtree_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Error"/>
+
+    <TextView
         android:id="@+id/error_text"
         android:fontFamily="@font/bbtree_r"
         android:layout_width="wrap_content"

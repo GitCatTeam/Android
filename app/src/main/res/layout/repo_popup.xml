@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
     <TextView
-        android:id="@+id/dialog_title"
+        android:id="@+id/error_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:textStyle="bold"
         android:fontFamily="@font/bbtree_b"
+        android:textStyle="bold"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
+        android:text="접근 권한 변경"
         android:textColor="@color/colorTextDark"/>
 
     <TextView
-        android:id="@+id/dialog_message"
+        android:id="@+id/error_text"
+        android:fontFamily="@font/bbtree_r"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:fontFamily="@font/bbtree_r"
-        android:textColor="@color/colorTextDark"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="14sp"
+        android:textColor="@color/colorTextDark"
+        android:text="이전 설정과 다릅니다. 계속하시겠습니까?"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,7 +38,7 @@
         android:layout_marginBottom="10dp">
 
         <Button
-            android:id="@+id/dialog_cancel"
+            android:id="@+id/repo_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="취소"
@@ -42,7 +47,7 @@
             android:textColor="@color/colorPrimaryDark"/>
 
         <Button
-            android:id="@+id/dialog_ok"
+            android:id="@+id/repo_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="확인"
@@ -51,5 +56,4 @@
             android:textColor="#ff8c86"/>
 
     </LinearLayout>
-
 </LinearLayout>

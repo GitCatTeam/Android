@@ -35,33 +35,44 @@ class MainActivity : AppCompatActivity() {
 
         startButton.setOnClickListener{
 
+            if(settings.getBoolean("newPeople",true)||settings.getBoolean("newPeople",true)==null){//처음이거나, 로그아웃, 회원탈퇴를 했을 경우
+                var intent = Intent(this,RepoAuthActivity::class.java)
+                startActivity(intent)
+            }else{//오류 떴을 경우(newPeople이 false)
+                webview.visibility = View.VISIBLE
+                startButton.visibility = View.GONE
 
-            webview.visibility = View.VISIBLE
-            startButton.visibility = View.GONE
+                val myWebView: WebView = findViewById(R.id.webview)
+                var myURL = ""
+                if(settings.getString("repoAuth","private")=="private"){//private일때
+                    myURL = "https://a.gitcat.app/api/auth/github"
+                }else{//public 일때
+                    myURL = "https://a.gitcat.app/api/auth/github-public"
+                }
 
-            val myWebView: WebView = findViewById(R.id.webview)
-            val myURL = "https://a.gitcat.app/api/auth/github"
 
-            //캐시 삭제
-            CookieManager.getInstance().removeSessionCookies(null)
-            CookieManager.getInstance().removeAllCookies(null)
+                //캐시 삭제
+                CookieManager.getInstance().removeSessionCookies(null)
+                CookieManager.getInstance().removeAllCookies(null)
 
-            myWebView.settings.javaScriptEnabled = true
+                myWebView.settings.javaScriptEnabled = true
 
-            myWebView.settings.setSupportZoom(true)
-            myWebView.settings.domStorageEnabled = true
+                myWebView.settings.setSupportZoom(true)
+                myWebView.settings.domStorageEnabled = true
 
-            myWebView.addJavascriptInterface(WebPasser(this,myWebView),"java")
-            myWebView.loadUrl(myURL)
-            myWebView.webViewClient = object : WebViewClient(){
-                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                    view?.clearCache(true)
-                    view?.clearFormData()
-                    view?.clearHistory()
-                    view?.loadUrl(url)
-                    return true
+                myWebView.addJavascriptInterface(WebPasser(this,myWebView),"java")
+                myWebView.loadUrl(myURL)
+                myWebView.webViewClient = object : WebViewClient(){
+                    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                        view?.clearCache(true)
+                        view?.clearFormData()
+                        view?.clearHistory()
+                        view?.loadUrl(url)
+                        return true
+                    }
                 }
             }
+
         }
     }
 
@@ -110,6 +121,7 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         editor.putString("token",jsonObject.getString("token"))
         editor.putString("refreshToken",jsonObject.getString("refreshToken"))
         editor.putString("isFirst",jsonObject.getString("isFirst"))
+        editor.putBoolean("newPeople",false)
 
         Log.e("token",jsonObject.getString("token"))
         val jwt = JWT(jsonObject.getString("token"))

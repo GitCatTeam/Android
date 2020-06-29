@@ -95,7 +95,7 @@ class ReportFragment : Fragment() {
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",activity!!)
                         }else{
-                            showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",activity!!)
+                            showErrorPopup("재로그인을 해주세요!",activity!!)
                         }
                     }
                 }

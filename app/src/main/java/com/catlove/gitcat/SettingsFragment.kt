@@ -86,7 +86,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                                 }else{
-                                    showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
+                                    showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
                             }
                         }

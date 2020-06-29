@@ -121,6 +121,7 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
         editor.putString("token",jsonObject.getString("token"))
         editor.putString("refreshToken",jsonObject.getString("refreshToken"))
         editor.putString("isFirst",jsonObject.getString("isFirst"))
+        editor.putBoolean("isMatchScope",jsonObject.getBoolean("isMatchScope"))
         editor.putBoolean("newPeople",false)
 
         Log.e("token",jsonObject.getString("token"))

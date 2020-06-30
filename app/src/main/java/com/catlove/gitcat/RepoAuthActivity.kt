@@ -207,6 +207,7 @@ class WebPasser2(val mContext: Activity?, val mWebView: WebView?) {
                     if(response.isSuccessful){
                         val data = response.body()!!
                         d("*+*+디바이스토큰","성공적")
+                        editor.putBoolean("alarm",true)
 
                     }else{
                         if(response.code()>=500){

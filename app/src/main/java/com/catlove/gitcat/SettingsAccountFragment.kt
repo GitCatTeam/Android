@@ -89,7 +89,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                         ) {
                             if(response.isSuccessful){
                                 Log.d("*+*+디바이스토큰", "디바이스 토큰 삭제 성공")
-
+                                editor.putBoolean("alarm",false)
+                                editor.commit()
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
@@ -182,7 +183,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                         ) {
                             if(response.isSuccessful){
                                 Log.d("*+*+디바이스토큰", "디바이스 토큰 삭제 성공")
-
+                                editor.putBoolean("alarm",false)
+                                editor.commit()
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)

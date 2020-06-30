@@ -8,25 +8,24 @@
             android:key="app_alarm"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
-            app:allowDividerAbove="true"
-            android:defaultValue="false"/>
-
-        <ListPreference
-            android:key="app_alarm_list"
-            android:entries="@array/alarm"
-            android:layout="@layout/settings_content"
-            android:entryValues="@array/alarm_values"
-            app:iconSpaceReserved="false"
-            android:enabled="false"
-            app:defaultValue="true" />
-
-        <SwitchPreference
-            android:title="리포트 알림"
-            android:layout="@layout/settings_content_switch"
-            android:key="report_alarm"
-            android:summary="월간리포트가 발간될 때 푸시알림을 받습니다."
-            app:iconSpaceReserved="false"
-            app:allowDividerBelow="true"
             app:allowDividerAbove="true"/>
+
+<!--        <ListPreference-->
+<!--            android:key="app_alarm_list"-->
+<!--            android:entries="@array/alarm"-->
+<!--            android:layout="@layout/settings_content"-->
+<!--            android:entryValues="@array/alarm_values"-->
+<!--            app:iconSpaceReserved="false"-->
+<!--            android:enabled="false"-->
+<!--            app:defaultValue="true" />-->
+
+<!--        <SwitchPreference-->
+<!--            android:title="리포트 알림"-->
+<!--            android:layout="@layout/settings_content_switch"-->
+<!--            android:key="report_alarm"-->
+<!--            android:summary="월간리포트가 발간될 때 푸시알림을 받습니다."-->
+<!--            app:iconSpaceReserved="false"-->
+<!--            app:allowDividerBelow="true"-->
+<!--            app:allowDividerAbove="true"/>-->
 
 </PreferenceScreen>

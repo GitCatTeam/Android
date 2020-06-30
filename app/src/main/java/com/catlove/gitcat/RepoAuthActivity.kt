@@ -1,12 +1,15 @@
 package com.catlove.gitcat
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.TelephonyManager
 import android.util.Base64
 import android.util.Log
 import android.util.Log.d
@@ -18,8 +21,18 @@ import android.webkit.WebViewClient
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.auth0.android.jwt.JWT
+import com.catlove.gitcat.model.DeviceTokenModel
+import com.catlove.gitcat.retrofit.RetrofitCreator
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
 import kotlinx.android.synthetic.main.activity_repo_auth.*
 import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.UnsupportedEncodingException
+import java.util.*
 import javax.crypto.Cipher
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
@@ -167,6 +180,47 @@ class WebPasser2(val mContext: Activity?, val mWebView: WebView?) {
         editor.putBoolean("isMatchScope",jsonObject.getBoolean("isMatchScope"))
 
         Log.e("token",jsonObject.getString("token"))
+
+        //디바이스토큰 넣어주기
+        var deviceToken : String = ""
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(mContext, OnSuccessListener<InstanceIdResult> {
+            deviceToken = it.token
+        })
+        //uuid(androidid) 찾기
+        var androidId = "" + android.provider.Settings.Secure.getString(mContext.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
+        editor.putString("androidId",androidId)
+        editor.putString("deviceToken",deviceToken)
+
+        val dt = DeviceTokenModel(deviceToken,androidId)
+        val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(jsonObject.getString("token"),dt)
+        call.enqueue(
+            object : Callback<DeviceTokenModel> {
+                override fun onFailure(call: Call<DeviceTokenModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                    showErrorPopup("재로그인을 해주세요!",mContext)
+                }
+
+                override fun onResponse(
+                    call: Call<DeviceTokenModel>,
+                    response: Response<DeviceTokenModel>
+                ) {
+                    if(response.isSuccessful){
+                        val data = response.body()!!
+                        d("*+*+디바이스토큰","성공적")
+                        editor.putBoolean("alarm",true)
+
+                    }else{
+                        if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",mContext)
+                        }else{
+                            showErrorPopup("재로그인을 해주세요!",mContext)
+                        }
+                    }
+                }
+            }
+        )
+
+
         val jwt = JWT(jsonObject.getString("token"))
         val issuedAt = jwt.issuedAt//시작
         val expiresAt = jwt.expiresAt//마감

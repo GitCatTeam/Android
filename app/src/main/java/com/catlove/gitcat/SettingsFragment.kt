@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.util.Log.d
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.preference.Preference
@@ -11,6 +12,7 @@ import androidx.preference.PreferenceFragmentCompat
 import kotlinx.android.synthetic.main.activity_home.*
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import com.catlove.gitcat.model.DeviceIdModel
 import com.catlove.gitcat.model.LogoutModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import retrofit2.Call
@@ -56,6 +58,35 @@ class SettingsFragment : PreferenceFragmentCompat(){
 
             dialogOK.setOnClickListener {
                 NewToken(context!!)
+
+                //디바이스토큰 삭제
+                val ai = DeviceIdModel(settings.getString("androidId",""))
+                val call2: Call<DeviceIdModel> = RetrofitCreator.service.deleteDeviceToken(settings.getString("token",""),ai)
+                call2.enqueue(
+                    object : Callback<DeviceIdModel> {
+                        override fun onFailure(call: Call<DeviceIdModel>, t: Throwable) {
+                            Log.e("*+*+", "error: $t")
+                            showErrorPopup("재로그인을 해주세요!",context!!)
+                        }
+
+                        override fun onResponse(
+                            call: Call<DeviceIdModel>,
+                            response: Response<DeviceIdModel>
+                        ) {
+                            if(response.isSuccessful){
+                                d("*+*+디바이스토큰","디바이스 토큰 삭제 성공")
+
+                            }else{
+                                if(response.code()>=500){
+                                    showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else{
+                                    showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
+                                }
+                            }
+                        }
+                    }
+                )
+
                 val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
                 call.enqueue(
                     object : Callback<LogoutModel> {

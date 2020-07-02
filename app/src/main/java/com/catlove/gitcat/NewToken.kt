@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.auth0.android.jwt.JWT
 import com.catlove.gitcat.model.RefreshTokenModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,6 +45,15 @@ fun NewToken(context: Context){
                         editor.apply()
 
                     }else{
+                        if(response.code()==419){
+                            val body = response.errorBody().toString()
+
+                            val jsonObject = JSONObject(body)
+                            val data = jsonObject.getJSONObject("data")
+                            val startTime = data.getString("startTime")
+                            val endTime = data.getString("endTime")
+                            ServerCheckPopup(startTime,endTime,context!!)
+                        }
                         showErrorPopup("[오류] 재로그인을 해주세요!",context)
                     }
                 }

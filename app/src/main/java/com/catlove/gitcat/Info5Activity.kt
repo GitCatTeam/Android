@@ -12,6 +12,7 @@ import com.catlove.gitcat.model.AddCatModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_info5.*
 import kotlinx.android.synthetic.main.activity_info5.backButton
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -83,6 +84,14 @@ class Info5Activity : AppCompatActivity() {
                         }else{
                             if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info5Activity)
+                            }else if(response.code()==419){
+                                val body = response.errorBody().toString()
+
+                                val jsonObject = JSONObject(body)
+                                val data = jsonObject.getJSONObject("data")
+                                val startTime = data.getString("startTime")
+                                val endTime = data.getString("endTime")
+                                ServerCheckPopup(startTime,endTime,this@Info5Activity)
                             }else{
                                 showErrorPopup("재로그인을 해주세요!",this@Info5Activity)
                             }

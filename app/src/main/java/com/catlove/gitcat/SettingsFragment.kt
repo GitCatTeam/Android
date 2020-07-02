@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.catlove.gitcat.model.DeviceIdModel
 import com.catlove.gitcat.model.LogoutModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -79,6 +80,14 @@ class SettingsFragment : PreferenceFragmentCompat(){
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
                                 }
@@ -116,6 +125,14 @@ class SettingsFragment : PreferenceFragmentCompat(){
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
@@ -169,6 +186,14 @@ class SettingsFragment : PreferenceFragmentCompat(){
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
                                 }

@@ -17,6 +17,7 @@ import com.catlove.gitcat.retrofit.RetrofitCreator
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -92,6 +93,14 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
@@ -131,6 +140,14 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
                                 }

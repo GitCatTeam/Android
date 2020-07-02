@@ -162,16 +162,10 @@ class WebPasser(val mContext: Activity?, val mWebView: WebView?) {
                         Log.d("*+*+디바이스토큰", "성공적")
 
                     }else{
-                        if(response.code()>=500){
+                        if(response.code()==503){
+                            ServerCheckPopup(mContext)
+                        }else if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",mContext)
-                        }else if(response.code()==419){
-                            val body = response.errorBody().toString()
-
-                            val jsonObject = JSONObject(body)
-                            val data = jsonObject.getJSONObject("data")
-                            val startTime = data.getString("startTime")
-                            val endTime = data.getString("endTime")
-                            ServerCheckPopup(startTime,endTime,mContext)
                         }else{
                             showErrorPopup("재로그인을 해주세요!",mContext)
                         }

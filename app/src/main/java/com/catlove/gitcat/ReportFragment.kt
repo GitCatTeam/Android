@@ -93,18 +93,12 @@ class ReportFragment : Fragment() {
                         }//데이터 들어있을 때 end
 
                     }else{
-                        if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",activity!!)
-                        }else if(response.code()==419){
-                            val body = response.errorBody().toString()
-
-                            val jsonObject = JSONObject(body)
-                            val data = jsonObject.getJSONObject("data")
-                            val startTime = data.getString("startTime")
-                            val endTime = data.getString("endTime")
-                            ServerCheckPopup(startTime,endTime,context!!)
+                        if(response.code()==503){
+                            ServerCheckPopup(context!!)
+                        }else if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
                         }else{
-                            showErrorPopup("재로그인을 해주세요!",activity!!)
+                            showErrorPopup("재로그인을 해주세요!",context!!)
                         }
                     }
                 }

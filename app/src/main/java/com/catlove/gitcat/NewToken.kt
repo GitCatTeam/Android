@@ -45,16 +45,12 @@ fun NewToken(context: Context){
                         editor.apply()
 
                     }else{
-                        if(response.code()==419){
-                            val body = response.errorBody().toString()
-
-                            val jsonObject = JSONObject(body)
-                            val data = jsonObject.getJSONObject("data")
-                            val startTime = data.getString("startTime")
-                            val endTime = data.getString("endTime")
-                            ServerCheckPopup(startTime,endTime,context!!)
+                        if(response.code()==503){
+                            ServerCheckPopup(context!!)
+                        }else{
+                            showErrorPopup("[오류] 재로그인을 해주세요!",context)
                         }
-                        showErrorPopup("[오류] 재로그인을 해주세요!",context)
+
                     }
                 }
             }

@@ -65,16 +65,10 @@ class Info3Activity : AppCompatActivity() {
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }else{
-                            if(response.code()>=500){
+                            if(response.code()==503){
+                                ServerCheckPopup(this@Info3Activity)
+                            }else if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@Info3Activity)
-                            }else if(response.code()==419){
-                                val body = response.errorBody().toString()
-
-                                val jsonObject = JSONObject(body)
-                                val data = jsonObject.getJSONObject("data")
-                                val startTime = data.getString("startTime")
-                                val endTime = data.getString("endTime")
-                                ServerCheckPopup(startTime,endTime,this@Info3Activity)
                             }else{
                                 showErrorPopup("재로그인을 해주세요!",this@Info3Activity)
                             }

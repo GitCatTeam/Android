@@ -87,16 +87,10 @@ class CalendarFragment: Fragment() {
                             APIStart(calendarView,settings.getString("token",""),ymToday)
 
                         }else{
-                            if(response.code()>=500){
+                            if(response.code()==503){
+                                ServerCheckPopup(context!!)
+                            }else if(response.code()>=500){
                                 showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
-                            }else if(response.code()==419){
-                                val body = response.errorBody().toString()
-
-                                val jsonObject = JSONObject(body)
-                                val data = jsonObject.getJSONObject("data")
-                                val startTime = data.getString("startTime")
-                                val endTime = data.getString("endTime")
-                                ServerCheckPopup(startTime,endTime,context!!)
                             }else{
                                 showErrorPopup("재로그인을 해주세요!",context!!)
                             }
@@ -267,16 +261,10 @@ class CalendarFragment: Fragment() {
                         loading_img.visibility = View.GONE//로딩화면 사라지기
                     }
                     else{
-                        if(response.code()>=500){
+                        if(response.code()==503){
+                            ServerCheckPopup(context!!)
+                        }else if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
-                        }else if(response.code()==419){
-                            val body = response.errorBody().toString()
-
-                            val jsonObject = JSONObject(body)
-                            val data = jsonObject.getJSONObject("data")
-                            val startTime = data.getString("startTime")
-                            val endTime = data.getString("endTime")
-                            ServerCheckPopup(startTime,endTime,context!!)
                         }else{
                             showErrorPopup("재로그인을 해주세요!",context!!)
                         }
@@ -372,16 +360,10 @@ class CalendarFragment: Fragment() {
                     }//response success end
                     else{
                         this@CalendarFragment.loading_img.visibility = View.GONE//로딩화면 사라지기
-                        if(response.code()>=500){
+                        if(response.code()==503){
+                            ServerCheckPopup(context!!)
+                        }else if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
-                        }else if(response.code()==419){
-                            val body = response.errorBody().toString()
-
-                            val jsonObject = JSONObject(body)
-                            val data = jsonObject.getJSONObject("data")
-                            val startTime = data.getString("startTime")
-                            val endTime = data.getString("endTime")
-                            ServerCheckPopup(startTime,endTime,context!!)
                         }else{
                             showErrorPopup("재로그인을 해주세요!",context!!)
                         }

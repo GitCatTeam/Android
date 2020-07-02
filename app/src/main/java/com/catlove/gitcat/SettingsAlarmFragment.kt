@@ -14,6 +14,10 @@ import androidx.preference.*
 import com.catlove.gitcat.model.DeviceIdModel
 import com.catlove.gitcat.model.DeviceTokenModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.iid.FirebaseInstanceId
+import com.google.firebase.iid.InstanceIdResult
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -55,6 +59,18 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
         /*값 변경 시작할 때*/
         app_alarm.setOnPreferenceChangeListener { preference, newValue ->
             if(newValue == true){
+                if(settings.getString("deviceToken","")==null || settings.getString("androidid","")==null){//디바이스토큰이랑 androidid가 없을 경우
+                    //디바이스토큰 넣어주기
+                    var deviceToken : String = ""
+                    FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+                        deviceToken = it.token
+                    }
+                    //uuid(androidid) 찾기
+                    var androidId = "" + android.provider.Settings.Secure.getString(context!!.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
+                    editor.putString("androidId",androidId)
+                    editor.putString("deviceToken",deviceToken)
+                    editor.commit()
+                }
                 //활성화
                 val dt = DeviceTokenModel(settings.getString("deviceToken",""),settings.getString("androidId",""))
                 val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(settings.getString("token",""),dt)
@@ -77,6 +93,14 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("재로그인을 해주세요!",context!!)
                                 }
@@ -116,6 +140,14 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             }else{
                                 if(response.code()>=500){
                                     showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                                }else if(response.code()==419){
+                                    val body = response.errorBody().toString()
+
+                                    val jsonObject = JSONObject(body)
+                                    val data = jsonObject.getJSONObject("data")
+                                    val startTime = data.getString("startTime")
+                                    val endTime = data.getString("endTime")
+                                    ServerCheckPopup(startTime,endTime,context!!)
                                 }else{
                                     showErrorPopup("[내부 서버 오류] 재로그인을 해주세요!",context!!)
                                 }

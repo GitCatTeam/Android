@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.catlove.gitcat.model.CatsCollectionModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.activity_collection.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,6 +72,14 @@ class CollectionActivity : AppCompatActivity() {
                     }else{
                         if(response.code()>=500){
                             showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",this@CollectionActivity)
+                        }else if(response.code()==419){
+                            val body = response.errorBody().toString()
+
+                            val jsonObject = JSONObject(body)
+                            val data = jsonObject.getJSONObject("data")
+                            val startTime = data.getString("startTime")
+                            val endTime = data.getString("endTime")
+                            ServerCheckPopup(startTime,endTime,this@CollectionActivity)
                         }else{
                             showErrorPopup("재로그인을 해주세요!",this@CollectionActivity)
                         }

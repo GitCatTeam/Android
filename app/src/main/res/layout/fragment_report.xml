@@ -16,7 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:background="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@+id/report_scroll"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,21 +48,28 @@
         <ScrollView
             android:id="@+id/report_scroll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
             android:visibility="gone">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/report_recyclerview"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_height="match_parent"
+                android:gravity="center">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/report_recyclerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayout"/>
+
+            </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

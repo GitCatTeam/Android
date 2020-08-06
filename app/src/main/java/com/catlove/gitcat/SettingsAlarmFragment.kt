@@ -72,8 +72,8 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                     editor.commit()
                 }
                 //활성화
-                val dt = DeviceTokenModel(settings.getString("deviceToken",""),settings.getString("androidId",""))
-                val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(settings.getString("token",""),dt)
+                val dt = DeviceTokenModel(settings.getString("deviceToken","")!!,settings.getString("androidId","")!!)
+                val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(settings.getString("token","")!!,dt)
                 call.enqueue(
                     object : Callback<DeviceTokenModel> {
                         override fun onFailure(call: Call<DeviceTokenModel>, t: Throwable) {
@@ -113,8 +113,8 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
 
             }else if(newValue == false){
                 //디바이스토큰 삭제
-                val ai = DeviceIdModel(settings.getString("androidId",""))
-                val call2: Call<DeviceIdModel> = RetrofitCreator.service.deleteDeviceToken(settings.getString("token",""),ai)
+                val ai = DeviceIdModel(settings.getString("androidId","")!!)
+                val call2: Call<DeviceIdModel> = RetrofitCreator.service.deleteDeviceToken(settings.getString("token","")!!,ai)
                 call2.enqueue(
                     object : Callback<DeviceIdModel> {
                         override fun onFailure(call: Call<DeviceIdModel>, t: Throwable) {

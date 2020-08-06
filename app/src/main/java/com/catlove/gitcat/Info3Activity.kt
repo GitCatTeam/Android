@@ -43,8 +43,8 @@ class Info3Activity : AppCompatActivity() {
             d("*+*+",settings.getString("token","토큰없어"))
 
             //화면 이동
-            val info = InfoModel(settings.getString("githubId",""),settings.getString("gender",""),settings.getString("birth",""),settings.getString("devCareer",""))
-            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token",""),info)
+            val info = InfoModel(settings.getString("githubId","")!!,settings.getString("gender","")!!,settings.getString("birth","")!!,settings.getString("devCareer","")!!)
+            val call: Call<InfoModel> = RetrofitCreator.service.putInfo(settings.getString("token","")!!,info)
             call.enqueue(
                 object : Callback<InfoModel> {
                     override fun onFailure(call: Call<InfoModel>, t: Throwable) {

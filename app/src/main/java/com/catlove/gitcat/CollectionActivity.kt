@@ -32,7 +32,7 @@ class CollectionActivity : AppCompatActivity() {
         val settings: SharedPreferences = getSharedPreferences("gitcat", MODE_PRIVATE)
 
         NewToken(this)
-        val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection(settings.getString("token",""))
+        val call: Call<CatsCollectionModel> = RetrofitCreator.service.getCatsCollection(settings.getString("token","")!!)
         call.enqueue(
             object : Callback<CatsCollectionModel> {
                 override fun onFailure(call: Call<CatsCollectionModel>, t: Throwable) {

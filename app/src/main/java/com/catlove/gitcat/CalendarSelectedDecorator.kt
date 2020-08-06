@@ -14,7 +14,7 @@ class CalendarSelectedDecorator : DayViewDecorator {
 
     constructor(dates: CalendarDay, context: Activity){
         this.dates = dates
-        drawable = context.getDrawable(R.drawable.calendar_select)
+        drawable = context.getDrawable(R.drawable.calendar_select)!!
     }
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {

@@ -14,7 +14,7 @@ class CalendarTodayDecorator : DayViewDecorator {
 
     constructor(context: Activity){
         date = CalendarDay.today()
-        drawable = context.getDrawable(R.drawable.cal_today)
+        drawable = context.getDrawable(R.drawable.cal_today)!!
     }
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {

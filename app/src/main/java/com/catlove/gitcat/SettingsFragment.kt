@@ -61,8 +61,8 @@ class SettingsFragment : PreferenceFragmentCompat(){
                 NewToken(context!!)
 
                 //디바이스토큰 삭제
-                val ai = DeviceIdModel(settings.getString("androidId",""))
-                val call2: Call<DeviceIdModel> = RetrofitCreator.service.deleteDeviceToken(settings.getString("token",""),ai)
+                val ai = DeviceIdModel(settings.getString("androidId","")!!)
+                val call2: Call<DeviceIdModel> = RetrofitCreator.service.deleteDeviceToken(settings.getString("token","")!!,ai)
                 call2.enqueue(
                     object : Callback<DeviceIdModel> {
                         override fun onFailure(call: Call<DeviceIdModel>, t: Throwable) {
@@ -90,7 +90,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
                     }
                 )
 
-                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token",""))
+                val call: Call<LogoutModel> = RetrofitCreator.service.postLogout(settings.getString("token","")!!)
                 call.enqueue(
                     object : Callback<LogoutModel> {
                         override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
@@ -153,7 +153,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
             }
             dialogOK.setOnClickListener {
                 NewToken(context!!)
-                val call: Call<Unit> = RetrofitCreator.service.deleteCats(settings.getString("token",""))
+                val call: Call<Unit> = RetrofitCreator.service.deleteCats(settings.getString("token","")!!)
                 call.enqueue(
                     object : Callback<Unit> {
                         override fun onFailure(call: Call<Unit>, t: Throwable) {

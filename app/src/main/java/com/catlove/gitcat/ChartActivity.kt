@@ -47,7 +47,7 @@ class ChartActivity : AppCompatActivity() {
         totalCommit.text = intent.getStringExtra("commit")
 
         NewToken(this)
-        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail(settings.getString("token",""),id)
+        val call: Call<MonthlyDetailModel> = RetrofitCreator.service.getMonthlyDetail(settings.getString("token","")!!,id)
         call.enqueue(
             object : Callback<MonthlyDetailModel> {
                 override fun onFailure(call: Call<MonthlyDetailModel>, t: Throwable) {

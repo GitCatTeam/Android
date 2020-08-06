@@ -69,12 +69,12 @@ class CalendarFragment: Fragment() {
         Glide.with(this@CalendarFragment).load(R.raw.gif_loading).into(loading)
 
         NewToken(context!!)
-        APIStart(calendarView,settings.getString("token",""),ymToday)
+        APIStart(calendarView,settings.getString("token","")!!,ymToday)
 
         refreshCalendar.setOnClickListener {//새로고침
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             NewToken(context!!)
-            val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(settings.getString("token",""))
+            val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(settings.getString("token","")!!)
             call.enqueue(
                 object : Callback<LogoutModel>{
                     override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
@@ -84,7 +84,7 @@ class CalendarFragment: Fragment() {
                     override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
                         if(response.isSuccessful){
 
-                            APIStart(calendarView,settings.getString("token",""),ymToday)
+                            APIStart(calendarView,settings.getString("token","")!!,ymToday)
 
                         }else{
                             if(response.code()==503){
@@ -170,7 +170,7 @@ class CalendarFragment: Fragment() {
                 }
 
                 NewToken(context!!)
-                APIContent(settings.getString("token",""),dates)
+                APIContent(settings.getString("token","")!!,dates)
                 calendarView?.clearSelection()
             }
 
@@ -194,7 +194,7 @@ class CalendarFragment: Fragment() {
             detailCommits = JSONObject()
 
             NewToken(context!!)
-            APIStart(calendarView,settings.getString("token",""),apimonth)
+            APIStart(calendarView,settings.getString("token","")!!,apimonth)
         }
 
         return rootView

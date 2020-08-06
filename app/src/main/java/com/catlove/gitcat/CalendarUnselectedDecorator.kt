@@ -12,7 +12,7 @@ class CalendarUnselectedDecorator : DayViewDecorator{
 
     constructor(dates: CalendarDay, context: Activity){
         this.dates = dates
-        drawable = context.getDrawable(R.drawable.calendar_unselect)
+        drawable = context.getDrawable(R.drawable.calendar_unselect)!!
     }
 
     override fun shouldDecorate(day: CalendarDay?): Boolean {

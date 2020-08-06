@@ -38,7 +38,7 @@ fun showRepoPopup(context: Context){
     repoNo.setOnClickListener {//다시 되돌리기
         alertDialog.dismiss()
 
-        val call: Call<LogoutModel> = RetrofitCreator.service.putAuthScope(settings.getString("token",""))
+        val call: Call<LogoutModel> = RetrofitCreator.service.putAuthScope(settings.getString("token","")!!)
         call.enqueue(
             object : Callback<LogoutModel> {
                 override fun onFailure(call: Call<LogoutModel>, t: Throwable) {

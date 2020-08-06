@@ -19,7 +19,7 @@ fun NewToken(context: Context){
     val editor: SharedPreferences.Editor = settings.edit()
 
     if(Date(settings.getLong("expire", 0)) < Calendar.getInstance().time){ //현재시간이 만료시간을 뛰어넘을때
-        val call: Call<RefreshTokenModel> = RetrofitCreator.service.getRefreshToken(settings.getString("refreshToken",""))
+        val call: Call<RefreshTokenModel> = RetrofitCreator.service.getRefreshToken(settings.getString("refreshToken","")!!)
         call.enqueue(
             object : Callback<RefreshTokenModel> {
                 override fun onFailure(call: Call<RefreshTokenModel>, t: Throwable) {

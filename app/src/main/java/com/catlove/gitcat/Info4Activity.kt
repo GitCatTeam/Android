@@ -36,7 +36,7 @@ class Info4Activity : AppCompatActivity(){
         val settings: SharedPreferences = getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
 
         val token = settings.getString("token","")
-        val call: Call<DataModel> = RetrofitCreator.service.getCats(token)
+        val call: Call<DataModel> = RetrofitCreator.service.getCats(token!!)
         call.enqueue(object : Callback<DataModel>{
             override fun onFailure(call: Call<DataModel>, t: Throwable) {
                 showErrorPopup("재로그인을 해주세요!",applicationContext)

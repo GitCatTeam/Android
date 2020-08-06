@@ -250,7 +250,7 @@ class HomeFragment : Fragment() {
         val editor: SharedPreferences.Editor = settings.edit()
 
         if(Date(settings.getLong("expire", 0)) < Calendar.getInstance().time){ //현재시간이 만료시간을 뛰어넘을때
-            val call: Call<RefreshTokenModel> = RetrofitCreator.service.getRefreshToken(settings.getString("refreshToken",""))
+            val call: Call<RefreshTokenModel> = RetrofitCreator.service.getRefreshToken(settings.getString("refreshToken","")!!)
             call.enqueue(
                 object : Callback<RefreshTokenModel> {
                     override fun onFailure(call: Call<RefreshTokenModel>, t: Throwable) {
@@ -276,7 +276,7 @@ class HomeFragment : Fragment() {
                             editor.apply()
 
                             Log.e("token","refresh token")
-                            callApi(settings.getString("token",""),check)
+                            callApi(settings.getString("token","")!!,check)
                         }else{
                             if(response.code()==502){
                                 ServerCheckPopup(context!!)
@@ -290,7 +290,7 @@ class HomeFragment : Fragment() {
             )
         }else{
             Log.e("token","no refresh token")
-            callApi(settings.getString("token",""),check)
+            callApi(settings.getString("token","")!!,check)
         }
     }
     companion object {

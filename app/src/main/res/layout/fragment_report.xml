@@ -42,8 +42,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/img_noreport"
-            tools:srcCompat="@drawable/img_noreport" />
+            app:srcCompat="@drawable/img_sorryreport_01"
+            tools:srcCompat="@drawable/img_sorryreport_01" />
 
         <ScrollView
             android:id="@+id/report_scroll"

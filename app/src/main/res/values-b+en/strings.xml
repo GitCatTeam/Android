@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">GitCat</string>
+
+    <!-- 로그인 화면 -->
+    <string name="main_subtext">Daily Commit with Mr. Cat!</string>
+    <string name="main_startButton">Sign in with GitHub</string>
+
+    <!-- 레포 권한 화면 -->
+    <string name="repo_mainText">Repository Authorization Settings</string>
+    <string name="repo_subText">Select the area for GitHub repository\n to collect your commit history</string>
+    <string name="repo_subText2">(Repository authorization can be modified in the settings)</string>
+    <string name="repo_public_mainText">Access Public Repository Only</string>
+    <string name="repo_public_subText">Grant permission to only public repositories associated with the GitHub account</string>
+    <string name="repo_public_warning">** Commits from private repositories do not apply **</string>
+    <string name="repo_private_mainText">Access Private Repository</string>
+    <string name="repo_private_subText">Grant permission to all repositories associated with the GitHub account</string>
+    <string name="repo_private_warning">** To access private repository, it asks for full-access permission that includes both read/write**\n but only read permission is granted.</string>
+    <string name="repo_nextButton">Confirm Change</string>
+
+    <!-- 정보 입력 화면 -->
+    <string name="info1_mainText">Tell us about yourself!</string>
+    <string name="info1_subText">Personal information will only be used for statistical data/ statistics purpose</string>
+    <string name="info1_genderText">Tell us your gender</string>
+    <string name="info1_gender1">Female</string>
+    <string name="info1_gender2">Male</string>
+    <string name="info1_gender3">Other</string>
+    <string name="info1_nextButton">Next</string>
+
+    <!-- 홈화면 -->
+    <string name="nav_calendar">Commit Calendar</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_report">Report</string>
+
+</resources>

@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/nav_cal"
-        android:title="커밋달력"
+        android:title="@string/nav_calendar"
         android:icon="@drawable/ic_calandar" />
 
     <item
         android:id="@+id/nav_home"
-        android:title="홈화면"
+        android:title="@string/nav_home"
         android:icon="@drawable/ic_home_select"
         android:checked="true"/>
 
     <item
         android:id="@+id/nav_report"
-        android:title="리포트"
+        android:title="@string/nav_report"
         android:icon="@drawable/ic_score"/>
 
 </menu>

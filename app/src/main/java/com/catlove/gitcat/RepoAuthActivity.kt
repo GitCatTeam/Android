@@ -68,7 +68,7 @@ class RepoAuthActivity : AppCompatActivity() {
             private_radio_content.setTextColor(Color.parseColor("#c0c0c0"))
             private_radio.setBackgroundResource(R.drawable.info_list)
 
-            repo_ex.text = "** Private Repository의 커밋은 반영되지 않습니다 **"
+            repo_ex.text = resources.getString(R.string.repo_public_warning)
         }
 
         private_radio.setOnClickListener {
@@ -88,8 +88,7 @@ class RepoAuthActivity : AppCompatActivity() {
             public_radio_content.setTextColor(Color.parseColor("#c0c0c0"))
             public_radio.setBackgroundResource(R.drawable.info_list)
 
-            repo_ex.text = "** Private Repository 접근을 위해 읽기/쓰기가 포함된 **\n" +
-                            "Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩니다."
+            repo_ex.text = resources.getString(R.string.repo_private_warning)
         }
 
         //등록완료 버튼을 누르면

@@ -24,6 +24,7 @@
     <style name="BottomNavigationView"
         parent="Widget.Design.BottomNavigationView">
         <item name="fontFamily">@font/bbtree_r</item>
+        <item name="android:textSize">11sp</item>
     </style>
 
     <style name="AppTheme.Dialog" parent="Theme.AppCompat.Dialog">

@@ -1,8 +1,43 @@
 <resources>
     <string name="app_name">GitCat</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- 로그인 화면 -->
+    <string name="main_subtext">고양이와 함께하는 일일커밋</string>
+    <string name="main_startButton">Github 계정으로 시작하기</string>
+
+    <!-- 레포 권한 화면 -->
+    <string name="repo_mainText">Repository 권한 설정</string>
+    <string name="repo_subText">GitCat에서 커믹 내역을 수집하기 위해\n
+    접근할 GitHub Repository의 범위를 설정해주세요!</string>
+    <string name="repo_subText2">(범위 설정은 추후 설정 메뉴에서 변경 가능합니다)</string>
+    <string name="repo_public_mainText">Public Repository만 반영하기</string>
+    <string name="repo_public_subText">GitHub 계정에 public으로 공개된\n
+    repository만 반영합니다</string>
+    <string name="repo_public_warning">** Private Repository의 커밋은 반영되지 않습니다 **</string>
+    <string name="repo_private_mainText">Private Repository도 반영하기</string>
+    <string name="repo_private_subText">GitHub 계정의 모든\n
+repository를 반영합니다.</string>
+    <string name="repo_private_warning">** Private Repository 접근을 위해 읽기/쓰기가 포함된 **\n
+Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩니다.</string>
+    <string name="repo_nextButton">설정 완료</string>
+
+    <!-- 정보 입력 화면 -->
+    <string name="info1_mainText">개발자님에 대해 더 알고싶어요!</string>
+    <string name="info1_subText">개인 정보는 통계 이외의 다른 용도로 사용되지 않아요.</string>
+    <string name="info1_genderText">성별을 알려주세요</string>
+    <string name="info1_gender1">여자</string>
+    <string name="info1_gender2">남자</string>
+    <string name="info1_gender3">기타</string>
+    <string name="info1_nextButton">다음으로</string>
+
+    <!-- 홈화면 -->
+    <string name="nav_calendar">커밋달력</string>
+    <string name="nav_home">홈화면</string>
+    <string name="nav_report">리포트</string>
+    <string name="home_nullButton">고양이 다시 선택하러 가기</string>
+    <string name="home_todayCommit">오늘의 커밋수</string>
+    <string name="home_commitCount">개</string>
+
 
     <string-array name="alarm">
         <item>벨소리</item>

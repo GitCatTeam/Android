@@ -30,5 +30,8 @@
     <string name="nav_calendar">Commit Calendar</string>
     <string name="nav_home">Home</string>
     <string name="nav_report">Report</string>
+    <string name="home_nullButton">고양이 다시 선택하러 가기</string>
+    <string name="home_todayCommit">Today\'s Commit</string>
+    <string name="home_commitCount"></string>
 
 </resources>

@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bbtree_l"
                 android:gravity="center"
-                android:text="오늘의 커밋수"
+                android:text="@string/home_todayCommit"
                 android:textColor="@color/colorTextDark"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -119,9 +119,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bbtree_l"
-                    android:text="개"
+                    android:text="@string/home_commitCount"
                     android:textColor="@color/colorTextDark"
-                    android:textSize="24sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -266,7 +266,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/info_next_after"
             android:fontFamily="@font/bbtree_b"
-            android:text="고양이 다시 선택하러 가기"
+            android:text="@string/home_nullButton"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
             android:paddingHorizontal="40dp"

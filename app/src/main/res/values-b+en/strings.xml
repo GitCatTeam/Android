@@ -25,6 +25,19 @@
     <string name="info1_gender2">Male</string>
     <string name="info1_gender3">Other</string>
     <string name="info1_nextButton">Next</string>
+    <string name="info1_birthText">Tell us your birthday!</string>
+    <string name="info3_mainText">How long have you been coding for?</string>
+    <string name="info3_subText">We only ask you this to make GitCat better :)</string>
+    <string name="info3_radio1">Interested</string>
+    <string name="info3_radio2">Student</string>
+    <string name="info3_radio3">About 1 year</string>
+    <string name="info3_radio4">About 3 year</string>
+    <string name="info3_radio5">More than 5 years</string>
+    <!--info4-->
+    <string name="info5_mainText">Pick a name for the cat!</string>
+    <string name="info5_subText"></string>
+    <string name="info5_maxText">Maximum 5 Characters</string>
+    <string name="info5_nextButton">Start</string>
 
     <!-- 홈화면 -->
     <string name="nav_calendar">Commit Calendar</string>
@@ -34,4 +47,8 @@
     <string name="home_todayCommit">Today\'s Commit</string>
     <string name="home_commitCount"></string>
 
+    <!-- 위젯 -->
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
 </resources>

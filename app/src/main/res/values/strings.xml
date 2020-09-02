@@ -29,6 +29,19 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="info1_gender2">남자</string>
     <string name="info1_gender3">기타</string>
     <string name="info1_nextButton">다음으로</string>
+    <string name="info1_birthText">생년월일을 알려주세요</string>
+    <string name="info3_mainText">개발을 하신 지 얼마나 되었나요?"</string>
+    <string name="info3_subText">더 나은 깃캣이 되기 위한, 사용자 현황 파악의 목적입니다 :)</string>
+    <string name="info3_radio1">개발에 관심이 있음</string>
+    <string name="info3_radio2">관련 학부생/대학원생</string>
+    <string name="info3_radio3">1년차</string>
+    <string name="info3_radio4">3년차</string>
+    <string name="info3_radio5">5년차 이상</string>
+    <!--info4-->
+    <string name="info5_mainText">고양이 이름을 정해주세요</string>
+    <string name="info5_subText"></string>
+    <string name="info5_maxText">최대 5자까지</string>
+    <string name="info5_nextButton">시작하기</string>
 
     <!-- 홈화면 -->
     <string name="nav_calendar">커밋달력</string>
@@ -38,14 +51,8 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="home_todayCommit">오늘의 커밋수</string>
     <string name="home_commitCount">개</string>
 
-
-    <string-array name="alarm">
-        <item>벨소리</item>
-        <item>진동</item>
-    </string-array>
-
-    <string-array name="alarm_values">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
+    <!-- 위젯 -->
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
 </resources>

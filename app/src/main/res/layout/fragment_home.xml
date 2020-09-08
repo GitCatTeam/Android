@@ -32,8 +32,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="5dp"
-                    android:padding="10dp"
+                    android:padding="12dp"
                     android:src="@drawable/ic_diary" />
 
                 <ImageView
@@ -42,7 +41,7 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center"
-                    android:padding="10dp"
+                    android:padding="12dp"
                     android:src="@drawable/ic_set_ios" />
 
             </LinearLayout>
@@ -67,15 +66,16 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:fontFamily="@font/bbtree_b"
-                    android:text="화면 새로고침"
+                    android:text="@string/home_refresh"
                     android:textColor="@color/colorLightBlue"
                     android:textSize="14sp" />
             </LinearLayout>
         </RelativeLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_home_today_title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintHeight_percent="0.23"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
             app:layout_constraintBottom_toTopOf="@+id/img_home_cat_gif">
@@ -88,41 +88,26 @@
                 android:gravity="center"
                 android:text="@string/home_todayCommit"
                 android:textColor="@color/colorTextDark"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/txt_home_commit_count"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintVertical_chainStyle="packed"/>
 
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <TextView
+                android:id="@+id/txt_home_commit_count"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintTop_toBottomOf="@id/textView3"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nanum"
+                android:gravity="center"
+                android:text="-"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="64sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent">
-
-                <TextView
-                    android:id="@+id/txt_home_commit_count"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanum"
-                    android:text="-"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="110sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/bbtree_l"
-                    android:text="@string/home_commitCount"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -146,23 +131,23 @@
             app:layout_constraintWidth_percent="0.67"
             app:layout_constraintHeight_percent="0.16"
             android:layout_marginBottom="50dp"
-            android:background="@drawable/ic_box_ios"
-            android:paddingVertical="10dp"
+            android:background="@drawable/home_main_box"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_home_cat_gif">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_blueline_ios"
-                app:layout_constraintBottom_toBottomOf="@+id/txt_home_nickname"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txt_home_nickname"
-                app:layout_constraintVertical_bias="0.83" />
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView4"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_blueline_ios"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/txt_home_nickname"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="@+id/txt_home_nickname"-->
+<!--                app:layout_constraintVertical_bias="0.83" />-->
 
             <TextView
                 android:id="@+id/txt_home_nickname"
@@ -177,86 +162,118 @@
                 android:autoSizeMinTextSize="22sp"
                 android:autoSizeMaxTextSize="42sp"
                 android:autoSizeStepGranularity="2sp"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                app:layout_constraintBottom_toTopOf="@+id/home_progress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"/>
 
-            <ImageView
-                android:id="@+id/img_btn_score_explain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="3dp"
-                android:src="@drawable/ic_question"
-                app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-                app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-                app:layout_constraintVertical_bias="0.6" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/ll_item"
-                app:layout_constraintStart_toStartOf="@+id/ll_item"
-                app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/bbtree_r"
-                    android:text="오늘의 득점 : "
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/txt_home_today_score"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="6dp"
-                    android:fontFamily="@font/nanum"
-                    android:text="null"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="22sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_item"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <FrameLayout
+                android:id="@+id/home_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#1f000000"
+                android:layout_marginTop="6dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname"/>
 
-                <TextView
+            <ProgressBar
+                android:id="@+id/home_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:padding="10dp"
+                android:max="100"
+                android:progress="30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_line"/>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/home_progress">
+
+                <ImageView
+                    android:id="@+id/img_btn_score_explain"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bbtree_r"
-                    android:text="아이템까지 : "
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="13sp" />
+                    android:layout_marginRight="3dp"
+                    android:src="@drawable/ic_question"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+                    app:layout_constraintVertical_bias="0.6" />
 
-                <TextView
-                    android:id="@+id/txt_home_next_level_score"
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="6dp"
-                    android:fontFamily="@font/nanum"
-                    android:text="null"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="22sp" />
+                    app:layout_constraintBottom_toTopOf="@+id/ll_item"
+                    app:layout_constraintStart_toStartOf="@+id/ll_item"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname">
 
-                <TextView
-                    android:id="@+id/txt_home_next_level_item"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_r"
+                        android:text="오늘의 득점 : "
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/txt_home_today_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:fontFamily="@font/nanum"
+                        android:text="null"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nanum"
-                    android:text="(중고노트북)"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="14sp" />
+                    android:layout_gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_r"
+                        android:text="아이템까지 : "
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/txt_home_next_level_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="6dp"
+                        android:fontFamily="@font/nanum"
+                        android:text="null"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/txt_home_next_level_item"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nanum"
+                        android:text="(중고노트북)"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+                </LinearLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

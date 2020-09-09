@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -98,6 +99,12 @@ class HomeFragment : Fragment() {
             handler?.removeMessages(1000)
             newtoken(2)
         }
+        //Seekbar 터치 막음
+        home_progress.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                return true
+            }
+        })
     }
 
     private fun callApi(token: String, check: Int){

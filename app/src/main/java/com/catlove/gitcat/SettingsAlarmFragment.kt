@@ -86,8 +86,7 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             response: Response<DeviceTokenModel>
                         ) {
                             if(response.isSuccessful){
-                                d("*+*+","활성화")
-                                Toast.makeText(context!!,"알림이 활성화되었습니다",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context!!,getString(R.string.settings_alarm_on),Toast.LENGTH_SHORT).show()
                                 editor.putBoolean("alarm",true)
                                 editor.commit()
                             }else{
@@ -127,8 +126,7 @@ class SettingsAlarmFragment : PreferenceFragmentCompat() {
                             response: Response<DeviceIdModel>
                         ) {
                             if(response.isSuccessful){
-                                d("*+*+","비활성화")
-                                Toast.makeText(context!!,"알림이 비활성화되었습니다",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context!!,getString(R.string.settings_alarm_off),Toast.LENGTH_SHORT).show()
                                 editor.putBoolean("alarm",false)
                                 editor.commit()
                             }else{

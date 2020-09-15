@@ -2,9 +2,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
         <SwitchPreference
-            android:title="앱 알림 받기"
+            android:title="@string/settings_alarm1"
             android:layout="@layout/settings_content_switch"
-            android:summary="앱에서 보내는 다양한 푸시알림을 받습니다."
+            android:summary="@string/settings_alarm2"
             android:key="app_alarm"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"

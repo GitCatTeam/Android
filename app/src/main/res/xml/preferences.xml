@@ -2,11 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="설정" app:iconSpaceReserved="false" android:layout="@layout/settings_category">
+    <PreferenceCategory android:title="@string/settings_ca1" app:iconSpaceReserved="false" android:layout="@layout/settings_category">
         <Preference
-            android:title="Github 계정 관리"
+            android:title="@string/settings_ca1_account"
             android:key="set_account"
-            android:summary="연동된 깃 계정을 관리합니다."
+            android:summary="@string/settings_ca1_account2"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             android:layout="@layout/settings_content">
@@ -16,17 +16,17 @@
         </Preference>
 
         <Preference
-            android:title="GitHub Repository 권한 변경"
+            android:title="@string/settings_ca1_repo"
             android:key="set_repo"
-            android:summary="커밋 내역 수집을 위해 접근할 GitHub Repository 범위를 변경합니다."
+            android:summary="@string/settings_ca1_repo2"
             app:iconSpaceReserved="false"
             app:allowDividerAbove="true"
             android:layout="@layout/settings_content"/>
 
         <Preference
-            android:title="알림 설정"
+            android:title="@string/settings_ca1_alarm"
             android:key="set_alarm"
-            android:summary="앱내 알림을 조정합니다."
+            android:summary="@string/settings_ca1_alarm2"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
             app:allowDividerAbove="true"
@@ -37,18 +37,18 @@
         </Preference>
 
         <Preference
-            android:title="고양씨 초기화"
+            android:title="@string/settings_ca1_reset"
             android:key="set_cat"
-            android:summary="현재 육성중인 고양씨를 초기화합니다."
+            android:summary="@string/settings_ca1_reset2"
             app:iconSpaceReserved="false"
             app:allowDividerAbove="true"
             android:layout="@layout/settings_content"/>
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="기타" app:iconSpaceReserved="false" android:layout="@layout/settings_category">
+    <PreferenceCategory android:title="@string/settings_ca2" app:iconSpaceReserved="false" android:layout="@layout/settings_category">
 
         <Preference
-            android:title="개발자 소개"
+            android:title="@string/settings_ca2_dev"
             android:key="etc_dev"
             app:allowDividerBelow="true"
             app:iconSpaceReserved="false"
@@ -59,7 +59,7 @@
         </Preference>
 
         <Preference
-            android:title="앱 평점주기 / 리뷰"
+            android:title="@string/settings_ca2_app"
             android:key="etc_review"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
@@ -71,7 +71,7 @@
         </Preference>
 
         <Preference
-            android:title="깃캣 인스타그램"
+            android:title="@string/settings_ca2_insta"
             android:key="etc_instagram"
             app:iconSpaceReserved="false"
             app:allowDividerAbove="true"

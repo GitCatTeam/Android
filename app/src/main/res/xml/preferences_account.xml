@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <Preference
-            android:title="로그인 계정"
+            android:title="@string/settings_account"
             android:key="login_account"
             android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
@@ -12,7 +12,7 @@
 
         <Preference
             android:key="logout"
-            android:summary="다른 계정으로 로그인합니다."
+            android:summary="@string/settings_account_signout2"
             android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"
@@ -20,7 +20,7 @@
 
         <Preference
             android:key="withdraw"
-            android:title="GitCat 탈퇴하기"
+            android:title="@string/settings_account_delete"
             android:layout="@layout/settings_content"
             app:iconSpaceReserved="false"
             app:allowDividerBelow="true"

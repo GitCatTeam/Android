@@ -62,6 +62,8 @@
     <string name="upgrade_text1">\'s item</string>
     <string name="upgrade_text2">has been upgraded.</string>
     <string name="upgrade_text3">Coding environment is\nmuch better than before!</string>
+    <!-- 튜토리얼 -->
+    <!-- 점수 팝업 -->
 
     <!-- 설정화면 -->
     <string name="settings_ca1">Settings</string>
@@ -70,7 +72,7 @@
     <string name="settings_ca1_repo">GitHub Repository Permission Settings</string>
     <string name="settings_ca1_repo2">Modify repository permission to collect commit history</string>
     <string name="settings_ca1_alarm">Notifications Settings</string>
-    <string name="settings_ca1_alarm2">앱 내 알림을 조정합니다.</string>
+    <string name="settings_ca1_alarm2">Change In-App Notifications</string>
     <string name="settings_ca1_reset">Reset Coding Buddies</string>
     <string name="settings_ca1_reset2">Reset all existing coding buddies</string>
     <string name="settings_ca2">Others</string>
@@ -81,13 +83,13 @@
     <string name="settings_popup_no">Cancel</string>
     <string name="settings_popup_reset1">Reset Coding Buddies</string>
     <string name="settings_popup_reset2">Would you like to let go of all your adorable cats? Released cats cannot be brought back.</string>
-    <string name="settings_popup_repo1"></string>
-    <string name="settings_popup_repo2"></string>
-    <string name="settings_popup_repo3"></string>
-    <string name="settings_popup_signout1"></string>
-    <string name="settings_popup_signout2"></string>
+    <string name="settings_popup_repo1">Change Access Permission</string>
+    <string name="settings_popup_repo2">Would you like to change your</string>
+    <string name="settings_popup_repo3">permission settings?\n\n*This action requires re-login</string>
+    <string name="settings_popup_signout1">Sign Out</string>
+    <string name="settings_popup_signout2">Would you like to sign out from\nyour GitHub account?</string>
     <string name="settings_popup_delete1">Delete GitCat Account</string>
-    <string name="settings_popup_delete2">Delete all data\nwithin GitCat and your account?\nDeleting GitCat account is permanent\nand it cannot be undone.</string>
+    <string name="settings_popup_delete2">Delete all data within GitCat\nand your account?\nDeleting GitCat account is permanent\nand it cannot be undone.</string>
     <string name="settings_account">GitHub Login</string>
     <string name="settings_account_signout1">Sign Out</string>
     <string name="settings_account_signout2">Log in with a different account</string>
@@ -96,5 +98,6 @@
     <string name="settings_alarm2">Receive various push notifications from the app</string>
     <string name="settings_alarm_on">Notification ON</string>
     <string name="settings_alarm_off">Notification OFF</string>
+    <!-- 개발자 소개 -->
 
 </resources>

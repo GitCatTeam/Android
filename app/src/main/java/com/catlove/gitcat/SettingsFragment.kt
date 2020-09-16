@@ -49,9 +49,8 @@ class SettingsFragment : PreferenceFragmentCompat(){
             }
             ad.setView(dialogView)
 
-            dialogTitle.text = "접근 권한 변경"
-            dialogMessage.text = "기존의 "+ settings.getString("repoAuth","")+" 권한을 변경하시겠습니까?\n\n" +
-                    "*재로그인이 필요합니다"
+            dialogTitle.text = getString(R.string.settings_popup_repo1)
+            dialogMessage.text = getString(R.string.settings_popup_repo2) + settings.getString("repoAuth","") + getString(R.string.settings_popup_repo3)
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()
@@ -136,6 +135,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
 
         }
 
+        //고양이 초기화
         set_cat.setOnPreferenceClickListener {
             val builder = AlertDialog.Builder(activity!!)
             val ad = builder.create()
@@ -144,9 +144,8 @@ class SettingsFragment : PreferenceFragmentCompat(){
                 (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
             }
             ad.setView(dialogView)
-            dialogTitle.text = "고양이 초기화"
-            dialogMessage.text = "귀여운 고양이들을 보내시겠습니까?\n" +
-                    "한 번 떠난 고양이는 되돌아오지 못합니다!"
+            dialogTitle.text = getString(R.string.settings_popup_reset1)
+            dialogMessage.text = getString(R.string.settings_popup_reset2)
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()

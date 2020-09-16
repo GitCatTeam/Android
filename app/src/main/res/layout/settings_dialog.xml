@@ -36,7 +36,7 @@
             android:id="@+id/dialog_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="취소"
+            android:text="@string/settings_popup_no"
             android:fontFamily="@font/bbtree_b"
             android:background="@android:color/transparent"
             android:textColor="@color/colorPrimaryDark"/>
@@ -45,7 +45,7 @@
             android:id="@+id/dialog_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="확인"
+            android:text="@string/settings_popup_yes"
             android:fontFamily="@font/bbtree_b"
             android:background="@android:color/transparent"
             android:textColor="#ff8c86"/>

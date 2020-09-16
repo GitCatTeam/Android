@@ -42,7 +42,7 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
         //계정 로그아웃
         val logout = findPreference("logout") as Preference
 
-        val logoutTitle = SpannableStringBuilder("계정 로그아웃")
+        val logoutTitle = SpannableStringBuilder(getString(R.string.settings_account_signout1))
         logoutTitle.setSpan(ForegroundColorSpan(Color.parseColor("#ff8c86")),0,logoutTitle.length,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         logout.title = logoutTitle
 
@@ -65,9 +65,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
             }
             ad.setView(dialogView)
-            dialogTitle.text = "계정 로그아웃"
-            dialogMessage.text = "현재 로그인 되어 있는 Github계정을\n" +
-                    "로그아웃 하시겠습니까?"
+            dialogTitle.text = getString(R.string.settings_popup_signout1)
+            dialogMessage.text = getString(R.string.settings_popup_signout2)
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()
@@ -162,10 +161,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                 (dialogView.parent as ViewGroup).removeView(dialogView) // <- fix
             }
             ad.setView(dialogView)
-            dialogTitle.text = "GitCat 탈퇴하기"
-            dialogMessage.text = "GitCat 내의 모든 정보를 삭제하고\n" +
-                    "정말로 탈퇴하시겠습니까?\n" +
-                    "사라진 계정 정보는 복구할 수 없습니다!"
+            dialogTitle.text = getString(R.string.settings_popup_delete1)
+            dialogMessage.text = getString(R.string.settings_popup_delete2)
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()

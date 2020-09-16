@@ -100,4 +100,18 @@
     <string name="settings_alarm_off">Notification OFF</string>
     <!-- 개발자 소개 -->
 
+    <!-- 커밋달력 -->
+    <string name="calendar_main">Commit Calendar</string>
+    <string name="calendar_count0">0</string>
+    <string name="calendar_count1">1~5</string>
+    <string name="calendar_count2">6~10</string>
+    <string name="calendar_count3">11~15</string>
+    <string name="calendar_noCommit">No commit history available!</string>
+    <string name="calendar_today">Today\'s Commit</string>
+    <string name="calendar_score">Received Points</string>
+    <string name="calendar_total">Total Commit</string>
+    <string name="calendar_item">Received Item(s)</string>
+    <string name="calendar_itemNo">None!</string>
+    <string name="calendar_commitHistory">Commit History Details</string>
+
 </resources>

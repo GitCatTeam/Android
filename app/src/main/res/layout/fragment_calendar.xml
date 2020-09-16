@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="커밋달력"
+                android:text="@string/calendar_main"
                 android:fontFamily="@font/bbtree_b"
                 android:layout_centerVertical="true"
                 android:textAlignment="center"
@@ -88,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bbtree_r"
-                            android:text="0개"
+                            android:text="@string/calendar_count0"
                             android:textSize="10sp" />
 
                         <FrameLayout
@@ -102,7 +102,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bbtree_r"
-                            android:text="1~5개"
+                            android:text="@string/calendar_count1"
                             android:textSize="10sp" />
 
                         <FrameLayout
@@ -116,7 +116,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bbtree_r"
-                            android:text="6~10개"
+                            android:text="@string/calendar_count2"
                             android:textSize="10sp" />
 
                         <FrameLayout
@@ -130,7 +130,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bbtree_r"
-                            android:text="11~15개"
+                            android:text="@string/calendar_count3"
                             android:textSize="10sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -140,11 +140,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="65dp"
                     android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="50dp"
                     android:background="#FFFFFF"
                     android:fontFamily="@font/bbtree_r"
                     android:gravity="center"
-                    android:text="커밋 기록이 없습니다!"
+                    android:text="@string/calendar_noCommit"
                     android:textColor="#c0c0c0"
                     android:textSize="13sp" />
 
@@ -180,7 +180,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/bbtree_b"
-                                android:text="오늘의 커밋"
+                                android:text="@string/calendar_today"
                                 android:textSize="15sp"/>
                         </LinearLayout>
 
@@ -202,9 +202,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="16dp"
                                     android:fontFamily="@font/bbtree_b"
-                                    android:text="얻은 점수"
+                                    android:text="@string/calendar_score"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="15sp" />
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/commit_score"
@@ -233,9 +233,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="16dp"
                                     android:fontFamily="@font/bbtree_b"
-                                    android:text="총 커밋수"
+                                    android:text="@string/calendar_total"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="15sp" />
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/commit_totalCommit"
@@ -265,16 +265,16 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="16dp"
                                     android:fontFamily="@font/bbtree_b"
-                                    android:text="얻은 아이템"
+                                    android:text="@string/calendar_item"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="15sp" />
+                                    android:textSize="13sp" />
 
                                 <TextView
                                     android:id="@+id/commit_item"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/bbtree_r"
-                                    android:text="없음"
+                                    android:text="@string/calendar_itemNo"
                                     android:textColor="@color/colorTextDark"
                                     android:textSize="20sp" />
                             </LinearLayout>
@@ -306,7 +306,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/bbtree_b"
-                                android:text="커밋 내역 상세"
+                                android:text="@string/calendar_commitHistory"
                                 android:textSize="15sp"/>
                         </LinearLayout>
 

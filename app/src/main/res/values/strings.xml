@@ -66,6 +66,8 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="upgrade_text1">씨의 아이템이</string>
     <string name="upgrade_text2">업그레이드 되었어요.</string>
     <string name="upgrade_text3">개발이 좀 더 수월해지겠어요!</string>
+    <!-- 튜토리얼 -->
+    <!-- 점수 팝업 -->
 
     <!-- 설정화면 -->
     <string name="settings_ca1">설정</string>
@@ -100,5 +102,20 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="settings_alarm2">앱에서 보내는 다양한 푸시알림을 받습니다.</string>
     <string name="settings_alarm_on">알림이 활성화되었습니다</string>
     <string name="settings_alarm_off">알림이 비활성화되었습니다</string>
+    <!-- 개발자 소개 -->
+
+    <!-- 커밋달력 -->
+    <string name="calendar_main">커밋달력</string>
+    <string name="calendar_count0">0개</string>
+    <string name="calendar_count1">1~5개</string>
+    <string name="calendar_count2">6~10개</string>
+    <string name="calendar_count3">11~15개</string>
+    <string name="calendar_noCommit">커밋 기록이 없습니다!</string>
+    <string name="calendar_today">오늘의 커밋</string>
+    <string name="calendar_score">얻은 점수</string>
+    <string name="calendar_total">총 커밋수</string>
+    <string name="calendar_item">얻은 아이템</string>
+    <string name="calendar_itemNo">없음!</string>
+    <string name="calendar_commitHistory">커밋 내역 상세</string>
 
 </resources>

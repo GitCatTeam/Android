@@ -160,7 +160,7 @@ class CalendarFragment: Fragment() {
                 commit_score.text = valueList[1]
                 commit_totalCommit.text = valueList[0]
                 if(valueList[2].isEmpty()){
-                    commit_item.text="없음!"
+                    commit_item.text= getString(R.string.calendar_itemNo)
                     commit_item.textSize = 14F
                     commit_item.setTextColor(resources.getColor(R.color.colorText))
                 }else{

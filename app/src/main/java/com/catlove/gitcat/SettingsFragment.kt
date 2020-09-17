@@ -50,7 +50,7 @@ class SettingsFragment : PreferenceFragmentCompat(){
             ad.setView(dialogView)
 
             dialogTitle.text = getString(R.string.settings_popup_repo1)
-            dialogMessage.text = getString(R.string.settings_popup_repo2) + settings.getString("repoAuth","") + getString(R.string.settings_popup_repo3)
+            dialogMessage.text = getString(R.string.settings_popup_repo2) + " " + settings.getString("repoAuth","") + " " + getString(R.string.settings_popup_repo3)
 
             dialogCancel.setOnClickListener {
                 ad.dismiss()

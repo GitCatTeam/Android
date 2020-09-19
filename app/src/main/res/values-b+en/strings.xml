@@ -114,4 +114,9 @@
     <string name="calendar_itemNo">None!</string>
     <string name="calendar_commitHistory">Commit History Details</string>
 
+    <!-- 리포트 -->
+    <string name="report_main">Report</string>
+    <string name="report_totalCommit">Total Commit</string>
+    <string name="report_lang">Main Language</string>
+
 </resources>

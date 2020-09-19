@@ -49,63 +49,63 @@ class ReportFragment : Fragment() {
 
 
         //FIXME: API 호출
-//        NewToken(context!!)
-//        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token","")!!)
-//        call.enqueue(
-//            object : Callback<MonthlyListModel> {
-//                override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {
-//                    Log.e("*+*+", "error: $t")
-//                    showErrorPopup("재로그인을 해주세요!",activity!!)
-//                }
-//
-//                override fun onResponse(
-//                    call: Call<MonthlyListModel>,
-//                    response: Response<MonthlyListModel>
-//                ) {
-//                    if(response.isSuccessful){
-//                        val reportData = response.body()!!
-//
-//                        if(reportData.data.resultList.isEmpty()){
-//                            noReport.visibility = View.VISIBLE
-//                            report_scroll.visibility = View.GONE
-//                        }else{
-//                            noReport.visibility = View.GONE
-//                            report_scroll.visibility = View.VISIBLE
-//
-//                            for(data in reportData.data.resultList){
-//                                rId = data.id.toString()
-//                                rTitle = data.title
-//                                rTotalCommit = data.totalCount
-//                                rLanguage = data.mainLanguage
-//                                reportList.add(Report(rId,rTitle,rTotalCommit,rLanguage))
-//                            }
-//
-//                            val listAdapter = ReportAdapter(activity!!,reportList){report ->
-//                                val intent = Intent(context, ChartActivity::class.java)
-//                                intent.putExtra("id",report.id)
-//                                intent.putExtra("title",report.title)
-//                                intent.putExtra("commit", report.totalCommit)
-//
-//                                startActivity(intent)
-//                            }
-//
-//                            report_recyclerview.adapter = listAdapter
-//
-//                            listAdapter.notifyDataSetChanged()
-//                        }//데이터 들어있을 때 end
-//
-//                    }else{
-//                        if(response.code()==503){
-//                            ServerCheckPopup(context!!)
-//                        }else if(response.code()>=500){
-//                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
-//                        }else{
-//                            showErrorPopup("재로그인을 해주세요!",context!!)
-//                        }
-//                    }
-//                }
-//            }
-//        )
+        NewToken(context!!)
+        val call: Call<MonthlyListModel> = RetrofitCreator.service.getMonthlyList(settings.getString("token","")!!)
+        call.enqueue(
+            object : Callback<MonthlyListModel> {
+                override fun onFailure(call: Call<MonthlyListModel>, t: Throwable) {
+                    Log.e("*+*+", "error: $t")
+                    showErrorPopup("재로그인을 해주세요!",activity!!)
+                }
+
+                override fun onResponse(
+                    call: Call<MonthlyListModel>,
+                    response: Response<MonthlyListModel>
+                ) {
+                    if(response.isSuccessful){
+                        val reportData = response.body()!!
+
+                        if(reportData.data.resultList.isEmpty()){
+                            noReport.visibility = View.VISIBLE
+                            report_scroll.visibility = View.GONE
+                        }else{
+                            noReport.visibility = View.GONE
+                            report_scroll.visibility = View.VISIBLE
+
+                            for(data in reportData.data.resultList){
+                                rId = data.id.toString()
+                                rTitle = data.title
+                                rTotalCommit = data.totalCount
+                                rLanguage = data.mainLanguage
+                                reportList.add(Report(rId,rTitle,rTotalCommit,rLanguage))
+                            }
+
+                            val listAdapter = ReportAdapter(activity!!,reportList){report ->
+                                val intent = Intent(context, ChartActivity::class.java)
+                                intent.putExtra("id",report.id)
+                                intent.putExtra("title",report.title)
+                                intent.putExtra("commit", report.totalCommit)
+
+                                startActivity(intent)
+                            }
+
+                            report_recyclerview.adapter = listAdapter
+
+                            listAdapter.notifyDataSetChanged()
+                        }//데이터 들어있을 때 end
+
+                    }else{
+                        if(response.code()==503){
+                            ServerCheckPopup(context!!)
+                        }else if(response.code()>=500){
+                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",context!!)
+                        }else{
+                            showErrorPopup("재로그인을 해주세요!",context!!)
+                        }
+                    }
+                }
+            }
+        )
 
 //        val listAdapter = ReportAdapter(activity!!)
 //        listAdapter.data = listOf(

@@ -118,4 +118,9 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="calendar_itemNo">없음!</string>
     <string name="calendar_commitHistory">커밋 내역 상세</string>
 
+    <!-- 리포트 -->
+    <string name="report_main">리포트</string>
+    <string name="report_totalCommit">총 커밋수</string>
+    <string name="report_lang">주 사용 언어</string>
+
 </resources>

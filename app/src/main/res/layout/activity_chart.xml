@@ -51,16 +51,16 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_height="78dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_height="82dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:background="@drawable/default_radius_rect">
 
                 <LinearLayout
-                    android:layout_width="113dp"
-                    android:layout_height="78dp"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -69,9 +69,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="11dp"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="지난달 대비"
+                        android:text="@string/chart_lastMonth"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/lastMonth"
@@ -88,8 +88,8 @@
                     android:background="@color/colorText" />
 
                 <LinearLayout
-                    android:layout_width="113dp"
-                    android:layout_height="78dp"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -98,9 +98,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="11dp"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="총 커밋수"
+                        android:text="@string/chart_totalCommit"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/totalCommit"
@@ -118,8 +118,8 @@
                     android:background="@color/colorText" />
 
                 <LinearLayout
-                    android:layout_width="113dp"
-                    android:layout_height="78dp"
+                    android:layout_width="115dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -128,9 +128,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="11dp"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="하루 평균"
+                        android:text="@string/chart_oneDay"
                         android:textColor="@color/colorTextDark"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/avg"
@@ -145,8 +145,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect">
@@ -172,7 +172,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/lineImg"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="커밋수 통계"
+                        android:text="@string/chart_commitStats"
                         android:textColor="@color/colorTextDark"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -197,8 +197,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
                 android:layout_height="184dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect">
@@ -223,7 +223,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/pieImg"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="사용 언어 비율"
+                        android:text="@string/chart_langStats"
                         android:textColor="@color/colorTextDark"
                         android:textSize="13sp" />
                 </LinearLayout>
@@ -424,8 +424,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/default_radius_rect"
@@ -451,7 +451,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/barImg"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="기여 레파지토리"
+                        android:text="@string/chart_repoStats"
                         android:textColor="@color/colorTextDark"
                         android:textSize="13sp" />
 
@@ -488,8 +488,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="20dp"
@@ -515,7 +515,7 @@
                         android:layout_marginStart="5dp"
                         android:layout_toEndOf="@+id/catImg"
                         android:fontFamily="@font/bbtree_b"
-                        android:text="이번달 세줄평"
+                        android:text="@string/chart_comments"
                         android:textColor="@color/colorTextDark"
                         android:textSize="13sp" />
                 </LinearLayout>

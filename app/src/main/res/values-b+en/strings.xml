@@ -118,5 +118,15 @@
     <string name="report_main">Report</string>
     <string name="report_totalCommit">Total Commit</string>
     <string name="report_lang">Main Language</string>
+    
+    <!-- 리포트 차트 -->
+    <string name="chart_lastMonth">Since Last Month</string>
+    <string name="chart_totalCommit">Total Commit</string>
+    <string name="chart_oneDay">Average commit</string>
+    <string name="chart_commitStats">Commit Count Stats</string>
+    <string name="chart_langStats">Ratio of used programming languages</string>
+    <string name="chart_langPie">Ratio\n(%)</string>
+    <string name="chart_repoStats">Repository Contribution</string>
+    <string name="chart_comments">This Month\'s Review</string>
 
 </resources>

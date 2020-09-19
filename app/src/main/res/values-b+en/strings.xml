@@ -19,7 +19,7 @@
 
     <!-- 정보 입력 화면 -->
     <string name="info1_mainText">Tell us about yourself!</string>
-    <string name="info1_subText">Personal information will only be used for statistical data/ statistics purpose</string>
+    <string name="info1_subText">Personal information will only be used for\nstatistical data / statistics purpose</string>
     <string name="info1_genderText">Tell us your gender</string>
     <string name="info1_gender1">Female</string>
     <string name="info1_gender2">Male</string>
@@ -66,7 +66,7 @@
     <string name="tu_first_mainText">Help your coding buddies grow</string>
     <string name="tu_first_subText">Commit everyday, consistently.\nCoding buddy\'s coding environment will improve.</string>
     <string name="tu_second_mainText">Help your buddies graduate!</string>
-    <string name="tu_second_subText">Coding buddies in level 4 will graduate but don\'t worry!\nYou can see their graduation picture\nonce you click the collection button.</string>
+    <string name="tu_second_subText">Coding buddies in level 4 will graduate\nbut don\'t worry!\nYou can see their graduation picture\nonce you click the collection button.</string>
     <string name="tu_second_etcText">Collection Button</string>
     <string name="tu_third_mainText">Look over your progression </string>
     <string name="tu_third_subText">Check out commit history through the commit calendar\nand commit stats by the report.</string>

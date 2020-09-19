@@ -64,6 +64,10 @@
     <string name="upgrade_text3">Coding environment is\nmuch better than before!</string>
     <!-- 튜토리얼 -->
     <!-- 점수 팝업 -->
+    <string name="home_score_mainText">Hang on!\nHow can we earn points?</string>
+    <string name="home_score_subText">- if you commit at least once after\nyou\'ve met the cat, you get 1 point.\n\n- if you commit in git more than 5 times,\nyou can get at most 1 point.\n\n*You are able to help your first cat graduate once you receive 1 point </string>
+    <string name="home_score_subBoldText">but it\'ll get harder and harder for your next cats.</string>
+    <string name="home_score_lastText">Good luck!</string>
 
     <!-- 설정화면 -->
     <string name="settings_ca1">Settings</string>

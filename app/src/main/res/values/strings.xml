@@ -68,6 +68,10 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="upgrade_text3">개발이 좀 더 수월해지겠어요!</string>
     <!-- 튜토리얼 -->
     <!-- 점수 팝업 -->
+    <string name="home_score_mainText">잠깐!\n점수는 어떻게 얻나요?</string>
+    <string name="home_score_subText">- 고양씨를 생성한 이후 커밋을 했다면,\n   1점을 얻을 수 있어요.\n\n- 5개 이상의 커밋을 하면, 1점을 추가로\n   획득할 수 있어요.\n\n* 첫 고양씨는 커밋으로 1점만 획득해도\n  졸업할 수 있지만, 다음 고양씨부터는</string>
+    <string name="home_score_subBoldText">  점점 난이도가 올라갑니다!</string>
+    <string name="home_score_lastText"> 화이팅!</string>
 
     <!-- 설정화면 -->
     <string name="settings_ca1">설정</string>

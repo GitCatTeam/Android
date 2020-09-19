@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:padding="14dp">
 
         <ImageView
             android:id="@+id/img_btn_score_back"
@@ -24,7 +24,7 @@
             android:id="@+id/txt_score_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="잠깐!\n점수는 어떻게 얻나요?"
+            android:text="@string/home_score_mainText"
             android:textColor="@color/colorTextDark"
             android:textSize="20sp"
             android:fontFamily="@font/bbtree_b"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/bbtree_r"
-            android:text="- 고양씨를 생성한 이후 커밋을 했다면,\n   1점을 얻을 수 있어요.\n\n- 5개 이상의 커밋을 하면, 1점을 추가로\n   획득할 수 있어요.\n\n* 첫 고양씨는 커밋으로 1점만 획득해도\n  졸업할 수 있지만, 다음 고양씨부터는"
+            android:text="@string/home_score_subText"
             android:textColor="@color/colorTextDark"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_b"
-            android:text="  점점 난이도가 올라갑니다!"
+            android:text="@string/home_score_subBoldText"
             android:textColor="@color/colorTextDark"
             android:textSize="14sp"
             android:layout_marginBottom="24dp"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_r"
-            android:text=" 화이팅!"
+            android:text="@string/home_score_lastText"
             android:textColor="@color/colorTextDark"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/txt_score_content2"

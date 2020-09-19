@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"
                     android:fontFamily="@font/nanum"
-                    android:text="고양이 수집 내역 버튼"
+                    android:text="@string/tu_second_etcText"
                     android:textColor="#ffffff"
                     android:textSize="32sp"
                     android:layout_marginRight="3dp"
@@ -107,7 +107,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="30sp"
                             android:fontFamily="@font/nanum"
-                            android:text="이번달 커밋 현황 \u0026 월별 커밋 통계"
+                            android:text="@string/tu_third_etcText"
                             android:textColor="@color/colorWhite" />
 
                         <ImageView

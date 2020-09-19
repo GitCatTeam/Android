@@ -63,6 +63,16 @@
     <string name="upgrade_text2">has been upgraded.</string>
     <string name="upgrade_text3">Coding environment is\nmuch better than before!</string>
     <!-- 튜토리얼 -->
+    <string name="tu_first_mainText">Help your coding buddies grow</string>
+    <string name="tu_first_subText">Commit everyday, consistently.\nCoding buddy\'s coding environment will improve.</string>
+    <string name="tu_second_mainText">Help your buddies graduate!</string>
+    <string name="tu_second_subText">Coding buddies in level 4 will graduate but don\'t worry!\nYou can see their graduation picture\nonce you click the collection button.</string>
+    <string name="tu_second_etcText">Collection Button</string>
+    <string name="tu_third_mainText">Look over your progression </string>
+    <string name="tu_third_subText">Check out commit history through the commit calendar\nand commit stats by the report.</string>
+    <string name="tu_third_etcText">Monthly Commit State \u0026 Monthly Commit Report</string>
+    <string name="tu_fourth_mainText">Complete tutorial and\nmeet your coding buddy!</string>
+    <string name="tu_fourth_button">Begin tutorial</string>
     <!-- 점수 팝업 -->
     <string name="home_score_mainText">Hang on!\nHow can we earn points?</string>
     <string name="home_score_subText">- if you commit at least once after\nyou\'ve met the cat, you get 1 point.\n\n- if you commit in git more than 5 times,\nyou can get at most 1 point.\n\n*You are able to help your first cat graduate once you receive 1 point </string>

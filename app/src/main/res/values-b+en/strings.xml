@@ -19,7 +19,7 @@
 
     <!-- 정보 입력 화면 -->
     <string name="info1_mainText">Tell us about yourself!</string>
-    <string name="info1_subText">Personal information will only be used for statistical data/ statistics purpose</string>
+    <string name="info1_subText">Personal information will only be used for\nstatistical data / statistics purpose</string>
     <string name="info1_genderText">Tell us your gender</string>
     <string name="info1_gender1">Female</string>
     <string name="info1_gender2">Male</string>
@@ -63,7 +63,21 @@
     <string name="upgrade_text2">has been upgraded.</string>
     <string name="upgrade_text3">Coding environment is\nmuch better than before!</string>
     <!-- 튜토리얼 -->
+    <string name="tu_first_mainText">Help your coding buddies grow</string>
+    <string name="tu_first_subText">Commit everyday, consistently.\nCoding buddy\'s coding environment will improve.</string>
+    <string name="tu_second_mainText">Help your buddies graduate!</string>
+    <string name="tu_second_subText">Coding buddies in level 4 will graduate\nbut don\'t worry!\nYou can see their graduation picture\nonce you click the collection button.</string>
+    <string name="tu_second_etcText">Collection Button</string>
+    <string name="tu_third_mainText">Look over your progression </string>
+    <string name="tu_third_subText">Check out commit history through the commit calendar\nand commit stats by the report.</string>
+    <string name="tu_third_etcText">Monthly Commit State \u0026 Monthly Commit Report</string>
+    <string name="tu_fourth_mainText">Complete tutorial and\nmeet your coding buddy!</string>
+    <string name="tu_fourth_button">Begin tutorial</string>
     <!-- 점수 팝업 -->
+    <string name="home_score_mainText">Hang on!\nHow can we earn points?</string>
+    <string name="home_score_subText">- if you commit at least once after\nyou\'ve met the cat, you get 1 point.\n\n- if you commit in git more than 5 times,\nyou can get at most 1 point.\n\n*You are able to help your first cat graduate once you receive 1 point </string>
+    <string name="home_score_subBoldText">but it\'ll get harder and harder for your next cats.</string>
+    <string name="home_score_lastText">Good luck!</string>
 
     <!-- 설정화면 -->
     <string name="settings_ca1">Settings</string>
@@ -113,5 +127,23 @@
     <string name="calendar_item">Received Item(s)</string>
     <string name="calendar_itemNo">None!</string>
     <string name="calendar_commitHistory">Commit History Details</string>
+
+    <!-- 리포트 -->
+    <string name="report_main">Report</string>
+    <string name="report_totalCommit">Total Commit</string>
+    <string name="report_lang">Main Language</string>
+    
+    <!-- 리포트 차트 -->
+    <string name="chart_lastMonth">Since Last Month</string>
+    <string name="chart_totalCommit">Total Commit</string>
+    <string name="chart_oneDay">Average commit</string>
+    <string name="chart_commitStats">Commit Count Stats</string>
+    <string name="chart_langStats">Ratio of used programming languages</string>
+    <string name="chart_langPie">Ratio\n(%)</string>
+    <string name="chart_repoStats">Repository Contribution</string>
+    <string name="chart_comments">This Month\'s Review</string>
+
+    <!-- 냥콜렉션 -->
+    <string name="collection_mainText">Collection</string>
 
 </resources>

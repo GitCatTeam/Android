@@ -67,7 +67,21 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="upgrade_text2">업그레이드 되었어요.</string>
     <string name="upgrade_text3">개발이 좀 더 수월해지겠어요!</string>
     <!-- 튜토리얼 -->
+    <string name="tu_first_mainText">커밋으로 고양씨 성장시키기</string>
+    <string name="tu_first_subText">매일 꾸준히 커밋해보세요.\n고양씨의 개발환경이 4단계에 걸쳐 개선됩니다.</string>
+    <string name="tu_second_mainText">고양씨 졸업시키기</string>
+    <string name="tu_second_subText">4단계 고양씨는 졸업하게 되지만, 걱정 마세요!\n우측 상단의 수집 버튼을 통해 졸업앨범을 볼 수 있어요.</string>
+    <string name="tu_second_etcText">고양이 수집 내역 버튼</string>
+    <string name="tu_third_mainText">달력과 리포트로 나의 개발 돌아보기</string>
+    <string name="tu_third_subText">하단의 커밋달력을 통해 일일 커밋 현황을,\n레포트를 통해 매달 개발 통계를 확인할 수 있어요.</string>
+    <string name="tu_third_etcText">이번달 커밋 현황 \u0026 월별 커밋 통계</string>
+    <string name="tu_fourth_mainText">튜토리얼 진행하고 고양이 받기</string>
+    <string name="tu_fourth_button">튜토리얼 시작하기</string>
     <!-- 점수 팝업 -->
+    <string name="home_score_mainText">잠깐!\n점수는 어떻게 얻나요?</string>
+    <string name="home_score_subText">- 고양씨를 생성한 이후 커밋을 했다면,\n   1점을 얻을 수 있어요.\n\n- 5개 이상의 커밋을 하면, 1점을 추가로\n   획득할 수 있어요.\n\n* 첫 고양씨는 커밋으로 1점만 획득해도\n  졸업할 수 있지만, 다음 고양씨부터는</string>
+    <string name="home_score_subBoldText">  점점 난이도가 올라갑니다!</string>
+    <string name="home_score_lastText"> 화이팅!</string>
 
     <!-- 설정화면 -->
     <string name="settings_ca1">설정</string>
@@ -117,5 +131,23 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="calendar_item">얻은 아이템</string>
     <string name="calendar_itemNo">없음!</string>
     <string name="calendar_commitHistory">커밋 내역 상세</string>
+
+    <!-- 리포트 -->
+    <string name="report_main">리포트</string>
+    <string name="report_totalCommit">총 커밋수</string>
+    <string name="report_lang">주 사용 언어</string>
+
+    <!-- 리포트 차트 -->
+    <string name="chart_lastMonth">지난달 대비</string>
+    <string name="chart_totalCommit">총 커밋수</string>
+    <string name="chart_oneDay">하루 평균</string>
+    <string name="chart_commitStats">커밋수 통계</string>
+    <string name="chart_langStats">사용 언어 비율</string>
+    <string name="chart_langPie">언어비율\n(%)</string>
+    <string name="chart_repoStats">기여 레파지토리</string>
+    <string name="chart_comments">이번달 세줄평</string>
+
+    <!-- 냥콜렉션 -->
+    <string name="collection_mainText">냥콜렉션</string>
 
 </resources>

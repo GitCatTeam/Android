@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="냥컬렉션"
+            android:text="@string/collection_mainText"
             android:fontFamily="@font/bbtree_b"
             android:gravity="center"
             android:layout_centerVertical="true"

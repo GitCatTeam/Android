@@ -212,13 +212,15 @@ class ChartActivity : AppCompatActivity() {
         xAxis.setTextColor(Color.BLACK)
         xAxis.enableGridDashedLine(8F, 24F, 0F)
 
-        //val yLAxis = lineChart.axisLeft
+        val yLAxis = lineChart.axisLeft
+        yLAxis.granularity = 1F
         //오류뜸 yLAxis.textColor = COLOR.BLACK
 
         val yRAxis = lineChart.axisRight
         yRAxis.setDrawLabels(false)
         yRAxis.setDrawAxisLine(false)
         yRAxis.setDrawGridLines(false)
+        yRAxis.granularity = 1F
 
         lineChart.isDoubleTapToZoomEnabled = false
         lineChart.setDrawGridBackground(false)
@@ -237,7 +239,7 @@ class ChartActivity : AppCompatActivity() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
         pieChart.transparentCircleRadius = 40F
-        pieChart.centerText = "언어비율\n(%)"
+        pieChart.centerText = getString(R.string.chart_langPie)
         pieChart.setCenterTextSize(10F)
         pieChart.setDrawCenterText(true)
         pieChart.setDrawSliceText(false)

@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:fontFamily="@font/bbtree_b"
-                android:text="리포트"
+                android:text="@string/report_main"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp" />
@@ -42,8 +42,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/img_sorryreport_01"
-            tools:srcCompat="@drawable/img_sorryreport_01" />
+            app:srcCompat="@drawable/img_noreport"
+            tools:srcCompat="@drawable/img_noreport" />
 
         <ScrollView
             android:id="@+id/report_scroll"

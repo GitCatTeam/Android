@@ -143,4 +143,7 @@
     <string name="chart_repoStats">Repository Contribution</string>
     <string name="chart_comments">This Month\'s Review</string>
 
+    <!-- 냥콜렉션 -->
+    <string name="collection_mainText">Collection</string>
+
 </resources>

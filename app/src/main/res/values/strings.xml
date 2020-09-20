@@ -147,4 +147,7 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="chart_repoStats">기여 레파지토리</string>
     <string name="chart_comments">이번달 세줄평</string>
 
+    <!-- 냥콜렉션 -->
+    <string name="collection_mainText">냥콜렉션</string>
+
 </resources>

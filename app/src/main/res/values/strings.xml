@@ -149,5 +149,6 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
 
     <!-- 냥콜렉션 -->
     <string name="collection_mainText">냥콜렉션</string>
+    <string name="collection_nameText">- 이름 :</string>
 
 </resources>

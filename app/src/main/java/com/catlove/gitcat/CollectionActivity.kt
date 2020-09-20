@@ -56,7 +56,7 @@ class CollectionActivity : AppCompatActivity() {
                             collection_scroll.visibility = View.VISIBLE
 
                             for(c in data.data){
-                                cName = "- 이름 : "+c.name
+                                cName = getString(R.string.collection_nameText) + " " +c.name
                                 cDoing = "- "+c.endingMent
                                 collectionList.add(Collection(cName,cDoing,c.isMedal,c.img))
                             }

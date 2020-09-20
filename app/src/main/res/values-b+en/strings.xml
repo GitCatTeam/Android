@@ -145,5 +145,6 @@
 
     <!-- 냥콜렉션 -->
     <string name="collection_mainText">Collection</string>
+    <string name="collection_nameText">- Name :</string>
 
 </resources>

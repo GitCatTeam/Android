@@ -39,7 +39,7 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="info3_radio5">5년차 이상</string>
     <!--info4-->
     <string name="info5_mainText">고양이 이름을 정해주세요</string>
-    <string name="info5_subText"></string>
+    <string name="info5_subText">귀여운 이름 부탁한다냥!</string>
     <string name="info5_maxText">최대 5자까지</string>
     <string name="info5_nextButton">시작하기</string>
 

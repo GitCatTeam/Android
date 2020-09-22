@@ -51,6 +51,11 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="home_nullButton">고양이 다시 선택하러 가기</string>
     <string name="home_todayCommit">오늘의 커밋</string>
     <string name="home_commitCount">개</string>
+    <string name="home_now_score">현재 점수 :</string>
+    <string name="home_today_score">(오늘점수</string>
+    <string name="home_item_score1">까지</string>
+    <string name="home_item_score2">점 필요</string>
+
     <!-- 홈화면 팝업 -->
     <string name="leave_mainText">[속보] 고양씨 떠나다...</string>
     <string name="leave_text1">저런!</string>

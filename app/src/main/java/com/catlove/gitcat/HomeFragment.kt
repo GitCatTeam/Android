@@ -233,9 +233,12 @@ class HomeFragment : Fragment() {
         //홈 gif 처리
         Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
         txt_home_nickname.text = data?.catName
-        txt_home_today_score.text = data?.todayScore.toString()
-        txt_home_next_level_score.text = data?.nextLevelScore.toString()
-        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+        //TODO: Progress bar
+        //TODO: txt_home_now_score.text = getString(R.string.home_now_score) + ~~
+        txt_home_today_score.text = getString(R.string.home_today_score) + " " + data?.todayScore.toString() + ")"
+//        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
+        txt_home_next_level_item.text = data?.nextLevelStr
+        txt_home_next_level_score.text = getString(R.string.home_item_score1) + " " + data?.nextLevelScore.toString() + getString(R.string.home_item_score2)
         //멘트 바꿔주기
         startTimerTask(data?.ments)
     }

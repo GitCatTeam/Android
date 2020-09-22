@@ -47,6 +47,11 @@
     <string name="home_nullButton">고양이 다시 선택하러 가기</string>
     <string name="home_todayCommit">Today\'s Commit</string>
     <string name="home_commitCount"></string>
+    <string name="home_now_score">Current Score :</string>
+    <string name="home_today_score">(today</string>
+    <string name="home_item_score1">까지</string>
+    <string name="home_item_score2">점 필요</string>
+
     <!-- 홈화면 팝업 -->
     <string name="leave_mainText">[Breaking News]</string>
     <string name="leave_text1">Unfortunately,</string>
@@ -145,5 +150,6 @@
 
     <!-- 냥콜렉션 -->
     <string name="collection_mainText">Collection</string>
+    <string name="collection_nameText">- Name :</string>
 
 </resources>

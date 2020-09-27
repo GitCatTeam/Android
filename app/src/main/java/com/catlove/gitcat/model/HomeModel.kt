@@ -20,5 +20,6 @@ data class HomeData(
     var ments: ArrayList<String>,
     var isLevelUp: Boolean,
     var isGraduate: Boolean,
-    var isLeave: Boolean
+    var isLeave: Boolean,
+    var progressPer: Int
 )

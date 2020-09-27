@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.catlove.gitcat.model.LogoutModel
 import com.catlove.gitcat.model.MonthCommitContentModel
+import com.catlove.gitcat.model.MonthUpdateModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import com.google.gson.JsonObject
 import com.prolificinteractive.materialcalendarview.CalendarDay
@@ -74,14 +75,15 @@ class CalendarFragment: Fragment() {
         refreshCalendar.setOnClickListener {//새로고침
             loading_img.visibility = View.VISIBLE//로딩화면 나타나기
             NewToken(context!!)
-            val call: Call<LogoutModel> = RetrofitCreator.service.getCommitsUpdate(settings.getString("token","")!!)
+            val mum = MonthUpdateModel(ymToday)
+            val call: Call<MonthUpdateModel> = RetrofitCreator.service.postMonthUpdate(settings.getString("token","")!!,mum)
             call.enqueue(
-                object : Callback<LogoutModel>{
-                    override fun onFailure(call: Call<LogoutModel>, t: Throwable) {
+                object : Callback<MonthUpdateModel>{
+                    override fun onFailure(call: Call<MonthUpdateModel>, t: Throwable) {
                         showErrorPopup("재로그인을 해주세요!",context!!)
                     }
 
-                    override fun onResponse(call: Call<LogoutModel>, response: Response<LogoutModel>) {
+                    override fun onResponse(call: Call<MonthUpdateModel>, response: Response<MonthUpdateModel>) {
                         if(response.isSuccessful){
 
                             APIStart(calendarView,settings.getString("token","")!!,ymToday)

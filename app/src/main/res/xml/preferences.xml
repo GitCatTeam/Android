@@ -59,6 +59,18 @@
         </Preference>
 
         <Preference
+            android:title="자주 묻는 질문 FAQ"
+            android:key="etc_ask"
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data=" https://www.notion.so/gitcat/QnA-05f9209a6dfe4e4086b6d4e47191466b"/>
+        </Preference>
+
+        <Preference
             android:title="피드백 보내기"
             android:key="etc_feedback"
             app:iconSpaceReserved="false"

@@ -59,6 +59,15 @@
         </Preference>
 
         <Preference
+            android:title="피드백 보내기"
+            android:key="etc_feedback"
+            app:iconSpaceReserved="false"
+            app:allowDividerBelow="true"
+            app:allowDividerAbove="true"
+            android:layout="@layout/settings_content">
+        </Preference>
+
+        <Preference
             android:title="@string/settings_ca2_app"
             android:key="etc_review"
             app:iconSpaceReserved="false"

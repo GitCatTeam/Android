@@ -23,7 +23,6 @@ import com.catlove.gitcat.model.LogoutModel
 import com.catlove.gitcat.model.RefreshTokenModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
 import kotlinx.android.synthetic.main.fragment_home.*
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -232,13 +231,15 @@ class HomeFragment : Fragment() {
         txt_home_commit_count.text = data?.todayCommitCount.toString()
         //홈 gif 처리
         Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
+        //TODO: txt_home_levelname.text = "Lv" + data?.catLevel.toString() +". " + data?.
         txt_home_nickname.text = data?.catName
         //TODO: Progress bar
-        //TODO: txt_home_now_score.text = getString(R.string.home_now_score) + ~~
+        //TODO: txt_home_now_score.text = "- 총 " + data + getString(R.string.home_now_score)
         txt_home_today_score.text = getString(R.string.home_today_score) + " " + data?.todayScore.toString() + ")"
 //        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
         txt_home_next_level_item.text = data?.nextLevelStr
         txt_home_next_level_score.text = getString(R.string.home_item_score1) + " " + data?.nextLevelScore.toString() + getString(R.string.home_item_score2)
+        //TODO: txt_home_gradu_score.text = getString(R.string.home_gradu_score) + data + getString(R.string.home_item_score2)
         //멘트 바꿔주기
         startTimerTask(data?.ments)
     }

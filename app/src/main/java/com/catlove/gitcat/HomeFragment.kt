@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.util.Log
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -104,6 +105,8 @@ class HomeFragment : Fragment() {
                 return true
             }
         })
+
+        //home_progress.progressDrawable = SeekBarDrawable(home_progress.progress.toString())
     }
 
     private fun callApi(token: String, check: Int){
@@ -231,17 +234,30 @@ class HomeFragment : Fragment() {
         txt_home_commit_count.text = data?.todayCommitCount.toString()
         //홈 gif 처리
         Glide.with(context!!).load(data?.catImg).into(img_home_cat_gif)
-        //TODO: txt_home_levelname.text = "Lv" + data?.catLevel.toString() +". " + data?.
+        //닉네임줄
+        txt_home_levelname.text = "Lv" + data?.currentLevel.toString() +". " + data?.currentItem + " | "
         txt_home_nickname.text = data?.catName
-        //TODO: Progress bar
-        //TODO: txt_home_now_score.text = "- 총 " + data + getString(R.string.home_now_score)
+        //SeekBar
+        progressIcon(data?.currentLevel)
+        home_progress.max = data?.totalScore + data?.graduScore
+        home_progress.progress = data?.totalScore
+        //첫번째줄
+        txt_home_now_score.text = "- 총 " + data?.totalScore.toString() + getString(R.string.home_now_score)
         txt_home_today_score.text = getString(R.string.home_today_score) + " " + data?.todayScore.toString() + ")"
-//        txt_home_next_level_item.text = "(${data?.nextLevelStr})"
-        txt_home_next_level_item.text = data?.nextLevelStr
+        //두번째줄
+        txt_home_next_level_item.text = "Lv" + data?.nextLevel.toString() +". " + data?.nextLevelItem
         txt_home_next_level_score.text = getString(R.string.home_item_score1) + " " + data?.nextLevelScore.toString() + getString(R.string.home_item_score2)
-        //TODO: txt_home_gradu_score.text = getString(R.string.home_gradu_score) + data + getString(R.string.home_item_score2)
+        //세번째줄
+        txt_home_gradu_score.text = getString(R.string.home_gradu_score) + " " + data?.graduScore.toString() + getString(R.string.home_item_score2)
         //멘트 바꿔주기
         startTimerTask(data?.ments)
+    }
+
+    private fun progressIcon(level: Int){
+        if(level==1) home_progress.thumb = context!!.getDrawable(R.drawable.ic_pencil)
+        else if(level==2) home_progress.thumb = context!!.getDrawable(R.drawable.ic_mac)
+        else if(level==3) home_progress.thumb = context!!.getDrawable(R.drawable.ic_macpro)
+        else if(level==4) home_progress.thumb = context!!.getDrawable(R.drawable.ic_imac)
     }
 
     private fun nullCat(){

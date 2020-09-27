@@ -107,6 +107,8 @@ class HomeFragment : Fragment() {
         })
 
         //home_progress.progressDrawable = SeekBarDrawable(home_progress.progress.toString())
+        val bgProgress = SeekBarDrawable(4)
+        home_progress.progressDrawable = bgProgress
     }
 
     private fun callApi(token: String, check: Int){
@@ -257,7 +259,7 @@ class HomeFragment : Fragment() {
         if(level==1) home_progress.thumb = context!!.getDrawable(R.drawable.ic_pencil)
         else if(level==2) home_progress.thumb = context!!.getDrawable(R.drawable.ic_mac)
         else if(level==3) home_progress.thumb = context!!.getDrawable(R.drawable.ic_macpro)
-        else if(level==4) home_progress.thumb = context!!.getDrawable(R.drawable.ic_imac)
+        else if(level==4) home_progress.thumb = context!!.getDrawable(R.drawable.ic_gaugebarricon)
     }
 
     private fun nullCat(){

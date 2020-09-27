@@ -142,7 +142,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintWidth_percent="0.83"
-            app:layout_constraintHeight_percent="0.19"
+            app:layout_constraintHeight_percent="0.23"
             android:layout_marginBottom="50dp"
             android:background="@drawable/home_main_box"
             android:padding="15dp"
@@ -162,21 +162,47 @@
 <!--                app:layout_constraintTop_toTopOf="@+id/txt_home_nickname"-->
 <!--                app:layout_constraintVertical_bias="0.83" />-->
 
-            <TextView
-                android:id="@+id/txt_home_nickname"
+            <LinearLayout
+                android:id="@+id/nickname_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/bbtree_r"
-                android:text="닉네임"
-                android:textAlignment="center"
-                android:textColor="@color/colorTextDark"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/home_progress"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img_btn_score_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="6dp"
+                    android:src="@drawable/ic_question" />
+
+                <TextView
+                    android:id="@+id/txt_home_levelname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bbtree_r"
+                    android:textSize="12sp"
+                    android:text="Lv2. 중고냥북 | "
+                    android:textColor="@color/colorLightGrey"/>
+
+                <TextView
+                    android:id="@+id/txt_home_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/bbtree_r"
+                    android:text="닉네임"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/home_progress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+            </LinearLayout>
 
             <FrameLayout
                 android:id="@+id/home_line"
@@ -188,7 +214,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/home_progress"
-                app:layout_constraintTop_toBottomOf="@+id/txt_home_nickname"/>
+                app:layout_constraintTop_toBottomOf="@+id/nickname_layout"/>
 
             <SeekBar
                 android:id="@+id/home_progress"
@@ -196,10 +222,10 @@
                 android:layout_height="20dp"
                 android:padding="5dp"
                 android:max="100"
-                android:progress="80"
+                android:progress="70"
                 android:thumb="@drawable/img_gazebar_macpro"
-                android:splitTrack="false"
                 android:progressDrawable="@drawable/home_custom_seekbar"
+                android:splitTrack="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -209,7 +235,7 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -217,19 +243,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_progress">
 
-                <ImageView
-                    android:id="@+id/img_btn_score_explain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="3dp"
-                    android:src="@drawable/ic_question"
-                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-                    app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-                    app:layout_constraintVertical_bias="0.6" />
-
                 <LinearLayout
-                    android:id="@+id/linearLayout3"
+                    android:id="@+id/ll_now"
+                    android:padding="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toTopOf="@+id/ll_item"
@@ -241,7 +257,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bbtree_r"
-                        android:text="현재 점수 : "
+                        android:text="- 총 N점을 획득했어요!"
                         android:textColor="@color/colorTextDark"
                         android:textSize="10sp" />
 
@@ -251,21 +267,28 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="6dp"
                         android:fontFamily="@font/bbtree_r"
-                        android:text="(오늘 점수 )"
-                        android:textColor="@color/colorTextDark"
+                        android:text="(오늘 득점은 N점)"
+                        android:textColor="@color/colorLightGrey"
                         android:textSize="10sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/ll_item"
+                    android:padding="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:gravity="right"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/ll_now">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_r"
+                        android:text="- "
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
 
                     <TextView
                         android:id="@+id/txt_home_next_level_item"
@@ -283,6 +306,28 @@
                         android:layout_marginHorizontal="6dp"
                         android:fontFamily="@font/bbtree_r"
                         android:text="null"
+                        android:textColor="@color/colorTextDark"
+                        android:textSize="10sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_gradu"
+                    android:padding="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_item">
+
+                    <TextView
+                        android:id="@+id/txt_home_gradu_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bbtree_r"
+                        android:text="@string/home_gradu_score"
                         android:textColor="@color/colorTextDark"
                         android:textSize="10sp" />
 

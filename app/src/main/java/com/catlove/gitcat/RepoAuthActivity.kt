@@ -100,9 +100,9 @@ class RepoAuthActivity : AppCompatActivity() {
             var myURL = ""
 
             if(pp=="public"){//public
-                myURL = "https://a.gitcat.app/api/auth/github-public"
+                myURL = "https://a.gitcat.app/api/v1/auth/github-public"
             }else{//private
-                myURL = "https://a.gitcat.app/api/auth/github"
+                myURL = "https://a.gitcat.app/api/v1/auth/github"
             }
 
             editor.putString("repoAuth",pp)

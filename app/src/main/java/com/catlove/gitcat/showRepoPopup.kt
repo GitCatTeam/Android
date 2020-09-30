@@ -27,6 +27,9 @@ fun showRepoPopup(context: Context){
     val repoYes = view.findViewById<Button>(R.id.repo_yes)
     val repoNo = view.findViewById<Button>(R.id.repo_no)
 
+    alertDialog.setView(view)
+    alertDialog.show()
+
     repoYes.setOnClickListener {//레포 그대로
         alertDialog.dismiss()
         val intent = Intent(context,HomeActivity::class.java)
@@ -73,7 +76,4 @@ fun showRepoPopup(context: Context){
             }
         )
     }
-
-    alertDialog.setView(view)
-    alertDialog.show()
 }

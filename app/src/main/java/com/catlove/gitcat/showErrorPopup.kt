@@ -19,13 +19,19 @@ fun showErrorPopup(errorMessage: String, context: Context){
         .create()
 
     val errorOk = view.findViewById<Button>(R.id.error_ok)
+
+    alertDialog.setView(view)
+    alertDialog.show()
+
     errorOk.setOnClickListener {
         alertDialog.dismiss()
         val settings = context.getSharedPreferences("gitcat", AppCompatActivity.MODE_PRIVATE)
         settings.edit().clear().commit() //내부 db 초기화
-        context.startActivity(Intent(context,MainActivity::class.java)) //재로그인하기 위해서
+        val intent = Intent(context,MainActivity::class.java)//재로그인 위해서
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(intent)
     }
 
-    alertDialog.setView(view)
-    alertDialog.show()
+
 }

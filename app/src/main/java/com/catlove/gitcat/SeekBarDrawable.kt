@@ -23,7 +23,9 @@ class SeekBarDrawable(parts: Int) : Drawable() {
     private var parts = 10
 
     private var paint: Paint? = null
-    private val fillColor = Color.parseColor("#88cdf6")
+    private var paint2: Paint? = null
+    private val fillStartColor = Color.parseColor("#e6f5ff")
+    private val fillEndColor = Color.parseColor("#88cdf6")
     private val emptyColor = Color.parseColor("#ebebeb")
     private val separatorColor = Color.parseColor("#FFFFFF")
     private var rectFill: RectF? = null
@@ -33,6 +35,7 @@ class SeekBarDrawable(parts: Int) : Drawable() {
     init {
         this.parts = parts
         this.paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        this.paint2 = Paint(Paint.ANTI_ALIAS_FLAG)
         this.separators = ArrayList()
     }
 
@@ -68,12 +71,23 @@ class SeekBarDrawable(parts: Int) : Drawable() {
 
         val radius = 9
         // Foreground
-        this.paint!!.color = this.fillColor
+        //this.paint!!.color = this.fillColor
+        this.paint2!!.setShader(
+            LinearGradient(
+                0f,
+                0f,
+                width.toFloat(),
+                height.toFloat(),
+                fillStartColor,
+                fillEndColor,
+                Shader.TileMode.CLAMP
+            )
+        )
         canvas.drawRoundRect(
             this.rectFill!!, // rect
             radius.toFloat(), // rx
             radius.toFloat(), // ry
-            this.paint!! // Paint
+            this.paint2!! // Paint
         )
         //canvas.drawRect(this.rectFill!!, this.paint!!)
 

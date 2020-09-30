@@ -241,8 +241,8 @@ class HomeFragment : Fragment() {
         txt_home_nickname.text = data?.catName
         //SeekBar
         progressIcon(data?.currentLevel)
-        home_progress.max = data?.totalScore + data?.graduScore
-        home_progress.progress = data?.totalScore
+        home_progress.max = 100
+        home_progress.progress = data?.progressPer
         //첫번째줄
         txt_home_now_score.text = "- 총 " + data?.totalScore.toString() + getString(R.string.home_now_score)
         txt_home_today_score.text = getString(R.string.home_today_score) + " " + data?.todayScore.toString() + ")"

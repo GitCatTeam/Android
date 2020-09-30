@@ -67,7 +67,7 @@
             android:layout="@layout/settings_content">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data=" https://www.notion.so/gitcat/QnA-05f9209a6dfe4e4086b6d4e47191466b"/>
+                android:data="https://www.notion.so/gitcat/QnA-05f9209a6dfe4e4086b6d4e47191466b"/>
         </Preference>
 
         <Preference

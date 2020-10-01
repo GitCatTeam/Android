@@ -278,7 +278,6 @@ class CalendarFragment: Fragment() {
 
     /*날짜 계산*/
     fun APIFlow(array: ArrayList<String>, level: String){
-
         for(i in 0 until array.size){
             var ymd:List<String> = array.get(i).split("-")
             if(ymd[1].toInt()<10){
@@ -291,7 +290,7 @@ class CalendarFragment: Fragment() {
                 }
             }else{
                 if(ymd[2].toInt()<10){//10월9일
-                    var d = ymd[1].substring(1).toInt()
+                    var d = ymd[2].substring(1).toInt()
                     dates.add(CalendarDay.from(ymd[0].toInt(),ymd[1].toInt(),d))
                 }else{//10월10일
                     dates.add(CalendarDay.from(ymd[0].toInt(),ymd[1].toInt(),ymd[2].toInt()))

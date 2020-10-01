@@ -220,6 +220,8 @@ class SettingsAccountFragment : PreferenceFragmentCompat() {
                                 editor.putBoolean("newPeople",true)
                                 editor.commit()
 
+                                ad.dismiss()
+
                                 var intent = Intent(context!!,MainActivity::class.java)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

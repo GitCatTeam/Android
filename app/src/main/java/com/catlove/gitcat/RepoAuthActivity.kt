@@ -23,6 +23,7 @@ import android.widget.RadioGroup
 import com.auth0.android.jwt.JWT
 import com.catlove.gitcat.model.DeviceTokenModel
 import com.catlove.gitcat.retrofit.RetrofitCreator
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
@@ -100,9 +101,9 @@ class RepoAuthActivity : AppCompatActivity() {
             var myURL = ""
 
             if(pp=="public"){//public
-                myURL = "https://a.gitcat.app/api/auth/github-public"
+                myURL = "https://a.gitcat.app/api/v1/auth/github-public"
             }else{//private
-                myURL = "https://a.gitcat.app/api/auth/github"
+                myURL = "https://a.gitcat.app/api/v1/auth/github"
             }
 
             editor.putString("repoAuth",pp)
@@ -181,17 +182,43 @@ class WebPasser2(val mContext: Activity?, val mWebView: WebView?) {
         Log.e("token",jsonObject.getString("token"))
 
         //디바이스토큰 넣어주기
-        var deviceToken : String = ""
-        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(mContext, OnSuccessListener<InstanceIdResult> {
-            deviceToken = it.token
-        })
-        //uuid(androidid) 찾기
-        var androidId = "" + android.provider.Settings.Secure.getString(mContext.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
-        editor.putString("androidId",androidId)
-        editor.putString("deviceToken",deviceToken)
+        var deviceToken = ""
+        val di = true
+        do{
+            FirebaseInstanceId.getInstance().instanceId
+                .addOnCompleteListener(OnCompleteListener { task ->
+                    if (!task.isSuccessful) {
+                        d("*+*+", "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
 
-        val dt = DeviceTokenModel(deviceToken,androidId)
-        val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(jsonObject.getString("token"),dt)
+                    // Get new Instance ID token
+                    val token = task.result!!.token
+                    if(token.isNotEmpty()){
+                        //d("*+*+token",token)
+                        deviceToken = token
+                        //d("*+*+tokenNext",deviceToken)
+                        editor.putString("deviceToken",deviceToken)
+                        editor.commit()
+                        di == false
+                    }
+
+                })
+        }while(di!=true)
+
+//        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener { task ->
+//            deviceToken = task.token
+//            Log.i("token", task.token)
+//        }
+
+        //uuid(androidid) 찾기
+        var deviceId = "" + android.provider.Settings.Secure.getString(mContext.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
+        editor.putString("deviceId",deviceId)
+
+        val dt = DeviceTokenModel(deviceToken,deviceId)
+        //d("*+*+deviceToken*+*+Repo",deviceToken)//가끔 이상함..
+        //d("*+*+deviceId",dt.deviceId)
+        val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(jsonObject.getString("token"),DeviceTokenModel(settings.getString("deviceToken","")!!,deviceId))
         call.enqueue(
             object : Callback<DeviceTokenModel> {
                 override fun onFailure(call: Call<DeviceTokenModel>, t: Throwable) {

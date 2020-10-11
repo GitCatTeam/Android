@@ -121,7 +121,6 @@
             android:enabled="false"
             android:fontFamily="@font/bbtree_b"
             android:text="@string/info4_nextButton"
-            android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/txt_info4_page"

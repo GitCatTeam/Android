@@ -138,7 +138,6 @@
         android:enabled="false"
         android:fontFamily="@font/bbtree_b"
         android:text="@string/info1_nextButton"
-        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"

@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_b"
-            android:text="함께 할 고양이를 선택해주세요!"
+            android:text="@string/info4_mainText"
             android:textColor="@color/colorTextDark"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/txt_content"
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_r"
-            android:text="즐거운 커밋을 위해 우리 모두 집사가 되어보아요~"
+            android:text="@string/info4_subText"
             android:textColor="@color/colorTextDark"
             android:textSize="12sp"
             android:layout_marginTop="8dp"
@@ -120,11 +120,10 @@
             android:elevation="0dp"
             android:enabled="false"
             android:fontFamily="@font/bbtree_b"
-            android:text="다음으로"
-            android:textAllCaps="false"
+            android:text="@string/info4_nextButton"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_info4_page"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
@@ -132,18 +131,6 @@
             app:layout_constraintVertical_bias="0.3"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintWidth_percent="0.4" />
-
-        <TextView
-            android:id="@+id/txt_info4_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4/5"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/colorLightGrey"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_choose_cat_next" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

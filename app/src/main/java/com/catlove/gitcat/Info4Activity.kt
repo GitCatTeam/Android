@@ -46,7 +46,7 @@ class Info4Activity : AppCompatActivity(){
                 if(response.isSuccessful) {
                     val data = response.body()!!.data
 
-                    val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2, data)
+                    val fragmentAdapter = ChooseCatAdapter(supportFragmentManager,2, data,this@Info4Activity)
                     vp_information_cat.adapter = fragmentAdapter
                     tl_information_cat.setupWithViewPager(vp_information_cat)
                     vp_information_cat.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{

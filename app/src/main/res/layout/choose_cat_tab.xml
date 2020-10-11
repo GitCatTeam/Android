@@ -15,7 +15,7 @@
             android:layout_centerInParent="true"
             android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
-            android:text="기본"
+            android:text="@string/info4_tab1"
             android:fontFamily="@font/bbtree_r"/>
     </RelativeLayout>
     <RelativeLayout
@@ -30,7 +30,7 @@
             android:layout_centerInParent="true"
             android:textSize="14sp"
             android:textColor="@color/colorLightGrey"
-            android:text="스페셜"
+            android:text="@string/info4_tab2"
             android:fontFamily="@font/bbtree_r"/>
     </RelativeLayout>
 </LinearLayout>

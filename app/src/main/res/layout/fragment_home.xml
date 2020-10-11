@@ -345,6 +345,7 @@
             android:text="@string/home_nullButton"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
+            android:textAllCaps="false"
             android:paddingHorizontal="40dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"

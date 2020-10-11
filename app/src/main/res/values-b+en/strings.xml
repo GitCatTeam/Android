@@ -34,6 +34,16 @@
     <string name="info3_radio4">About 3 year</string>
     <string name="info3_radio5">More than 5 years</string>
     <!--info4-->
+    <string name="info4_mainText">Select your coding buddy!</string>
+    <string name="info4_subText">Make a coding buddy for more enjoyable commit!</string>
+    <string name="info4_tab1">Origin</string>
+    <string name="info4_tab2">Special</string>
+    <string name="info4_waitMainText">Preparing..</string>
+    <string name="info4_waitSubText">We are doing our best to bring\nyour coding buddy. Hang tight!</string>
+    <string name="info4_newMainText">New Edition!</string>
+    <string name="info4_hideMainText">Mysterious Buddy!</string>
+    <string name="info4_hideSubText">You can meet buddy once\nyou help 3 of your coding buddies\ngraduate!</string>
+    <string name="info4_nextButton">Next</string>
     <string name="info5_mainText">Pick a name for the cat!</string>
     <string name="info5_subText"></string>
     <string name="info5_maxText">Maximum 8 Characters</string>
@@ -44,7 +54,7 @@
     <string name="nav_home">Home</string>
     <string name="nav_report">Report</string>
     <string name="home_refresh">Refresh</string>
-    <string name="home_nullButton">고양이 다시 선택하러 가기</string>
+    <string name="home_nullButton">Select your coding buddy</string>
     <string name="home_todayCommit">Today\'s Commit</string>
     <string name="home_commitCount"></string>
     <string name="home_now_score">Current Score :</string>

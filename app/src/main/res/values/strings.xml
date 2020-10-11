@@ -38,6 +38,16 @@ Full-Access 권한이 요청되지만, 실제로는 읽기 권한만 활용됩�
     <string name="info3_radio4">3년차</string>
     <string name="info3_radio5">5년차 이상</string>
     <!--info4-->
+    <string name="info4_mainText">함께 할 고양이를 선택해주세요!</string>
+    <string name="info4_subText">즐거운 커밋을 위해 우리 모두 집사가 되어보아요~</string>
+    <string name="info4_tab1">기본</string>
+    <string name="info4_tab2">스페셜</string>
+    <string name="info4_waitMainText">준비중입니다</string>
+    <string name="info4_waitSubText">열심히 만드는 중이에요.\n얼른 올게요!</string>
+    <string name="info4_newMainText">새로운 고양씨!</string>
+    <string name="info4_hideMainText">숨겨진 고양씨!</string>
+    <string name="info4_hideSubText">3명의 고양씨를 졸업시키면\n만날 수 있어요!</string>
+    <string name="info4_nextButton">다음으로</string>
     <string name="info5_mainText">고양이 이름을 정해주세요</string>
     <string name="info5_subText">귀여운 이름 부탁한다냥!</string>
     <string name="info5_maxText">최대 5자까지</string>

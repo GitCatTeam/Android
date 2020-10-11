@@ -123,7 +123,7 @@
             android:text="@string/info4_nextButton"
             android:textColor="@color/colorWhite"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_info4_page"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,18 +131,6 @@
             app:layout_constraintVertical_bias="0.3"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintWidth_percent="0.4" />
-
-        <TextView
-            android:id="@+id/txt_info4_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4/5"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/colorLightGrey"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_choose_cat_next" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

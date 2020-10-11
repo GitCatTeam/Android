@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bbtree_b"
-            android:text="새로운 고양씨!"
+            android:text="@string/info4_newMainText"
             android:textColor="@color/colorTextDark"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"

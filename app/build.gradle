@@ -11,8 +11,8 @@ android {
         applicationId "com.catlove.gitcat"
         minSdkVersion 24
         targetSdkVersion 29
-        versionCode 16
-        versionName "1.2.4"
+        versionCode 17
+        versionName "1.2.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

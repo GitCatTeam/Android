@@ -136,6 +136,8 @@ class RepoAuthActivity : AppCompatActivity() {
 
 class WebPasser2(val mContext: Activity?, val mWebView: WebView?) {
 
+    var deviceToken = ""
+
     @JavascriptInterface
     fun sendAuthInfo(datas: String?, msg: String?){
         val ivb = byteArrayOf(
@@ -182,71 +184,65 @@ class WebPasser2(val mContext: Activity?, val mWebView: WebView?) {
         Log.e("token",jsonObject.getString("token"))
 
         //디바이스토큰 넣어주기
-        var deviceToken = ""
-        val di = true
-        do{
-            FirebaseInstanceId.getInstance().instanceId
-                .addOnCompleteListener(OnCompleteListener { task ->
-                    if (!task.isSuccessful) {
-                        d("*+*+", "getInstanceId failed", task.exception)
-                        return@OnCompleteListener
-                    }
+        FirebaseInstanceId.getInstance().instanceId
+            .addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    d("*+*+", "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
 
-                    // Get new Instance ID token
-                    val token = task.result!!.token
-                    if(token.isNotEmpty()){
-                        //d("*+*+token",token)
-                        deviceToken = token
-                        //d("*+*+tokenNext",deviceToken)
-                        editor.putString("deviceToken",deviceToken)
-                        editor.commit()
-                        di == false
-                    }
+                // Get new Instance ID token
+                val token = task.result!!.token
+                if(token.isNotEmpty()){
+                    d("*+*+token",token)
+                    editor.putString("deviceToken",token)
 
-                })
-        }while(di!=true)
+                    //uuid(androidid) 찾기
+                    var deviceId = "" + android.provider.Settings.Secure.getString(mContext.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
+                    editor.putString("deviceId",deviceId)
+                    editor.apply()
+//                    val dt = DeviceTokenModel(deviceToken,deviceId)
+//                    d("*+*+deviceToken*+*+db",settings.getString("deviceToken",""))//가끔 이상함..
+//                    d("*+*+deviceToken*+*+in",deviceToken)//가끔 이상함..
+//                    d("*+*+deviceId",dt.deviceId)
+                    val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(jsonObject.getString("token"),DeviceTokenModel(token,deviceId))
+                    call.enqueue(
+                        object : Callback<DeviceTokenModel> {
+                            override fun onFailure(call: Call<DeviceTokenModel>, t: Throwable) {
+                                Log.e("*+*+", "error: $t")
+                                showErrorPopup("재로그인을 해주세요!",mContext)
+                            }
+
+                            override fun onResponse(
+                                call: Call<DeviceTokenModel>,
+                                response: Response<DeviceTokenModel>
+                            ) {
+                                if(response.isSuccessful){
+                                    val data = response.body()!!
+                                    d("*+*+디바이스토큰","성공적")
+                                    editor.putBoolean("alarm",true)
+
+                                }else{
+                                    if(response.code()==503){
+                                        ServerCheckPopup(mContext)
+                                    }else if(response.code()>=500){
+                                        showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",mContext)
+                                    }else{
+                                        showErrorPopup("재로그인을 해주세요!",mContext)
+                                    }
+                                }
+                            }
+                        }
+                    )
+                }
+
+            })
 
 //        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener { task ->
 //            deviceToken = task.token
 //            Log.i("token", task.token)
 //        }
 
-        //uuid(androidid) 찾기
-        var deviceId = "" + android.provider.Settings.Secure.getString(mContext.contentResolver,android.provider.Settings.Secure.ANDROID_ID)
-        editor.putString("deviceId",deviceId)
-
-        val dt = DeviceTokenModel(deviceToken,deviceId)
-        //d("*+*+deviceToken*+*+Repo",deviceToken)//가끔 이상함..
-        //d("*+*+deviceId",dt.deviceId)
-        val call: Call<DeviceTokenModel> = RetrofitCreator.service.putDeviceToken(jsonObject.getString("token"),DeviceTokenModel(settings.getString("deviceToken","")!!,deviceId))
-        call.enqueue(
-            object : Callback<DeviceTokenModel> {
-                override fun onFailure(call: Call<DeviceTokenModel>, t: Throwable) {
-                    Log.e("*+*+", "error: $t")
-                    showErrorPopup("재로그인을 해주세요!",mContext)
-                }
-
-                override fun onResponse(
-                    call: Call<DeviceTokenModel>,
-                    response: Response<DeviceTokenModel>
-                ) {
-                    if(response.isSuccessful){
-                        val data = response.body()!!
-                        d("*+*+디바이스토큰","성공적")
-                        editor.putBoolean("alarm",true)
-
-                    }else{
-                        if(response.code()==503){
-                            ServerCheckPopup(mContext)
-                        }else if(response.code()>=500){
-                            showErrorPopup("[네트워크 오류] 재로그인을 해주세요!",mContext)
-                        }else{
-                            showErrorPopup("재로그인을 해주세요!",mContext)
-                        }
-                    }
-                }
-            }
-        )
 
 
         val jwt = JWT(jsonObject.getString("token"))

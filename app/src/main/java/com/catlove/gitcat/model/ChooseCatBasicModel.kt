@@ -15,7 +15,12 @@ data class ChooseCatModel(
 
 data class ChooseCatBasicModel (
     var id: Int,
-    var profileImg: String
+    var profileImg: String,
+    var cost: Int,
+    var description: String,
+    var payType: String,
+    var isAvailable: Boolean,
+    var isNew: Boolean
 )
 
 data class ChooseCatSpecialModel(

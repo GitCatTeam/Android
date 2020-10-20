@@ -71,8 +71,9 @@
         android:id="@+id/cl_info4_third"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/cl_info4_fourth"
-        app:layout_constraintVertical_weight="6"
+        app:layout_constraintVertical_weight="5"
         app:layout_constraintTop_toBottomOf="@+id/cl_info4_second">
 
         <com.google.android.material.tabs.TabLayout
@@ -84,7 +85,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/vp_information_cat"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1"
+            app:layout_constraintVertical_weight="1.5"
             app:tabBackground="@drawable/choose_cat_tab_color"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"
@@ -96,7 +97,7 @@
             android:id="@+id/vp_information_cat"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginVertical="24dp"
+            android:layout_marginVertical="20dp"
             app:layout_constraintVertical_weight="10"
             android:layout_marginHorizontal="50dp"
             app:layout_constraintTop_toBottomOf="@id/tl_information_cat"

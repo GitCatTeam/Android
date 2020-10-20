@@ -37,6 +37,7 @@ class HideCatDialogFragment(private val profileImg: String, private val descript
 
     fun init(){
         Glide.with(this).load(profileImg).into(img_hide_cat)
+        //TODO: 영어버전일때
         var txt:List<String> = description.split("면")
         txt_hide_cat_content.text = txt[0] + "면" + "\n" + txt[1]
 
